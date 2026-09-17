@@ -597,13 +597,10 @@ items = items.filter(item => {
           section
         );
 
-
-      return `
-
-      <a class="card-link" href="${esc(articlePage)}">
-
-  <article class="card">
-
+    
+return `
+      
+<article class="card" onclick="window.location.href='${esc(articlePage)}'" style="cursor:pointer;">
     <img
       src="${esc(image)}"
       onerror="this.src='${fallbackImage}'"
@@ -632,7 +629,6 @@ items = items.filter(item => {
 
   </article>
 
-</a>
 
       `;
 
