@@ -110,10 +110,19 @@ function render(items,q){
    const desc=esc(clean(x.description)).slice(0,220);
    const img=x.thumbnail||x.enclosure?.link||fallback;
    const date=x.pubDate?new Date(x.pubDate).toLocaleString('en-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'';
-   return `<article class="card"><img src="${esc(img)}" onerror="this.src='${fallback}'" alt="">
-   <div class="copy"><div class="tag">${esc(q)}</div><h2>${title}</h2><p>${desc}</p>
-   <div class="meta">${esc(date)}</div><a href="${esc(x.link)}" target="_blank" rel="noopener">READ FULL REPORT →</a></div></article>`;
- }).join('');
+   return `<const params=new URLSearchParams();
+params.set('title',clean(x.title));
+params.set('description',clean(x.description));
+params.set('image',img);
+params.set('url',x.link||'');
+params.set('section',q);
+params.set('date',x.pubDate||'');
+const articlePage='article.html?'+params.toString();
+
+return `<article class="card"><img src="${esc(img)}" onerror="this.src='${fallback}'" alt="">
+<div class="copy"><div class="tag">${esc(q)}</div><h2>${title}</h2><p>${desc}</p>
+<div class="meta">${esc(date)}</div>
+<a href="${esc(articlePage)}">READ FULL REPORT →</a></div></article>`;
  document.getElementById('ticker').textContent=clean(items[0].title);
 }
 
