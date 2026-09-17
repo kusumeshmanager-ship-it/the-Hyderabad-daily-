@@ -206,16 +206,24 @@ nav a.active{
   gap:14px;
 }
 
+
 .card{
   background:#fff;
   border:1px solid var(--line);
   overflow:hidden;
   transition:.2s;
+  
 }
 
 .card:hover{
   box-shadow:0 4px 15px rgba(0,0,0,.10);
   transform:translateY(-2px);
+}
+  
+  .card-link {
+  display:block;
+  color:inherit;
+  text-decoration:none;
 }
 
 .card img{
@@ -592,39 +600,39 @@ items = items.filter(item => {
 
       return `
 
-      <article class="card">
+      <a class="card-link" href="${esc(articlePage)}">
 
-        <img
-          src="${esc(image)}"
-          onerror="this.src='${fallbackImage}'"
-          alt=""
-        >
+  <article class="card">
 
-        <div class="copy">
+    <img
+      src="${esc(image)}"
+      onerror="this.src='${fallbackImage}'"
+      alt=""
+    >
 
-          <div class="tag">
-            ${esc(section)}
-          </div>
+    <div class="copy">
 
-          <h2>
-            ${esc(title)}
-          </h2>
+      <div class="tag">
+        ${esc(section)}
+      </div>
 
-          <p>
-            ${esc(description)}
-          </p>
+      <h2>
+        ${esc(title)}
+      </h2>
 
-          <div class="meta">
-            ${esc(date)}
-          </div>
+      <p>
+        ${esc(description)}
+      </p>
 
-          <a href="${esc(articlePage)}">
-            READ FULL REPORT →
-          </a>
+      <div class="meta">
+        ${esc(date)}
+      </div>
 
-        </div>
+    </div>
 
-      </article>
+  </article>
+
+</a>
 
       `;
 
