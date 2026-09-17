@@ -1,4 +1,260 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hyderabad Daily | 17 September 2026</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#101827;
+  color:#111;
+  font-family:Georgia,"Times New Roman",serif
+}
+header{
+  background:#fff;
+  border-bottom:4px solid #d71920;
+  padding:10px 14px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:20
+}
+.brand{
+  color:#092c68;
+  font-size:clamp(28px,7vw,58px);
+  font-weight:bold;
+  line-height:1
+}
+.tag{
+  color:#092c68;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-top:5px
+}
+.date{
+  margin-top:7px;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  color:#333
+}
+.controls{
+  background:#092c68;
+  padding:8px;
+  display:flex;
+  gap:6px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap
+}
+button{
+  border:0;
+  border-radius:5px;
+  background:#fff;
+  color:#092c68;
+  font-weight:bold;
+  padding:8px 12px;
+  cursor:pointer
+}
+#counter{
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-weight:bold;
+  padding:0 8px
+}
+.pages{
+  display:flex;
+  gap:5px;
+  overflow-x:auto;
+  padding:8px;
+  background:#e9eef5;
+  justify-content:center
+}
+.pages button{
+  min-width:38px;
+  padding:7px
+}
+.pages button.active{
+  background:#d71920;
+  color:#fff
+}
+.reader{
+  max-width:1200px;
+  margin:auto;
+  padding:12px
+}
+.paper{
+  background:#fff;
+  box-shadow:0 4px 25px #0008;
+  line-height:0;
+  text-align:center
+}
+.paper img{
+  width:100%;
+  height:auto;
+  display:block;
+  user-select:none;
+  -webkit-user-drag:none
+}
+.actions{
+  text-align:center;
+  padding:15px 8px 25px
+}
+.actions a{
+  display:inline-block;
+  background:#d71920;
+  color:#fff;
+  text-decoration:none;
+  padding:11px 16px;
+  margin:4px;
+  border-radius:5px;
+  font-family:Arial,sans-serif;
+  font-weight:bold
+}
+.hint{
+  color:#fff;
+  text-align:center;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  padding:5px 10px 15px;
+  opacity:.8
+}
+footer{
+  background:#092c68;
+  color:#fff;
+  text-align:center;
+  padding:18px;
+  font-family:Arial,sans-serif;
+  font-size:12px
+}
+@media(max-width:600px){
+  header{padding:8px}
+  .brand{font-size:31px}
+  .tag{font-size:9px}
+  .date{font-size:10px}
+  .reader{padding:5px}
+  .controls button{padding:7px 9px}
+  .pages{justify-content:flex-start}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">THE HYDERABAD DAILY</div>
+  <div class="tag">YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</div>
+  <div class="date">THURSDAY • 17 SEPTEMBER 2026 • HYDERABAD</div>
+</header>
+
+<div class="controls">
+  <button onclick="previousPage()">‹ PREVIOUS</button>
+  <span id="counter">PAGE 1 OF 10</span>
+  <button onclick="nextPage()">NEXT ›</button>
+  <button onclick="fullScreen()">FULL SCREEN</button>
+</div>
+
+<div class="pages" id="pageButtons"></div>
+
+<main class="reader">
+  <div class="paper" id="paper">
+    <img id="pageImage" alt="The Hyderabad Daily Page 1">
+  </div>
+</main>
+
+<div class="hint">
+  Swipe/scroll • Pinch to zoom • Select a page above
+</div>
+
+<div class="actions">
+  <a href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf" target="_blank">
+    OPEN PDF
+  </a>
+  <a href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf" download>
+    DOWNLOAD PDF
+  </a>
+</div>
+
+<footer>
+  © 2026 The Hyderabad Daily<br>
+  Bigger Perspective. A Brighter Hyderabad.
+</footer>
+
+<script>
+
+const pages = [
+"ChatGPT Image Sep 17, 2026, 02_42_58 AM.png",
+"ChatGPT Image Sep 17, 2026, 03_11_04 AM.png",
+"ChatGPT Image Sep 17, 2026, 03_22_38 AM.png",
+"ChatGPT Image Sep 17, 2026, 04_27_08 AM.png",
+"ChatGPT Image Sep 17, 2026, 09_04_53 AM.png",
+"ChatGPT Image Sep 17, 2026, 09_18_02 AM.png",
+"ChatGPT Image Sep 17, 2026, 09_37_29 AM.png",
+"ChatGPT Image Sep 17, 2026, 10_01_33 AM.png",
+"ChatGPT Image Sep 17, 2026, 10_38_01 AM.png",
+"d50e3c93-c834-4c8b-9f3c-9910560ecb95.png"
+];
+
+let current=0;
+
+const image=document.getElementById("pageImage");
+const counter=document.getElementById("counter");
+const buttons=document.getElementById("pageButtons");
+
+pages.forEach((p,i)=>{
+  const b=document.createElement("button");
+  b.textContent=i+1;
+  b.onclick=()=>showPage(i);
+  buttons.appendChild(b);
+});
+
+function showPage(n){
+  current=Math.max(0,Math.min(n,pages.length-1));
+  image.src=encodeURI(pages[current]);
+  image.alt="The Hyderabad Daily Page "+(current+1);
+  counter.textContent="PAGE "+(current+1)+" OF "+pages.length;
+  [...buttons.children].forEach((b,i)=>
+    b.classList.toggle("active",i===current)
+  );
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function previousPage(){
+  showPage(current-1);
+}
+
+function nextPage(){
+  showPage(current+1);
+}
+
+function fullScreen(){
+  const el=document.getElementById("paper");
+  if(el.requestFullscreen) el.requestFullscreen();
+}
+
+let startX=0;
+
+document.getElementById("paper").addEventListener("touchstart",e=>{
+  startX=e.touches[0].clientX;
+},{passive:true});
+
+document.getElementById("paper").addEventListener("touchend",e=>{
+  const endX=e.changedTouches[0].clientX;
+  const diff=startX-endX;
+  if(Math.abs(diff)>70){
+    if(diff>0) nextPage();
+    else previousPage();
+  }
+},{passive:true});
+
+showPage(0);
+
+</script>
+</body>
+</html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
