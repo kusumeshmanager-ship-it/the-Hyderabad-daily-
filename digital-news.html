@@ -6,56 +6,345 @@
 <meta name="description" content="The Hyderabad Daily — Digital News">
 <meta name="theme-color" content="#092c68">
 <title>Digital News | The Hyderabad Daily</title>
+
 <style>
-:root{--navy:#092c68;--red:#d71920;--ink:#111;--muted:#66717d;--bg:#eef2f6;--line:#d5dce5}
+:root{
+  --navy:#092c68;
+  --red:#d71920;
+  --ink:#111;
+  --muted:#66717d;
+  --bg:#eef2f6;
+  --line:#d5dce5;
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
-.topline{height:5px;background:linear-gradient(90deg,var(--navy) 0 70%,var(--red) 70%)}
-header{background:#fff;border-bottom:1px solid var(--line)}
-.mast{max-width:1280px;margin:auto;padding:13px 16px;display:flex;align-items:center;gap:15px}
-.brand{flex:1;text-align:center;color:var(--navy);font-weight:700;font-size:clamp(30px,6vw,58px);line-height:.9}
-.brand small{display:block;font:700 10px Arial,sans-serif;letter-spacing:2px;margin-top:7px}
-.mark{width:52px;height:52px;border:2px solid var(--navy);display:grid;place-items:center;color:var(--navy);font:bold 28px Georgia}
-.edition{font:12px/1.4 Arial,sans-serif;text-align:right}
-.edition b{color:var(--navy);font-size:14px}
-nav{background:var(--navy);display:flex;justify-content:center;gap:2px;overflow-x:auto;padding:7px}
-nav a{color:#fff;text-decoration:none;font:700 12px Arial,sans-serif;padding:8px 11px;white-space:nowrap}
-nav a.active{background:#123d7a}
-.breaking{background:var(--red);color:#fff}
-.breaking-inner{max-width:1280px;margin:auto;padding:8px 14px;font:700 13px Arial,sans-serif;display:flex;gap:12px}
-.label{background:#fff;color:var(--red);padding:5px 8px}
-.ticker{overflow:hidden;white-space:nowrap}
-.container{max-width:1280px;margin:auto;padding:18px 14px}
-.section-title{border-bottom:3px solid var(--navy);margin-bottom:14px}
-.section-title h1{display:inline-block;margin:0;background:var(--navy);color:#fff;padding:8px 14px;font-size:22px}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.toolbar button{background:#fff;border:1px solid #b9c4d1;color:var(--navy);padding:9px 13px;border-radius:4px;font:bold 12px Arial;cursor:pointer}
-.toolbar button.active{background:var(--navy);color:#fff}
-.status{font:12px Arial;color:var(--muted);margin:8px 0 14px}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.card{background:#fff;border:1px solid var(--line);overflow:hidden}
-.card img{width:100%;height:190px;object-fit:cover;background:#dfe5eb;display:block}
-.copy{padding:12px}
-.tag{font:700 10px Arial;color:var(--red);letter-spacing:.7px;text-transform:uppercase}
-.card h2{font-size:20px;line-height:1.12;margin:6px 0 8px}
-.card p{font:12px/1.45 Arial;color:var(--muted);margin:0}
-.meta{font:10px Arial;color:#78828c;margin-top:9px}
-.card a{display:inline-block;margin-top:10px;color:var(--navy);font:700 11px Arial;text-decoration:none}
-.loading,.error{background:#fff;border:1px solid var(--line);padding:22px;font:14px Arial}
-.error{border-left:4px solid var(--red)}
-footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;padding:25px 12px;font:12px/1.6 Arial,sans-serif}
-@media(max-width:850px){.news-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.mark,.edition{display:none}.brand{font-size:30px}.mast{padding:10px}.news-grid{grid-template-columns:1fr}.card img{height:210px}.container{padding:14px 10px}}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.topline{
+  height:5px;
+  background:linear-gradient(90deg,var(--navy) 0 70%,var(--red) 70%);
+}
+
+header{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+
+.mast{
+  max-width:1280px;
+  margin:auto;
+  padding:13px 16px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.brand{
+  flex:1;
+  text-align:center;
+  color:var(--navy);
+  font-weight:700;
+  font-size:clamp(30px,6vw,58px);
+  line-height:.9;
+}
+
+.brand small{
+  display:block;
+  font:700 10px Arial,sans-serif;
+  letter-spacing:2px;
+  margin-top:7px;
+}
+
+.mark{
+  width:52px;
+  height:52px;
+  border:2px solid var(--navy);
+  display:grid;
+  place-items:center;
+  color:var(--navy);
+  font:bold 28px Georgia;
+}
+
+.edition{
+  font:12px/1.4 Arial,sans-serif;
+  text-align:right;
+}
+
+.edition b{
+  color:var(--navy);
+  font-size:14px;
+}
+
+nav{
+  background:var(--navy);
+  display:flex;
+  justify-content:center;
+  gap:2px;
+  overflow-x:auto;
+  padding:7px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font:700 12px Arial,sans-serif;
+  padding:8px 11px;
+  white-space:nowrap;
+}
+
+nav a.active{
+  background:#123d7a;
+}
+
+.breaking{
+  background:var(--red);
+  color:#fff;
+}
+
+.breaking-inner{
+  max-width:1280px;
+  margin:auto;
+  padding:8px 14px;
+  font:700 13px Arial,sans-serif;
+  display:flex;
+  gap:12px;
+}
+
+.label{
+  background:#fff;
+  color:var(--red);
+  padding:5px 8px;
+}
+
+.ticker{
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.container{
+  max-width:1280px;
+  margin:auto;
+  padding:18px 14px;
+}
+
+.section-title{
+  border-bottom:3px solid var(--navy);
+  margin-bottom:14px;
+}
+
+.section-title h1{
+  display:inline-block;
+  margin:0;
+  background:var(--navy);
+  color:#fff;
+  padding:8px 14px;
+  font-size:22px;
+}
+
+.toolbar{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.toolbar button{
+  background:#fff;
+  border:1px solid #b9c4d1;
+  color:var(--navy);
+  padding:9px 13px;
+  border-radius:4px;
+  font:bold 12px Arial;
+  cursor:pointer;
+}
+
+.toolbar button.active{
+  background:var(--navy);
+  color:#fff;
+}
+
+.searchbar{
+  display:flex;
+  gap:8px;
+  margin-bottom:10px;
+}
+
+.searchbar input{
+  flex:1;
+  min-width:0;
+  padding:10px 12px;
+  border:1px solid #b9c4d1;
+  border-radius:4px;
+  font:14px Arial;
+}
+
+.searchbar button{
+  background:var(--navy);
+  color:#fff;
+  border:0;
+  padding:10px 15px;
+  border-radius:4px;
+  font:bold 12px Arial;
+  cursor:pointer;
+}
+
+.status{
+  font:12px Arial;
+  color:var(--muted);
+  margin:8px 0 14px;
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:.2s;
+}
+
+.card:hover{
+  box-shadow:0 4px 15px rgba(0,0,0,.10);
+  transform:translateY(-2px);
+}
+
+.card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+  background:#dfe5eb;
+  display:block;
+}
+
+.copy{
+  padding:12px;
+}
+
+.tag{
+  font:700 10px Arial;
+  color:var(--red);
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+
+.card h2{
+  font-size:20px;
+  line-height:1.12;
+  margin:6px 0 8px;
+}
+
+.card p{
+  font:12px/1.45 Arial;
+  color:var(--muted);
+  margin:0;
+}
+
+.meta{
+  font:10px Arial;
+  color:#78828c;
+  margin-top:9px;
+}
+
+.card a{
+  display:inline-block;
+  margin-top:11px;
+  color:var(--navy);
+  font:700 11px Arial;
+  text-decoration:none;
+}
+
+.card a:hover{
+  text-decoration:underline;
+}
+
+.loading,
+.error{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:22px;
+  font:14px Arial;
+}
+
+.error{
+  border-left:4px solid var(--red);
+}
+
+footer{
+  margin-top:30px;
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:25px 12px;
+  font:12px/1.6 Arial,sans-serif;
+}
+
+@media(max-width:850px){
+  .news-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .mark,
+  .edition{
+    display:none;
+  }
+
+  .brand{
+    font-size:30px;
+  }
+
+  .mast{
+    padding:10px;
+  }
+
+  .news-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card img{
+    height:210px;
+  }
+
+  .container{
+    padding:14px 10px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div class="topline"></div>
+
 <header>
+
 <div class="mast">
+
 <div class="mark">H</div>
-<div class="brand">The Hyderabad Daily<small>YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</small></div>
-<div class="edition"><b>DIGITAL NEWS</b><br>LIVE EDITION</div>
+
+<div class="brand">
+The Hyderabad Daily
+<small>YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</small>
 </div>
+
+<div class="edition">
+<b>DIGITAL NEWS</b><br>
+LIVE EDITION
+</div>
+
+</div>
+
 <nav>
 <a href="index.html">HOME</a>
 <a class="active" href="digital-news.html">DIGITAL NEWS</a>
@@ -69,97 +358,501 @@ footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;paddi
 <a href="index.html#entertainment">ENTERTAINMENT</a>
 <a href="index.html#epaper">E-PAPER</a>
 </nav>
+
 </header>
-<div class="breaking"><div class="breaking-inner"><span class="label">DIGITAL</span><div class="ticker" id="ticker">Loading latest headlines…</div></div></div>
+
+<div class="breaking">
+
+<div class="breaking-inner">
+
+<span class="label">DIGITAL</span>
+
+<div class="ticker" id="ticker">
+Loading latest headlines…
+</div>
+
+</div>
+
+</div>
 
 <main class="container">
-<div class="section-title"><h1>DIGITAL NEWS</h1></div>
-<div class="toolbar" id="filters">
-<button class="active" data-q="Hyderabad Telangana">Hyderabad</button>
-<button data-q="Telangana Andhra Pradesh">Telangana • AP</button>
-<button data-q="India">India</button>
-<button data-q="World">World</button>
-<button data-q="Business India">Business</button>
-<button data-q="Technology India">Technology</button>
-<button data-q="Sports India">Sports</button>
-<button data-q="Entertainment India">Entertainment</button>
+
+<div class="section-title">
+<h1>DIGITAL NEWS</h1>
 </div>
+
+<div class="toolbar" id="filters">
+
+<button class="active" data-q="Hyderabad Telangana">
+Hyderabad
+</button>
+
+<button data-q="Telangana Andhra Pradesh">
+Telangana • AP
+</button>
+
+<button data-q="India">
+India
+</button>
+
+<button data-q="World">
+World
+</button>
+
+<button data-q="Business India">
+Business
+</button>
+
+<button data-q="Technology India">
+Technology
+</button>
+
+<button data-q="Sports India">
+Sports
+</button>
+
+<button data-q="Entertainment India">
+Entertainment
+</button>
+
+</div>
+
 <div class="searchbar">
-      <input id="searchBox" type="search" placeholder="Search digital news…" aria-label="Search digital news">
-      <button id="searchBtn">SEARCH</button>
-    </div>
-    <div class="status" id="status">Fetching the latest available headlines…</div>
-<div id="news" class="news-grid"><div class="loading">Loading digital news…</div></div>
+
+<input
+id="searchBox"
+type="search"
+placeholder="Search digital news…"
+aria-label="Search digital news">
+
+<button id="searchBtn">
+SEARCH
+</button>
+
+</div>
+
+<div class="status" id="status">
+Connecting to live news…
+</div>
+
+<div id="news" class="news-grid">
+
+<div class="loading">
+Loading latest digital news…
+</div>
+
+</div>
+
 </main>
 
-<footer><b>The Hyderabad Daily</b><br>Digital News • E-Paper • Bigger Perspective. A Brighter Hyderabad.<br>© 2026 The Hyderabad Daily</footer>
+<footer>
+
+<b>The Hyderabad Daily</b><br>
+
+Digital News • E-Paper • Bigger Perspective. A Brighter Hyderabad.<br>
+
+© 2026 The Hyderabad Daily
+
+</footer>
 
 <script>
-const proxy='https://api.rss2json.com/v1/api.json?rss_url=';
-const feeds=q=>`https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-IN&gl=IN&ceid=IN:en`;
-const fallback='https://placehold.co/800x450/e7ebf0/092c68?text=The+Hyderabad+Daily';
 
-function clean(s){const d=document.createElement('div');d.innerHTML=s||'';return d.textContent||d.innerText||''}
-function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+const fallbackImage =
+"https://placehold.co/800x450/e7ebf0/092c68?text=The+Hyderabad+Daily";
 
-function render(items,q){
- const box=document.getElementById('news');
- if(!items.length){box.innerHTML='<div class="error">No headlines were returned right now. Please try another section.</div>';return}
- box.innerHTML=items.slice(0,18).map(x=>{
-   const title=esc(x.title);
-   const desc=esc(clean(x.description)).slice(0,220);
-   const img=x.thumbnail||x.enclosure?.link||fallback;
-   const date=x.pubDate?new Date(x.pubDate).toLocaleString('en-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'';
-   return `<const params=new URLSearchParams();
-params.set('title',clean(x.title));
-params.set('description',clean(x.description));
-params.set('image',img);
-params.set('url',x.link||'');
-params.set('section',q);
-params.set('date',x.pubDate||'');
-const articlePage='article.html?'+params.toString();
+const googleFeed = q =>
+"https://news.google.com/rss/search?q=" +
+encodeURIComponent(q) +
+"&hl=en-IN&gl=IN&ceid=IN:en";
 
-return `<article class="card"><img src="${esc(img)}" onerror="this.src='${fallback}'" alt="">
-<div class="copy"><div class="tag">${esc(q)}</div><h2>${title}</h2><p>${desc}</p>
-<div class="meta">${esc(date)}</div>
-<a href="${esc(articlePage)}">READ FULL REPORT →</a></div></article>`;
- document.getElementById('ticker').textContent=clean(items[0].title);
+
+function clean(text){
+
+  const d=document.createElement("div");
+
+  d.innerHTML=text || "";
+
+  return d.textContent || d.innerText || "";
+
 }
 
-async function load(q){
- document.getElementById('status').textContent='Refreshing '+q+' headlines…';
- document.getElementById('news').innerHTML='<div class="loading">Loading latest digital news…</div>';
- try{
-   const r=await fetch(proxy+encodeURIComponent(feeds(q)));
-   if(!r.ok)throw new Error('network');
-   const data=await r.json();
-   if(data.status!=='ok')throw new Error('feed');
-   render(data.items||[],q);
-   document.getElementById('status').textContent='Updated '+new Date().toLocaleString('en-IN')+' • '+q;
- }catch(e){
-   document.getElementById('news').innerHTML='<div class="error"><b>Digital news is temporarily unavailable.</b><br>Please refresh the page or select another section.</div>';
-   document.getElementById('status').textContent='Unable to refresh the feed right now.';
- }
+
+function esc(text){
+
+  return String(text || "").replace(
+    /[&<>"']/g,
+    c => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[c])
+  );
+
 }
 
-document.querySelectorAll('#filters button').forEach(b=>b.onclick=()=>{
- document.querySelectorAll('#filters button').forEach(x=>x.classList.remove('active'));
- b.classList.add('active');
- load(b.dataset.q);
-});
-load('Hyderabad Telangana');
 
-const searchBox=document.getElementById('searchBox');
-const searchBtn=document.getElementById('searchBtn');
-let activeQuery='Hyderabad Telangana';
+function makeArticleUrl(item,image,section){
+
+  const params=new URLSearchParams();
+
+  params.set("title",clean(item.title));
+
+  params.set(
+    "description",
+    clean(item.description)
+  );
+
+  params.set("image",image);
+
+  params.set(
+    "url",
+    item.link || ""
+  );
+
+  params.set(
+    "section",
+    section
+  );
+
+  params.set(
+    "date",
+    item.pubDate || ""
+  );
+
+  return "article.html?" + params.toString();
+
+}
+
+
+function render(items,section){
+
+  const box=document.getElementById("news");
+
+  if(!items.length){
+
+    box.innerHTML =
+      '<div class="error">' +
+      '<b>No latest headlines available.</b><br>' +
+      'Please try another section or refresh the page.' +
+      '</div>';
+
+    return;
+
+  }
+
+
+  box.innerHTML=items
+    .slice(0,18)
+    .map(item => {
+
+      const title =
+        clean(item.title);
+
+      const description =
+        clean(item.description)
+        .replace(/\s+/g," ")
+        .slice(0,220);
+
+
+      const image =
+        item.thumbnail ||
+        item.enclosure?.link ||
+        fallbackImage;
+
+
+      const date =
+        item.pubDate
+        ? new Date(item.pubDate)
+          .toLocaleString(
+            "en-IN",
+            {
+              day:"2-digit",
+              month:"short",
+              hour:"2-digit",
+              minute:"2-digit"
+            }
+          )
+        : "";
+
+
+      const articlePage =
+        makeArticleUrl(
+          item,
+          image,
+          section
+        );
+
+
+      return `
+
+      <article class="card">
+
+        <img
+          src="${esc(image)}"
+          onerror="this.src='${fallbackImage}'"
+          alt=""
+        >
+
+        <div class="copy">
+
+          <div class="tag">
+            ${esc(section)}
+          </div>
+
+          <h2>
+            ${esc(title)}
+          </h2>
+
+          <p>
+            ${esc(description)}
+          </p>
+
+          <div class="meta">
+            ${esc(date)}
+          </div>
+
+          <a href="${esc(articlePage)}">
+            READ FULL REPORT →
+          </a>
+
+        </div>
+
+      </article>
+
+      `;
+
+    })
+    .join("");
+
+
+  document.getElementById("ticker")
+    .textContent=clean(items[0].title);
+
+}
+
+
+async function fetchRSS2JSON(feed){
+
+  const url =
+    "https://api.rss2json.com/v1/api.json?rss_url=" +
+    encodeURIComponent(feed);
+
+  const response =
+    await fetch(url);
+
+  if(!response.ok)
+    throw new Error("RSS2JSON");
+
+  const data =
+    await response.json();
+
+  if(data.status !== "ok")
+    throw new Error("RSS2JSON feed");
+
+  return data.items || [];
+
+}
+
+
+async function fetchAllOrigins(feed){
+
+  const url =
+    "https://api.allorigins.win/get?url=" +
+    encodeURIComponent(feed);
+
+  const response =
+    await fetch(url);
+
+  if(!response.ok)
+    throw new Error("AllOrigins");
+
+  const data =
+    await response.json();
+
+  if(!data.contents)
+    throw new Error("No contents");
+
+  const xml =
+    new DOMParser()
+      .parseFromString(
+        data.contents,
+        "text/xml"
+      );
+
+
+  return [
+    ...xml.querySelectorAll("item")
+  ].map(item => {
+
+    const title =
+      item.querySelector("title")?.textContent || "";
+
+    const description =
+      item.querySelector("description")?.textContent || "";
+
+    const link =
+      item.querySelector("link")?.textContent || "";
+
+    const pubDate =
+      item.querySelector("pubDate")?.textContent || "";
+
+    return {
+      title,
+      description,
+      link,
+      pubDate
+    };
+
+  });
+
+}
+
+
+async function load(section){
+
+  activeQuery=section;
+
+  document.getElementById("status")
+    .textContent =
+    "Refreshing " +
+    section +
+    " headlines…";
+
+
+  document.getElementById("news")
+    .innerHTML =
+    '<div class="loading">' +
+    'Loading latest digital news…' +
+    '</div>';
+
+
+  const feed =
+    googleFeed(section);
+
+
+  try{
+
+    let items=[];
+
+
+    try{
+
+      items =
+        await fetchRSS2JSON(feed);
+
+    }catch(firstError){
+
+      items =
+        await fetchAllOrigins(feed);
+
+    }
+
+
+    render(items,section);
+
+
+    document.getElementById("status")
+      .textContent =
+      "Updated " +
+      new Date().toLocaleString("en-IN") +
+      " • " +
+      section;
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    document.getElementById("news")
+      .innerHTML =
+      '<div class="error">' +
+      '<b>Digital news connection is temporarily unavailable.</b><br>' +
+      'Please refresh the page in a moment.' +
+      '</div>';
+
+
+    document.getElementById("status")
+      .textContent =
+      "News connection unavailable.";
+
+  }
+
+}
+
+
+document
+  .querySelectorAll("#filters button")
+  .forEach(button => {
+
+    button.onclick=()=>{
+
+      document
+        .querySelectorAll("#filters button")
+        .forEach(x =>
+          x.classList.remove("active")
+        );
+
+      button.classList.add("active");
+
+      load(button.dataset.q);
+
+    };
+
+  });
+
+
+let activeQuery =
+  "Hyderabad Telangana";
+
+
+load(activeQuery);
+
+
+const searchBox =
+  document.getElementById("searchBox");
+
+const searchBtn =
+  document.getElementById("searchBtn");
+
+
 function runSearch(){
-  const q=(searchBox.value||'').trim();
-  if(q) load(q);
-  else load(activeQuery);
+
+  const query =
+    (searchBox.value || "").trim();
+
+  load(query || activeQuery);
+
 }
-searchBtn?.addEventListener('click',runSearch);
-searchBox?.addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});
+
+
+searchBtn.addEventListener(
+  "click",
+  runSearch
+);
+
+
+searchBox.addEventListener(
+  "keydown",
+  event => {
+
+    if(event.key === "Enter")
+      runSearch();
+
+  }
+);
+
+
+/* Refresh headlines every 10 minutes */
+
+setInterval(
+  () => load(activeQuery),
+  600000
+);
 
 </script>
+
 </body>
 </html>
