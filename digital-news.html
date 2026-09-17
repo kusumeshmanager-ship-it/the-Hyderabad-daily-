@@ -460,11 +460,11 @@ Digital News • E-Paper • Bigger Perspective. A Brighter Hyderabad.<br>
 const fallbackImage =
 "https://placehold.co/800x450/e7ebf0/092c68?text=The+Hyderabad+Daily";
 
+
 const googleFeed = q =>
 "https://news.google.com/rss/search?q=" +
-encodeURIComponent(q) +
+encodeURIComponent(q + " when:1d") +
 "&hl=en-IN&gl=IN&ceid=IN:en";
-
 
 function clean(text){
 
@@ -529,7 +529,12 @@ function makeArticleUrl(item,image,section){
 function render(items,section){
 
   const box=document.getElementById("news");
+const today = new Date().toLocaleDateString("en-IN");
 
+items = items.filter(item => {
+  if(!item.pubDate) return false;
+  return new Date(item.pubDate).toLocaleDateString("en-IN") === today;
+});
   if(!items.length){
 
     box.innerHTML =
@@ -544,7 +549,7 @@ function render(items,section){
 
 
   box.innerHTML=items
-    .slice(0,18)
+    .slice(0,12)
     .map(item => {
 
       const title =
