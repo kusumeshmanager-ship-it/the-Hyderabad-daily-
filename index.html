@@ -3,70 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="The Hyderabad Daily — Hyderabad, Telangana, India. Digital news, e-paper and city coverage.">
+<meta name="description" content="The Hyderabad Daily — Hyderabad, Telangana, India. Latest news, business, sports, technology, entertainment and today's e-paper.">
 <meta name="theme-color" content="#092c68">
 <meta property="og:title" content="The Hyderabad Daily">
-<meta property="og:description" content="Hyderabad's digital daily newspaper.">
-<title>The Hyderabad Daily | Digital Newsroom</title>
+<meta property="og:description" content="Hyderabad's digital daily newspaper and 10-page e-paper.">
+<title>The Hyderabad Daily | 17 September 2026</title>
 
 <style>
-:root{--navy:#092c68;--red:#d71920;--ink:#111;--muted:#657080;--bg:#eef2f6;--line:#d7dee7}
+:root{
+ --navy:#092c68;--navy2:#123d7a;--red:#d71920;
+ --ink:#111;--muted:#5d6875;--bg:#eef2f6;--line:#d5dce5;--white:#fff
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
 .topline{height:5px;background:linear-gradient(90deg,var(--navy) 0 70%,var(--red) 70%)}
 header{background:#fff;border-bottom:1px solid var(--line)}
 .mast{max-width:1280px;margin:auto;padding:12px 18px 10px;display:flex;align-items:center;gap:18px}
-.mark{width:58px;height:58px;border:2px solid var(--navy);display:grid;place-items:center;color:var(--navy);font-size:30px;font-weight:bold}
+.mark{width:58px;height:58px;flex:0 0 58px;border:2px solid var(--navy);display:grid;place-items:center;color:var(--navy);font-size:30px;font-weight:bold}
 .brand{flex:1;text-align:center;color:var(--navy);font-weight:700;font-size:clamp(30px,6vw,64px);line-height:.9;letter-spacing:-1.5px}
 .brand small{display:block;font:700 10px Arial,sans-serif;letter-spacing:2px;margin-top:7px}
-.edition{text-align:right;font:12px/1.45 Arial,sans-serif}
+.edition{min-width:150px;text-align:right;font:12px/1.45 Arial,sans-serif;color:#222}
 .edition b{font-size:15px;color:var(--navy)}
-nav{background:var(--navy);display:flex;justify-content:center;gap:4px;flex-wrap:wrap;padding:7px}
-nav a{color:#fff;text-decoration:none;font:700 12px Arial,sans-serif;padding:7px 11px}
-nav a:hover{background:#17417f}
-.breaking{background:var(--red);color:#fff;display:flex;align-items:center;gap:12px;padding:9px calc((100% - 1280px)/2 + 14px);font:700 13px Arial,sans-serif}
-.breaking b{background:#fff;color:var(--red);padding:4px 7px}
-.container{max-width:1280px;margin:auto;padding:16px 14px}
-.section-title{display:flex;align-items:center;gap:10px;border-bottom:3px solid var(--navy);margin:0 0 12px}
-.section-title h2{margin:0;padding:7px 10px;background:var(--navy);color:#fff;font-size:21px}
-.grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
-.story{background:#fff;border:1px solid var(--line);overflow:hidden}
-.story img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-.story .copy{padding:10px 12px}
-.kicker{font:700 10px Arial,sans-serif;color:var(--red);letter-spacing:.7px;text-transform:uppercase}
-.story h3{margin:5px 0 6px;font-size:24px;line-height:1.05}
-.smallstory h3{font-size:17px}
-.story p{margin:0;color:#4f5965;font:13px/1.45 Arial,sans-serif}
-.badge{display:inline-block;margin-top:8px;font:700 10px Arial,sans-serif;color:var(--navy)}
+nav{background:var(--navy);display:flex;justify-content:center;gap:2px;flex-wrap:wrap;padding:7px}
+nav a{color:#fff;text-decoration:none;font:700 12px Arial,sans-serif;padding:8px 10px;white-space:nowrap}
+nav a:hover{background:var(--navy2)}
+.breaking{background:var(--red);color:#fff}
+.breaking-inner{max-width:1280px;margin:auto;padding:8px 14px;display:flex;align-items:center;gap:12px;font:700 13px Arial,sans-serif}
+.breaking-label{background:#fff;color:var(--red);padding:5px 8px;flex:0 0 auto}
+.ticker{overflow:hidden;white-space:nowrap}
+.ticker span{display:inline-block}
+.container{max-width:1280px;margin:auto;padding:18px 14px}
+.section-title{display:flex;align-items:center;border-bottom:3px solid var(--navy);margin-bottom:13px}
+.section-title h2{margin:0;background:var(--navy);color:#fff;padding:8px 13px;font-size:21px}
+.topgrid{display:grid;grid-template-columns:1.65fr 1fr 1fr;gap:12px}
+.lead,.news-card{background:#fff;border:1px solid var(--line);overflow:hidden}
+.lead-media{position:relative;background:#111}
+.lead-media img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.lead-copy{padding:14px 15px 16px}
+.kicker{font:700 10px Arial,sans-serif;color:var(--red);letter-spacing:.8px;text-transform:uppercase}
+.lead h1{font-size:30px;line-height:1.04;margin:6px 0 8px}
+.lead p{font:14px/1.5 Arial,sans-serif;color:var(--muted);margin:0}
+.news-card img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.news-copy{padding:10px 12px 12px}
+.news-card h3{font-size:19px;line-height:1.12;margin:5px 0 7px}
+.news-card p{font:12px/1.45 Arial,sans-serif;color:var(--muted);margin:0}
+.read{display:inline-block;margin-top:9px;color:var(--navy);font:700 11px Arial,sans-serif}
 .latest{margin-top:20px}
-.latest-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.latest-item{background:#fff;border-left:4px solid var(--navy);padding:10px}
-.latest-item b{font-size:15px;line-height:1.2}
-.latest-item span{display:block;margin-top:5px;color:var(--muted);font:11px Arial,sans-serif}
-.epaper{margin-top:25px}
-.epaper-box{background:#101827;padding:12px;box-shadow:0 5px 22px #0003}
-.epaper-box img{display:block;width:100%;max-width:1024px;margin:auto}
-.epaper-tools{background:#fff;padding:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.latest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.latest-item{background:#fff;border-left:4px solid var(--navy);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 12px}
+.latest-item b{display:block;font-size:16px;line-height:1.2}
+.latest-item span{display:block;margin-top:6px;color:var(--muted);font:10px Arial,sans-serif;text-transform:uppercase}
+.section-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.section-card{background:#fff;border:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:10px;padding:8px}
+.section-card img{width:120px;height:90px;object-fit:cover}
+.section-card h3{font-size:17px;line-height:1.12;margin:2px 0 6px}
+.section-card p{font:11px/1.4 Arial,sans-serif;color:var(--muted);margin:0}
+.section-card .kicker{margin-top:2px}
+.epaper{margin-top:5px}
+.epaper-shell{background:#101827;padding:12px;box-shadow:0 6px 24px #0004}
+.epaper-shell img{display:block;width:100%;max-width:1024px;margin:auto;background:#fff}
+.epaper-tools{background:#fff;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;padding:10px;border-top:1px solid #d6dce4}
 button,.btn{border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:4px;font:bold 12px Arial,sans-serif;text-decoration:none;cursor:pointer}
 .secondary{background:#fff;color:var(--navy);border:1px solid #b9c4d1}
-.pages{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
-.page-card{background:#fff;padding:6px;border:1px solid var(--line);cursor:pointer}
+#counter{font:bold 12px Arial,sans-serif;color:#222;padding:0 6px}
+.page-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.page-card{background:#fff;border:1px solid var(--line);padding:6px;cursor:pointer}
+.page-card:hover{border-color:var(--navy)}
 .page-card img{width:100%;display:block}
 .page-card b{display:block;padding:7px 3px 2px;color:var(--navy);font:700 12px Arial,sans-serif}
 .page-card span{display:block;padding:0 3px 5px;color:var(--muted);font:10px Arial,sans-serif}
 footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;padding:25px 12px;font:12px/1.6 Arial,sans-serif}
-@media(max-width:800px){
-.mast{padding:10px}.mark{display:none}.edition{font-size:10px}.brand{font-size:30px}
-.grid{grid-template-columns:1fr 1fr}.grid .story:first-child{grid-column:1/-1}
-.latest-list{grid-template-columns:1fr 1fr}.pages{grid-template-columns:repeat(2,1fr)}
-.breaking{padding:8px 12px}
+@media(max-width:900px){
+ .topgrid{grid-template-columns:1.5fr 1fr}
+ .topgrid .news-card:nth-child(3){display:none}
+ .latest-grid{grid-template-columns:1fr 1fr}
+ .section-grid{grid-template-columns:1fr 1fr}
+ .page-grid{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:500px){
-.edition{display:none}.brand{font-size:29px}.mast{justify-content:center}
-nav{overflow-x:auto;justify-content:flex-start;flex-wrap:nowrap}
-nav a{white-space:nowrap}.grid{grid-template-columns:1fr}.latest-list{grid-template-columns:1fr}
-.story h3{font-size:21px}.pages{grid-template-columns:repeat(2,1fr)}
+@media(max-width:650px){
+ .mast{padding:10px}.mark{display:none}.edition{display:none}.brand{font-size:30px}
+ nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}
+ .breaking-inner{padding:8px 12px}
+ .topgrid{grid-template-columns:1fr}
+ .topgrid .news-card:nth-child(3){display:block}
+ .lead h1{font-size:25px}
+ .latest-grid,.section-grid{grid-template-columns:1fr}
+ .section-card{grid-template-columns:100px 1fr}
+ .section-card img{width:100px;height:80px}
+ .page-grid{grid-template-columns:repeat(2,1fr)}
+ .container{padding:14px 10px}
+ .section-title h2{font-size:18px}
 }
 </style>
 </head>
@@ -76,190 +103,306 @@ nav a{white-space:nowrap}.grid{grid-template-columns:1fr}.latest-list{grid-templ
 
 <header>
 <div class="mast">
-<div class="mark">H</div>
-<div class="brand">The Hyderabad Daily
-<small>YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</small>
-</div>
-<div class="edition"><b>THURSDAY</b><br>17 SEPTEMBER 2026<br>HYDERABAD</div>
+ <div class="mark">H</div>
+ <div class="brand">The Hyderabad Daily
+  <small>YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</small>
+ </div>
+ <div class="edition"><b>THURSDAY</b><br>17 SEPTEMBER 2026<br>HYDERABAD</div>
 </div>
 
 <nav>
-<a href="#home">HOME</a>
-<a href="#hyderabad">HYDERABAD</a>
-<a href="#telangana">TELANGANA</a>
-<a href="#india">INDIA</a>
-<a href="#world">WORLD</a>
-<a href="#business">BUSINESS</a>
-<a href="#sports">SPORTS</a>
-<a href="#technology">TECHNOLOGY</a>
-<a href="#entertainment">ENTERTAINMENT</a>
-<a href="#epaper">E-PAPER</a>
+ <a href="#home">HOME</a>
+ <a href="#hyderabad">HYDERABAD</a>
+ <a href="#telangana">TELANGANA</a>
+ <a href="#india">INDIA</a>
+ <a href="#world">WORLD</a>
+ <a href="#business">BUSINESS</a>
+ <a href="#sports">SPORTS</a>
+ <a href="#technology">TECHNOLOGY</a>
+ <a href="#entertainment">ENTERTAINMENT</a>
+ <a href="#epaper">E-PAPER</a>
 </nav>
 </header>
 
 <div class="breaking">
-<b>BREAKING</b>
-<span>Today's developing stories and important updates from Hyderabad, Telangana, India and the world.</span>
+ <div class="breaking-inner">
+  <div class="breaking-label">BREAKING</div>
+  <div class="ticker" id="ticker">
+   <span>Hyderabad's Ganesh immersion arrangements tightened as major celebrations continue across the city.</span>
+  </div>
+ </div>
 </div>
 
 <main id="home">
 
 <section class="container">
-<div class="section-title"><h2>TOP STORIES</h2></div>
+ <div class="section-title"><h2>TOP STORIES</h2></div>
 
-<div class="grid">
+ <div class="topgrid">
 
-<article class="story">
-<img src="page-01.png" alt="The Hyderabad Daily front page">
-<div class="copy">
-<div class="kicker">Front Page</div>
-<h3>Hyderabad, Telangana and India at the centre of today's news agenda</h3>
-<p>Read the complete 10-page edition for the day's major international, national, Telangana and Hyderabad developments.</p>
-<span class="badge">READ TODAY'S EDITION ↓</span>
-</div>
-</article>
+  <article class="lead">
+   <div class="lead-media">
+    <img src="page-01.png" alt="The Hyderabad Daily front page">
+   </div>
+   <div class="lead-copy">
+    <div class="kicker">National • Front Page</div>
+    <h1>PM Modi turns 76; nationwide seva campaign unites millions</h1>
+    <p>Month-long “Seva Sankalp Abhiyan” launches with blood donation, health and wellness programmes, cleanliness drives and support for vulnerable citizens.</p>
+    <a class="read" href="#epaper">READ IN TODAY'S E-PAPER →</a>
+   </div>
+  </article>
 
-<article class="story smallstory">
-<img src="page-10.png" alt="The Hyderabad Daily City Life page">
-<div class="copy">
-<div class="kicker">Hyderabad</div>
-<h3>City Life: Ganesh celebrations reshape Hyderabad's streets</h3>
-<p>Mandaps, immersion arrangements and traffic planning remain major city talking points.</p>
-</div>
-</article>
+  <article class="news-card">
+   <img src="page-02.png" alt="Telangana and Andhra Pradesh news">
+   <div class="news-copy">
+    <div class="kicker">Telangana</div>
+    <h3>Revanth Reddy vows action on 22-A land irregularities</h3>
+    <p>State government says suspected irregularities will be examined and eligible poor, especially Dalits, should not be denied land.</p>
+    <a class="read" href="#telangana">TELANGANA →</a>
+   </div>
+  </article>
 
-<article class="story smallstory">
-<img src="page-04.png" alt="The Hyderabad Daily Business and Markets page">
-<div class="copy">
-<div class="kicker">Business & Markets</div>
-<h3>Markets track the latest global signals</h3>
-<p>Indian equities, policy developments and regional business opportunities in today's business section.</p>
-</div>
-</article>
+  <article class="news-card">
+   <img src="page-04.png" alt="Business and markets">
+   <div class="news-copy">
+    <div class="kicker">Business & Markets</div>
+    <h3>Sensex and Nifty recover as global signals shape market mood</h3>
+    <p>Indian investors track the latest US Federal Reserve decision, global risk sentiment and stocks in focus.</p>
+    <a class="read" href="#business">MARKETS →</a>
+   </div>
+  </article>
 
-</div>
+ </div>
+</section>
+
+
+<section class="container latest">
+ <div class="section-title"><h2>LATEST NEWS</h2></div>
+ <div class="latest-grid">
+
+  <div class="latest-item">
+   <b>New US public-charge rule takes effect September 18</b>
+   <span>WORLD • UNITED STATES</span>
+  </div>
+
+  <div class="latest-item">
+   <b>India rejects Pakistan-China boundary commission proposal</b>
+   <span>INDIA • DIPLOMACY</span>
+  </div>
+
+  <div class="latest-item">
+   <b>EPFO wage ceiling raised to ₹25,000, expanding coverage</b>
+   <span>INDIA • ECONOMY</span>
+  </div>
+
+  <div class="latest-item">
+   <b>13 hi-tech bus stations planned to transform Telangana transit</b>
+   <span>TELANGANA • INFRASTRUCTURE</span>
+  </div>
+
+  <div class="latest-item">
+   <b>Hyderabad immersion routes see tighter traffic planning</b>
+   <span>HYDERABAD • CITY</span>
+  </div>
+
+  <div class="latest-item">
+   <b>India names West Indies ODI squad as Rohit and Kohli return</b>
+   <span>SPORTS • CRICKET</span>
+  </div>
+
+ </div>
 </section>
 
 
 <section class="container" id="hyderabad">
-<div class="section-title"><h2>HYDERABAD</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>Ganesh mandaps turn devotion into large-scale public art</b><span>CITY • TODAY</span></div>
-<div class="latest-item"><b>Traffic arrangements tightened around immersion routes</b><span>CITY • TODAY</span></div>
-<div class="latest-item"><b>Khairatabad and Balapur preparations draw public attention</b><span>CITY • TODAY</span></div>
-</div>
+ <div class="section-title"><h2>HYDERABAD</h2></div>
+ <div class="section-grid">
+
+  <article class="section-card">
+   <img src="page-10.png" alt="Khairatabad Ganesh">
+   <div><div class="kicker">City Life</div><h3>Khairatabad Bada Ganesh: 69-foot Panchamukha idol draws lakhs</h3><p>Major mandaps and immersion preparations remain a focus across Hyderabad.</p></div>
+  </article>
+
+  <article class="section-card">
+   <img src="page-10.png" alt="Balapur Ganesh">
+   <div><div class="kicker">Festivals</div><h3>Balapur Ganesh takes a Puri Jagannath Temple theme</h3><p>Devotees and visitors gather as the city's festive season reaches a major phase.</p></div>
+  </article>
+
+  <article class="section-card">
+   <img src="page-10.png" alt="Hyderabad traffic planning">
+   <div><div class="kicker">Traffic</div><h3>Necklace Road–Tank Bund immersion plan tightened</h3><p>Barricades, warning boards and designated access points are part of the arrangements.</p></div>
+  </article>
+
+ </div>
 </section>
 
 
 <section class="container" id="telangana">
-<div class="section-title"><h2>TELANGANA</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>State government and opposition exchange views on key issues</b><span>TELANGANA • TODAY</span></div>
-<div class="latest-item"><b>13 hi-tech bus stations planned across Telangana</b><span>INFRASTRUCTURE • TODAY</span></div>
-<div class="latest-item"><b>High Court examines basis of BC reservation decision</b><span>POLITICS • TODAY</span></div>
-</div>
+ <div class="section-title"><h2>TELANGANA • ANDHRA PRADESH</h2></div>
+ <div class="section-grid">
+
+  <article class="section-card"><img src="page-02.png" alt="Telangana politics">
+   <div><div class="kicker">Politics</div><h3>BRS will face 2028 on its own, says KTR</h3><p>The party outlines its position ahead of the next Assembly election cycle.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-02.png" alt="Telangana bus stations">
+   <div><div class="kicker">Infrastructure</div><h3>13 hi-tech bus stations planned across Telangana</h3><p>The proposed network is aimed at modernising passenger facilities.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-02.png" alt="Andhra Pradesh infrastructure">
+   <div><div class="kicker">Andhra Pradesh</div><h3>APCRDA invites bids for key infrastructure works</h3><p>Infrastructure activity continues around the capital-region development programme.</p></div>
+  </article>
+
+ </div>
 </section>
 
 
 <section class="container" id="india">
-<div class="section-title"><h2>INDIA</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>EPFO wage ceiling increase expands formal-sector coverage</b><span>NATIONAL • TODAY</span></div>
-<div class="latest-item"><b>Swachhata Hi Seva campaign begins nationwide</b><span>INDIA • TODAY</span></div>
-<div class="latest-item"><b>Railways introduces new passenger facilities and services</b><span>INDIA • TODAY</span></div>
-</div>
+ <div class="section-title"><h2>INDIA</h2></div>
+ <div class="latest-grid">
+
+  <div class="latest-item"><b>Swachhata Hi Seva 2026 begins nationwide</b><span>INDIA</span></div>
+  <div class="latest-item"><b>Railways unveils new passenger facilities and services</b><span>TRANSPORT</span></div>
+  <div class="latest-item"><b>Veteran actor Anant Nag to receive Dadasaheb Phalke Award</b><span>CULTURE</span></div>
+
+ </div>
 </section>
 
 
 <section class="container" id="world">
-<div class="section-title"><h2>WORLD</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>New US public-charge rule scheduled to take effect</b><span>UNITED STATES • TODAY</span></div>
-<div class="latest-item"><b>US-Russia sanctions developments watched in India</b><span>GEOPOLITICS • TODAY</span></div>
-<div class="latest-item"><b>India monitors major geopolitical developments</b><span>WORLD • TODAY</span></div>
-</div>
+ <div class="section-title"><h2>WORLD</h2></div>
+ <div class="latest-grid">
+
+  <div class="latest-item"><b>US House Russia sanctions bill puts tariff powers in focus</b><span>UNITED STATES • GEOPOLITICS</span></div>
+  <div class="latest-item"><b>China says Xi Jinping is working normally amid online claims</b><span>CHINA • WORLD</span></div>
+  <div class="latest-item"><b>Global developments watched for their impact on India</b><span>WORLD • INDIA IMPACT</span></div>
+
+ </div>
 </section>
 
 
 <section class="container" id="business">
-<div class="section-title"><h2>BUSINESS & MARKETS</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>Fed decision reshapes global market mood</b><span>MARKETS • TODAY</span></div>
-<div class="latest-item"><b>Sensex and Nifty respond to global signals</b><span>INDIAN MARKETS • TODAY</span></div>
-<div class="latest-item"><b>Singapore firms explore Telangana semiconductor opportunities</b><span>BUSINESS • TODAY</span></div>
-</div>
+ <div class="section-title"><h2>BUSINESS & MARKETS</h2></div>
+ <div class="section-grid">
+
+  <article class="section-card"><img src="page-04.png" alt="Indian stock markets">
+   <div><div class="kicker">Markets</div><h3>Fed decision reshapes global market mood</h3><p>Investors assess the implications for equities, currencies and global risk appetite.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-04.png" alt="Telangana semiconductor opportunity">
+   <div><div class="kicker">Telangana Business</div><h3>Singapore firms explore Telangana semiconductor opportunity</h3><p>New investment interest adds to the state's technology and manufacturing push.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-04.png" alt="Andhra expansion">
+   <div><div class="kicker">Andhra Pradesh</div><h3>Coca-Cola bottler lines up ₹1,127 crore Andhra expansion</h3><p>The planned investment adds capacity and economic activity in the state.</p></div>
+  </article>
+
+ </div>
 </section>
 
 
 <section class="container" id="sports">
-<div class="section-title"><h2>SPORTS</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>India names squad for upcoming West Indies ODI series</b><span>CRICKET • TODAY</span></div>
-<div class="latest-item"><b>India targets another strong Asian Games medal haul</b><span>SPORTS • TODAY</span></div>
-<div class="latest-item"><b>Hyderabad sports calendar gathers pace</b><span>SPORTS • HYDERABAD</span></div>
-</div>
+ <div class="section-title"><h2>SPORTS</h2></div>
+ <div class="section-grid">
+
+  <article class="section-card"><img src="page-08.png" alt="Indian cricket">
+   <div><div class="kicker">Cricket</div><h3>Rohit, Kohli return as India name West Indies ODI squad</h3><p>The selection adds experience to India's upcoming ODI campaign.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-08.png" alt="Asian Games">
+   <div><div class="kicker">Asian Games</div><h3>India eyes another 100-medal Asian Games haul</h3><p>Indian athletes prepare across disciplines for another major multi-sport campaign.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-08.png" alt="Hyderabad sports">
+   <div><div class="kicker">Hyderabad</div><h3>HCA Super League produces big hundreds and five-wicket hauls</h3><p>Local cricket continues to provide a strong platform for emerging players.</p></div>
+  </article>
+
+ </div>
 </section>
 
 
 <section class="container" id="technology">
-<div class="section-title"><h2>SCIENCE & TECHNOLOGY</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>Home solar: understanding PM-Surya Ghar benefits</b><span>TECHNOLOGY • TODAY</span></div>
-<div class="latest-item"><b>What mobile-phone Nits mean for your screen</b><span>TECH EXPLAINER</span></div>
-<div class="latest-item"><b>Practical ways to get better answers from AI tools</b><span>AI • TODAY</span></div>
-</div>
+ <div class="section-title"><h2>SCIENCE & TECHNOLOGY</h2></div>
+ <div class="section-grid">
+
+  <article class="section-card"><img src="page-07.png" alt="Home solar technology">
+   <div><div class="kicker">Energy</div><h3>Home solar: understanding PM-Surya Ghar benefits</h3><p>A practical guide to how rooftop solar can reduce household electricity costs.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-07.png" alt="Mobile phone display">
+   <div><div class="kicker">Tech Explainer</div><h3>What are Nits in mobile phones and why do they matter?</h3><p>Understanding screen brightness before buying your next phone.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-07.png" alt="Artificial intelligence">
+   <div><div class="kicker">AI</div><h3>10 smart ways to get better answers from ChatGPT</h3><p>Simple prompting habits that can improve everyday results.</p></div>
+  </article>
+
+ </div>
 </section>
 
 
 <section class="container" id="entertainment">
-<div class="section-title"><h2>ENTERTAINMENT</h2></div>
-<div class="latest-list">
-<div class="latest-item"><b>Bollywood and Tollywood releases build momentum</b><span>FILMS • TODAY</span></div>
-<div class="latest-item"><b>Hyderabad live music calendar adds new shows</b><span>MUSIC • HYDERABAD</span></div>
-<div class="latest-item"><b>Global entertainment events attract Indian audiences</b><span>ENTERTAINMENT • TODAY</span></div>
-</div>
+ <div class="section-title"><h2>ENTERTAINMENT</h2></div>
+ <div class="section-grid">
+
+  <article class="section-card"><img src="page-09.png" alt="Bollywood entertainment">
+   <div><div class="kicker">Bollywood</div><h3>Salman Khan gears up for Bigg Boss 20</h3><p>The television season remains a major entertainment talking point.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-09.png" alt="Tollywood film">
+   <div><div class="kicker">Tollywood</div><h3>The Paradise builds momentum ahead of September 24 release</h3><p>The upcoming film continues its promotional run.</p></div>
+  </article>
+
+  <article class="section-card"><img src="page-09.png" alt="Hyderabad live music">
+   <div><div class="kicker">Hyderabad Music</div><h3>Live music calendar adds new September and October shows</h3><p>Concerts and touring artists bring a busy season to the city.</p></div>
+  </article>
+
+ </div>
 </section>
 
 
 <section class="container epaper" id="epaper">
-<div class="section-title"><h2>TODAY'S E-PAPER</h2></div>
+ <div class="section-title"><h2>TODAY'S 10-PAGE E-PAPER</h2></div>
 
-<div class="epaper-box">
-<img id="pageImage" src="page-01.png" alt="The Hyderabad Daily Page 1">
-</div>
+ <div class="epaper-shell">
+  <img id="pageImage" src="page-01.png" alt="The Hyderabad Daily Page 1">
+ </div>
 
-<div class="epaper-tools">
-<button onclick="previousPage()">‹ PREVIOUS</button>
-<span id="counter" style="font:700 12px Arial;padding:10px">PAGE 1 OF 10</span>
-<button onclick="nextPage()">NEXT ›</button>
-<button onclick="fullScreen()">FULL SCREEN</button>
-<a class="btn secondary" href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf" target="_blank">OPEN PDF</a>
-</div>
+ <div class="epaper-tools">
+  <button onclick="previousPage()">‹ PREVIOUS</button>
+  <span id="counter">PAGE 01 OF 10</span>
+  <button onclick="nextPage()">NEXT ›</button>
+  <button onclick="fullScreen()">FULL SCREEN</button>
+  <a class="btn secondary" href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf" target="_blank">OPEN PDF</a>
+ </div>
 
-<div class="pages" id="pageGrid"></div>
+ <div class="page-grid" id="pageGrid"></div>
 </section>
 
 </main>
 
 <footer>
-<b>THE HYDERABAD DAILY</b><br>
-Bigger Perspective. A Brighter Hyderabad.<br>
-© 2026 The Hyderabad Daily
+ <b>THE HYDERABAD DAILY</b><br>
+ Bigger Perspective. A Brighter Hyderabad.<br>
+ © 2026 The Hyderabad Daily
 </footer>
 
 
 <script>
+history.scrollRestoration="manual";
+window.addEventListener("load",()=>window.scrollTo(0,0));
+
 const pages=[
-["page-01.png","01","FRONT PAGE"],
-["page-02.png","02","TELANGANA • ANDHRA PRADESH"],
-["page-03.png","03","INTERNATIONAL • NATIONAL"],
-["page-04.png","04","BUSINESS & MARKETS"],
-["page-05.png","05","INDIA • WORLD • HERITAGE & TRAVEL"],
-["page-06.png","06","LIFE & LEISURE"],
-["page-07.png","07","SCIENCE & TECHNOLOGY"],
-["page-08.png","08","SPORTS"],
-["page-09.png","09","ENTERTAINMENT"],
-["page-10.png","10","CITY LIFE"]
+ ["page-01.png","01","FRONT PAGE"],
+ ["page-02.png","02","TELANGANA • ANDHRA PRADESH"],
+ ["page-03.png","03","INTERNATIONAL • NATIONAL"],
+ ["page-04.png","04","BUSINESS & MARKETS"],
+ ["page-05.png","05","INDIA • WORLD • HERITAGE & TRAVEL"],
+ ["page-06.png","06","LIFE & LEISURE"],
+ ["page-07.png","07","SCIENCE & TECHNOLOGY"],
+ ["page-08.png","08","SPORTS"],
+ ["page-09.png","09","ENTERTAINMENT"],
+ ["page-10.png","10","CITY LIFE"]
 ];
 
 let current=0;
@@ -268,54 +411,54 @@ const counter=document.getElementById("counter");
 const grid=document.getElementById("pageGrid");
 
 pages.forEach((p,i)=>{
-const c=document.createElement("div");
-c.className="page-card";
-c.onclick=()=>showPage(i);
-c.innerHTML=
-`<img src="${p[0]}" loading="lazy" alt="Page ${p[1]}">
-<b>PAGE ${p[1]}</b>
-<span>${p[2]}</span>`;
-grid.appendChild(c);
+ const c=document.createElement("div");
+ c.className="page-card";
+ c.onclick=()=>showPage(i);
+ c.innerHTML=`<img src="${p[0]}" loading="lazy" alt="Page ${p[1]}"><b>PAGE ${p[1]}</b><span>${p[2]}</span>`;
+ grid.appendChild(c);
 });
 
 function showPage(n){
-current=Math.max(0,Math.min(n,pages.length-1));
-image.src=pages[current][0];
-image.alt="The Hyderabad Daily Page "+pages[current][1];
-counter.textContent="PAGE "+pages[current][1]+" OF 10";
-document.getElementById("epaper").scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+ current=Math.max(0,Math.min(n,pages.length-1));
+ image.src=pages[current][0];
+ image.alt="The Hyderabad Daily Page "+pages[current][1];
+ counter.textContent="PAGE "+pages[current][1]+" OF 10";
+ document.getElementById("epaper").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-function previousPage(){
-showPage(current-1);
-}
-
-function nextPage(){
-showPage(current+1);
-}
+function previousPage(){showPage(current-1)}
+function nextPage(){showPage(current+1)}
 
 function fullScreen(){
-const el=document.getElementById("pageImage");
-if(el.requestFullscreen){
-el.requestFullscreen();
-}
+ const el=document.getElementById("pageImage");
+ if(el.requestFullscreen)el.requestFullscreen();
+ else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();
 }
 
 let startX=0;
 
 image.addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX;
+ startX=e.touches[0].clientX;
 },{passive:true});
 
 image.addEventListener("touchend",e=>{
-const d=startX-e.changedTouches[0].clientX;
-if(Math.abs(d)>70){
-d>0 ? nextPage() : previousPage();
-}
+ const d=startX-e.changedTouches[0].clientX;
+ if(Math.abs(d)>70)d>0?nextPage():previousPage();
 },{passive:true});
+
+const breaking=[
+ "Hyderabad's Ganesh immersion arrangements tightened as major celebrations continue across the city.",
+ "EPFO wage ceiling raised to ₹25,000, expanding coverage for more workers.",
+ "India names West Indies ODI squad as Rohit Sharma and Virat Kohli return.",
+ "New US public-charge rule takes effect September 18.",
+ "13 hi-tech bus stations planned to transform Telangana's transit network."
+];
+
+let tickerIndex=0;
+setInterval(()=>{
+ tickerIndex=(tickerIndex+1)%breaking.length;
+ document.getElementById("ticker").innerHTML="<span>"+breaking[tickerIndex]+"</span>";
+},5000);
 
 showPage(0);
 </script>
