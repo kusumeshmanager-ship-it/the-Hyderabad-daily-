@@ -1,382 +1,801 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="description" content="The Hyderabad Daily — Hyderabad, Telangana, India. Read today's 10-page digital newspaper edition.">
+<meta name="theme-color" content="#092c68">
+
+<meta property="og:title" content="The Hyderabad Daily | 17 September 2026">
+<meta property="og:description" content="Today's 10-page Hyderabad Daily digital newspaper.">
+
 <title>The Hyderabad Daily | 17 September 2026</title>
 
 <style>
-*{box-sizing:border-box}
+:root{
+  --navy:#092c68;
+  --red:#d71920;
+  --paper:#fff;
+  --ink:#111;
+  --muted:#657080;
+  --bg:#eef2f6;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
-  background:#101827;
-  color:#111;
-  font-family:Georgia,"Times New Roman",serif
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
 }
+
+.topline{
+  height:5px;
+  background:linear-gradient(
+    90deg,
+    var(--navy) 0 70%,
+    var(--red) 70%
+  );
+}
+
 header{
   background:#fff;
-  border-bottom:4px solid #d71920;
-  padding:10px 14px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:20
+  border-bottom:1px solid #ccd5df;
 }
-.brand{
-  color:#092c68;
-  font-size:clamp(28px,7vw,58px);
-  font-weight:bold;
-  line-height:1
-}
-.tag{
-  color:#092c68;
-  font-family:Arial,sans-serif;
-  font-size:12px;
-  letter-spacing:2px;
-  margin-top:5px
-}
-.date{
-  margin-top:7px;
-  font-family:Arial,sans-serif;
-  font-size:12px;
-  color:#333
-}
-.controls{
-  background:#092c68;
-  padding:8px;
-  display:flex;
-  gap:6px;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap
-}
-button{
-  border:0;
-  border-radius:5px;
-  background:#fff;
-  color:#092c68;
-  font-weight:bold;
-  padding:8px 12px;
-  cursor:pointer
-}
-#counter{
-  color:#fff;
-  font-family:Arial,sans-serif;
-  font-weight:bold;
-  padding:0 8px
-}
-.pages{
-  display:flex;
-  gap:5px;
-  overflow-x:auto;
-  padding:8px;
-  background:#e9eef5;
-  justify-content:center
-}
-.pages button{
-  min-width:38px;
-  padding:7px
-}
-.pages button.active{
-  background:#d71920;
-  color:#fff
-}
-.reader{
-  max-width:1200px;
+
+.mast{
+  max-width:1280px;
   margin:auto;
-  padding:12px
+  padding:12px 18px 10px;
+  display:flex;
+  align-items:center;
+  gap:18px;
 }
-.paper{
-  background:#fff;
-  box-shadow:0 4px 25px #0008;
-  line-height:0;
-  text-align:center
+
+.mark{
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+  border:2px solid var(--navy);
+  display:grid;
+  place-items:center;
+  color:var(--navy);
+  font-size:30px;
+  font-weight:bold;
 }
-.paper img{
-  width:100%;
-  height:auto;
-  display:block;
-  user-select:none;
-  -webkit-user-drag:none
-}
-.actions{
+
+.brand{
+  flex:1;
   text-align:center;
-  padding:15px 8px 25px
+  color:var(--navy);
+  font-weight:700;
+  font-size:clamp(30px,6vw,64px);
+  line-height:.9;
+  letter-spacing:-1.5px;
 }
-.actions a{
-  display:inline-block;
-  background:#d71920;
+
+.brand small{
+  display:block;
+  font:700 10px Arial,sans-serif;
+  letter-spacing:2px;
+  margin-top:7px;
+}
+
+.edition{
+  min-width:150px;
+  text-align:right;
+  font:12px/1.45 Arial,sans-serif;
+  color:#222;
+}
+
+.edition b{
+  font-size:15px;
+  color:var(--navy);
+}
+
+nav{
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:8px;
+}
+
+nav a{
   color:#fff;
   text-decoration:none;
-  padding:11px 16px;
-  margin:4px;
-  border-radius:5px;
-  font-family:Arial,sans-serif;
-  font-weight:bold
+  font:700 12px Arial,sans-serif;
+  padding:6px 10px;
+  border-left:1px solid #ffffff44;
 }
+
+.hero{
+  max-width:1280px;
+  margin:18px auto 0;
+  padding:0 14px;
+}
+
+.herohead{
+  background:#fff;
+  padding:16px 18px;
+  border-left:7px solid var(--red);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:end;
+}
+
+.herohead h1{
+  margin:0;
+  color:var(--navy);
+  font-size:clamp(25px,4vw,42px);
+}
+
+.herohead p{
+  margin:0;
+  font:12px Arial,sans-serif;
+  color:var(--muted);
+  text-align:right;
+}
+
+.heroimg{
+  background:#101827;
+  padding:10px;
+  box-shadow:0 5px 22px #0003;
+}
+
+.heroimg img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.quick{
+  max-width:1280px;
+  margin:14px auto;
+  padding:0 14px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:9px;
+}
+
+.quick button{
+  border:0;
+  background:#fff;
+  padding:12px 7px;
+  border-top:4px solid var(--navy);
+  font:bold 12px Arial,sans-serif;
+  color:var(--navy);
+  cursor:pointer;
+}
+
+.quick button.active{
+  border-top-color:var(--red);
+  background:#f9fbfd;
+}
+
+.reader{
+  max-width:1280px;
+  margin:auto;
+  padding:0 14px 18px;
+}
+
+.toolbar{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:10px;
+  border-bottom:1px solid #d6dce4;
+}
+
+.toolbar button,
+.toolbar a{
+  border:0;
+  background:var(--navy);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:4px;
+  text-decoration:none;
+  font:bold 12px Arial,sans-serif;
+  cursor:pointer;
+}
+
+.toolbar .secondary{
+  background:#fff;
+  color:var(--navy);
+  border:1px solid #b9c4d1;
+}
+
+#counter{
+  font:bold 12px Arial,sans-serif;
+  color:#222;
+  padding:0 8px;
+}
+
+.paper{
+  background:#111;
+  padding:10px;
+  box-shadow:0 6px 25px #0004;
+}
+
+.paper img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:1024px;
+  margin:auto;
+  background:#fff;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
 .hint{
-  color:#fff;
   text-align:center;
-  font-family:Arial,sans-serif;
-  font-size:12px;
-  padding:5px 10px 15px;
-  opacity:.8
+  color:#657080;
+  font:11px Arial,sans-serif;
+  padding:8px;
 }
+
+.downloads{
+  max-width:1280px;
+  margin:0 auto 24px;
+  padding:0 14px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.downloads a{
+  background:var(--red);
+  color:#fff;
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:4px;
+  font:bold 12px Arial,sans-serif;
+}
+
+.section{
+  max-width:1280px;
+  margin:25px auto;
+  padding:0 14px;
+}
+
+.section h2{
+  margin:0 0 10px;
+  background:var(--navy);
+  color:#fff;
+  padding:9px 13px;
+  font-size:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #d5dce5;
+  padding:6px;
+  cursor:pointer;
+}
+
+.card img{
+  width:100%;
+  display:block;
+}
+
+.card b{
+  display:block;
+  padding:8px 4px 4px;
+  font:700 12px Arial,sans-serif;
+  color:var(--navy);
+}
+
+.card span{
+  display:block;
+  padding:0 4px 6px;
+  font:11px Arial,sans-serif;
+  color:#657080;
+}
+
 footer{
-  background:#092c68;
+  margin-top:30px;
+  background:var(--navy);
   color:#fff;
   text-align:center;
-  padding:18px;
-  font-family:Arial,sans-serif;
-  font-size:12px
+  padding:25px 12px;
+  font:12px/1.6 Arial,sans-serif;
 }
-@media(max-width:600px){
-  header{padding:8px}
-  .brand{font-size:31px}
-  .tag{font-size:9px}
-  .date{font-size:10px}
-  .reader{padding:5px}
-  .controls button{padding:7px 9px}
-  .pages{justify-content:flex-start}
+
+@media(max-width:800px){
+
+  .mast{
+    padding:10px;
+  }
+
+  .mark{
+    display:none;
+  }
+
+  .edition{
+    min-width:105px;
+    font-size:10px;
+  }
+
+  .brand{
+    font-size:30px;
+  }
+
+  .quick{
+    grid-template-columns:repeat(5,1fr);
+    overflow-x:auto;
+  }
+
+  .quick button{
+    min-width:58px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .herohead{
+    display:block;
+  }
+
+  .herohead p{
+    text-align:left;
+    margin-top:5px;
+  }
+}
+
+@media(max-width:500px){
+
+  .edition{
+    display:none;
+  }
+
+  .brand{
+    font-size:29px;
+  }
+
+  .mast{
+    justify-content:center;
+  }
+
+  .quick{
+    grid-template-columns:repeat(5,64px);
+    justify-content:start;
+  }
+
+  .toolbar{
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+
+  .paper{
+    padding:4px;
+  }
+
+  .hero{
+    margin-top:8px;
+  }
+
+  .herohead{
+    padding:12px;
+  }
+
+  .section h2{
+    font-size:17px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div class="topline"></div>
+
 <header>
-  <div class="brand">THE HYDERABAD DAILY</div>
-  <div class="tag">YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</div>
-  <div class="date">THURSDAY • 17 SEPTEMBER 2026 • HYDERABAD</div>
+
+  <div class="mast">
+
+    <div class="mark">H</div>
+
+    <div class="brand">
+      The Hyderabad Daily
+      <small>
+        YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.
+      </small>
+    </div>
+
+    <div class="edition">
+      <b>THURSDAY</b><br>
+      17 SEPTEMBER 2026<br>
+      HYDERABAD
+    </div>
+
+  </div>
+
+  <nav>
+    <a href="#reader">TODAY'S EDITION</a>
+    <a href="#pages">ALL PAGES</a>
+    <a href="#about">ABOUT</a>
+  </nav>
+
 </header>
 
-<div class="controls">
-  <button onclick="previousPage()">‹ PREVIOUS</button>
-  <span id="counter">PAGE 1 OF 10</span>
-  <button onclick="nextPage()">NEXT ›</button>
-  <button onclick="fullScreen()">FULL SCREEN</button>
-</div>
 
-<div class="pages" id="pageButtons"></div>
+<section class="hero">
 
-<main class="reader">
-  <div class="paper" id="paper">
-    <img id="pageImage" alt="The Hyderabad Daily Page 1">
+  <div class="herohead">
+
+    <div>
+      <h1>Today's 10-Page Edition</h1>
+      <p>
+        Thursday, 17 September 2026 • Hyderabad
+      </p>
+    </div>
+
+    <p>
+      READ • SWIPE • ZOOM • SHARE
+    </p>
+
   </div>
-</main>
 
-<div class="hint">
-  Swipe/scroll • Pinch to zoom • Select a page above
-</div>
+  <div class="heroimg">
 
-<div class="actions">
-  <a href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf" target="_blank">
-    OPEN PDF
+    <img
+      id="heroImage"
+      src="page-01.png"
+      alt="The Hyderabad Daily Page 1"
+    >
+
+  </div>
+
+</section>
+
+
+<div class="quick" id="quick"></div>
+
+
+<section class="reader" id="reader">
+
+  <div class="toolbar">
+
+    <button onclick="previousPage()">
+      ‹ PREVIOUS
+    </button>
+
+    <span id="counter">
+      PAGE 1 OF 10
+    </span>
+
+    <button onclick="nextPage()">
+      NEXT ›
+    </button>
+
+    <button onclick="fullScreen()">
+      FULL SCREEN
+    </button>
+
+    <a
+      class="secondary"
+      href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf"
+      target="_blank"
+    >
+      OPEN PDF
+    </a>
+
+  </div>
+
+
+  <div class="paper" id="paper">
+
+    <img
+      id="pageImage"
+      src="page-01.png"
+      alt="The Hyderabad Daily Page 1"
+    >
+
+  </div>
+
+  <div class="hint">
+    On mobile: swipe left/right to change pages • pinch to zoom
+  </div>
+
+</section>
+
+
+<div class="downloads">
+
+  <a
+    href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf"
+    target="_blank"
+  >
+    OPEN FULL NEWSPAPER
   </a>
-  <a href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf" download>
+
+  <a
+    href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf"
+    download
+  >
     DOWNLOAD PDF
   </a>
+
+  <a href="#pages">
+    BROWSE ALL PAGES
+  </a>
+
 </div>
 
-<footer>
-  © 2026 The Hyderabad Daily<br>
-  Bigger Perspective. A Brighter Hyderabad.
+
+<section class="section" id="pages">
+
+  <h2>
+    Today's Pages — 01 to 10
+  </h2>
+
+  <div class="grid" id="pageGrid"></div>
+
+</section>
+
+
+<footer id="about">
+
+  <b>THE HYDERABAD DAILY</b><br>
+
+  Bigger Perspective. A Brighter Hyderabad.<br>
+
+  © 2026 The Hyderabad Daily
+
 </footer>
+
 
 <script>
 
 const pages = [
-"page-01.png",
-  "page-02.png",
-  "page-03.png",
-  "page-04.png",
-  "page-05.png",
-  "page-06.png",
-  "page-07.png",
-  "page-08.png",
-  "page-09.png",
-  "page-10.png"
+
+  ["page-01.png","01","FRONT PAGE"],
+
+  ["page-02.png","02","TELANGANA • ANDHRA PRADESH"],
+
+  ["page-03.png","03","INTERNATIONAL • NATIONAL"],
+
+  ["page-04.png","04","BUSINESS & MARKETS"],
+
+  ["page-05.png","05","INDIA • WORLD • HERITAGE & TRAVEL"],
+
+  ["page-06.png","06","LIFE & LEISURE"],
+
+  ["page-07.png","07","SCIENCE & TECHNOLOGY"],
+
+  ["page-08.png","08","SPORTS"],
+
+  ["page-09.png","09","ENTERTAINMENT"],
+
+  ["page-10.png","10","CITY LIFE"]
+
 ];
 
-let current=0;
 
-const image=document.getElementById("pageImage");
-const counter=document.getElementById("counter");
-const buttons=document.getElementById("pageButtons");
+let current = 0;
+
+
+const image =
+  document.getElementById("pageImage");
+
+const hero =
+  document.getElementById("heroImage");
+
+const counter =
+  document.getElementById("counter");
+
+const quick =
+  document.getElementById("quick");
+
+const grid =
+  document.getElementById("pageGrid");
+
+
+/* CREATE PAGE BUTTONS AND THUMBNAILS */
 
 pages.forEach((p,i)=>{
-  const b=document.createElement("button");
-  b.textContent=i+1;
-  b.onclick=()=>showPage(i);
-  buttons.appendChild(b);
+
+  const q =
+    document.createElement("button");
+
+  q.textContent = p[1];
+
+  q.onclick = () => showPage(i);
+
+  quick.appendChild(q);
+
+
+  const c =
+    document.createElement("div");
+
+  c.className = "card";
+
+  c.onclick = () => showPage(i);
+
+  c.innerHTML = `
+    <img
+      src="${p[0]}"
+      loading="lazy"
+      alt="Page ${p[1]}"
+    >
+
+    <b>
+      PAGE ${p[1]}
+    </b>
+
+    <span>
+      ${p[2]}
+    </span>
+  `;
+
+  grid.appendChild(c);
+
 });
 
+
+/* SHOW SELECTED PAGE */
+
 function showPage(n){
-  current=Math.max(0,Math.min(n,pages.length-1));
-  image.src=encodeURI(pages[current]);
-  image.alt="The Hyderabad Daily Page "+(current+1);
-  counter.textContent="PAGE "+(current+1)+" OF "+pages.length;
-  [...buttons.children].forEach((b,i)=>
-    b.classList.toggle("active",i===current)
+
+  current =
+    Math.max(
+      0,
+      Math.min(n,pages.length-1)
+    );
+
+
+  image.src =
+    pages[current][0];
+
+  hero.src =
+    pages[current][0];
+
+
+  image.alt =
+    "The Hyderabad Daily Page "
+    + pages[current][1];
+
+
+  counter.textContent =
+    "PAGE "
+    + pages[current][1]
+    + " OF 10";
+
+
+  [...quick.children].forEach(
+    (b,i)=>{
+
+      b.classList.toggle(
+        "active",
+        i === current
+      );
+
+    }
   );
-  window.scrollTo({top:0,behavior:"smooth"});
+
+
+  document
+    .getElementById("reader")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
 }
+
+
+/* PREVIOUS */
 
 function previousPage(){
-  showPage(current-1);
+
+  showPage(current - 1);
+
 }
+
+
+/* NEXT */
 
 function nextPage(){
-  showPage(current+1);
+
+  showPage(current + 1);
+
 }
+
+
+/* FULL SCREEN */
 
 function fullScreen(){
-  const el=document.getElementById("paper");
-  if(el.requestFullscreen) el.requestFullscreen();
+
+  const el =
+    document.getElementById("paper");
+
+  if(el.requestFullscreen){
+
+    el.requestFullscreen();
+
+  }
+
 }
 
-let startX=0;
 
-document.getElementById("paper").addEventListener("touchstart",e=>{
-  startX=e.touches[0].clientX;
-},{passive:true});
+/* MOBILE SWIPE */
 
-document.getElementById("paper").addEventListener("touchend",e=>{
-  const endX=e.changedTouches[0].clientX;
-  const diff=startX-endX;
-  if(Math.abs(diff)>70){
-    if(diff>0) nextPage();
-    else previousPage();
-  }
-},{passive:true});
+let startX = 0;
+
+
+document
+  .getElementById("paper")
+  .addEventListener(
+    "touchstart",
+    e => {
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+document
+  .getElementById("paper")
+  .addEventListener(
+    "touchend",
+    e => {
+
+      const d =
+        startX -
+        e.changedTouches[0].clientX;
+
+
+      if(Math.abs(d) > 70){
+
+        if(d > 0){
+
+          nextPage();
+
+        }else{
+
+          previousPage();
+
+        }
+
+      }
+
+    },
+    {passive:true}
+  );
+
+
+/* START WITH PAGE 1 */
 
 showPage(0);
 
 </script>
-</body>
-</html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hyderabad Daily | 17 September 2026</title>
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:#eee;
-  color:#111;
-  font-family:Georgia,"Times New Roman",serif
-}
-.header{
-  background:white;
-  text-align:center;
-  padding:25px 10px 15px;
-  border-bottom:5px double #111
-}
-.logo{
-  color:#073b78;
-  font-size:clamp(42px,9vw,82px);
-  font-weight:bold;
-  line-height:.9;
-}
-.city{
-  color:#073b78;
-  font:700 12px Arial,sans-serif;
-  letter-spacing:3px;
-  margin-top:12px
-}
-.date{
-  font:600 14px Arial,sans-serif;
-  margin-top:7px
-}
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:15px
-}
-.title{
-  background:#073b78;
-  color:white;
-  text-align:center;
-  padding:13px;
-  font-size:22px;
-  font-weight:bold;
-}
-.viewer{
-  background:#222;
-  padding:8px;
-}
-iframe{
-  width:100%;
-  height:85vh;
-  min-height:600px;
-  border:0;
-  background:white;
-}
-.buttons{
-  text-align:center;
-  padding:18px
-}
-.button{
-  display:inline-block;
-  background:#073b78;
-  color:white;
-  text-decoration:none;
-  padding:13px 22px;
-  margin:5px;
-  border-radius:4px;
-  font:700 13px Arial,sans-serif
-}
-.footer{
-  text-align:center;
-  padding:25px;
-  font:12px Arial,sans-serif;
-  color:#666
-}
-</style>
-</head>
-
-<body>
-
-<header class="header">
-  <div class="logo">The Hyderabad Daily</div>
-  <div class="city">HYDERABAD • TELANGANA • INDIA</div>
-  <div class="date">17 September 2026</div>
-</header>
-
-<div class="container">
-
-  <div class="title">
-    TODAY'S 10-PAGE EDITION
-  </div>
-
-  <div class="viewer">
-    <iframe
-      src="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf#view=FitH"
-      title="The Hyderabad Daily">
-    </iframe>
-  </div>
-
-  <div class="buttons">
-    <a class="button"
-       href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf"
-       target="_blank">
-       OPEN FULL NEWSPAPER
-    </a>
-
-    <a class="button"
-       href="The_Hyderabad_Daily_17_Sep_2026_Pages_01-10_compressed.pdf"
-       download>
-       DOWNLOAD PDF
-    </a>
-  </div>
-
-</div>
-
-<footer class="footer">
-  © 2026 The Hyderabad Daily
-</footer>
 
 </body>
 </html>
