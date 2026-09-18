@@ -2,142 +2,411 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="The Hyderabad Daily — Hyderabad, Telangana, India. Latest news, business, sports, technology, entertainment and today's 10-page e-paper.">
-<meta name="theme-color" content="#092c68">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="The Hyderabad Daily — Digital News and Today's 10-Page E-Paper.">
+<meta name="theme-color" content="#0b2f6b">
 <meta property="og:title" content="The Hyderabad Daily">
-<meta property="og:description" content="Hyderabad's digital daily newspaper and 10-page e-paper.">
-<title>The Hyderabad Daily | 18 September 2026</title>
+<meta property="og:description" content="Digital News and Today's 10-Page E-Paper.">
+<title>The Hyderabad Daily | Digital News & E-Paper</title>
 
 <style>
 :root{
- --navy:#092c68;--navy2:#123d7a;--red:#d71920;
- --ink:#111;--muted:#5d6875;--bg:#eef2f6;--line:#d5dce5;--white:#fff
+  --navy:#0b2f6b;
+  --navy2:#123f82;
+  --red:#d71920;
+  --ink:#111827;
+  --muted:#64707d;
+  --bg:#eef2f6;
+  --line:#d5dce5;
+  --white:#fff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
-.topline{height:5px;background:linear-gradient(90deg,var(--navy) 0 70%,var(--red) 70%)}
-header{background:#fff;border-bottom:1px solid var(--line)}
-.mast{max-width:1280px;margin:auto;padding:12px 18px 10px;display:flex;align-items:center;gap:18px}
-.mark{width:58px;height:58px;flex:0 0 58px;border:2px solid var(--navy);display:grid;place-items:center;color:var(--navy);font-size:30px;font-weight:bold}
-.brand{flex:1;text-align:center;color:var(--navy);font-weight:700;font-size:clamp(30px,6vw,64px);line-height:.9;letter-spacing:-1.5px}
-.brand small{display:block;font:700 10px Arial,sans-serif;letter-spacing:2px;margin-top:7px}
-.edition{min-width:150px;text-align:right;font:12px/1.45 Arial,sans-serif;color:#222}
-.edition b{font-size:15px;color:var(--navy)}
-nav{background:var(--navy);display:flex;justify-content:center;gap:2px;flex-wrap:wrap;padding:7px}
-nav a{color:#fff;text-decoration:none;font:700 12px Arial,sans-serif;padding:8px 10px;white-space:nowrap}
-nav a:hover{background:var(--navy2)}
-.breaking{background:var(--red);color:#fff}
-.breaking-inner{max-width:1280px;margin:auto;padding:8px 14px;display:flex;align-items:center;gap:12px;font:700 13px Arial,sans-serif}
-.breaking-label{background:#fff;color:var(--red);padding:5px 8px;flex:0 0 auto}
-.ticker{overflow:hidden;white-space:nowrap}
-.ticker span{display:inline-block}
-.container{max-width:1280px;margin:auto;padding:18px 14px}
-.section-title{display:flex;align-items:center;border-bottom:3px solid var(--navy);margin-bottom:13px}
-.section-title h2{margin:0;background:var(--navy);color:#fff;padding:8px 13px;font-size:21px}
-.topgrid{display:grid;grid-template-columns:1.65fr 1fr 1fr;gap:12px}
-.lead,.news-card{background:#fff;border:1px solid var(--line);overflow:hidden}
-.lead-media{position:relative;background:#111}
-.lead-media img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-.lead-copy{padding:14px 15px 16px}
-.kicker{font:700 10px Arial,sans-serif;color:var(--red);letter-spacing:.8px;text-transform:uppercase}
-.lead h1{font-size:30px;line-height:1.04;margin:6px 0 8px}
-.lead p{font:14px/1.5 Arial,sans-serif;color:var(--muted);margin:0}
-.news-card img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
-.news-copy{padding:10px 12px 12px}
-.news-card h3{font-size:19px;line-height:1.12;margin:5px 0 7px}
-.news-card p{font:12px/1.45 Arial,sans-serif;color:var(--muted);margin:0}
-.read{display:inline-block;margin-top:9px;color:var(--navy);font:700 11px Arial,sans-serif}
-.latest{margin-top:20px}
-.latest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.latest-item{background:#fff;border-left:4px solid var(--navy);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 12px}
-.latest-item b{display:block;font-size:16px;line-height:1.2}
-.latest-item span{display:block;margin-top:6px;color:var(--muted);font:10px Arial,sans-serif;text-transform:uppercase}
-.section-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.section-card{background:#fff;border:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:10px;padding:8px}
-.section-card img{width:120px;height:90px;object-fit:cover}
-.section-card h3{font-size:17px;line-height:1.12;margin:2px 0 6px}
-.section-card p{font:11px/1.4 Arial,sans-serif;color:var(--muted);margin:0}
-.section-card .kicker{margin-top:2px}
-.epaper{margin-top:5px}
-.epaper-shell{background:#101827;padding:12px;box-shadow:0 6px 24px #0004}
-.epaper-shell img{display:block;width:100%;max-width:1024px;margin:auto;background:#fff}
-.epaper-tools{background:#fff;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;padding:10px;border-top:1px solid #d6dce4}
-button,.btn{border:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:4px;font:bold 12px Arial,sans-serif;text-decoration:none;cursor:pointer}
-.secondary{background:#fff;color:var(--navy);border:1px solid #b9c4d1}
-#counter{font:bold 12px Arial,sans-serif;color:#222;padding:0 6px}
-.page-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
-.page-card{background:#fff;border:1px solid var(--line);padding:6px;cursor:pointer}
-.page-card:hover{border-color:var(--navy)}
-.page-card img{width:100%;display:block}
-.page-card b{display:block;padding:7px 3px 2px;color:var(--navy);font:700 12px Arial,sans-serif}
-.page-card span{display:block;padding:0 3px 5px;color:var(--muted);font:10px Arial,sans-serif}
-footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;padding:25px 12px;font:12px/1.6 Arial,sans-serif}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+}
+body.menu-open{overflow:hidden}
+.topline{
+  height:5px;
+  background:linear-gradient(90deg,var(--navy) 0 70%,var(--red) 70%);
+}
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.mast{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 18px 14px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.brand{
+  flex:1;
+  text-align:center;
+  color:var(--navy);
+  font-weight:700;
+  font-size:clamp(38px,6vw,66px);
+  line-height:.88;
+  letter-spacing:-2px;
+}
+.brand small{
+  display:block;
+  margin-top:12px;
+  font:700 10px Arial,sans-serif;
+  letter-spacing:3px;
+}
+.edition{
+  min-width:160px;
+  text-align:right;
+  font:13px/1.5 Arial,sans-serif;
+  color:#222;
+}
+.edition b{
+  color:var(--navy);
+  font-size:15px;
+}
+.desktop-nav{
+  background:var(--navy);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:3px;
+  padding:8px;
+}
+.desktop-nav a{
+  color:#fff;
+  text-decoration:none;
+  font:700 13px Arial,sans-serif;
+  padding:10px 18px;
+  border-radius:3px;
+}
+.desktop-nav a:hover,
+.desktop-nav a.active{
+  background:var(--navy2);
+}
+.mobile-nav{display:none}
+
+/* Simple two-section architecture */
+.page{
+  max-width:1200px;
+  margin:auto;
+}
+.section{
+  padding:24px 16px;
+}
+.section-title{
+  display:flex;
+  align-items:center;
+  border-bottom:4px solid var(--navy);
+  margin-bottom:18px;
+}
+.section-title h2{
+  margin:0;
+  background:var(--navy);
+  color:#fff;
+  padding:11px 20px;
+  font-size:24px;
+  letter-spacing:.4px;
+}
+.digital-panel{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:26px;
+  box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+.digital-panel h1{
+  margin:0 0 10px;
+  color:var(--navy);
+  font-size:clamp(28px,4vw,44px);
+}
+.digital-panel p{
+  margin:0 0 20px;
+  color:var(--muted);
+  font:16px/1.6 Arial,sans-serif;
+}
+.digital-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:11px 18px;
+  border-radius:4px;
+  border:1px solid var(--navy);
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  font:700 13px Arial,sans-serif;
+  cursor:pointer;
+}
+.btn.secondary{
+  background:#fff;
+  color:var(--navy);
+}
+.btn:hover{background:var(--navy2);color:#fff}
+
+/* E-paper */
+#epaper{
+  scroll-margin-top:15px;
+}
+.epaper-shell{
+  background:#101827;
+  padding:12px;
+  border-radius:3px;
+  box-shadow:0 6px 24px rgba(0,0,0,.2);
+}
+.epaper-shell img{
+  display:block;
+  width:100%;
+  max-width:1050px;
+  margin:auto;
+  background:#fff;
+  min-height:240px;
+  object-fit:contain;
+}
+.epaper-tools{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:12px;
+  border:1px solid var(--line);
+  border-top:0;
+}
+button,.tool-btn{
+  border:1px solid var(--navy);
+  background:var(--navy);
+  color:#fff;
+  padding:10px 15px;
+  border-radius:4px;
+  font:bold 12px Arial,sans-serif;
+  text-decoration:none;
+  cursor:pointer;
+}
+button:hover,.tool-btn:hover{
+  background:var(--navy2);
+}
+#counter{
+  min-width:115px;
+  text-align:center;
+  font:bold 12px Arial,sans-serif;
+  color:#222;
+}
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+.page-card{
+  background:#fff;
+  border:2px solid transparent;
+  padding:6px;
+  cursor:pointer;
+}
+.page-card:hover,
+.page-card.active{
+  border-color:var(--navy);
+}
+.page-card img{
+  display:block;
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+}
+.page-card b{
+  display:block;
+  padding:7px 3px 2px;
+  color:var(--navy);
+  font:700 12px Arial,sans-serif;
+}
+.page-card span{
+  display:block;
+  padding:0 3px 5px;
+  color:var(--muted);
+  font:10px Arial,sans-serif;
+}
+
+/* Mobile drawer */
+.mobile-backdrop{
+  display:none;
+}
+.mobile-drawer{
+  display:none;
+}
+
+footer{
+  margin-top:20px;
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:24px 12px;
+  font:12px/1.6 Arial,sans-serif;
+}
+
+/* Tablet */
 @media(max-width:900px){
- .topgrid{grid-template-columns:1.5fr 1fr}
- .topgrid .news-card:nth-child(3){display:none}
- .latest-grid{grid-template-columns:1fr 1fr}
- .section-grid{grid-template-columns:1fr 1fr}
- .page-grid{grid-template-columns:repeat(3,1fr)}
+  .mast{padding:13px 14px}
+  .brand{font-size:44px}
+  .edition{min-width:130px;font-size:11px}
+  .desktop-nav a{padding:9px 12px;font-size:12px}
+  .page-grid{grid-template-columns:repeat(4,1fr)}
 }
+
+/* Phone */
 @media(max-width:650px){
- .mast{padding:10px 12px}.mark{display:none}.edition{display:block;min-width:auto;text-align:center;font-size:10px}.edition b{font-size:11px}.brand{font-size:29px}
- .desktop-nav{display:none}
+  .topline{height:4px}
+  .mast{
+    padding:14px 10px 12px;
+    display:block;
+  }
+  .brand{
+    font-size:38px;
+    line-height:.9;
+    letter-spacing:-1.2px;
+  }
+  .brand small{
+    font-size:8px;
+    letter-spacing:2px;
+    margin-top:10px;
+  }
+  .edition{
+    margin-top:12px;
+    min-width:0;
+    text-align:center;
+    font-size:11px;
+  }
+  .edition b{font-size:13px}
 
- body.menu-open{overflow:hidden}
- .mobile-nav{display:flex;background:var(--navy);padding:7px 10px;align-items:center;justify-content:space-between;gap:8px}
- .mobile-nav .menu-btn{display:flex;align-items:center;gap:6px;background:transparent;padding:8px 9px}
- .mobile-epaper-btn{background:#fff;color:var(--navy);padding:9px 11px;border-radius:4px;text-decoration:none}
- .mobile-backdrop{position:fixed;inset:0;z-index:1998;background:rgba(0,0,0,.48);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s ease}
- .mobile-drawer{position:fixed;top:0;left:0;bottom:0;width:min(86vw,420px);z-index:1999;background:#fff;box-shadow:8px 0 30px rgba(0,0,0,.35);overflow-y:auto;padding-bottom:20px;transform:translateX(-102%);transition:transform .22s ease;display:block;overscroll-behavior:contain}
- .mobile-drawer.open{transform:translateX(0)}
- .mobile-backdrop.open{opacity:1;visibility:visible;pointer-events:auto}
- .drawer-head{background:var(--navy);color:#fff;padding:16px 14px;display:flex;justify-content:space-between;align-items:center;font:700 14px Arial,sans-serif}
- .drawer-head button{background:transparent;padding:0;font-size:28px;line-height:1}
- .mobile-drawer>a{display:block;color:#172033;text-decoration:none;padding:12px 16px;border-bottom:1px solid #e4e7eb;font:700 13px Arial,sans-serif}
- .drawer-label{padding:12px 16px 5px;color:var(--red);font:700 10px Arial,sans-serif;letter-spacing:1px}
- .breaking-inner{padding:8px 10px}.ticker{display:none}.breaking-label{margin:auto}
- .topgrid{grid-template-columns:1fr}.topgrid .news-card:nth-child(3){display:block}.lead h1{font-size:25px}
- .latest-grid,.section-grid{grid-template-columns:1fr}
- .section-card{grid-template-columns:100px 1fr}.section-card img{width:100px;height:80px}
- .page-grid{grid-template-columns:repeat(2,1fr)}.container{padding:14px 10px}.section-title h2{font-size:18px}
- .highlights-box{padding:5px 10px}.highlight-list a{font-size:13px;padding:11px 3px}
+  .desktop-nav{display:none}
+
+  .mobile-nav{
+    display:flex;
+    background:var(--navy);
+    padding:8px 10px;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .menu-btn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    border:0;
+    background:transparent;
+    color:#fff;
+    padding:9px 7px;
+    font-size:15px;
+  }
+  .mobile-epaper-btn{
+    background:#fff;
+    color:var(--navy);
+    padding:10px 14px;
+    border-radius:4px;
+    text-decoration:none;
+    font:700 13px Arial,sans-serif;
+  }
+
+  .mobile-backdrop{
+    display:block;
+    position:fixed;
+    inset:0;
+    z-index:1998;
+    background:rgba(0,0,0,.5);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.2s;
+  }
+  .mobile-backdrop.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+  .mobile-drawer{
+    display:block;
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    width:min(86vw,390px);
+    z-index:1999;
+    background:#fff;
+    box-shadow:8px 0 30px rgba(0,0,0,.35);
+    overflow-y:auto;
+    transform:translateX(-102%);
+    transition:transform .22s ease;
+  }
+  .mobile-drawer.open{transform:translateX(0)}
+  .drawer-head{
+    background:var(--navy);
+    color:#fff;
+    padding:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font:700 14px Arial,sans-serif;
+  }
+  .drawer-head button{
+    background:transparent;
+    border:0;
+    padding:0;
+    font-size:28px;
+    line-height:1;
+  }
+  .mobile-drawer a{
+    display:block;
+    color:#172033;
+    text-decoration:none;
+    padding:15px 17px;
+    border-bottom:1px solid #e4e7eb;
+    font:700 14px Arial,sans-serif;
+  }
+  .mobile-drawer a:hover{
+    background:#f2f5f9;
+    color:var(--navy);
+  }
+
+  .section{padding:18px 10px}
+  .section-title h2{
+    font-size:20px;
+    padding:10px 14px;
+  }
+  .digital-panel{padding:20px 16px}
+  .digital-panel h1{font-size:29px}
+  .digital-panel p{font-size:14px}
+  .digital-actions{display:grid;grid-template-columns:1fr}
+  .btn{width:100%}
+
+  .epaper-shell{padding:5px}
+  .epaper-shell img{min-height:160px}
+  .epaper-tools{
+    gap:6px;
+    padding:9px 6px;
+  }
+  .epaper-tools button,
+  .epaper-tools .tool-btn{
+    padding:9px 10px;
+    font-size:11px;
+  }
+  #counter{width:100%;order:-1}
+  .page-grid{grid-template-columns:repeat(2,1fr);gap:8px}
 }
 
-/* Clickable highlights navigation */
-html{scroll-behavior:smooth}
-section[id]{scroll-margin-top:90px}
-.breaking-highlights{
- margin:0;
- padding:0 0 0 24px;
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:0 28px;
- list-style:disc;
-}
-.breaking-highlights li{
- padding:4px 0;
- line-height:1.4;
- color:#fff;
-}
-.breaking-highlights a{
- color:#fff;
- text-decoration:none;
-}
-.breaking-highlights a:hover,
-.breaking-highlights a:focus{
- text-decoration:underline;
-}
-
-
-@media(max-width:650px){
- .breaking-inner{align-items:flex-start}
- .breaking-label{margin:0;flex:0 0 auto}
- .breaking-highlights{grid-template-columns:1fr;padding-left:22px;gap:0}
- .breaking-highlights li{font-size:13px;padding:5px 0}
-}
-
+/* Prevent accidental horizontal overflow */
+img{max-width:100%}
+a,button{touch-action:manipulation}
 </style>
 </head>
 
@@ -145,401 +414,220 @@ section[id]{scroll-margin-top:90px}
 <div class="topline"></div>
 
 <header>
-<div class="mast">
- <div class="mark">H</div>
- <div class="brand">The Hyderabad Daily
-  <small>YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</small>
- </div>
- <div class="edition"><b>FRIDAY</b><br>18 SEPTEMBER 2026<br>HYDERABAD</div>
-</div>
- <div class="mobile-nav">
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰ <span>MENU</span></button>
-  <a class="mobile-epaper-btn" href="#epaper">E-PAPER</a>
- </div>
- <nav class="desktop-nav">
-  <a href="index.html">HOME</a>
-  <a href="digital-news.html">DIGITAL NEWS</a>
-  <a href="#hyderabad">HYDERABAD</a>
-  <a href="#telangana">TELANGANA</a>
-  <a href="#india">INDIA</a>
-  <a href="#world">WORLD</a>
-  <a href="#business">BUSINESS</a>
-  <a href="#sports">SPORTS</a>
-  <a href="#technology">TECHNOLOGY</a>
-  <a href="#entertainment">ENTERTAINMENT</a>
-  <a href="#epaper">E-PAPER</a>
- </nav>
- <div class="mobile-backdrop" id="mobileBackdrop" onclick="closeMenu()" aria-hidden="true"></div>
- <div class="mobile-drawer" id="mobileDrawer">
-  <div class="drawer-head"><b>THE HYDERABAD DAILY</b><button onclick="toggleMenu()" aria-label="Close menu">×</button></div>
-  <a href="index.html" onclick="closeMenu()">⌂ &nbsp; Home</a>
-  <a href="digital-news.html" onclick="closeMenu()">📰 &nbsp; Digital News</a>
-  <div class="drawer-label">CITY</div>
-  <a href="#hyderabad" onclick="toggleMenu()">Hyderabad</a>
-  <a href="#telangana" onclick="toggleMenu()">Telangana</a>
-  <div class="drawer-label">INDIA & WORLD</div>
-  <a href="#india" onclick="toggleMenu()">India</a>
-  <a href="#world" onclick="toggleMenu()">World</a>
-  <div class="drawer-label">BUSINESS</div>
-  <a href="#business" onclick="toggleMenu()">Business & Markets</a>
-  <div class="drawer-label">TECHNOLOGY</div>
-  <a href="#technology" onclick="toggleMenu()">Science & Technology</a>
-  <div class="drawer-label">ENTERTAINMENT</div>
-  <a href="#entertainment" onclick="toggleMenu()">Entertainment</a>
-  <div class="drawer-label">SPORTS</div>
-  <a href="#sports" onclick="toggleMenu()">Sports</a>
-  <a href="#epaper" onclick="closeMenu()">📰 &nbsp; Today's 10-Page E-Paper</a>
- </div>
+  <div class="mast">
+    <div class="brand">
+      The Hyderabad Daily
+      <small>YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.</small>
+    </div>
+    <div class="edition">
+      <b>FRIDAY</b><br>
+      18 SEPTEMBER 2026<br>
+      HYDERABAD
+    </div>
+  </div>
+
+  <div class="mobile-nav">
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰ <span>MENU</span></button>
+    <a class="mobile-epaper-btn" href="#epaper">E-PAPER</a>
+  </div>
+
+  <nav class="desktop-nav">
+    <a href="#digital-news" class="active">DIGITAL NEWS</a>
+    <a href="#epaper">E-PAPER</a>
+  </nav>
+
+  <div class="mobile-backdrop" id="mobileBackdrop" onclick="closeMenu()"></div>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-head">
+      <b>THE HYDERABAD DAILY</b>
+      <button onclick="closeMenu()" aria-label="Close menu">×</button>
+    </div>
+    <a href="#digital-news" onclick="closeMenu()">📰 &nbsp; Digital News</a>
+    <a href="#epaper" onclick="closeMenu()">📖 &nbsp; Today's E-Paper</a>
+  </div>
 </header>
 
-<div class="breaking" id="highlightsBar">
- <div class="breaking-inner">
-  <div class="breaking-label">HIGHLIGHTS</div>
-  <ul class="breaking-highlights">
-   <li><a href="#hyderabad">Hyderabad: Ganesh immersion arrangements, traffic and major city developments.</a></li>
-   <li><a href="#telangana">Telangana & Andhra Pradesh: Governance, infrastructure, transport and development updates.</a></li>
-   <li><a href="#india">India: National policy, economy, public services and major civic developments.</a></li>
-   <li><a href="#world">World: Major international developments and their relevance for India.</a></li>
-   <li><a href="#business">Business & Markets: Indian markets, investments and economic developments.</a></li>
-   <li><a href="#sports">Sports: Cricket, Asian Games preparation and Hyderabad sporting developments.</a></li>
-   <li><a href="#technology">Science & Technology: AI, energy, consumer technology and practical explainers.</a></li>
-   <li><a href="#entertainment">Entertainment: Tollywood, Bollywood, Hollywood, OTT and Hyderabad events.</a></li>
-   <li><a href="#epaper">Today's E-Paper: Open the complete 10-page edition.</a></li>
-  </ul>
- </div>
-</div>
-
-<main id="home">
-
-<section class="container">
- <div class="section-title"><h2>TOP STORIES</h2></div>
-
- <div class="topgrid">
-
-  <article class="lead">
-   <div class="lead-media">
-    <img src="page-01.png" alt="The Hyderabad Daily front page">
-   </div>
-   <div class="lead-copy">
-    <div class="kicker">National • Front Page</div>
-    <h1>PM Modi turns 76; nationwide seva campaign unites millions</h1>
-    <p>Month-long “Seva Sankalp Abhiyan” launches with blood donation, health and wellness programmes, cleanliness drives and support for vulnerable citizens.</p>
-    <a class="read" href="#epaper">READ IN TODAY'S E-PAPER →</a>
-   </div>
-  </article>
-
-  <article class="news-card">
-   <img src="page-02.png" alt="Telangana and Andhra Pradesh news">
-   <div class="news-copy">
-    <div class="kicker">Telangana</div>
-    <h3>Revanth Reddy vows action on 22-A land irregularities</h3>
-    <p>State government says suspected irregularities will be examined and eligible poor, especially Dalits, should not be denied land.</p>
-    <a class="read" href="#telangana">TELANGANA →</a>
-   </div>
-  </article>
-
-  <article class="news-card">
-   <img src="page-04.png" alt="Business and markets">
-   <div class="news-copy">
-    <div class="kicker">Business & Markets</div>
-    <h3>Sensex and Nifty recover as global signals shape market mood</h3>
-    <p>Indian investors track the latest US Federal Reserve decision, global risk sentiment and stocks in focus.</p>
-    <a class="read" href="#business">MARKETS →</a>
-   </div>
-  </article>
-
- </div>
-</section>
-
-
-<section class="container highlights" id="highlights">
- <div class="highlights-box">
-  <div class="highlights-title">HIGHLIGHTS</div>
-  <ul class="highlight-list">
-   <li><a href="#hyderabad">Metro expansion gains momentum as Hyderabad's Phase-II corridors move forward.</a></li>
-   <li><a href="#india">GST reforms and key Parliament developments remain major national policy stories.</a></li>
-   <li><a href="#telangana">Telangana governance, infrastructure and climate initiatives draw attention.</a></li>
-   <li><a href="#hyderabad">Hyderabad Ganesh immersion safety and traffic arrangements are in focus.</a></li>
-   <li><a href="#sports">India prepares for the Aichi-Nagoya Asian Games across multiple disciplines.</a></li>
-   <li><a href="#technology">Google, Microsoft and other technology leaders advance AI and cloud platforms.</a></li>
-   <li><a href="#technology">New smartphones, wearables and smart devices headline the technology desk.</a></li>
-   <li><a href="#entertainment">Tollywood, Bollywood, Hollywood and OTT releases shape the entertainment desk.</a></li>
-  </ul>
- </div>
-</section>
-
-
-<section class="container" id="hyderabad">
- <div class="section-title"><h2>HYDERABAD</h2></div>
- <div class="section-grid">
-
-  <article class="section-card">
-   <img src="page-10.png" alt="Khairatabad Ganesh">
-   <div><div class="kicker">City Life</div><h3>Khairatabad Bada Ganesh: 69-foot Panchamukha idol draws lakhs</h3><p>Major mandaps and immersion preparations remain a focus across Hyderabad.</p></div>
-  </article>
-
-  <article class="section-card">
-   <img src="page-10.png" alt="Balapur Ganesh">
-   <div><div class="kicker">Festivals</div><h3>Balapur Ganesh takes a Puri Jagannath Temple theme</h3><p>Devotees and visitors gather as the city's festive season reaches a major phase.</p></div>
-  </article>
-
-  <article class="section-card">
-   <img src="page-10.png" alt="Hyderabad traffic planning">
-   <div><div class="kicker">Traffic</div><h3>Necklace Road–Tank Bund immersion plan tightened</h3><p>Barricades, warning boards and designated access points are part of the arrangements.</p></div>
-  </article>
-
- </div>
-</section>
-
-
-<section class="container" id="telangana">
- <div class="section-title"><h2>TELANGANA • ANDHRA PRADESH</h2></div>
- <div class="section-grid">
-
-  <article class="section-card"><img src="page-02.png" alt="Telangana politics">
-   <div><div class="kicker">Politics</div><h3>BRS will face 2028 on its own, says KTR</h3><p>The party outlines its position ahead of the next Assembly election cycle.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-02.png" alt="Telangana bus stations">
-   <div><div class="kicker">Infrastructure</div><h3>13 hi-tech bus stations planned across Telangana</h3><p>The proposed network is aimed at modernising passenger facilities.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-02.png" alt="Andhra Pradesh infrastructure">
-   <div><div class="kicker">Andhra Pradesh</div><h3>APCRDA invites bids for key infrastructure works</h3><p>Infrastructure activity continues around the capital-region development programme.</p></div>
-  </article>
-
- </div>
-</section>
-
-
-<section class="container" id="india">
- <div class="section-title"><h2>INDIA</h2></div>
- <div class="latest-grid">
-
-  <div class="latest-item"><b>Swachhata Hi Seva 2026 begins nationwide</b><span>INDIA</span></div>
-  <div class="latest-item"><b>Railways unveils new passenger facilities and services</b><span>TRANSPORT</span></div>
-  <div class="latest-item"><b>Veteran actor Anant Nag to receive Dadasaheb Phalke Award</b><span>CULTURE</span></div>
-
- </div>
-</section>
-
-
-<section class="container" id="world">
- <div class="section-title"><h2>WORLD</h2></div>
- <div class="latest-grid">
-
-  <div class="latest-item"><b>US House Russia sanctions bill puts tariff powers in focus</b><span>UNITED STATES • GEOPOLITICS</span></div>
-  <div class="latest-item"><b>China says Xi Jinping is working normally amid online claims</b><span>CHINA • WORLD</span></div>
-  <div class="latest-item"><b>Global developments watched for their impact on India</b><span>WORLD • INDIA IMPACT</span></div>
-
- </div>
-</section>
-
-
-<section class="container" id="business">
- <div class="section-title"><h2>BUSINESS & MARKETS</h2></div>
- <div class="section-grid">
-
-  <article class="section-card"><img src="page-04.png" alt="Indian stock markets">
-   <div><div class="kicker">Markets</div><h3>Fed decision reshapes global market mood</h3><p>Investors assess the implications for equities, currencies and global risk appetite.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-04.png" alt="Telangana semiconductor opportunity">
-   <div><div class="kicker">Telangana Business</div><h3>Singapore firms explore Telangana semiconductor opportunity</h3><p>New investment interest adds to the state's technology and manufacturing push.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-04.png" alt="Andhra expansion">
-   <div><div class="kicker">Andhra Pradesh</div><h3>Coca-Cola bottler lines up ₹1,127 crore Andhra expansion</h3><p>The planned investment adds capacity and economic activity in the state.</p></div>
-  </article>
-
- </div>
-</section>
-
-
-<section class="container" id="sports">
- <div class="section-title"><h2>SPORTS</h2></div>
- <div class="section-grid">
-
-  <article class="section-card"><img src="page-08.png" alt="Indian cricket">
-   <div><div class="kicker">Cricket</div><h3>Rohit, Kohli return as India name West Indies ODI squad</h3><p>The selection adds experience to India's upcoming ODI campaign.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-08.png" alt="Asian Games">
-   <div><div class="kicker">Asian Games</div><h3>India eyes another 100-medal Asian Games haul</h3><p>Indian athletes prepare across disciplines for another major multi-sport campaign.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-08.png" alt="Hyderabad sports">
-   <div><div class="kicker">Hyderabad</div><h3>HCA Super League produces big hundreds and five-wicket hauls</h3><p>Local cricket continues to provide a strong platform for emerging players.</p></div>
-  </article>
-
- </div>
-</section>
-
-
-<section class="container" id="technology">
- <div class="section-title"><h2>SCIENCE & TECHNOLOGY</h2></div>
- <div class="section-grid">
-
-  <article class="section-card"><img src="page-07.png" alt="Home solar technology">
-   <div><div class="kicker">Energy</div><h3>Home solar: understanding PM-Surya Ghar benefits</h3><p>A practical guide to how rooftop solar can reduce household electricity costs.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-07.png" alt="Mobile phone display">
-   <div><div class="kicker">Tech Explainer</div><h3>What are Nits in mobile phones and why do they matter?</h3><p>Understanding screen brightness before buying your next phone.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-07.png" alt="Artificial intelligence">
-   <div><div class="kicker">AI</div><h3>10 smart ways to get better answers from ChatGPT</h3><p>Simple prompting habits that can improve everyday results.</p></div>
-  </article>
-
- </div>
-</section>
-
-
-<section class="container" id="entertainment">
- <div class="section-title"><h2>ENTERTAINMENT</h2></div>
- <div class="section-grid">
-
-  <article class="section-card"><img src="page-09.png" alt="Bollywood entertainment">
-   <div><div class="kicker">Bollywood</div><h3>Salman Khan gears up for Bigg Boss 20</h3><p>The television season remains a major entertainment talking point.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-09.png" alt="Tollywood film">
-   <div><div class="kicker">Tollywood</div><h3>The Paradise builds momentum ahead of September 24 release</h3><p>The upcoming film continues its promotional run.</p></div>
-  </article>
-
-  <article class="section-card"><img src="page-09.png" alt="Hyderabad live music">
-   <div><div class="kicker">Hyderabad Music</div><h3>Live music calendar adds new September and October shows</h3><p>Concerts and touring artists bring a busy season to the city.</p></div>
-  </article>
-
- </div>
-</section>
-
-
-<section class="container epaper" id="epaper">
- <div class="section-title"><h2>TODAY'S 10-PAGE E-PAPER</h2></div>
-
- <div class="epaper-shell">
-  <img id="pageImage" src="page-01.png" alt="The Hyderabad Daily Page 1">
- </div>
-
- <div class="epaper-tools">
-
-  <a class="btn secondary" href="index.html">
-    HOME
-  </a>
-
-  <a class="btn secondary" href="digital-news.html">
-    DIGITAL NEWS
-  </a>
-
-  <button onclick="previousPage()">‹ PREVIOUS</button>
-
-  <span id="counter">PAGE 01 OF 10</span>
-
-  <button onclick="nextPage()">NEXT ›</button>
-
-  <button onclick="fullScreen()">FULL SCREEN</button>
-</div>
-
- <div class="page-grid" id="pageGrid"></div>
-</section>
+<main class="page">
+
+  <!-- ONLY DIGITAL NEWS -->
+  <section class="section" id="digital-news">
+    <div class="section-title">
+      <h2>DIGITAL NEWS</h2>
+    </div>
+
+    <div class="digital-panel">
+      <h1>Digital News</h1>
+      <p>
+        Read the latest digital edition of The Hyderabad Daily.
+        The separate Digital News page remains the dedicated home for
+        continuously updated news content.
+      </p>
+
+      <div class="digital-actions">
+        <a class="btn" href="digital-news.html">OPEN DIGITAL NEWS →</a>
+        <a class="btn secondary" href="#epaper">OPEN TODAY'S E-PAPER ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONLY E-PAPER -->
+  <section class="section" id="epaper">
+    <div class="section-title">
+      <h2>TODAY'S E-PAPER</h2>
+    </div>
+
+    <div class="epaper-shell">
+      <img
+        id="pageImage"
+        src="page-01.png"
+        alt="The Hyderabad Daily E-Paper Page 1"
+        onerror="handleImageError(this)"
+      >
+    </div>
+
+    <div class="epaper-tools">
+      <button type="button" onclick="previousPage()">‹ PREVIOUS</button>
+      <span id="counter">PAGE 01 OF 10</span>
+      <button type="button" onclick="nextPage()">NEXT ›</button>
+      <button type="button" onclick="fullScreen()">FULL SCREEN</button>
+    </div>
+
+    <div class="page-grid" id="pageGrid" aria-label="E-paper pages"></div>
+  </section>
 
 </main>
 
 <footer>
- <b>THE HYDERABAD DAILY</b><br>
- Bigger Perspective. A Brighter Hyderabad.<br>
- © 2026 The Hyderabad Daily
+  <b>THE HYDERABAD DAILY</b><br>
+  Digital News • Today's E-Paper<br>
+  © 2026 The Hyderabad Daily
 </footer>
 
-
 <script>
-history.scrollRestoration="manual";
-window.addEventListener("load",()=>window.scrollTo(0,0));
-
-const pages=[
- ["page-01.png","01","FRONT PAGE"],
- ["page-02.png","02","TELANGANA • ANDHRA PRADESH"],
- ["page-03.png","03","INTERNATIONAL • NATIONAL"],
- ["page-04.png","04","BUSINESS & MARKETS"],
- ["page-05.png","05","INDIA • WORLD • HERITAGE & TRAVEL"],
- ["page-06.png","06","LIFE & LEISURE"],
- ["page-07.png","07","SCIENCE & TECHNOLOGY"],
- ["page-08.png","08","SPORTS"],
- ["page-09.png","09","ENTERTAINMENT"],
- ["page-10.png","10","CITY LIFE"]
+const pages = [
+  ["page-01.png","01","FRONT PAGE"],
+  ["page-02.png","02","TELANGANA • ANDHRA PRADESH"],
+  ["page-03.png","03","INTERNATIONAL • NATIONAL"],
+  ["page-04.png","04","BUSINESS & MARKETS"],
+  ["page-05.png","05","INDIA • WORLD • HERITAGE & TRAVEL"],
+  ["page-06.png","06","LIFE & LEISURE"],
+  ["page-07.png","07","SCIENCE & TECHNOLOGY"],
+  ["page-08.png","08","SPORTS"],
+  ["page-09.png","09","ENTERTAINMENT"],
+  ["page-10.png","10","CITY LIFE"]
 ];
 
-let current=0;
-const image=document.getElementById("pageImage");
-const counter=document.getElementById("counter");
-const grid=document.getElementById("pageGrid");
+let current = 0;
 
-pages.forEach((p,i)=>{
- const c=document.createElement("div");
- c.className="page-card";
- c.onclick=()=>showPage(i);
- c.innerHTML=`<img src="${p[0]}" loading="lazy" alt="Page ${p[1]}"><b>PAGE ${p[1]}</b><span>${p[2]}</span>`;
- grid.appendChild(c);
-});
+const image = document.getElementById("pageImage");
+const counter = document.getElementById("counter");
+const grid = document.getElementById("pageGrid");
 
-function openMenu(){
- const drawer=document.getElementById("mobileDrawer");
- const backdrop=document.getElementById("mobileBackdrop");
- if(drawer) drawer.classList.add("open");
- if(backdrop) backdrop.classList.add("open");
- document.body.classList.add("menu-open");
-}
-function closeMenu(){
- const drawer=document.getElementById("mobileDrawer");
- const backdrop=document.getElementById("mobileBackdrop");
- if(drawer) drawer.classList.remove("open");
- if(backdrop) backdrop.classList.remove("open");
- document.body.classList.remove("menu-open");
-}
-function toggleMenu(){
- const drawer=document.getElementById("mobileDrawer");
- if(drawer && drawer.classList.contains("open")) closeMenu();
- else openMenu();
-}
-document.addEventListener("keydown",e=>{
- if(e.key==="Escape") closeMenu();
-});
-document.addEventListener("click",e=>{
- const drawer=document.getElementById("mobileDrawer");
- const btn=e.target.closest(".menu-btn");
- if(drawer && drawer.classList.contains("open") && !drawer.contains(e.target) && !btn) closeMenu();
-});
-
-function showPage(n){
- current=Math.max(0,Math.min(n,pages.length-1));
- image.src=pages[current][0];
- image.alt="The Hyderabad Daily Page "+pages[current][1];
- counter.textContent="PAGE "+pages[current][1]+" OF 10";
- document.getElementById("epaper").scrollIntoView({behavior:"smooth",block:"start"});
+function buildPageGrid(){
+  pages.forEach((page,index)=>{
+    const card = document.createElement("div");
+    card.className = "page-card";
+    card.setAttribute("role","button");
+    card.setAttribute("tabindex","0");
+    card.innerHTML = `
+      <img src="${page[0]}" loading="lazy" alt="The Hyderabad Daily Page ${page[1]}">
+      <b>PAGE ${page[1]}</b>
+      <span>${page[2]}</span>
+    `;
+    card.addEventListener("click",()=>showPage(index));
+    card.addEventListener("keydown",(event)=>{
+      if(event.key==="Enter" || event.key===" "){
+        event.preventDefault();
+        showPage(index);
+      }
+    });
+    grid.appendChild(card);
+  });
 }
 
-function previousPage(){showPage(current-1)}
-function nextPage(){showPage(current+1)}
+function updateActiveCard(){
+  document.querySelectorAll(".page-card").forEach((card,index)=>{
+    card.classList.toggle("active",index===current);
+  });
+}
+
+function showPage(index){
+  current = Math.max(0,Math.min(index,pages.length-1));
+
+  image.src = pages[current][0];
+  image.alt = "The Hyderabad Daily E-Paper Page " + pages[current][1];
+  counter.textContent = "PAGE " + pages[current][1] + " OF 10";
+
+  updateActiveCard();
+}
+
+function previousPage(){
+  if(current>0) showPage(current-1);
+}
+
+function nextPage(){
+  if(current<pages.length-1) showPage(current+1);
+}
 
 function fullScreen(){
- const el=document.getElementById("pageImage");
- if(el.requestFullscreen)el.requestFullscreen();
- else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();
+  const el = document.getElementById("pageImage");
+
+  if(el.requestFullscreen){
+    el.requestFullscreen();
+  }else if(el.webkitRequestFullscreen){
+    el.webkitRequestFullscreen();
+  }else{
+    window.open(el.src,"_blank");
+  }
 }
 
-let startX=0;
+function handleImageError(img){
+  img.alt = "E-paper page could not be loaded. Check that page-01.png through page-10.png are in the same GitHub folder as index.html.";
+}
 
-image.addEventListener("touchstart",e=>{
- startX=e.touches[0].clientX;
+function openMenu(){
+  document.getElementById("mobileDrawer").classList.add("open");
+  document.getElementById("mobileBackdrop").classList.add("open");
+  document.body.classList.add("menu-open");
+}
+
+function closeMenu(){
+  document.getElementById("mobileDrawer").classList.remove("open");
+  document.getElementById("mobileBackdrop").classList.remove("open");
+  document.body.classList.remove("menu-open");
+}
+
+function toggleMenu(){
+  const drawer = document.getElementById("mobileDrawer");
+
+  if(drawer.classList.contains("open")){
+    closeMenu();
+  }else{
+    openMenu();
+  }
+}
+
+document.addEventListener("keydown",(event)=>{
+  if(event.key==="Escape") closeMenu();
+});
+
+let startX = 0;
+
+image.addEventListener("touchstart",(event)=>{
+  startX = event.touches[0].clientX;
 },{passive:true});
 
-image.addEventListener("touchend",e=>{
- const d=startX-e.changedTouches[0].clientX;
- if(Math.abs(d)>70)d>0?nextPage():previousPage();
+image.addEventListener("touchend",(event)=>{
+  const distance = startX - event.changedTouches[0].clientX;
+
+  if(Math.abs(distance)>70){
+    if(distance>0) nextPage();
+    else previousPage();
+  }
 },{passive:true});
 
+buildPageGrid();
 showPage(0);
 </script>
 
