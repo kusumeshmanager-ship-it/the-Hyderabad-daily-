@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -9,35 +8,23 @@
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>The Hyderabad Daily | Digital News</title>
+<title>The Hyderabad Daily — Digital News</title>
 
 <meta
   name="description"
-  content="The Hyderabad Daily — Independent Digital News"
->
-
-<meta
-  name="theme-color"
-  content="#0b2f6b"
+  content="The Hyderabad Daily Digital News — latest Hyderabad, Telangana, India and world news."
 >
 
 <style>
 
-/* =========================================================
-   THE HYDERABAD DAILY
-   DIGITAL NEWS
-========================================================= */
-
 :root{
-  --navy:#0b2f6b;
-  --navy2:#123f82;
-  --red:#d71920;
-  --ink:#111827;
-  --muted:#687483;
-  --bg:#eef2f6;
-  --line:#d5dce5;
-  --white:#ffffff;
-  --soft:#f5f7fa;
+  --red:#9d1118;
+  --dark:#171717;
+  --grey:#666;
+  --light:#f4f4f4;
+  --border:#d8d8d8;
+  --paper:#ffffff;
+  --gold:#b28a35;
 }
 
 *{
@@ -50,568 +37,367 @@ html{
 
 body{
   margin:0;
-  padding:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:Arial,Helvetica,sans-serif;
+  background:#eeeeee;
+  color:#171717;
+  font-family:Georgia,"Times New Roman",serif;
 }
-
-body.article-open{
-  overflow:hidden;
-}
-
-a{
-  color:inherit;
-}
-
 
 /* =========================================================
-   TOP LINE
+   TOP HEADER
 ========================================================= */
 
-.topline{
-  height:6px;
-
-  background:
-    linear-gradient(
-      to right,
-      var(--navy) 0%,
-      var(--navy) 70%,
-      var(--red) 70%,
-      var(--red) 100%
-    );
+.site-header{
+  background:#fff;
+  border-bottom:1px solid #222;
 }
 
+.header-inner{
+  width:min(1400px,96%);
+  margin:auto;
+}
 
-/* =========================================================
-   MASTHEAD
-========================================================= */
-
-.mast{
-  background:#ffffff;
-
-  width:100%;
-
-  padding:10px 20px 8px;
-
+.top-line{
   display:flex;
-
-  justify-content:center;
-
   align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:8px 0 5px;
+  border-bottom:1px solid #d5d5d5;
+}
+
+.date-box{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
+  font-weight:700;
+  color:#555;
+  white-space:nowrap;
+}
+
+.date-box span{
+  color:#111;
+}
+
+.logo-wrap{
+  text-align:center;
+  flex:1;
 }
 
 .mast-logo{
   display:block;
-
-  width:100%;
-
-  max-width:1150px;
-
+  width:auto;
+  max-width:min(560px,70vw);
+  max-height:105px;
   height:auto;
-
+  margin:2px auto 4px;
   object-fit:contain;
 }
 
-
-/* =========================================================
-   MAIN NAV
-========================================================= */
-
-.main-nav{
-  width:100%;
-
-  background:var(--navy);
-
-  border-bottom:
-    4px solid
-    var(--red);
-
-  min-height:54px;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    1fr
-    1fr;
-
-  align-items:center;
-}
-
-.date-display{
-  height:100%;
-
+.menu-area{
+  min-width:95px;
   display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  color:#ffffff;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  letter-spacing:.5px;
-
-  white-space:nowrap;
-
-  border-right:
-    1px solid
-    rgba(255,255,255,.18);
-}
-
-.date-display .dot{
-  margin:0 7px;
+  justify-content:flex-end;
 }
 
 .menu-button{
-  height:100%;
-
-  border:0;
-
-  background:transparent;
-
-  color:#ffffff;
-
+  border:1px solid #222;
+  background:#fff;
+  color:#111;
   font-family:Arial,Helvetica,sans-serif;
-
-  font-size:13px;
-
+  font-size:12px;
   font-weight:700;
-
-  letter-spacing:.8px;
-
+  padding:7px 11px;
   cursor:pointer;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:8px;
-
-  border-right:
-    1px solid
-    rgba(255,255,255,.18);
 }
 
 .menu-button:hover{
-  background:var(--navy2);
+  background:#111;
+  color:#fff;
 }
 
-.home-button{
-  height:100%;
-
+.main-nav{
   display:flex;
-
-  align-items:center;
-
   justify-content:center;
+  flex-wrap:wrap;
+  gap:4px;
+  padding:7px 0;
+}
 
-  color:#ffffff;
-
+.main-nav a{
   text-decoration:none;
-
-  font-size:13px;
-
+  color:#111;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
   font-weight:700;
-
-  letter-spacing:.8px;
+  padding:5px 9px;
+  border-right:1px solid #ccc;
 }
 
-.home-button:hover{
-  background:var(--navy2);
+.main-nav a:last-child{
+  border-right:0;
 }
 
+.main-nav a:hover{
+  color:var(--red);
+}
 
 /* =========================================================
    MOBILE DRAWER
 ========================================================= */
 
-.mobile-drawer{
-  display:none;
-
+.drawer{
   position:fixed;
-
-  inset:0;
-
-  width:100%;
-
-  height:100%;
-
-  background:
-    rgba(0,0,0,.45);
-
-  z-index:9999;
-}
-
-.mobile-drawer.open{
-  display:block;
-}
-
-.drawer-panel{
-  width:82%;
-
-  max-width:340px;
-
-  height:100%;
-
-  background:#ffffff;
-
-  box-shadow:
-    5px 0 20px
-    rgba(0,0,0,.2);
-
+  top:0;
+  right:-330px;
+  width:310px;
+  max-width:85vw;
+  height:100vh;
+  background:#fff;
+  z-index:10000;
+  box-shadow:-5px 0 25px rgba(0,0,0,.25);
+  transition:right .25s ease;
   overflow-y:auto;
 }
 
-.drawer-head{
-  background:var(--navy);
-
-  color:#ffffff;
-
-  padding:18px;
-
-  border-bottom:
-    4px solid
-    var(--red);
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
+.drawer.open{
+  right:0;
 }
 
-.drawer-head strong{
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+.drawer-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px;
+  border-bottom:1px solid #ddd;
+}
 
-  font-size:20px;
+.drawer-title{
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:800;
+  font-size:15px;
 }
 
 .drawer-close{
   border:0;
-
-  background:transparent;
-
-  color:#ffffff;
-
-  font-size:28px;
-
+  background:none;
+  font-size:25px;
   cursor:pointer;
 }
 
-.drawer-links a{
+.drawer a{
   display:block;
-
-  padding:16px 18px;
-
-  color:var(--navy);
-
+  padding:13px 17px;
+  color:#111;
   text-decoration:none;
-
+  border-bottom:1px solid #eee;
+  font-family:Arial,Helvetica,sans-serif;
   font-size:13px;
-
   font-weight:700;
-
-  border-bottom:
-    1px solid
-    #e5e9ee;
 }
 
-.drawer-links a:hover{
-  background:#f2f5f9;
+.drawer a:hover{
+  background:#f3f3f3;
+  color:var(--red);
 }
 
-
-/* =========================================================
-   BREAKING / LATEST HEADLINES
-========================================================= */
-
-.breaking{
-  width:100%;
-
-  background:#ffffff;
-
-  border-bottom:
-    1px solid
-    var(--line);
-}
-
-.breaking-inner{
-  width:100%;
-
-  max-width:1280px;
-
-  margin:0 auto;
-
-  min-height:45px;
-
-  display:flex;
-
-  align-items:stretch;
-}
-
-.breaking-label{
-  background:var(--red);
-
-  color:#ffffff;
-
-  min-width:125px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:8px 12px;
-
-  font-size:12px;
-
-  font-weight:800;
-
-  letter-spacing:.7px;
-}
-
-.ticker{
-  flex:1;
-
-  overflow-x:auto;
-
-  white-space:nowrap;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  padding:0 12px;
-
-  scrollbar-width:none;
-}
-
-.ticker::-webkit-scrollbar{
+.drawer-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:9999;
   display:none;
 }
 
-.ticker a{
-  color:var(--navy);
-
-  text-decoration:none;
-
-  font-size:12px;
-
-  font-weight:700;
+.drawer-overlay.open{
+  display:block;
 }
-
-.ticker a:hover{
-  text-decoration:underline;
-}
-
-.ticker-separator{
-  color:#9aa3ad;
-}
-
 
 /* =========================================================
-   PAGE
+   LATEST HIGHLIGHTS
 ========================================================= */
 
-.page{
-  width:100%;
-
-  max-width:1280px;
-
-  margin:0 auto;
-
-  padding:20px 14px 50px;
+.latest-bar{
+  background:#111;
+  color:#fff;
+  border-bottom:3px solid var(--red);
 }
 
-.container{
-  width:100%;
+.latest-inner{
+  width:min(1400px,96%);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:40px;
 }
 
+.latest-label{
+  flex:0 0 auto;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  background:var(--red);
+  padding:8px 10px;
+  letter-spacing:.3px;
+}
+
+.ticker-window{
+  flex:1;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.ticker-window::-webkit-scrollbar{
+  display:none;
+}
+
+.ticker-list{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+  padding:4px 0;
+}
+
+.ticker-item{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  cursor:pointer;
+  padding:5px 8px;
+  text-align:left;
+}
+
+.ticker-item:hover{
+  background:#2b2b2b;
+  color:#fff;
+}
+
+.ticker-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#fff;
+  flex:0 0 5px;
+}
 
 /* =========================================================
-   SECTION TITLE
+   MAIN CONTAINER
 ========================================================= */
+
+.page-wrap{
+  width:min(1400px,96%);
+  margin:15px auto 35px;
+}
+
+.section-head{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:13px 16px 10px;
+  margin-bottom:10px;
+}
+
+.section-title-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px;
+}
 
 .section-title{
-  margin-bottom:14px;
-
-  border-bottom:
-    4px solid
-    var(--navy);
-}
-
-.section-title h1{
-  display:inline-block;
-
   margin:0;
-
-  padding:11px 20px;
-
-  background:var(--navy);
-
-  color:#ffffff;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
   font-size:28px;
-
-  letter-spacing:.5px;
+  line-height:1.05;
+  text-transform:uppercase;
+  letter-spacing:-.4px;
 }
 
+.section-subtitle{
+  margin:4px 0 0;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  color:#666;
+}
+
+.update-status{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  color:#777;
+  white-space:nowrap;
+}
 
 /* =========================================================
-   LIVE STATUS
+   CATEGORY BAR
 ========================================================= */
 
-.livebar{
-  background:#ffffff;
-
-  border:
-    1px solid
-    var(--line);
-
-  min-height:44px;
-
+.category-bar{
   display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
-  padding:9px 13px;
-
-  margin-bottom:12px;
-}
-
-.live{
-  color:var(--red);
-
-  font-size:12px;
-
-  font-weight:900;
-
-  letter-spacing:.5px;
-}
-
-.status{
-  color:var(--muted);
-
-  font-size:12px;
-}
-
-
-/* =========================================================
-   CATEGORIES
-========================================================= */
-
-.toolbar{
-  display:flex;
-
   flex-wrap:wrap;
-
-  gap:7px;
-
-  margin-bottom:12px;
+  gap:5px;
+  background:#fff;
+  border:1px solid var(--border);
+  padding:7px;
+  margin-bottom:10px;
 }
 
-.toolbar button{
-  border:
-    1px solid
-    var(--navy);
-
-  background:#ffffff;
-
-  color:var(--navy);
-
-  padding:9px 13px;
-
-  border-radius:3px;
-
-  font-size:12px;
-
-  font-weight:800;
-
+.category-button{
+  border:1px solid #bbb;
+  background:#fff;
+  color:#222;
+  padding:6px 9px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  font-weight:700;
   cursor:pointer;
 }
 
-.toolbar button:hover,
-.toolbar button.active{
-  background:var(--navy);
-
-  color:#ffffff;
+.category-button:hover,
+.category-button.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
 }
-
 
 /* =========================================================
    SEARCH
 ========================================================= */
 
-.searchbar{
+.search-row{
   display:flex;
-
-  gap:8px;
-
-  margin-bottom:18px;
+  gap:7px;
+  margin-bottom:12px;
 }
 
-.searchbar input{
+.search-input{
   flex:1;
-
-  min-height:44px;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:#ffffff;
-
-  padding:10px 13px;
-
-  font-size:14px;
-
+  min-width:0;
+  border:1px solid #bbb;
+  background:#fff;
+  padding:9px 11px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
   outline:none;
 }
 
-.searchbar input:focus{
-  border-color:var(--navy);
+.search-input:focus{
+  border-color:#777;
 }
 
-.searchbar button{
-  min-width:105px;
-
-  border:0;
-
-  background:var(--navy);
-
-  color:#ffffff;
-
-  font-size:12px;
-
-  font-weight:800;
-
+.search-button{
+  border:1px solid #222;
+  background:#111;
+  color:#fff;
+  padding:0 15px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  font-weight:700;
   cursor:pointer;
 }
-
-.searchbar button:hover{
-  background:var(--navy2);
-}
-
 
 /* =========================================================
    NEWS GRID
@@ -619,833 +405,666 @@ a{
 
 .news-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0,1fr)
-    );
-
-  gap:15px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:11px;
 }
-
-
-/* =========================================================
-   NEWS CARD
-========================================================= */
 
 .news-card{
-  background:#ffffff;
-
-  border:
-    1px solid
-    var(--line);
-
-  box-shadow:
-    0 2px 8px
-    rgba(0,0,0,.04);
-
-  display:flex;
-
-  flex-direction:column;
-
+  background:#fff;
+  border:1px solid #d1d1d1;
   min-width:0;
+  display:flex;
+  flex-direction:column;
+  transition:box-shadow .15s ease, transform .15s ease;
 }
 
-.news-card.featured{
-  grid-column:
-    span 2;
-
-  border-top:
-    4px solid
-    var(--red);
+.news-card:hover{
+  box-shadow:0 3px 12px rgba(0,0,0,.09);
+  transform:translateY(-1px);
 }
 
-.news-content{
-  padding:17px;
+.news-card-inner{
+  padding:12px 13px 11px;
+  display:flex;
+  flex-direction:column;
+  height:100%;
 }
 
-.news-meta{
+.news-category{
+  font-family:Arial,Helvetica,sans-serif;
   color:var(--red);
-
-  font-size:10px;
-
+  font-size:9px;
   font-weight:900;
-
-  letter-spacing:.8px;
-
-  margin-bottom:7px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  margin-bottom:5px;
 }
 
 .news-title{
-  margin:0 0 9px;
-
-  color:var(--navy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:21px;
-
-  line-height:1.2;
-}
-
-.news-card.featured .news-title{
-  font-size:29px;
-}
-
-.news-description{
-  margin:0 0 12px;
-
-  color:#424b56;
-
-  font-size:14px;
-
-  line-height:1.6;
-}
-
-.news-date{
-  color:#7a8490;
-
-  font-size:10px;
-
-  margin-bottom:13px;
-}
-
-.read-more{
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  min-height:38px;
-
-  padding:9px 13px;
-
-  background:var(--navy);
-
-  color:#ffffff;
-
-  text-decoration:none;
-
-  font-size:11px;
-
+  margin:0 0 6px;
+  font-size:18px;
+  line-height:1.17;
   font-weight:800;
-
-  letter-spacing:.3px;
-
-  border-radius:3px;
-
-  cursor:pointer;
 }
 
-.read-more:hover{
-  background:var(--navy2);
+.news-summary{
+  margin:0 0 8px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
+  line-height:1.5;
+  color:#3f3f3f;
+
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:6;
+  overflow:hidden;
 }
 
-
-/* =========================================================
-   LOADING / ERROR
-========================================================= */
-
-.loading,
-.empty,
-.error{
-  grid-column:
-    1 / -1;
-
-  background:#ffffff;
-
-  border:
-    1px solid
-    var(--line);
-
-  padding:35px 20px;
-
-  text-align:center;
-
-  color:var(--muted);
-
-  font-size:14px;
+.news-meta{
+  margin-top:auto;
+  padding-top:7px;
+  border-top:1px solid #ededed;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
 }
 
-.error{
+.news-time{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:9px;
+  color:#777;
+}
+
+.read-button{
+  border:0;
+  background:none;
   color:var(--red);
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+  text-transform:uppercase;
 }
 
+.read-button:hover{
+  text-decoration:underline;
+}
 
 /* =========================================================
-   INTERNAL ARTICLE READER
+   EMPTY / LOADING
 ========================================================= */
 
-.article-reader{
+.loading-box,
+.empty-box,
+.error-box{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:25px;
+  text-align:center;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:13px;
+  color:#666;
+}
+
+.spinner{
+  width:23px;
+  height:23px;
+  border:3px solid #ddd;
+  border-top-color:#111;
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  margin:0 auto 10px;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* =========================================================
+   ARTICLE READER
+========================================================= */
+
+.article-overlay{
   position:fixed;
-
   inset:0;
-
-  z-index:10000;
-
-  background:#eef2f6;
-
+  z-index:20000;
+  background:rgba(0,0,0,.72);
   overflow-y:auto;
-
   display:none;
 }
 
-.article-reader.open{
+.article-overlay.open{
   display:block;
 }
 
-.article-header{
+.article-reader{
+  width:min(1120px,96%);
+  margin:20px auto 35px;
+  background:#fff;
+  min-height:calc(100vh - 55px);
+  box-shadow:0 8px 35px rgba(0,0,0,.3);
+}
+
+.article-topbar{
   position:sticky;
-
   top:0;
-
   z-index:5;
-
-  background:#ffffff;
-
-  border-bottom:
-    1px solid
-    var(--line);
-
-  box-shadow:
-    0 2px 10px
-    rgba(0,0,0,.08);
-}
-
-.article-nav{
-  max-width:1180px;
-
-  margin:auto;
-
-  min-height:54px;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
-  gap:10px;
-
-  padding:8px 14px;
+  gap:12px;
+  padding:8px 13px;
+  background:#111;
+  color:#fff;
 }
 
-.back-button{
-  border:0;
-
-  background:var(--navy);
-
-  color:#ffffff;
-
-  padding:10px 14px;
-
-  border-radius:3px;
-
-  font-size:12px;
-
-  font-weight:800;
-
+.article-back{
+  border:1px solid #555;
+  background:#222;
+  color:#fff;
+  padding:7px 10px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  font-weight:700;
   cursor:pointer;
 }
 
-.back-button:hover{
-  background:var(--navy2);
+.article-back:hover{
+  background:#333;
 }
 
 .article-brand{
-  color:var(--navy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:20px;
-
-  font-weight:700;
-
-  text-align:center;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  font-weight:800;
 }
 
 .article-source{
-  border:
-    1px solid
-    var(--navy);
-
-  background:#ffffff;
-
-  color:var(--navy);
-
-  padding:9px 12px;
-
-  border-radius:3px;
-
+  border:1px solid #aaa;
+  background:#fff;
+  color:#111;
   text-decoration:none;
-
-  font-size:11px;
-
+  padding:7px 10px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
   font-weight:800;
-
   white-space:nowrap;
 }
 
 .article-source:hover{
-  background:var(--navy);
-
-  color:#ffffff;
+  background:#eee;
 }
 
 .article-body{
-  width:100%;
-
-  max-width:900px;
-
-  margin:25px auto 60px;
-
-  background:#ffffff;
-
-  padding:30px 34px;
-
-  border:
-    1px solid
-    var(--line);
-
-  box-shadow:
-    0 3px 15px
-    rgba(0,0,0,.06);
+  max-width:1080px;
+  margin:0 auto;
+  padding:20px 30px 35px;
 }
 
 .article-category{
-  color:var(--red);
-
-  font-size:11px;
-
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
   font-weight:900;
-
-  letter-spacing:1px;
-
-  margin-bottom:9px;
+  text-transform:uppercase;
+  color:var(--red);
+  letter-spacing:.6px;
+  margin-bottom:7px;
 }
 
 .article-title{
-  margin:0 0 12px;
-
-  color:var(--navy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      30px,
-      5vw,
-      50px
-    );
-
-  line-height:1.08;
+  margin:0 0 8px;
+  font-size:36px;
+  line-height:1.1;
+  letter-spacing:-.35px;
+  max-width:100%;
 }
 
-.article-byline{
-  border-top:
-    1px solid
-    var(--line);
-
-  border-bottom:
-    1px solid
-    var(--line);
-
-  padding:10px 0;
-
-  margin-bottom:22px;
-
-  color:#6c7682;
-
-  font-size:11px;
+.article-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 15px;
+  padding-bottom:10px;
+  margin-bottom:12px;
+  border-bottom:1px solid #ddd;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  color:#777;
 }
 
 .article-lead{
-  color:#28323d;
-
-  font-size:18px;
-
-  line-height:1.65;
-
-  font-weight:600;
-
-  margin-bottom:24px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  font-weight:700;
+  color:#333;
+  margin:0 0 15px;
 }
 
 .article-copy{
-  color:#252c34;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:17px;
-
-  line-height:1.8;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:15px;
+  line-height:1.65;
+  color:#222;
 }
 
 .article-copy p{
-  margin:
-    0 0
-    18px;
+  margin:0 0 12px;
 }
 
 .article-points{
-  background:#f4f6f9;
-
-  border-left:
-    4px solid
-    var(--navy);
-
-  padding:15px 18px;
-
-  margin:
-    22px 0;
+  border-left:3px solid var(--red);
+  background:#f7f7f7;
+  padding:10px 14px;
+  margin:15px 0;
 }
 
-.article-points h3{
-  margin:
-    0 0
-    9px;
-
-  color:var(--navy);
-
+.article-points-title{
   font-family:Arial,Helvetica,sans-serif;
-
-  font-size:14px;
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:6px;
 }
 
 .article-points ul{
   margin:0;
-
-  padding-left:20px;
+  padding-left:18px;
 }
 
 .article-points li{
-  margin-bottom:7px;
-
-  font-size:14px;
-
-  line-height:1.5;
-}
-
-.source-note{
-  margin-top:30px;
-
-  padding-top:15px;
-
-  border-top:
-    1px solid
-    var(--line);
-
-  color:#687483;
-
+  margin:0 0 5px;
   font-family:Arial,Helvetica,sans-serif;
-
-  font-size:11px;
-
-  line-height:1.5;
+  font-size:13px;
+  line-height:1.45;
 }
 
+.article-original-note{
+  margin-top:18px;
+  padding-top:11px;
+  border-top:1px solid #ddd;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  line-height:1.5;
+  color:#777;
+}
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
-footer{
-  background:var(--navy);
-
-  color:#ffffff;
-
+.footer{
+  margin-top:20px;
+  background:#111;
+  color:#fff;
   text-align:center;
+  padding:18px 10px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+}
 
-  padding:28px 15px;
-
+.footer strong{
   font-size:12px;
-
-  line-height:1.7;
 }
-
-.footer-brand{
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:20px;
-
-  font-weight:700;
-}
-
-.footer-nav{
-  margin-top:12px;
-
-  display:flex;
-
-  justify-content:center;
-
-  gap:18px;
-
-  flex-wrap:wrap;
-}
-
-.footer-nav a{
-  color:#ffffff;
-
-  text-decoration:none;
-
-  font-size:11px;
-
-  font-weight:800;
-}
-
-.footer-nav a:hover{
-  text-decoration:underline;
-}
-
 
 /* =========================================================
-   TABLET
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:950px){
+@media(max-width:1050px){
 
   .news-grid{
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0,1fr)
-      );
-  }
-
-  .news-card.featured{
-    grid-column:
-      span 2;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:650px){
-
-  .topline{
-    height:4px;
-  }
-
-  .mast{
-    padding:9px 10px 7px;
-  }
-
-  .main-nav{
-    min-height:50px;
-  }
-
-  .date-display{
-    font-size:10px;
-  }
-
-  .menu-button,
-  .home-button{
-    font-size:11px;
-  }
-
-  .breaking-label{
-    min-width:92px;
-
-    font-size:10px;
-  }
-
-  .ticker a{
-    font-size:11px;
-  }
-
-  .page{
-    padding:
-      14px
-      9px
-      40px;
-  }
-
-  .section-title h1{
-    font-size:21px;
-
-    padding:
-      9px
-      13px;
-  }
-
-  .livebar{
-    display:block;
-
-    padding:10px;
-  }
-
-  .live{
-    display:block;
-
-    margin-bottom:5px;
-  }
-
-  .toolbar{
-    gap:5px;
-  }
-
-  .toolbar button{
-    padding:
-      8px
-      9px;
-
-    font-size:10px;
-  }
-
-  .searchbar{
-    display:grid;
-
-    grid-template-columns:
-      1fr;
-
-    gap:6px;
-  }
-
-  .searchbar button{
-    min-height:42px;
-  }
-
-  .news-grid{
-    grid-template-columns:
-      1fr;
-
-    gap:10px;
-  }
-
-  .news-card.featured{
-    grid-column:
-      span 1;
-  }
-
-  .news-card.featured .news-title{
-    font-size:25px;
-  }
-
-  .news-title{
-    font-size:19px;
-  }
-
-  .news-content{
-    padding:14px;
-  }
-
-  .article-nav{
-    padding:
-      7px
-      8px;
-
-    min-height:52px;
-  }
-
-  .article-brand{
-    font-size:14px;
-  }
-
-  .back-button,
-  .article-source{
-    padding:
-      8px
-      9px;
-
-    font-size:9px;
-  }
-
-  .article-body{
-    margin:
-      10px
-      7px
-      30px;
-
-    padding:
-      21px
-      17px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
   .article-title{
-    font-size:31px;
+    font-size:32px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .header-inner{
+    width:100%;
+  }
+
+  .top-line{
+    padding:6px 9px 5px;
+    gap:8px;
+  }
+
+  .date-box{
+    font-size:9px;
+  }
+
+  .mast-logo{
+    max-width:58vw;
+    max-height:75px;
+  }
+
+  .menu-area{
+    min-width:auto;
+  }
+
+  .menu-button{
+    font-size:10px;
+    padding:6px 8px;
+  }
+
+  .main-nav{
+    display:none;
+  }
+
+  .latest-inner{
+    width:100%;
+  }
+
+  .latest-label{
+    font-size:9px;
+    padding:8px 7px;
+  }
+
+  .ticker-item{
+    font-size:10px;
+  }
+
+  .page-wrap{
+    width:100%;
+    margin:9px auto 20px;
+  }
+
+  .section-head{
+    border-left:0;
+    border-right:0;
+    padding:10px 10px 8px;
+  }
+
+  .section-title{
+    font-size:23px;
+  }
+
+  .section-title-row{
+    align-items:flex-start;
+  }
+
+  .update-status{
+    font-size:8px;
+  }
+
+  .category-bar{
+    border-left:0;
+    border-right:0;
+    padding:6px;
+  }
+
+  .search-row{
+    padding:0 7px;
+  }
+
+  .news-grid{
+    grid-template-columns:1fr;
+    gap:7px;
+  }
+
+  .news-card{
+    border-left:0;
+    border-right:0;
+  }
+
+  .news-card-inner{
+    padding:10px 11px 9px;
+  }
+
+  .news-title{
+    font-size:17px;
+    line-height:1.18;
+  }
+
+  .news-summary{
+    font-size:11.5px;
+    line-height:1.48;
+    -webkit-line-clamp:7;
+  }
+
+  .article-reader{
+    width:100%;
+    margin:0;
+    min-height:100vh;
+  }
+
+  .article-topbar{
+    padding:7px 8px;
+  }
+
+  .article-brand{
+    display:none;
+  }
+
+  .article-body{
+    margin:8px 5px 25px;
+    padding:17px 14px;
+  }
+
+  .article-title{
+    font-size:25px;
+    line-height:1.18;
+    letter-spacing:-.2px;
   }
 
   .article-lead{
-    font-size:16px;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:13px;
   }
 
   .article-copy{
-    font-size:16px;
+    font-size:14px;
+    line-height:1.6;
+  }
 
-    line-height:1.75;
+  .article-copy p{
+    margin-bottom:11px;
+  }
+
+  .article-points{
+    padding:9px 11px;
+    margin:13px 0;
+  }
+
+  .article-points li{
+    font-size:12.5px;
+    line-height:1.45;
+  }
+
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+  .site-header,
+  .latest-bar,
+  .category-bar,
+  .search-row,
+  .footer,
+  .article-overlay{
+    display:none!important;
+  }
+
+  body{
+    background:#fff;
+  }
+
+  .page-wrap{
+    width:100%;
+    margin:0;
+  }
+
+  .news-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-<div class="topline"></div>
-
-
 <!-- =======================================================
-     MASTHEAD
-======================================================= -->
+     HEADER
+======================================================== -->
 
-<header>
+<header class="site-header">
 
-  <div class="mast">
+  <div class="header-inner">
 
-    <img
-      class="mast-logo"
-      src="masthead-logo(1).png"
-      alt="The Hyderabad Daily"
-    >
+    <div class="top-line">
 
-  </div>
+      <!-- DATE / DAY BEFORE MENU -->
+      <div class="date-box">
+        <span id="currentDay">Loading...</span>
+        <br>
+        <span id="currentDate">Loading...</span>
+      </div>
 
+      <!-- MASTHEAD -->
+      <div class="logo-wrap">
+        <a href="index.html" aria-label="The Hyderabad Daily Home">
+          <img
+            class="mast-logo"
+            src="masthead-logo(1).png"
+            alt="The Hyderabad Daily"
+          >
+        </a>
+      </div>
 
-  <!-- =====================================================
-       NAVIGATION
-  ====================================================== -->
-
-  <nav class="main-nav">
-
-    <div
-      class="date-display"
-      aria-label="Today's date"
-    >
-
-      <span id="dayText">
-        FRIDAY
-      </span>
-
-      <span class="dot">
-        •
-      </span>
-
-      <span id="dateText">
-        18 SEPTEMBER 2026
-      </span>
+      <!-- MENU -->
+      <div class="menu-area">
+        <button
+          class="menu-button"
+          id="menuButton"
+          type="button"
+        >
+          ☰ MENU
+        </button>
+      </div>
 
     </div>
 
+    <!-- DESKTOP NAVIGATION -->
+    <nav class="main-nav">
 
-    <button
-      class="menu-button"
-      type="button"
-      onclick="toggleMenu()"
-    >
+      <a href="index.html">HOME</a>
 
-      ☰
+      <a href="digital-news.html">DIGITAL NEWS</a>
 
-      MENU
+      <a href="#hyderabad">HYDERABAD</a>
 
-    </button>
+      <a href="#telangana">TELANGANA</a>
 
+      <a href="#india">INDIA</a>
 
-    <a
-      class="home-button"
-      href="index.html"
-    >
+      <a href="#world">WORLD</a>
 
-      HOME
+      <a href="#business">BUSINESS</a>
 
-    </a>
+      <a href="#technology">TECHNOLOGY</a>
 
-  </nav>
+      <a href="#sports">SPORTS</a>
+
+      <a href="#entertainment">ENTERTAINMENT</a>
+
+    </nav>
+
+  </div>
 
 </header>
 
 
 <!-- =======================================================
      MOBILE DRAWER
-======================================================= -->
+======================================================== -->
 
 <div
-  class="mobile-drawer"
-  id="mobileDrawer"
-  onclick="closeDrawerOutside(event)"
+  class="drawer-overlay"
+  id="drawerOverlay"
+></div>
+
+<aside
+  class="drawer"
+  id="drawer"
 >
 
-  <div class="drawer-panel">
+  <div class="drawer-head">
 
-    <div class="drawer-head">
-
-      <strong>
-        THE HYDERABAD DAILY
-      </strong>
-
-      <button
-        class="drawer-close"
-        type="button"
-        onclick="toggleMenu()"
-        aria-label="Close menu"
-      >
-        ×
-      </button>
-
+    <div class="drawer-title">
+      THE HYDERABAD DAILY
     </div>
 
-
-    <div class="drawer-links">
-
-      <a href="index.html">
-        🏠 HOME
-      </a>
-
-      <a href="digital-news.html">
-        📰 DIGITAL NEWS
-      </a>
-
-      <a href="index.html#epaper">
-        📖 TODAY'S E-PAPER
-      </a>
-
-    </div>
+    <button
+      class="drawer-close"
+      id="drawerClose"
+      type="button"
+      aria-label="Close menu"
+    >
+      ×
+    </button>
 
   </div>
 
-</div>
+  <a href="index.html">HOME</a>
+
+  <a href="digital-news.html">DIGITAL NEWS</a>
+
+  <a href="#hyderabad">HYDERABAD</a>
+
+  <a href="#telangana">TELANGANA</a>
+
+  <a href="#india">INDIA</a>
+
+  <a href="#world">WORLD</a>
+
+  <a href="#business">BUSINESS</a>
+
+  <a href="#technology">TECHNOLOGY</a>
+
+  <a href="#sports">SPORTS</a>
+
+  <a href="#entertainment">ENTERTAINMENT</a>
+
+</aside>
 
 
 <!-- =======================================================
-     LATEST NEWS
-======================================================= -->
+     LATEST HIGHLIGHTS
+======================================================== -->
 
-<section class="breaking">
+<section class="latest-bar">
 
-  <div class="breaking-inner">
+  <div class="latest-inner">
 
-    <div class="breaking-label">
-      LATEST NEWS
+    <div class="latest-label">
+      LATEST
     </div>
 
-    <div
-      class="ticker"
-      id="ticker"
-    >
-      Loading latest headlines…
+    <div class="ticker-window">
+
+      <div
+        class="ticker-list"
+        id="tickerList"
+      >
+        <span class="ticker-item">
+          Loading latest highlights...
+        </span>
+      </div>
+
     </div>
 
   </div>
@@ -1455,144 +1074,155 @@ footer{
 
 <!-- =======================================================
      MAIN DIGITAL NEWS
-======================================================= -->
+======================================================== -->
 
-<main class="page">
+<main
+  class="page-wrap"
+  id="digitalNews"
+>
 
-  <section class="container">
+  <section class="section-head">
 
+    <div class="section-title-row">
 
-    <div class="section-title">
+      <div>
 
-      <h1>
-        DIGITAL NEWS
-      </h1>
+        <h1 class="section-title">
+          Digital News
+        </h1>
 
-    </div>
-
-
-    <div class="livebar">
-
-      <span class="live">
-        ● LIVE DIGITAL NEWS
-      </span>
-
-      <span
-        class="status"
-        id="status"
-      >
-        Loading latest verified headlines…
-      </span>
-
-    </div>
-
-
-    <!-- =================================================
-         CATEGORIES
-    ================================================== -->
-
-    <div
-      class="toolbar"
-      id="filters"
-    >
-
-      <button
-        class="active"
-        type="button"
-        data-q="Hyderabad Telangana"
-      >
-        Hyderabad
-      </button>
-
-      <button
-        type="button"
-        data-q="Telangana Andhra Pradesh"
-      >
-        Telangana • AP
-      </button>
-
-      <button
-        type="button"
-        data-q="India"
-      >
-        India
-      </button>
-
-      <button
-        type="button"
-        data-q="World"
-      >
-        World
-      </button>
-
-      <button
-        type="button"
-        data-q="Business India"
-      >
-        Business
-      </button>
-
-      <button
-        type="button"
-        data-q="Technology India"
-      >
-        Technology
-      </button>
-
-      <button
-        type="button"
-        data-q="Sports India"
-      >
-        Sports
-      </button>
-
-      <button
-        type="button"
-        data-q="Entertainment India"
-      >
-        Entertainment
-      </button>
-
-    </div>
-
-
-    <!-- =================================================
-         SEARCH
-    ================================================== -->
-
-    <div class="searchbar">
-
-      <input
-        id="searchBox"
-        type="search"
-        placeholder="Search today's digital news..."
-        aria-label="Search digital news"
-      >
-
-      <button
-        id="searchBtn"
-        type="button"
-      >
-        SEARCH
-      </button>
-
-    </div>
-
-
-    <!-- =================================================
-         NEWS
-    ================================================== -->
-
-    <div
-      id="news"
-      class="news-grid"
-    >
-
-      <div class="loading">
-
-        Loading latest Digital News…
+        <p class="section-subtitle">
+          Latest developments across Hyderabad, Telangana, India and the world
+        </p>
 
       </div>
+
+      <div
+        class="update-status"
+        id="updateStatus"
+      >
+        Updating...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORY FILTERS -->
+
+  <div class="category-bar">
+
+    <button
+      class="category-button active"
+      data-category="all"
+      type="button"
+    >
+      ALL
+    </button>
+
+    <button
+      class="category-button"
+      data-category="Hyderabad"
+      type="button"
+    >
+      HYDERABAD
+    </button>
+
+    <button
+      class="category-button"
+      data-category="Telangana"
+      type="button"
+    >
+      TELANGANA
+    </button>
+
+    <button
+      class="category-button"
+      data-category="India"
+      type="button"
+    >
+      INDIA
+    </button>
+
+    <button
+      class="category-button"
+      data-category="World"
+      type="button"
+    >
+      WORLD
+    </button>
+
+    <button
+      class="category-button"
+      data-category="Business"
+      type="button"
+    >
+      BUSINESS
+    </button>
+
+    <button
+      class="category-button"
+      data-category="Technology"
+      type="button"
+    >
+      TECHNOLOGY
+    </button>
+
+    <button
+      class="category-button"
+      data-category="Sports"
+      type="button"
+    >
+      SPORTS
+    </button>
+
+    <button
+      class="category-button"
+      data-category="Entertainment"
+      type="button"
+    >
+      ENTERTAINMENT
+    </button>
+
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div class="search-row">
+
+    <input
+      type="search"
+      class="search-input"
+      id="searchInput"
+      placeholder="Search Digital News..."
+      autocomplete="off"
+    >
+
+    <button
+      class="search-button"
+      id="searchButton"
+      type="button"
+    >
+      SEARCH
+    </button>
+
+  </div>
+
+
+  <!-- NEWS -->
+
+  <section
+    class="news-grid"
+    id="newsGrid"
+  >
+
+    <div class="loading-box">
+
+      <div class="spinner"></div>
+
+      Loading latest Digital News...
 
     </div>
 
@@ -1602,236 +1232,274 @@ footer{
 
 
 <!-- =======================================================
-     INTERNAL ARTICLE READER
-======================================================= -->
+     FOOTER
+======================================================== -->
 
-<section
-  class="article-reader"
-  id="articleReader"
-  aria-hidden="true"
+<footer class="footer">
+
+  <strong>
+    THE HYDERABAD DAILY
+  </strong>
+
+  <br>
+
+  Digital News
+
+  <br><br>
+
+  Updated automatically with the latest available news feeds.
+
+</footer>
+
+
+<!-- =======================================================
+     ARTICLE READER
+======================================================== -->
+
+<div
+  class="article-overlay"
+  id="articleOverlay"
 >
 
-  <header class="article-header">
+  <article class="article-reader">
 
-    <div class="article-nav">
+    <div class="article-topbar">
 
       <button
-        class="back-button"
+        class="article-back"
+        id="articleBack"
         type="button"
-        onclick="closeArticle()"
       >
-
         ← BACK TO DIGITAL NEWS
-
       </button>
 
-
       <div class="article-brand">
-
         THE HYDERABAD DAILY
-
       </div>
 
-
       <a
+        href="#"
         class="article-source"
         id="articleSource"
-        href="#"
         target="_blank"
         rel="noopener noreferrer"
-        style="display:none;"
       >
-
         ORIGINAL SOURCE ↗
-
       </a>
 
     </div>
 
-  </header>
+
+    <div class="article-body">
+
+      <div
+        class="article-category"
+        id="articleCategory"
+      ></div>
+
+      <h1
+        class="article-title"
+        id="articleTitle"
+      ></h1>
+
+      <div class="article-meta">
+
+        <span id="articleDate"></span>
+
+        <span>
+          The Hyderabad Daily Digital News
+        </span>
+
+      </div>
 
 
-  <article class="article-body">
+      <!-- SUMMARY APPEARS ONCE ONLY -->
 
-    <div
-      class="article-category"
-      id="articleCategory"
-    >
-      DIGITAL NEWS
-    </div>
+      <div
+        class="article-lead"
+        id="articleLead"
+      ></div>
 
 
-    <h1
-      class="article-title"
-      id="articleTitle"
-    >
-      —
-    </h1>
+      <!-- ARTICLE DETAILS -->
+
+      <div
+        class="article-copy"
+        id="articleCopy"
+      ></div>
 
 
-    <div
-      class="article-byline"
-      id="articleByline"
-    >
-      THE HYDERABAD DAILY • DIGITAL NEWS
-    </div>
+      <div
+        class="article-points"
+        id="articlePointsBox"
+        style="display:none;"
+      >
+
+        <div class="article-points-title">
+          Key Details
+        </div>
+
+        <ul id="articlePoints"></ul>
+
+      </div>
 
 
-    <div
-      class="article-lead"
-      id="articleLead"
-    >
-      —
-    </div>
+      <div class="article-original-note">
 
+        This Digital News page provides a concise news summary
+        and links to the original publication for the complete
+        report. The original publication remains the authoritative
+        source for its full article.
 
-    <div
-      class="article-copy"
-      id="articleCopy"
-    >
-    </div>
-
-
-    <div
-      class="article-points"
-      id="articlePoints"
-      style="display:none;"
-    >
-
-      <h3>
-        KEY INFORMATION
-      </h3>
-
-      <ul id="articlePointsList">
-      </ul>
-
-    </div>
-
-
-    <div class="source-note">
-
-      This Digital News report is presented by
-      <strong>The Hyderabad Daily</strong>.
-      The original source is provided for
-      reference and further reading.
+      </div>
 
     </div>
 
   </article>
 
-</section>
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<footer>
-
-  <div class="footer-brand">
-    THE HYDERABAD DAILY
-  </div>
-
-  <div>
-    Independent Digital News • Hyderabad
-  </div>
-
-  <div class="footer-nav">
-
-    <a href="index.html">
-      HOME
-    </a>
-
-    <a href="digital-news.html">
-      DIGITAL NEWS
-    </a>
-
-    <a href="index.html#epaper">
-      E-PAPER
-    </a>
-
-  </div>
-
-</footer>
+</div>
 
 
 <script>
 
 /* =========================================================
-   DIGITAL NEWS CONFIGURATION
+   THE HYDERABAD DAILY
+   DIGITAL NEWS ENGINE
 ========================================================= */
 
-/*
-  IMPORTANT EDITORIAL RULES
 
-  1. Latest stories only.
-  2. Duplicate stories are removed.
-  3. Same story from multiple sources is grouped.
-  4. Digital News does not read the e-paper.
-  5. No e-paper article is automatically imported here.
-  6. No full third-party article is copied.
-  7. Original source remains available.
-  8. Article reader stays inside The Hyderabad Daily.
-*/
+/* ---------------------------------------------------------
+   CONFIGURATION
+--------------------------------------------------------- */
 
+const RSS2JSON =
+  "https://api.rss2json.com/v1/api.json?rss_url=";
 
-const RSS_BASE =
-  "https://news.google.com/rss/search?q=";
+const ALL_ORIGINS =
+  "https://api.allorigins.win/raw?url=";
 
-const RSS_SUFFIX =
-  "&hl=en-IN&gl=IN&ceid=IN:en";
+const REFRESH_INTERVAL =
+  10 * 60 * 1000;
 
 
-const MAX_STORIES =
-  18;
+/* ---------------------------------------------------------
+   NEWS FEEDS
+--------------------------------------------------------- */
+
+const FEEDS = [
+
+  {
+    category:"Hyderabad",
+    query:"Hyderabad latest news"
+  },
+
+  {
+    category:"Telangana",
+    query:"Telangana latest news"
+  },
+
+  {
+    category:"India",
+    query:"India latest news"
+  },
+
+  {
+    category:"World",
+    query:"World latest news"
+  },
+
+  {
+    category:"Business",
+    query:"India business latest news"
+  },
+
+  {
+    category:"Technology",
+    query:"India technology latest news"
+  },
+
+  {
+    category:"Sports",
+    query:"India sports latest news"
+  },
+
+  {
+    category:"Entertainment",
+    query:"India entertainment latest news"
+  }
+
+];
 
 
-const CURRENT_QUERY =
-  "Hyderabad Telangana";
+/* ---------------------------------------------------------
+   STATE
+--------------------------------------------------------- */
+
+let allArticles = [];
+
+let activeCategory = "all";
+
+let searchTerm = "";
 
 
-/* =========================================================
-   CATEGORY DEFINITIONS
-========================================================= */
+/* ---------------------------------------------------------
+   ELEMENTS
+--------------------------------------------------------- */
 
-const CATEGORY_NAMES = {
+const newsGrid =
+  document.getElementById("newsGrid");
 
-  "Hyderabad Telangana":
-    "HYDERABAD",
+const tickerList =
+  document.getElementById("tickerList");
 
-  "Telangana Andhra Pradesh":
-    "TELANGANA • ANDHRA PRADESH",
+const updateStatus =
+  document.getElementById("updateStatus");
 
-  "India":
-    "INDIA",
+const searchInput =
+  document.getElementById("searchInput");
 
-  "World":
-    "WORLD",
+const searchButton =
+  document.getElementById("searchButton");
 
-  "Business India":
-    "BUSINESS",
+const articleOverlay =
+  document.getElementById("articleOverlay");
 
-  "Technology India":
-    "TECHNOLOGY",
+const articleBack =
+  document.getElementById("articleBack");
 
-  "Sports India":
-    "SPORTS",
+const articleSource =
+  document.getElementById("articleSource");
 
-  "Entertainment India":
-    "ENTERTAINMENT"
+const articleCategory =
+  document.getElementById("articleCategory");
 
-};
+const articleTitle =
+  document.getElementById("articleTitle");
+
+const articleDate =
+  document.getElementById("articleDate");
+
+const articleLead =
+  document.getElementById("articleLead");
+
+const articleCopy =
+  document.getElementById("articleCopy");
+
+const articlePointsBox =
+  document.getElementById("articlePointsBox");
+
+const articlePoints =
+  document.getElementById("articlePoints");
 
 
-/* =========================================================
-   DATE
-========================================================= */
+/* ---------------------------------------------------------
+   DATE / DAY
+--------------------------------------------------------- */
 
 function updateDate(){
 
   const now =
     new Date();
-
 
   const day =
     now.toLocaleDateString(
@@ -1839,8 +1507,7 @@ function updateDate(){
       {
         weekday:"long"
       }
-    ).toUpperCase();
-
+    );
 
   const date =
     now.toLocaleDateString(
@@ -1850,37 +1517,230 @@ function updateDate(){
         month:"long",
         year:"numeric"
       }
-    ).toUpperCase();
-
+    );
 
   document.getElementById(
-    "dayText"
+    "currentDay"
   ).textContent =
     day;
 
-
   document.getElementById(
-    "dateText"
+    "currentDate"
   ).textContent =
     date;
-
 }
-
 
 updateDate();
 
 
-setInterval(
-  updateDate,
-  60000
+/* ---------------------------------------------------------
+   MOBILE MENU
+--------------------------------------------------------- */
+
+const menuButton =
+  document.getElementById("menuButton");
+
+const drawer =
+  document.getElementById("drawer");
+
+const drawerClose =
+  document.getElementById("drawerClose");
+
+const drawerOverlay =
+  document.getElementById("drawerOverlay");
+
+
+function openDrawer(){
+
+  drawer.classList.add("open");
+
+  drawerOverlay.classList.add("open");
+
+}
+
+
+function closeDrawer(){
+
+  drawer.classList.remove("open");
+
+  drawerOverlay.classList.remove("open");
+
+}
+
+
+menuButton.addEventListener(
+  "click",
+  openDrawer
+);
+
+drawerClose.addEventListener(
+  "click",
+  closeDrawer
+);
+
+drawerOverlay.addEventListener(
+  "click",
+  closeDrawer
+);
+
+document.querySelectorAll(
+  ".drawer a"
+).forEach(
+  link => {
+
+    link.addEventListener(
+      "click",
+      closeDrawer
+    );
+
+  }
 );
 
 
-/* =========================================================
-   TEXT CLEANING
-========================================================= */
+/* ---------------------------------------------------------
+   GOOGLE NEWS RSS URL
+--------------------------------------------------------- */
 
-function cleanText(value){
+function buildRSSUrl(query){
+
+  return (
+    "https://news.google.com/rss/search?" +
+    "q=" +
+    encodeURIComponent(query) +
+    "&hl=en-IN" +
+    "&gl=IN" +
+    "&ceid=IN:en"
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   FETCH RSS USING RSS2JSON
+--------------------------------------------------------- */
+
+async function fetchRSS2JSON(
+  feedUrl
+){
+
+  const url =
+    RSS2JSON +
+    encodeURIComponent(feedUrl);
+
+  const response =
+    await fetch(url);
+
+  if(
+    !response.ok
+  ){
+
+    throw new Error(
+      "RSS2JSON request failed"
+    );
+
+  }
+
+  const data =
+    await response.json();
+
+  if(
+    !data ||
+    !Array.isArray(data.items)
+  ){
+
+    throw new Error(
+      "Invalid RSS data"
+    );
+
+  }
+
+  return data.items;
+
+}
+
+
+/* ---------------------------------------------------------
+   FALLBACK RSS FETCH
+--------------------------------------------------------- */
+
+async function fetchRSSFallback(
+  feedUrl
+){
+
+  const url =
+    ALL_ORIGINS +
+    encodeURIComponent(feedUrl);
+
+  const response =
+    await fetch(url);
+
+  if(
+    !response.ok
+  ){
+
+    throw new Error(
+      "Fallback RSS request failed"
+    );
+
+  }
+
+  const xmlText =
+    await response.text();
+
+  const parser =
+    new DOMParser();
+
+  const xml =
+    parser.parseFromString(
+      xmlText,
+      "text/xml"
+    );
+
+  const items =
+    Array.from(
+      xml.querySelectorAll("item")
+    );
+
+  return items.map(
+    item => {
+
+      return {
+
+        title:
+          item.querySelector(
+            "title"
+          )?.textContent || "",
+
+        link:
+          item.querySelector(
+            "link"
+          )?.textContent || "",
+
+        description:
+          item.querySelector(
+            "description"
+          )?.textContent || "",
+
+        pubDate:
+          item.querySelector(
+            "pubDate"
+          )?.textContent || ""
+
+      };
+
+    }
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   HTML CLEANER
+--------------------------------------------------------- */
+
+function cleanText(
+  value
+){
 
   if(!value){
 
@@ -1888,20 +1748,17 @@ function cleanText(value){
 
   }
 
-
-  const div =
+  const temp =
     document.createElement(
       "div"
     );
 
-
-  div.innerHTML =
+  temp.innerHTML =
     value;
 
-
   return (
-    div.textContent ||
-    div.innerText ||
+    temp.textContent ||
+    temp.innerText ||
     ""
   )
   .replace(/\s+/g," ")
@@ -1910,11 +1767,1435 @@ function cleanText(value){
 }
 
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
+/* ---------------------------------------------------------
+   DATE PARSER
+--------------------------------------------------------- */
 
-function esc(value){
+function articleDateValue(
+  article
+){
+
+  const value =
+    article.pubDate ||
+    article.isoDate ||
+    article.date ||
+    "";
+
+  const parsed =
+    new Date(value);
+
+  if(
+    Number.isNaN(
+      parsed.getTime()
+    )
+  ){
+
+    return null;
+
+  }
+
+  return parsed;
+
+}
+
+
+/* ---------------------------------------------------------
+   RECENCY FILTER
+--------------------------------------------------------- */
+
+function isRecent(
+  article
+){
+
+  const date =
+    articleDateValue(
+      article
+    );
+
+  if(!date){
+
+    return true;
+
+  }
+
+  const now =
+    Date.now();
+
+  const age =
+    now -
+    date.getTime();
+
+  const hours =
+    age /
+    (1000 * 60 * 60);
+
+  /*
+    Keep approximately the latest
+    48 hours so the page has enough
+    content while still prioritising
+    current news.
+  */
+
+  return (
+    hours >= -1 &&
+    hours <= 48
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   NORMALIZE ARTICLE
+--------------------------------------------------------- */
+
+function normalizeArticle(
+  item,
+  category
+){
+
+  const title =
+    cleanText(
+      item.title
+    );
+
+  const description =
+    cleanText(
+      item.description ||
+      item.content ||
+      ""
+    );
+
+  const link =
+    item.link ||
+    item.guid ||
+    "#";
+
+  const date =
+    articleDateValue(
+      item
+    );
+
+  return {
+
+    id:
+      createArticleId(
+        title,
+        link
+      ),
+
+    title,
+
+    description,
+
+    link,
+
+    category,
+
+    pubDate:
+      date ?
+      date.toISOString() :
+      new Date().toISOString()
+
+  };
+
+}
+
+
+/* ---------------------------------------------------------
+   ARTICLE ID
+--------------------------------------------------------- */
+
+function createArticleId(
+  title,
+  link
+){
+
+  return (
+    btoa(
+      unescape(
+        encodeURIComponent(
+          title +
+          "|" +
+          link
+        )
+      )
+    )
+    .replace(/[^a-zA-Z0-9]/g,"")
+    .slice(0,20)
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   SIMILAR TITLE NORMALIZATION
+--------------------------------------------------------- */
+
+function normalizeTitle(
+  title
+){
+
+  return title
+    .toLowerCase()
+    .replace(
+      /[^a-z0-9\s]/g,
+      ""
+    )
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .trim();
+
+}
+
+
+/* ---------------------------------------------------------
+   SIMPLE DUPLICATE DETECTION
+--------------------------------------------------------- */
+
+function isSimilarTitle(
+  titleA,
+  titleB
+){
+
+  const a =
+    normalizeTitle(
+      titleA
+    );
+
+  const b =
+    normalizeTitle(
+      titleB
+    );
+
+  if(
+    !a ||
+    !b
+  ){
+
+    return false;
+
+  }
+
+  if(
+    a === b
+  ){
+
+    return true;
+
+  }
+
+  const wordsA =
+    new Set(
+      a.split(" ")
+        .filter(
+          word =>
+            word.length > 3
+        )
+    );
+
+  const wordsB =
+    new Set(
+      b.split(" ")
+        .filter(
+          word =>
+            word.length > 3
+        )
+    );
+
+  let common = 0;
+
+  wordsA.forEach(
+    word => {
+
+      if(
+        wordsB.has(word)
+      ){
+
+        common++;
+
+      }
+
+    }
+  );
+
+  const smaller =
+    Math.min(
+      wordsA.size,
+      wordsB.size
+    );
+
+  if(
+    smaller < 3
+  ){
+
+    return false;
+
+  }
+
+  return (
+    common /
+    smaller
+  ) >= .72;
+
+}
+
+
+/* ---------------------------------------------------------
+   LOCAL PUBLISHED MEMORY
+--------------------------------------------------------- */
+
+function getPublishedTitles(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "thd_digital_published"
+      ) || "[]"
+    );
+
+  }catch(
+    error
+  ){
+
+    return [];
+
+  }
+
+}
+
+
+function savePublishedTitles(
+  articles
+){
+
+  try{
+
+    const old =
+      getPublishedTitles();
+
+    const combined =
+      [
+        ...old,
+        ...articles.map(
+          article =>
+            normalizeTitle(
+              article.title
+            )
+        )
+      ];
+
+    const unique =
+      [
+        ...new Set(
+          combined
+        )
+      ];
+
+    /*
+      Keep a reasonable browser
+      history size.
+    */
+
+    localStorage.setItem(
+      "thd_digital_published",
+      JSON.stringify(
+        unique.slice(-500)
+      )
+    );
+
+  }catch(
+    error
+  ){
+
+    console.warn(
+      "Local storage unavailable"
+    );
+
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   LOAD ONE FEED
+--------------------------------------------------------- */
+
+async function loadFeed(
+  feed
+){
+
+  const feedUrl =
+    buildRSSUrl(
+      feed.query
+    );
+
+  let items = [];
+
+  try{
+
+    items =
+      await fetchRSS2JSON(
+        feedUrl
+      );
+
+  }catch(
+    firstError
+  ){
+
+    try{
+
+      items =
+        await fetchRSSFallback(
+          feedUrl
+        );
+
+    }catch(
+      secondError
+    ){
+
+      console.warn(
+        "Feed failed:",
+        feed.category
+      );
+
+      return [];
+
+    }
+
+  }
+
+  return items
+    .filter(
+      item =>
+        item.title
+    )
+    .map(
+      item =>
+        normalizeArticle(
+          item,
+          feed.category
+        )
+    )
+    .filter(
+      article =>
+        article.title &&
+        article.link &&
+        isRecent(article)
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   LOAD ALL NEWS
+--------------------------------------------------------- */
+
+async function loadNews(){
+
+  updateStatus.textContent =
+    "Updating...";
+
+  newsGrid.innerHTML = `
+
+    <div class="loading-box">
+
+      <div class="spinner"></div>
+
+      Loading latest Digital News...
+
+    </div>
+
+  `;
+
+
+  const results =
+    await Promise.all(
+      FEEDS.map(
+        feed =>
+          loadFeed(feed)
+      )
+    );
+
+
+  let combined =
+    results.flat();
+
+
+  /*
+    Sort latest first.
+  */
+
+  combined.sort(
+    (
+      a,
+      b
+    ) => {
+
+      return (
+        new Date(
+          b.pubDate
+        ) -
+        new Date(
+          a.pubDate
+        )
+      );
+
+    }
+  );
+
+
+  /*
+    Remove exact and highly
+    similar headlines.
+  */
+
+  const unique = [];
+
+  combined.forEach(
+    article => {
+
+      const duplicate =
+        unique.some(
+          existing =>
+            isSimilarTitle(
+              existing.title,
+              article.title
+            )
+        );
+
+      if(!duplicate){
+
+        unique.push(
+          article
+        );
+
+      }
+
+    }
+  );
+
+
+  /*
+    Remove previously displayed
+    stories from this browser where
+    possible.
+
+    We do NOT completely rely on this
+    because different publishers can
+    update the same story.
+  */
+
+  const published =
+    getPublishedTitles();
+
+
+  const filtered =
+    unique.filter(
+      article => {
+
+        const normalized =
+          normalizeTitle(
+            article.title
+          );
+
+        return !published.includes(
+          normalized
+        );
+
+      }
+    );
+
+
+  /*
+    If local history filters everything,
+    use current unique stories rather
+    than showing a blank page.
+  */
+
+  allArticles =
+    filtered.length >= 6
+      ? filtered
+      : unique;
+
+
+  /*
+    Keep page reasonably compact.
+  */
+
+  allArticles =
+    allArticles.slice(
+      0,
+      60
+    );
+
+
+  savePublishedTitles(
+    allArticles
+  );
+
+
+  renderNews();
+
+  renderTicker();
+
+  updateStatus.textContent =
+    "Updated " +
+    new Date().toLocaleTimeString(
+      "en-IN",
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   RENDER NEWS
+--------------------------------------------------------- */
+
+function renderNews(){
+
+  const filtered =
+    allArticles.filter(
+      article => {
+
+        const categoryMatch =
+          activeCategory === "all" ||
+          article.category ===
+            activeCategory;
+
+        const searchMatch =
+          !searchTerm ||
+          (
+            article.title +
+            " " +
+            article.description +
+            " " +
+            article.category
+          )
+          .toLowerCase()
+          .includes(
+            searchTerm
+          );
+
+        return (
+          categoryMatch &&
+          searchMatch
+        );
+
+      }
+    );
+
+
+  if(
+    filtered.length === 0
+  ){
+
+    newsGrid.innerHTML = `
+
+      <div class="empty-box">
+
+        No matching Digital News
+        stories found.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  newsGrid.innerHTML = "";
+
+
+  filtered.forEach(
+    (
+      article,
+      index
+    ) => {
+
+      const card =
+        document.createElement(
+          "article"
+        );
+
+      card.className =
+        "news-card";
+
+      card.id =
+        "news-" +
+        index;
+
+      const inner =
+        document.createElement(
+          "div"
+        );
+
+      inner.className =
+        "news-card-inner";
+
+
+      const category =
+        document.createElement(
+          "div"
+        );
+
+      category.className =
+        "news-category";
+
+      category.textContent =
+        article.category;
+
+
+      const title =
+        document.createElement(
+          "h2"
+        );
+
+      title.className =
+        "news-title";
+
+      title.textContent =
+        article.title;
+
+
+      const summary =
+        document.createElement(
+          "p"
+        );
+
+      summary.className =
+        "news-summary";
+
+      summary.textContent =
+        article.description ||
+        "Latest developments are being reported. Open the original source for the complete report.";
+
+
+      const meta =
+        document.createElement(
+          "div"
+        );
+
+      meta.className =
+        "news-meta";
+
+
+      const time =
+        document.createElement(
+          "span"
+        );
+
+      time.className =
+        "news-time";
+
+      time.textContent =
+        formatDate(
+          article.pubDate
+        );
+
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.type =
+        "button";
+
+      button.className =
+        "read-button";
+
+      button.textContent =
+        "READ DETAILS →";
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          openArticle(
+            article
+          );
+
+        }
+      );
+
+
+      meta.appendChild(
+        time
+      );
+
+      meta.appendChild(
+        button
+      );
+
+
+      inner.appendChild(
+        category
+      );
+
+      inner.appendChild(
+        title
+      );
+
+      inner.appendChild(
+        summary
+      );
+
+      inner.appendChild(
+        meta
+      );
+
+      card.appendChild(
+        inner
+      );
+
+      newsGrid.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   TICKER
+--------------------------------------------------------- */
+
+function renderTicker(){
+
+  tickerList.innerHTML = "";
+
+
+  const tickerArticles =
+    allArticles.slice(
+      0,
+      12
+    );
+
+
+  if(
+    tickerArticles.length === 0
+  ){
+
+    tickerList.innerHTML = `
+
+      <span class="ticker-item">
+        No latest highlights available.
+      </span>
+
+    `;
+
+    return;
+
+  }
+
+
+  tickerArticles.forEach(
+    (
+      article,
+      index
+    ) => {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.type =
+        "button";
+
+      button.className =
+        "ticker-item";
+
+      button.innerHTML = `
+
+        <span class="ticker-dot"></span>
+
+        <span>
+          ${escapeHTML(
+            article.title
+          )}
+        </span>
+
+      `;
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          activeCategory =
+            "all";
+
+          searchTerm =
+            "";
+
+          searchInput.value =
+            "";
+
+          document
+            .querySelectorAll(
+              ".category-button"
+            )
+            .forEach(
+              button => {
+
+                button.classList.remove(
+                  "active"
+                );
+
+              }
+            );
+
+          document
+            .querySelector(
+              '[data-category="all"]'
+            )
+            ?.classList.add(
+              "active"
+            );
+
+
+          renderNews();
+
+
+          setTimeout(
+            () => {
+
+              const visible =
+                allArticles
+                  .filter(
+                    item =>
+                      item.id ===
+                      article.id
+                  )[0];
+
+
+              if(
+                visible
+              ){
+
+                const cards =
+                  document.querySelectorAll(
+                    ".news-card"
+                  );
+
+                const target =
+                  Array.from(
+                    cards
+                  ).find(
+                    card => {
+
+                      const title =
+                        card.querySelector(
+                          ".news-title"
+                        );
+
+                      return (
+                        title &&
+                        title.textContent ===
+                        article.title
+                      );
+
+                    }
+                  );
+
+
+                if(target){
+
+                  target.scrollIntoView(
+                    {
+                      behavior:"smooth",
+                      block:"center"
+                    }
+                  );
+
+                  target.style.outline =
+                    "3px solid #9d1118";
+
+                  setTimeout(
+                    () => {
+
+                      target.style.outline =
+                        "";
+
+                    },
+                    1800
+                  );
+
+                }
+
+              }
+
+            },
+            50
+          );
+
+        }
+      );
+
+
+      tickerList.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   OPEN ARTICLE
+--------------------------------------------------------- */
+
+function openArticle(
+  article
+){
+
+  articleCategory.textContent =
+    article.category;
+
+  articleTitle.textContent =
+    article.title;
+
+  articleDate.textContent =
+    formatDate(
+      article.pubDate
+    );
+
+
+  /*
+    IMPORTANT:
+    Description appears ONLY ONCE
+    as the lead.
+
+    We deliberately do NOT place
+    the same description again in
+    articleCopy.
+  */
+
+  articleLead.textContent =
+    article.description ||
+    "Latest developments are being reported. See the original source for the complete report.";
+
+
+  articleCopy.innerHTML = "";
+
+
+  /*
+    Add useful key details only when
+    the source description contains
+    multiple distinct sentences.
+
+    This avoids copying the same
+    paragraph twice.
+  */
+
+  const sentences =
+    splitIntoSentences(
+      article.description
+    );
+
+
+  if(
+    sentences.length >= 2
+  ){
+
+    const uniqueSentences =
+      [];
+
+
+    sentences.forEach(
+      sentence => {
+
+        const cleaned =
+          sentence.trim();
+
+        if(
+          cleaned &&
+          !uniqueSentences.some(
+            existing =>
+              isNearDuplicate(
+                existing,
+                cleaned
+              )
+          )
+        ){
+
+          uniqueSentences.push(
+            cleaned
+          );
+
+        }
+
+      }
+    );
+
+
+    /*
+      Do not repeat the complete lead
+      as a paragraph.
+
+      The first sentence is already
+      represented in the lead.
+    */
+
+    const detailSentences =
+      uniqueSentences
+        .slice(1,4);
+
+
+    if(
+      detailSentences.length > 0
+    ){
+
+      const p =
+        document.createElement(
+          "p"
+        );
+
+      p.textContent =
+        detailSentences.join(
+          " "
+        );
+
+      articleCopy.appendChild(
+        p
+      );
+
+    }
+
+  }
+
+
+  /*
+    If no additional detail exists,
+    leave body clean rather than
+    repeating the same text.
+  */
+
+  if(
+    articleCopy.children.length === 0
+  ){
+
+    const p =
+      document.createElement(
+        "p"
+      );
+
+    p.textContent =
+      "For the complete report, use the original source link above.";
+
+    articleCopy.appendChild(
+      p
+    );
+
+  }
+
+
+  /*
+    KEY DETAILS BOX
+  */
+
+  articlePoints.innerHTML = "";
+
+  const points =
+    sentences
+      .slice(0,3)
+      .filter(
+        sentence =>
+          sentence.trim()
+      );
+
+
+  /*
+    Only show key details when there
+    are at least two separate pieces
+    of information.
+  */
+
+  if(
+    points.length >= 2
+  ){
+
+    points
+      .slice(0,3)
+      .forEach(
+        point => {
+
+          const li =
+            document.createElement(
+              "li"
+            );
+
+          li.textContent =
+            point.trim();
+
+          articlePoints.appendChild(
+            li
+          );
+
+        }
+      );
+
+
+    articlePointsBox.style.display =
+      "block";
+
+  }else{
+
+    articlePointsBox.style.display =
+      "none";
+
+  }
+
+
+  /*
+    Original source link.
+  */
+
+  articleSource.href =
+    article.link ||
+    "#";
+
+
+  /*
+    Open article reader.
+  */
+
+  articleOverlay.classList.add(
+    "open"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+
+  window.scrollTo(
+    {
+      top:0,
+      behavior:"instant"
+    }
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   CLOSE ARTICLE
+--------------------------------------------------------- */
+
+function closeArticle(){
+
+  articleOverlay.classList.remove(
+    "open"
+  );
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+articleBack.addEventListener(
+  "click",
+  closeArticle
+);
+
+
+articleOverlay.addEventListener(
+  "click",
+  event => {
+
+    if(
+      event.target ===
+      articleOverlay
+    ){
+
+      closeArticle();
+
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      event.key ===
+      "Escape"
+    ){
+
+      closeArticle();
+
+    }
+
+  }
+);
+
+
+/* ---------------------------------------------------------
+   SENTENCE SPLITTER
+--------------------------------------------------------- */
+
+function splitIntoSentences(
+  text
+){
+
+  if(!text){
+
+    return [];
+
+  }
+
+  return text
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .match(
+      /[^.!?]+[.!?]+/g
+    ) ||
+    [
+      text
+    ];
+
+}
+
+
+/* ---------------------------------------------------------
+   NEAR DUPLICATE SENTENCE
+--------------------------------------------------------- */
+
+function isNearDuplicate(
+  a,
+  b
+){
+
+  const x =
+    normalizeTitle(
+      a
+    );
+
+  const y =
+    normalizeTitle(
+      b
+    );
+
+  if(
+    x === y
+  ){
+
+    return true;
+
+  }
+
+  const xa =
+    new Set(
+      x.split(" ")
+    );
+
+  const ya =
+    new Set(
+      y.split(" ")
+    );
+
+  let common = 0;
+
+  xa.forEach(
+    word => {
+
+      if(
+        ya.has(word)
+      ){
+
+        common++;
+
+      }
+
+    }
+  );
+
+  const base =
+    Math.min(
+      xa.size,
+      ya.size
+    );
+
+  if(
+    base === 0
+  ){
+
+    return false;
+
+  }
+
+  return (
+    common /
+    base
+  ) > .78;
+
+}
+
+
+/* ---------------------------------------------------------
+   DATE FORMAT
+--------------------------------------------------------- */
+
+function formatDate(
+  value
+){
+
+  const date =
+    new Date(
+      value
+    );
+
+  if(
+    Number.isNaN(
+      date.getTime()
+    )
+  ){
+
+    return "";
+
+  }
+
+  return date.toLocaleString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric",
+      hour:"2-digit",
+      minute:"2-digit"
+    }
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   ESCAPE HTML
+--------------------------------------------------------- */
+
+function escapeHTML(
+  value
+){
 
   return String(
     value || ""
@@ -1943,1474 +3224,46 @@ function esc(value){
 }
 
 
-/* =========================================================
-   RSS URL
-========================================================= */
-
-function googleFeed(query){
-
-  return (
-    RSS_BASE +
-    encodeURIComponent(
-      query +
-      " when:1d"
-    ) +
-    RSS_SUFFIX
-  );
-
-}
-
-
-/* =========================================================
-   RSS2JSON
-========================================================= */
-
-async function fetchRSS2JSON(feed){
-
-  const endpoint =
-    "https://api.rss2json.com/v1/api.json?rss_url=" +
-    encodeURIComponent(feed);
-
-
-  const response =
-    await fetch(
-      endpoint,
-      {
-        cache:"no-store"
-      }
-    );
-
-
-  if(!response.ok){
-
-    throw new Error(
-      "RSS service unavailable"
-    );
-
-  }
-
-
-  const data =
-    await response.json();
-
-
-  if(
-    !data ||
-    !Array.isArray(
-      data.items
-    )
-  ){
-
-    throw new Error(
-      "No RSS items"
-    );
-
-  }
-
-
-  return data.items;
-
-}
-
-
-/* =========================================================
-   FALLBACK RSS
-========================================================= */
-
-async function fetchAllOrigins(feed){
-
-  const endpoint =
-    "https://api.allorigins.win/get?url=" +
-    encodeURIComponent(feed);
-
-
-  const response =
-    await fetch(
-      endpoint,
-      {
-        cache:"no-store"
-      }
-    );
-
-
-  if(!response.ok){
-
-    throw new Error(
-      "Fallback unavailable"
-    );
-
-  }
-
-
-  const data =
-    await response.json();
-
-
-  if(!data.contents){
-
-    throw new Error(
-      "No RSS content"
-    );
-
-  }
-
-
-  const parser =
-    new DOMParser();
-
-
-  const xml =
-    parser.parseFromString(
-      data.contents,
-      "text/xml"
-    );
-
-
-  const items =
-    [
-      ...xml.querySelectorAll(
-        "item"
-      )
-    ];
-
-
-  return items.map(
-    item => ({
-
-      title:
-        item.querySelector(
-          "title"
-        )?.textContent ||
-        "",
-
-      description:
-        item.querySelector(
-          "description"
-        )?.textContent ||
-        "",
-
-      link:
-        item.querySelector(
-          "link"
-        )?.textContent ||
-        "",
-
-      pubDate:
-        item.querySelector(
-          "pubDate"
-        )?.textContent ||
-        ""
-
-    })
-  );
-
-}
-
-
-/* =========================================================
-   GET NEWS
-========================================================= */
-
-async function getNews(query){
-
-  const feed =
-    googleFeed(
-      query
-    );
-
-
-  try{
-
-    return await fetchRSS2JSON(
-      feed
-    );
-
-  }catch(error){
-
-    console.warn(
-      "RSS2JSON failed. Using fallback."
-    );
-
-
-    return await fetchAllOrigins(
-      feed
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   DATE CHECK
-========================================================= */
-
-function isRecent(dateString){
-
-  if(!dateString){
-
-    return true;
-
-  }
-
-
-  const date =
-    new Date(
-      dateString
-    );
-
-
-  if(
-    Number.isNaN(
-      date.getTime()
-    )
-  ){
-
-    return true;
-
-  }
-
-
-  const now =
-    new Date();
-
-
-  const age =
-    now.getTime() -
-    date.getTime();
-
-
-  /*
-    Keep only approximately
-    the latest 24 hours.
-  */
-
-  return (
-    age >= 0 &&
-    age <=
-      24 * 60 * 60 * 1000
-  );
-
-}
-
-
-/* =========================================================
-   NORMALIZE HEADLINE
-========================================================= */
-
-function normalizeTitle(title){
-
-  return cleanText(
-    title
-  )
-  .toLowerCase()
-  .replace(
-    /[^a-z0-9\s]/g,
-    ""
-  )
-  .replace(
-    /\s+/g,
-    " "
-  )
-  .trim();
-
-}
-
-
-/* =========================================================
-   TITLE WORD SIMILARITY
-========================================================= */
-
-function titleSimilarity(
-  first,
-  second
-){
-
-  const a =
-    new Set(
-      normalizeTitle(
-        first
-      )
-      .split(" ")
-      .filter(
-        word =>
-          word.length > 3
-      )
-    );
-
-
-  const b =
-    new Set(
-      normalizeTitle(
-        second
-      )
-      .split(" ")
-      .filter(
-        word =>
-          word.length > 3
-      )
-    );
-
-
-  if(
-    !a.size ||
-    !b.size
-  ){
-
-    return 0;
-
-  }
-
-
-  let common = 0;
-
-
-  a.forEach(
-    word => {
-
-      if(
-        b.has(word)
-      ){
-
-        common++;
-
-      }
-
-    }
-  );
-
-
-  return (
-    common /
-    Math.max(
-      a.size,
-      b.size
-    )
-  );
-
-}
-
-
-/* =========================================================
-   DUPLICATE FILTER
-========================================================= */
-
-function removeDuplicates(
-  items
-){
-
-  const result =
-    [];
-
-
-  const seen =
-    new Set();
-
-
-  items.forEach(
-    item => {
-
-      const title =
-        cleanText(
-          item.title
-        );
-
-
-      if(!title){
-
-        return;
-
-      }
-
-
-      const normalized =
-        normalizeTitle(
-          title
-        );
-
-
-      if(
-        seen.has(
-          normalized
-        )
-      ){
-
-        return;
-
-      }
-
-
-      let duplicate =
-        false;
-
-
-      for(
-        const existing
-        of result
-      ){
-
-        if(
-          titleSimilarity(
-            title,
-            existing.title
-          ) >=
-          0.72
-        ){
-
-          duplicate =
-            true;
-
-          break;
-
-        }
-
-      }
-
-
-      if(
-        duplicate
-      ){
-
-        return;
-
-      }
-
-
-      seen.add(
-        normalized
-      );
-
-
-      result.push(
-        item
-      );
-
-    }
-  );
-
-
-  return result;
-
-}
-
-
-/* =========================================================
-   PUBLISHED STORY MEMORY
-========================================================= */
-
-function getPublishedStories(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        "thd_digital_published"
-      ) ||
-      "[]"
-    );
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-function rememberStories(
-  items
-){
-
-  try{
-
-    const old =
-      getPublishedStories();
-
-
-    const combined =
-      [
-        ...old,
-        ...items.map(
-          item =>
-            normalizeTitle(
-              item.title
-            )
-        )
-      ];
-
-
-    const unique =
-      [
-        ...new Set(
-          combined
-        )
-      ];
-
-
-    /*
-      Keep recent memory
-      from becoming huge.
-    */
-
-    localStorage.setItem(
-      "thd_digital_published",
-      JSON.stringify(
-        unique.slice(
-          -500
-        )
-      )
-    );
-
-  }catch(error){
-
-    console.warn(
-      "Published-story memory unavailable."
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   REMOVE STORIES ALREADY SEEN
-========================================================= */
-
-function removePreviouslyPublished(
-  items
-){
-
-  const published =
-    new Set(
-      getPublishedStories()
-    );
-
-
-  return items.filter(
-    item =>
-      !published.has(
-        normalizeTitle(
-          item.title
-        )
-      )
-  );
-
-}
-
-
-/* =========================================================
-   ARTICLE DATE
-========================================================= */
-
-function formatDate(
-  dateString
-){
-
-  if(!dateString){
-
-    return "LATEST";
-
-  }
-
-
-  const date =
-    new Date(
-      dateString
-    );
-
-
-  if(
-    Number.isNaN(
-      date.getTime()
-    )
-  ){
-
-    return "LATEST";
-
-  }
-
-
-  return date.toLocaleString(
-    "en-IN",
-    {
-      day:"2-digit",
-      month:"short",
-      year:"numeric",
-      hour:"2-digit",
-      minute:"2-digit"
-    }
-  );
-
-}
-
-
-/* =========================================================
-   ARTICLE OBJECT
-========================================================= */
-
-function prepareArticle(
-  article,
-  category
-){
-
-  return {
-
-    title:
-      cleanText(
-        article.title
-      ),
-
-    description:
-      cleanText(
-        article.description
-      ),
-
-    link:
-      article.link ||
-      "",
-
-    pubDate:
-      article.pubDate ||
-      "",
-
-    category:
-      CATEGORY_NAMES[
-        category
-      ] ||
-      "DIGITAL NEWS"
-
-  };
-
-}
-
-
-/* =========================================================
-   ARTICLE READER
-========================================================= */
-
-function openArticle(
-  article
-){
-
-  const reader =
-    document.getElementById(
-      "articleReader"
-    );
-
-
-  const title =
-    cleanText(
-      article.title
-    );
-
-
-  const description =
-    cleanText(
-      article.description
-    );
-
-
-  document.getElementById(
-    "articleCategory"
-  ).textContent =
-    article.category ||
-    "DIGITAL NEWS";
-
-
-  document.getElementById(
-    "articleTitle"
-  ).textContent =
-    title;
-
-
-  document.getElementById(
-    "articleByline"
-  ).textContent =
-    "THE HYDERABAD DAILY • " +
-    formatDate(
-      article.pubDate
-    );
-
-
-  document.getElementById(
-    "articleLead"
-  ).textContent =
-    description ||
-    "The latest available development is being reviewed for this Digital News report.";
-
-
-  const copy =
-    document.getElementById(
-      "articleCopy"
-    );
-
-
-  copy.innerHTML =
-    "";
-
-
-  /*
-    IMPORTANT:
-
-    We do NOT copy the
-    original publisher's
-    full article.
-
-    Only the available
-    feed description/
-    summary is displayed.
-  */
-
-  if(
-    description
-  ){
-
-    const paragraph =
-      document.createElement(
-        "p"
-      );
-
-
-    paragraph.textContent =
-      description;
-
-
-    copy.appendChild(
-      paragraph
-    );
-
-  }
-
-
-  const points =
-    document.getElementById(
-      "articlePoints"
-    );
-
-
-  const pointsList =
-    document.getElementById(
-      "articlePointsList"
-    );
-
-
-  pointsList.innerHTML =
-    "";
-
-
-  /*
-    Basic factual points
-    from the available
-    feed summary.
-
-    These are NOT presented
-    as copied full article text.
-  */
-
-  const sentences =
-    description
-      .split(
-        /(?<=[.!?])\s+/
-      )
-      .filter(
-        sentence =>
-          sentence.length > 35
-      )
-      .slice(
-        0,
-        3
-      );
-
-
-  if(
-    sentences.length >= 2
-  ){
-
-    sentences.forEach(
-      sentence => {
-
-        const li =
-          document.createElement(
-            "li"
-          );
-
-
-        li.textContent =
-          sentence;
-
-
-        pointsList.appendChild(
-          li
-        );
-
-      }
-    );
-
-
-    points.style.display =
-      "block";
-
-  }else{
-
-    points.style.display =
-      "none";
-
-  }
-
-
-  const source =
-    document.getElementById(
-      "articleSource"
-    );
-
-
-  if(
-    article.link
-  ){
-
-    source.href =
-      article.link;
-
-    source.style.display =
-      "inline-flex";
-
-  }else{
-
-    source.style.display =
-      "none";
-
-  }
-
-
-  reader.classList.add(
-    "open"
-  );
-
-
-  reader.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  document.body.classList.add(
-    "article-open"
-  );
-
-
-  window.scrollTo(
-    0,
-    0
-  );
-
-}
-
-
-/* =========================================================
-   CLOSE ARTICLE
-========================================================= */
-
-function closeArticle(){
-
-  const reader =
-    document.getElementById(
-      "articleReader"
-    );
-
-
-  reader.classList.remove(
-    "open"
-  );
-
-
-  reader.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-  document.body.classList.remove(
-    "article-open"
-  );
-
-}
-
-
-/* =========================================================
-   NEWS CARD
-========================================================= */
-
-function createNewsCard(
-  article,
-  index
-){
-
-  const card =
-    document.createElement(
-      "article"
-    );
-
-
-  card.className =
-    "news-card" +
-    (
-      index === 0
-        ? " featured"
-        : ""
-    );
-
-
-  const content =
-    document.createElement(
-      "div"
-    );
-
-
-  content.className =
-    "news-content";
-
-
-  const meta =
-    document.createElement(
-      "div"
-    );
-
-
-  meta.className =
-    "news-meta";
-
-
-  meta.textContent =
-    article.category;
-
-
-  const title =
-    document.createElement(
-      "h2"
-    );
-
-
-  title.className =
-    "news-title";
-
-
-  title.textContent =
-    article.title;
-
-
-  const description =
-    document.createElement(
-      "p"
-    );
-
-
-  description.className =
-    "news-description";
-
-
-  description.textContent =
-    article.description ||
-    "Latest development available from the news feed.";
-
-
-  const date =
-    document.createElement(
-      "div"
-    );
-
-
-  date.className =
-    "news-date";
-
-
-  date.textContent =
-    formatDate(
-      article.pubDate
-    );
-
-
-  const button =
-    document.createElement(
-      "button"
-    );
-
-
-  button.type =
-    "button";
-
-
-  button.className =
-    "read-more";
-
-
-  button.textContent =
-    "READ FULL STORY →";
-
-
-  button.addEventListener(
-    "click",
-    function(){
-
-      openArticle(
-        article
-      );
-
-    }
-  );
-
-
-  content.appendChild(
-    meta
-  );
-
-
-  content.appendChild(
-    title
-  );
-
-
-  if(
-    article.description
-  ){
-
-    content.appendChild(
-      description
-    );
-
-  }
-
-
-  content.appendChild(
-    date
-  );
-
-
-  content.appendChild(
-    button
-  );
-
-
-  card.appendChild(
-    content
-  );
-
-
-  return card;
-
-}
-
-
-/* =========================================================
-   RENDER NEWS
-========================================================= */
-
-function renderNews(
-  items
-){
-
-  const news =
-    document.getElementById(
-      "news"
-    );
-
-
-  news.innerHTML =
-    "";
-
-
-  if(
-    !items ||
-    !items.length
-  ){
-
-    const empty =
-      document.createElement(
-        "div"
-      );
-
-
-    empty.className =
-      "empty";
-
-
-    empty.textContent =
-      "No new stories are available for this section right now.";
-
-
-    news.appendChild(
-      empty
-    );
-
-
-    return;
-
-  }
-
-
-  items
-    .slice(
-      0,
-      MAX_STORIES
-    )
-    .forEach(
-      (article,index) => {
-
-        news.appendChild(
-          createNewsCard(
-            article,
-            index
-          )
-        );
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   TICKER
-========================================================= */
-
-function renderTicker(
-  items
-){
-
-  const ticker =
-    document.getElementById(
-      "ticker"
-    );
-
-
-  ticker.innerHTML =
-    "";
-
-
-  if(
-    !items ||
-    !items.length
-  ){
-
-    ticker.textContent =
-      "Latest headlines will appear here.";
-
-    return;
-
-  }
-
-
-  items
-    .slice(
-      0,
-      10
-    )
-    .forEach(
-      (item,index) => {
-
-        const link =
-          document.createElement(
-            "a"
-          );
-
-
-        link.href =
-          "#";
-
-
-        link.textContent =
-          cleanText(
-            item.title
-          );
-
-
-        link.addEventListener(
-          "click",
-          function(event){
-
-            event.preventDefault();
-
-
-            openArticle(
-              item
-            );
-
-          }
-        );
-
-
-        ticker.appendChild(
-          link
-        );
-
-
-        if(
-          index <
-          Math.min(
-            items.length,
-            10
-          ) - 1
-        ){
-
-          const separator =
-            document.createElement(
-              "span"
-            );
-
-
-          separator.className =
-            "ticker-separator";
-
-
-          separator.textContent =
-            "•";
-
-
-          ticker.appendChild(
-            separator
-          );
-
-        }
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   LOAD NEWS
-========================================================= */
-
-async function loadNews(
-  query
-){
-
-  const news =
-    document.getElementById(
-      "news"
-    );
-
-
-  const status =
-    document.getElementById(
-      "status"
-    );
-
-
-  news.innerHTML =
-    `
-      <div class="loading">
-        Loading latest Digital News…
-      </div>
-    `;
-
-
-  status.textContent =
-    "Checking latest available developments…";
-
-
-  try{
-
-    let items =
-      await getNews(
-        query
-      );
-
-
-    /*
-      Keep only recent
-      stories.
-    */
-
-    items =
-      items.filter(
-        item =>
-          isRecent(
-            item.pubDate
-          )
-      );
-
-
-    /*
-      Sort newest first.
-    */
-
-    items.sort(
-      (
-        first,
-        second
-      ) => {
-
-        return (
-          new Date(
-            second.pubDate ||
-            0
-          ) -
-          new Date(
-            first.pubDate ||
-            0
-          )
-        );
-
-      }
-    );
-
-
-    /*
-      Remove duplicates
-      within the feed.
-    */
-
-    items =
-      removeDuplicates(
-        items
-      );
-
-
-    /*
-      Remove stories that
-      this browser has already
-      seen/published.
-    */
-
-    items =
-      removePreviouslyPublished(
-        items
-      );
-
-
-    /*
-      Prepare article objects.
-    */
-
-    items =
-      items
-        .slice(
-          0,
-          MAX_STORIES
-        )
-        .map(
-          item =>
-            prepareArticle(
-              item,
-              query
-            )
-        );
-
-
-    renderNews(
-      items
-    );
-
-
-    renderTicker(
-      items
-    );
-
-
-    /*
-      Remember this batch.
-
-      NOTE:
-      This is browser-local
-      memory. A shared database
-      is required for global
-      publication history.
-    */
-
-    rememberStories(
-      items
-    );
-
-
-    const now =
-      new Date().toLocaleTimeString(
-        "en-IN",
-        {
-          hour:"2-digit",
-          minute:"2-digit"
-        }
-      );
-
-
-    status.textContent =
-      items.length +
-      " latest stories • Updated " +
-      now;
-
-
-  }catch(error){
-
-    console.error(
-      error
-    );
-
-
-    news.innerHTML =
-      `
-        <div class="error">
-
-          Unable to load the latest
-          Digital News right now.
-
-          Please refresh the page.
-
-        </div>
-      `;
-
-
-    status.textContent =
-      "News connection temporarily unavailable";
-
-
-    document.getElementById(
-      "ticker"
-    ).textContent =
-      "Latest headlines temporarily unavailable.";
-
-  }
-
-}
-
-
-/* =========================================================
+/* ---------------------------------------------------------
    CATEGORY BUTTONS
-========================================================= */
+--------------------------------------------------------- */
 
 document
   .querySelectorAll(
-    "#filters button"
+    ".category-button"
   )
   .forEach(
     button => {
 
       button.addEventListener(
         "click",
-        function(){
+        () => {
 
           document
             .querySelectorAll(
-              "#filters button"
+              ".category-button"
             )
             .forEach(
-              btn =>
-                btn.classList.remove(
+              item => {
+
+                item.classList.remove(
                   "active"
-                )
+                );
+
+              }
             );
 
 
-          this.classList.add(
+          button.classList.add(
             "active"
           );
 
 
-          loadNews(
-            this.getAttribute(
-              "data-q"
-            )
-          );
+          activeCategory =
+            button.dataset.category;
+
+
+          renderNews();
 
         }
       );
@@ -3419,146 +3272,38 @@ document
   );
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    SEARCH
-========================================================= */
+--------------------------------------------------------- */
 
 function performSearch(){
 
-  const input =
-    document.getElementById(
-      "searchBox"
-    );
+  searchTerm =
+    searchInput.value
+      .trim()
+      .toLowerCase();
 
-
-  const query =
-    input.value.trim();
-
-
-  if(!query){
-
-    input.focus();
-
-    return;
-
-  }
-
-
-  document
-    .querySelectorAll(
-      "#filters button"
-    )
-    .forEach(
-      btn =>
-        btn.classList.remove(
-          "active"
-        )
-    );
-
-
-  loadNews(
-    query
-  );
+  renderNews();
 
 }
 
 
-document
-  .getElementById(
-    "searchBtn"
-  )
-  .addEventListener(
-    "click",
-    performSearch
-  );
+searchButton.addEventListener(
+  "click",
+  performSearch
+);
 
 
-document
-  .getElementById(
-    "searchBox"
-  )
-  .addEventListener(
-    "keydown",
-    event => {
-
-      if(
-        event.key ===
-        "Enter"
-      ){
-
-        performSearch();
-
-      }
-
-    }
-  );
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-function toggleMenu(){
-
-  const drawer =
-    document.getElementById(
-      "mobileDrawer"
-    );
-
-
-  drawer.classList.toggle(
-    "open"
-  );
-
-
-}
-
-
-/* =========================================================
-   CLOSE DRAWER
-========================================================= */
-
-function closeDrawerOutside(
-  event
-){
-
-  if(
-    event.target.id ===
-    "mobileDrawer"
-  ){
-
-    toggleMenu();
-
-  }
-
-}
-
-
-/* =========================================================
-   ESCAPE KEY
-========================================================= */
-
-document.addEventListener(
+searchInput.addEventListener(
   "keydown",
   event => {
 
     if(
       event.key ===
-      "Escape"
+      "Enter"
     ){
 
-      closeArticle();
-
-
-      const drawer =
-        document.getElementById(
-          "mobileDrawer"
-        );
-
-
-      drawer.classList.remove(
-        "open"
-      );
+      performSearch();
 
     }
 
@@ -3566,38 +3311,64 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   INITIAL LOAD
-========================================================= */
+searchInput.addEventListener(
+  "input",
+  () => {
 
-loadNews(
-  CURRENT_QUERY
+    searchTerm =
+      searchInput.value
+        .trim()
+        .toLowerCase();
+
+    renderNews();
+
+  }
 );
 
 
-/* =========================================================
-   AUTO REFRESH
-========================================================= */
+/* ---------------------------------------------------------
+   INITIAL LOAD
+--------------------------------------------------------- */
+
+loadNews();
+
+
+/* ---------------------------------------------------------
+   AUTOMATIC REFRESH
+--------------------------------------------------------- */
 
 setInterval(
-  function(){
+  () => {
 
-    /*
-      Refresh latest news every
-      10 minutes.
-
-      Only genuinely newer stories
-      should appear because the
-      duplicate/recent filters run
-      again.
-    */
-
-    loadNews(
-      CURRENT_QUERY
-    );
+    loadNews();
 
   },
-  600000
+  REFRESH_INTERVAL
+);
+
+
+/* ---------------------------------------------------------
+   UPDATE DATE PERIODICALLY
+--------------------------------------------------------- */
+
+setInterval(
+  updateDate,
+  60 * 1000
+);
+
+
+/* ---------------------------------------------------------
+   PREVENT BODY SCROLL WHEN ARTICLE OPEN
+--------------------------------------------------------- */
+
+window.addEventListener(
+  "beforeunload",
+  () => {
+
+    document.body.style.overflow =
+      "";
+
+  }
 );
 
 </script>
