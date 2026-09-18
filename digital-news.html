@@ -21,15 +21,13 @@ button,input{font:inherit}.site-header{background:#fff;border-bottom:1px solid #
 .drawer-overlay{position:fixed;inset:0;background:#0007;z-index:9999;display:none}.drawer-overlay.open{display:block}
 .latest-bar{background:#111;color:#fff;border-bottom:3px solid var(--red)}.latest-inner{width:min(1400px,96%);margin:auto;display:flex;align-items:center;min-height:42px}
 .latest-label{background:var(--red);padding:10px 13px;font:900 11px Arial}.ticker-window{flex:1;overflow:auto;scrollbar-width:none}.ticker-window::-webkit-scrollbar{display:none}.ticker-list{display:flex;white-space:nowrap}.ticker-item{display:inline-flex;align-items:center;gap:7px;border:0;background:transparent;color:#fff;padding:7px 9px;font:11px Arial;cursor:pointer}.ticker-item:hover{background:#292929}.ticker-dot{width:6px;height:6px;background:#fff;border-radius:50%;flex:0 0 6px}
-.page-wrap{width:min(1400px,96%);margin:14px auto 30px}.section-head{background:#fff;border:1px solid var(--border);padding:17px 18px 13px;margin-bottom:10px}.section-title-row{display:flex;justify-content:space-between;gap:15px}.section-title{margin:0;font-size:34px;line-height:1.05;text-transform:uppercase}.section-subtitle{margin:6px 0 0;font:13px Arial;color:#666}.update-status{font:11px Arial;color:#777;white-space:nowrap}
-.category-bar{display:flex;flex-wrap:wrap;gap:7px;background:#fff;border:1px solid var(--border);padding:9px;margin-bottom:10px}.category-button{border:1px solid #bbb;background:#fff;color:#222;padding:8px 13px;font:800 12px Arial;cursor:pointer}.category-button.active,.category-button:hover{background:#111;color:#fff;border-color:#111}
-.search-row{display:flex;gap:7px;margin-bottom:11px}.search-input{flex:1;min-width:0;border:1px solid #bbb;padding:12px 14px;background:#fff;font:14px Arial;outline:none}.search-button{border:1px solid #111;background:#111;color:#fff;padding:0 22px;font:800 12px Arial;cursor:pointer}
+.page-wrap{width:min(1400px,96%);margin:10px auto 30px}.category-bar{display:flex;flex-wrap:wrap;gap:7px;background:#fff;border:1px solid var(--border);padding:9px;margin-bottom:10px}.category-button{border:1px solid #bbb;background:#fff;color:#222;padding:8px 13px;font:800 12px Arial;cursor:pointer}.category-button.active,.category-button:hover{background:#111;color:#fff;border-color:#111}
 .news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.news-card{background:#fff;border:1px solid #d0d0d0;display:flex}.news-card-inner{width:100%;padding:14px 15px 12px;display:flex;flex-direction:column}.news-category{color:var(--red);margin-bottom:6px;font:900 10px Arial;text-transform:uppercase;letter-spacing:.5px}.news-title{margin:0 0 9px;font-size:20px;line-height:1.2}.news-summary{margin:0 0 12px;color:#3d3d3d;font:13px/1.5 Arial;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}.news-meta{margin-top:auto;padding-top:9px;border-top:1px solid #eee;display:flex;justify-content:space-between;gap:8px}.news-time{color:#777;font:9px Arial}.read-button{border:0;background:none;color:var(--red);padding:0;font:900 10px Arial;cursor:pointer}
 .loading-box,.empty-box,.error-box{grid-column:1/-1;background:#fff;border:1px solid var(--border);padding:38px 20px;text-align:center;color:#666;font:13px Arial}.spinner{width:25px;height:25px;margin:0 auto 12px;border:3px solid #ddd;border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 .article-overlay{position:fixed;inset:0;z-index:20000;background:#000b;overflow:auto;display:none}.article-overlay.open{display:block}.article-reader{width:min(1100px,96%);min-height:100vh;margin:0 auto;background:#fff}.article-topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#111}.article-back{border:1px solid #555;background:#222;color:#fff;padding:9px 12px;font:800 10px Arial;cursor:pointer}.article-brand{color:#fff;font:800 11px Arial}.article-source{border:1px solid #aaa;background:#fff;color:#111;text-decoration:none;padding:9px 12px;font:900 9px Arial}.article-body{max-width:1000px;margin:auto;padding:24px 32px 40px}.article-category{color:var(--red);margin-bottom:7px;font:900 11px Arial;text-transform:uppercase}.article-title{margin:0 0 11px;font-size:34px;line-height:1.12}.article-meta{display:flex;flex-wrap:wrap;gap:8px 16px;padding-bottom:11px;margin-bottom:16px;border-bottom:1px solid #ddd;color:#777;font:10px Arial}.article-lead{margin:0 0 18px;color:#252525;font:700 16px/1.55 Arial}.article-section-heading{margin:21px 0 9px;padding-bottom:5px;border-bottom:2px solid #111;font-size:18px}.article-copy{color:#222;font:15px/1.65 Arial}.article-copy p{margin:0 0 14px}.article-points{margin:18px 0 20px;padding:13px 16px;border-left:3px solid var(--red);background:#f6f6f6}.article-points li{margin-bottom:7px;font:13px/1.5 Arial}.article-source-note{margin-top:22px;padding-top:12px;border-top:1px solid #ddd;color:#777;font:10px/1.5 Arial}.footer{background:#111;color:#fff;padding:18px 10px;text-align:center;font:10px Arial}
 @media(max-width:1050px){.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.article-title{font-size:31px}}
 @media(max-width:700px){
-.header-inner{width:100%}.top-line{padding:7px 8px;gap:6px}.date-box{width:83px;flex-basis:83px;font-size:9px}.mast-logo{max-width:58vw;max-height:72px}.menu-area{width:auto;flex-basis:auto}.menu-button{padding:8px 9px;font-size:9px}.main-nav{display:none}.latest-inner{width:100%}.latest-label{padding:9px 8px;font-size:8px}.ticker-item{font-size:9px}.page-wrap{width:100%;margin:8px auto 20px}.section-head{border-left:0;border-right:0;padding:11px 12px}.section-title{font-size:24px}.section-subtitle{font-size:10px}.update-status{font-size:8px}.category-bar{border-left:0;border-right:0;padding:7px;gap:5px}.category-button{padding:8px 9px;font-size:10px}.search-row{padding:0 7px}.search-button{padding:0 12px;font-size:10px}.news-grid{grid-template-columns:1fr;gap:6px}.news-card{border-left:0;border-right:0}.news-card-inner{padding:12px 13px 10px}.news-title{font-size:19px}.news-summary{font-size:12px}.article-reader{width:100%;margin:0}.article-topbar{padding:7px 8px}.article-brand{display:none}.article-body{padding:18px 15px 30px}.article-title{font-size:25px;line-height:1.18}.article-lead{font-size:14px;line-height:1.5}.article-copy{font-size:14px;line-height:1.6}.article-section-heading{font-size:17px}.article-points{padding:10px 12px}
+.header-inner{width:100%}.top-line{padding:7px 8px;gap:6px}.date-box{width:83px;flex-basis:83px;font-size:9px}.mast-logo{max-width:58vw;max-height:72px}.menu-area{width:auto;flex-basis:auto}.menu-button{padding:8px 9px;font-size:9px}.main-nav{display:none}.latest-inner{width:100%}.latest-label{padding:9px 8px;font-size:8px}.ticker-item{font-size:9px}.page-wrap{width:100%;margin:0 auto 20px}.category-bar{border-left:0;border-right:0;padding:7px;gap:5px}.category-button{padding:8px 9px;font-size:10px}.news-grid{grid-template-columns:1fr;gap:6px}.news-card{border-left:0;border-right:0}.news-card-inner{padding:12px 13px 10px}.news-title{font-size:19px}.news-summary{font-size:12px}.article-reader{width:100%;margin:0}.article-topbar{padding:7px 8px}.article-brand{display:none}.article-body{padding:18px 15px 30px}.article-title{font-size:25px;line-height:1.18}.article-lead{font-size:14px;line-height:1.5}.article-copy{font-size:14px;line-height:1.6}.article-section-heading{font-size:17px}.article-points{padding:10px 12px}
 }
 </style>
 </head>
@@ -73,7 +71,7 @@ button,input{font:inherit}.site-header{background:#fff;border-bottom:1px solid #
 <section class="latest-bar"><div class="latest-inner"><div class="latest-label">LATEST</div><div class="ticker-window"><div class="ticker-list" id="tickerList"></div></div></div></section>
 
 <main class="page-wrap">
-<section class="section-head"><div class="section-title-row"><div><h1 class="section-title">Digital News</h1><p class="section-subtitle">Latest developments across Hyderabad, Telangana, India and the world</p></div><div class="update-status" id="updateStatus">Updating...</div></div></section>
+
 
 <section class="category-bar">
 <button class="category-button" data-category="all">ALL</button>
@@ -87,11 +85,11 @@ button,input{font:inherit}.site-header{background:#fff;border-bottom:1px solid #
 <button class="category-button" data-category="Entertainment">ENTERTAINMENT</button>
 </section>
 
-<section class="search-row"><input id="searchInput" class="search-input" type="search" placeholder="Search Digital News..."><button id="searchButton" class="search-button">SEARCH</button></section>
-<section class="news-grid" id="newsGrid"><div class="loading-box"><div class="spinner"></div>Checking latest Digital News...</div></section>
+
+<section class="news-grid" id="newsGrid"><div class="loading-box"><div class="spinner"></div>Checking latest updates...</div></section>
 </main>
 
-<footer class="footer"><strong>THE HYDERABAD DAILY</strong><br>Digital News</footer>
+<footer class="footer"><strong>THE HYDERABAD DAILY</strong></footer>
 
 <div class="article-overlay" id="articleOverlay">
 <article class="article-reader">
@@ -104,7 +102,7 @@ button,input{font:inherit}.site-header{background:#fff;border-bottom:1px solid #
 <h2 class="article-section-heading">DIGITAL NEWS BRIEF</h2>
 <div id="articleCopy" class="article-copy"></div>
 <div id="articlePointsBox" class="article-points"><ul id="articlePoints"></ul></div>
-<div class="article-source-note">This page provides a concise report summary using the information available from the linked publication. The original publisher's complete report is available through the original-source link above.</div>
+<div class="article-source-note">This page provides a concise summary using information available through the linked publication. The complete report remains available through the original-source link above.</div>
 </div>
 </article>
 </div>
@@ -144,7 +142,7 @@ football:["football","soccer","fifa","league","goal","club"]
 
 const STOP=new Set(["the","and","for","with","from","this","that","have","has","had","will","can","are","was","were","into","over","after","before","latest","news","india","indian","today","says","said","new","more"]);
 
-let allArticles=[],activeCategory=getCategory(),searchTerm="";
+let allArticles=[],activeCategory=getCategory();
 let digitalRegistry={publishedStories:[]},epaperRegistry={stories:[]};
 
 const $=id=>document.getElementById(id);
@@ -279,8 +277,7 @@ return out.slice(0,80);
 }
 
 async function loadNews(){
-$("updateStatus").textContent="Updating...";
-$("newsGrid").innerHTML='<div class="loading-box"><div class="spinner"></div>Checking latest Digital News...</div>';
+$("newsGrid").innerHTML='<div class="loading-box"><div class="spinner"></div>Checking latest updates...</div>';
 await loadRegistries();
 const results=await Promise.all(FEEDS.map(loadFeed));
 let list=results.flat();
@@ -294,17 +291,16 @@ list.sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
 allArticles=list;
 render();
 renderTicker();
-$("updateStatus").textContent="Updated "+new Date().toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"});
 }
 
 function sentences(text){
 return stripHTML(text).replace(/\s+/g," ").trim().split(/(?<=[.!?])\s+(?=[A-Z0-9“"'‘])/).map(x=>x.trim()).filter(Boolean);
 }
 function summary(a){
-const s=sentences(a.description);return s.slice(0,2).join(" ")||"Additional details are available from the original report.";
+const s=sentences(a.description);return s.slice(0,2).join(" ")||"Open READ DETAILS for the available report information and original publication.";
 }
 function render(){
-const list=allArticles.filter(a=>(activeCategory==="all"||a.category===activeCategory)&&(!searchTerm||normalize(a.title+" "+a.description+" "+a.category).includes(normalize(searchTerm))));
+const list=allArticles.filter(a=>(activeCategory==="all"||a.category===activeCategory));
 if(!list.length){$("newsGrid").innerHTML='<div class="empty-box">No distinct Digital News developments are currently available in this category.</div>';return;}
 $("newsGrid").innerHTML="";
 list.forEach(a=>{
@@ -326,19 +322,87 @@ const b=document.createElement("button");b.className="ticker-item";b.innerHTML='
 }
 function formatDate(v){const d=new Date(v);return isNaN(d)?"":d.toLocaleString("en-IN",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});}
 
-async function enrichFromSource(a){
-if(a.description&&a.description.length>=90)return a;
+async function fetchJinaDirect(url){
 try{
-const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(a.link),{cache:"no-store"});
-if(!r.ok)return a;
-const doc=new DOMParser().parseFromString(await r.text(),"text/html");
-for(const sel of ['meta[property="og:description"]','meta[name="description"]','meta[name="twitter:description"]']){
-const n=doc.querySelector(sel),v=n?.getAttribute("content")||"";
-const d=cleanDescription(v,a.title,a.sourceName);
-if(d&&d.length>=50)return {...a,description:d};
-}
+  const r=await fetch(
+    "https://r.jina.ai/"+url,
+    {cache:"no-store"}
+  );
+  if(r.ok){
+    const text=await r.text();
+    if(text && text.length>200) return text;
+  }
 }catch(e){}
-return a;
+return "";
+}
+
+function extractUsefulParagraphs(text,title){
+  if(!text)return "";
+  let clean=text
+    .replace(/\r/g,"")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g,"$1")
+    .replace(/https?:\/\/\S+/g,"")
+    .replace(/\n{3,}/g,"\n\n");
+
+  const lines=clean
+    .split(/\n+/)
+    .map(x=>x.replace(/^\s*[-*•]\s*/,"").trim())
+    .filter(x=>x.length>=55);
+
+  const bad=/^(advertisement|subscribe|sign in|login|follow us|read more|share|comments?|menu|home|latest news|trending)$/i;
+
+  const paragraphs=[];
+  for(const line of lines){
+    if(bad.test(line))continue;
+    if(/cookie|privacy policy|terms of use/i.test(line))continue;
+    if(Math.max(jaccard(line,title),overlap(line,title))>=.92)continue;
+    if(!paragraphs.some(x=>Math.max(jaccard(x,line),overlap(x,line))>=.82)){
+      paragraphs.push(line);
+    }
+    if(paragraphs.length>=5)break;
+  }
+
+  return paragraphs.join(" ");
+}
+
+async function enrichFromSource(a){
+  if(a.description && a.description.length>=90) return a;
+  if(!a.link) return a;
+
+  // First try Jina's reader, which returns article text/metadata
+  // without requiring the publisher to expose CORS headers.
+  let readerText=await fetchJinaDirect(a.link);
+
+  let extracted=extractUsefulParagraphs(readerText,a.title);
+
+  if(extracted && extracted.length>=80){
+    return {...a,description:extracted};
+  }
+
+  // Final metadata route.
+  try{
+    const r=await fetch(
+      "https://api.allorigins.win/raw?url="+encodeURIComponent(a.link),
+      {cache:"no-store"}
+    );
+    if(r.ok){
+      const doc=new DOMParser().parseFromString(await r.text(),"text/html");
+      for(const sel of [
+        'meta[property="og:description"]',
+        'meta[name="description"]',
+        'meta[name="twitter:description"]'
+      ]){
+        const n=doc.querySelector(sel);
+        const v=n?.getAttribute("content")||"";
+        const d=cleanDescription(v,a.title,a.sourceName);
+        if(d && d.length>=50){
+          return {...a,description:d};
+        }
+      }
+    }
+  }catch(e){}
+
+  return a;
 }
 
 async function openArticle(a){
@@ -346,7 +410,7 @@ $("articleCategory").textContent=a.category;
 $("articleTitle").textContent=a.title;
 $("articleDate").textContent=formatDate(a.pubDate);
 $("articleSource").href=a.link||"#";
-$("articleLead").textContent="Loading report details...";
+$("articleLead").textContent="Loading report details…";
 $("articleCopy").innerHTML="<p>Preparing the available report summary.</p>";
 $("articlePointsBox").style.display="none";
 $("articleOverlay").classList.add("open");document.body.style.overflow="hidden";$("articleOverlay").scrollTop=0;
@@ -355,10 +419,22 @@ a=await enrichFromSource(a);
 const ss=sentences(a.description);
 const uniq=[];
 ss.forEach(s=>{if(!uniq.some(x=>Math.max(jaccard(x,s),overlap(x,s))>=.80))uniq.push(s);});
-$("articleLead").textContent=uniq[0]||"The available feed did not contain additional report details. Use the original source for the complete report.";
+if(uniq.length){
+  $("articleLead").textContent=uniq[0];
+}else{
+  $("articleLead").textContent="The linked publication did not provide a readable summary through the available feed.";
+}
+
 $("articleCopy").innerHTML="";
-uniq.slice(1,5).forEach(s=>{const p=document.createElement("p");p.textContent=s;$("articleCopy").appendChild(p);});
-if(!uniq.slice(1,5).length)$("articleCopy").innerHTML="<p>The available feed did not contain additional report details. Use the original source for the complete report.</p>";
+uniq.slice(1,5).forEach(s=>{
+  const p=document.createElement("p");
+  p.textContent=s;
+  $("articleCopy").appendChild(p);
+});
+
+if(!uniq.slice(1,5).length){
+  $("articleCopy").innerHTML="<p>The linked publication did not provide additional readable text through the available feed. The complete report remains available through ORIGINAL SOURCE.</p>";
+}
 $("articlePoints").innerHTML="";
 if(uniq.length>=2){uniq.slice(0,3).forEach(s=>{const li=document.createElement("li");li.textContent=s;$("articlePoints").appendChild(li);});$("articlePointsBox").style.display="block";}
 }
@@ -378,9 +454,6 @@ document.querySelectorAll(".drawer a").forEach(a=>a.onclick=()=>closeMenu());
 function closeMenu(){$("drawer").classList.remove("open");$("drawerOverlay").classList.remove("open");document.body.style.overflow="";}
 $("menuButton").onclick=()=>{$("drawer").classList.add("open");$("drawerOverlay").classList.add("open");document.body.style.overflow="hidden";};
 $("drawerClose").onclick=closeMenu;$("drawerOverlay").onclick=closeMenu;
-function search(){searchTerm=$("searchInput").value.trim();render();}
-$("searchButton").onclick=search;$("searchInput").oninput=search;$("searchInput").onkeydown=e=>{if(e.key==="Enter")search();};
-
 function updateDate(){
 const d=new Date();$("currentDay").textContent=d.toLocaleDateString("en-IN",{weekday:"long"});$("currentDate").textContent=d.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});
 }
