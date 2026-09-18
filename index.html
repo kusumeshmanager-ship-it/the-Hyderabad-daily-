@@ -105,12 +105,39 @@ footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;paddi
  .highlights-box{padding:5px 10px}.highlight-list a{font-size:13px;padding:11px 3px}
 }
 
-.highlight-nav{margin:0;padding:4px 8px 4px 30px;display:grid;grid-template-columns:1fr 1fr;gap:0 28px;}
-.highlight-nav li{margin:0;padding:8px 0;border-bottom:1px solid var(--line);font:600 15px/1.4 Arial,sans-serif;}
-.highlight-nav a{color:var(--ink);text-decoration:none;display:block;}
-.highlight-nav a:hover{color:var(--navy);}
-.highlight-nav b{color:var(--navy);}
-@media(max-width:700px){.highlight-nav{grid-template-columns:1fr;padding-left:26px}.highlight-nav li{font-size:14px;padding:9px 0}.highlights-box{padding:5px 10px}}
+/* Clickable highlights navigation */
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:90px}
+.breaking-highlights{
+ margin:0;
+ padding:0 0 0 24px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:0 28px;
+ list-style:disc;
+}
+.breaking-highlights li{
+ padding:4px 0;
+ line-height:1.4;
+ color:#fff;
+}
+.breaking-highlights a{
+ color:#fff;
+ text-decoration:none;
+}
+.breaking-highlights a:hover,
+.breaking-highlights a:focus{
+ text-decoration:underline;
+}
+
+
+@media(max-width:650px){
+ .breaking-inner{align-items:flex-start}
+ .breaking-label{margin:0;flex:0 0 auto}
+ .breaking-highlights{grid-template-columns:1fr;padding-left:22px;gap:0}
+ .breaking-highlights li{font-size:13px;padding:5px 0}
+}
+
 </style>
 </head>
 
@@ -165,10 +192,20 @@ footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;paddi
  </div>
 </header>
 
-<div class="breaking">
+<div class="breaking" id="highlightsBar">
  <div class="breaking-inner">
-  <div class="breaking-label">BREAKING</div>
-  <div class="ticker" id="ticker"><span>Latest verified developments — tap a highlight below to navigate to the corresponding news section.</span></div>
+  <div class="breaking-label">HIGHLIGHTS</div>
+  <ul class="breaking-highlights">
+   <li><a href="#hyderabad">Hyderabad: Ganesh immersion arrangements, traffic and major city developments.</a></li>
+   <li><a href="#telangana">Telangana & Andhra Pradesh: Governance, infrastructure, transport and development updates.</a></li>
+   <li><a href="#india">India: National policy, economy, public services and major civic developments.</a></li>
+   <li><a href="#world">World: Major international developments and their relevance for India.</a></li>
+   <li><a href="#business">Business & Markets: Indian markets, investments and economic developments.</a></li>
+   <li><a href="#sports">Sports: Cricket, Asian Games preparation and Hyderabad sporting developments.</a></li>
+   <li><a href="#technology">Science & Technology: AI, energy, consumer technology and practical explainers.</a></li>
+   <li><a href="#entertainment">Entertainment: Tollywood, Bollywood, Hollywood, OTT and Hyderabad events.</a></li>
+   <li><a href="#epaper">Today's E-Paper: Open the complete 10-page edition.</a></li>
+  </ul>
  </div>
 </div>
 
@@ -185,8 +222,8 @@ footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;paddi
    </div>
    <div class="lead-copy">
     <div class="kicker">National • Front Page</div>
-    <h1>Metro expansion gains momentum as Hyderabad Phase-II corridors move forward</h1>
-    <p>Centre approves key Phase-II metro corridors as Hyderabad's urban transit expansion moves ahead.</p>
+    <h1>PM Modi turns 76; nationwide seva campaign unites millions</h1>
+    <p>Month-long “Seva Sankalp Abhiyan” launches with blood donation, health and wellness programmes, cleanliness drives and support for vulnerable citizens.</p>
     <a class="read" href="#epaper">READ IN TODAY'S E-PAPER →</a>
    </div>
   </article>
@@ -216,21 +253,21 @@ footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;paddi
 
 
 <section class="container highlights" id="highlights">
- <div class="section-title"><h2>HIGHLIGHTS</h2></div>
  <div class="highlights-box">
-  <ul class="highlight-list highlight-nav">
-   <li><a href="#hyderabad"><b>Hyderabad:</b> City traffic, Ganesh immersion arrangements, metro expansion and area-wise developments.</a></li>
-   <li><a href="#telangana"><b>Telangana & Andhra Pradesh:</b> Governance, infrastructure, transport and state development updates.</a></li>
-   <li><a href="#india"><b>India:</b> National policy, economy, public services, transport and major civic developments.</a></li>
-   <li><a href="#world"><b>World:</b> Major international developments and their relevance for India.</a></li>
-   <li><a href="#business"><b>Business & Markets:</b> Indian markets, global signals, investments and regional business activity.</a></li>
-   <li><a href="#sports"><b>Sports:</b> Cricket, Asian Games preparation and Hyderabad sporting developments.</a></li>
-   <li><a href="#technology"><b>Science & Technology:</b> AI, consumer technology, energy and practical technology explainers.</a></li>
-   <li><a href="#entertainment"><b>Entertainment:</b> Tollywood, Bollywood, Hollywood, OTT and Hyderabad events.</a></li>
-   <li><a href="#epaper"><b>Today's E-Paper:</b> Open the complete 10-page edition and navigate page by page.</a></li>
+  <div class="highlights-title">HIGHLIGHTS</div>
+  <ul class="highlight-list">
+   <li><a href="#hyderabad">Metro expansion gains momentum as Hyderabad's Phase-II corridors move forward.</a></li>
+   <li><a href="#india">GST reforms and key Parliament developments remain major national policy stories.</a></li>
+   <li><a href="#telangana">Telangana governance, infrastructure and climate initiatives draw attention.</a></li>
+   <li><a href="#hyderabad">Hyderabad Ganesh immersion safety and traffic arrangements are in focus.</a></li>
+   <li><a href="#sports">India prepares for the Aichi-Nagoya Asian Games across multiple disciplines.</a></li>
+   <li><a href="#technology">Google, Microsoft and other technology leaders advance AI and cloud platforms.</a></li>
+   <li><a href="#technology">New smartphones, wearables and smart devices headline the technology desk.</a></li>
+   <li><a href="#entertainment">Tollywood, Bollywood, Hollywood and OTT releases shape the entertainment desk.</a></li>
   </ul>
  </div>
 </section>
+
 
 <section class="container" id="hyderabad">
  <div class="section-title"><h2>HYDERABAD</h2></div>
@@ -503,13 +540,6 @@ image.addEventListener("touchend",e=>{
  if(Math.abs(d)>70)d>0?nextPage():previousPage();
 },{passive:true});
 
-const breaking=[
- "Hyderabad's Ganesh immersion arrangements tightened as major celebrations continue across the city.",
- "EPFO wage ceiling raised to ₹25,000, expanding coverage for more workers.",
- "India names West Indies ODI squad as Rohit Sharma and Virat Kohli return.",
- "New US public-charge rule takes effect September 18.",
- "13 hi-tech bus stations planned to transform Telangana's transit network."
-];
 showPage(0);
 </script>
 
