@@ -9,19 +9,17 @@
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>
-  The Hyderabad Daily | Digital News
-</title>
+<title>The Hyderabad Daily | Digital News</title>
 
 <meta
   name="description"
-  content="The Hyderabad Daily - Digital News covering Hyderabad, Telangana, India and World news."
->
+  content="The Hyderabad Daily - Digital News"
+/>
 
 <meta
   name="theme-color"
   content="#0b2f6b"
->
+/>
 
 <style>
 
@@ -51,14 +49,14 @@ html{
 body{
   margin:0;
   padding:0;
-  font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 
 /* =========================================================
-   TOP COLOUR LINE
+   TOP NAVY / RED LINE
 ========================================================= */
 
 .topline{
@@ -76,110 +74,150 @@ body{
 
 
 /* =========================================================
-   MASTHEAD
-   SAME STRUCTURE AS E-PAPER / HOME
+   EXACT NEWSPAPER LOGO HEADER
 ========================================================= */
 
 .mast{
   background:#ffffff;
 
-  padding:18px 24px 16px;
+  width:100%;
+
+  padding:10px 20px 8px;
 
   display:flex;
 
+  justify-content:center;
+
   align-items:center;
-
-  justify-content:space-between;
-
-  border-bottom:1px solid var(--line);
 }
 
-.brand{
-  color:var(--navy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:58px;
-
-  line-height:.88;
-
-  font-weight:700;
-
-  letter-spacing:-2px;
-}
-
-.brand small{
+.mast-logo{
   display:block;
 
-  margin-top:12px;
+  width:100%;
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  max-width:1150px;
 
-  font-size:10px;
+  height:auto;
 
-  line-height:1.2;
-
-  letter-spacing:3px;
-
-  font-weight:700;
-
-  color:var(--navy);
-}
-
-.edition{
-  min-width:190px;
-
-  text-align:center;
-
-  color:#222222;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size:13px;
-
-  line-height:1.55;
-
-  border-left:1px solid var(--line);
-
-  padding-left:24px;
-}
-
-.edition b{
-  color:var(--navy);
-
-  font-size:16px;
+  object-fit:contain;
 }
 
 
 /* =========================================================
-   DESKTOP NAVIGATION
+   DATE / NAVIGATION BAR
 ========================================================= */
 
-.desktop-nav{
+.main-nav{
+  width:100%;
+
+  background:var(--navy);
+
+  border-bottom:
+    4px solid
+    var(--red);
+
+  min-height:54px;
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr;
+
+  align-items:center;
+}
+
+
+/* DAY / DATE */
+
+.date-display{
+  height:100%;
+
   display:flex;
 
   align-items:center;
 
   justify-content:center;
 
-  background:var(--navy);
+  color:#ffffff;
 
-  border-bottom:4px solid var(--red);
+  font-size:12px;
+
+  font-weight:700;
+
+  letter-spacing:.5px;
+
+  white-space:nowrap;
+
+  border-right:
+    1px solid
+    rgba(255,255,255,.18);
 }
 
-.desktop-nav a{
-  display:block;
+.date-display .day{
+  font-weight:700;
+}
 
-  padding:14px 30px;
+.date-display .dot{
+  margin:
+    0
+    7px;
+
+  color:#ffffff;
+}
+
+
+/* MENU */
+
+.menu-button{
+  height:100%;
+
+  border:0;
+
+  background:transparent;
+
+  color:#ffffff;
+
+  font-family:Arial,Helvetica,sans-serif;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  letter-spacing:.8px;
+
+  cursor:pointer;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  border-right:
+    1px solid
+    rgba(255,255,255,.18);
+}
+
+.menu-button:hover{
+  background:var(--navy2);
+}
+
+
+/* HOME */
+
+.home-button{
+  height:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 
   color:#ffffff;
 
@@ -189,31 +227,11 @@ body{
 
   font-weight:700;
 
-  letter-spacing:.7px;
-
-  border-right:
-    1px solid
-    rgba(255,255,255,.15);
+  letter-spacing:.8px;
 }
 
-.desktop-nav a:first-child{
-  border-left:
-    1px solid
-    rgba(255,255,255,.15);
-}
-
-.desktop-nav a:hover,
-.desktop-nav a.active{
+.home-button:hover{
   background:var(--navy2);
-}
-
-
-/* =========================================================
-   MOBILE NAV
-========================================================= */
-
-.mobile-nav{
-  display:none;
 }
 
 
@@ -253,7 +271,7 @@ body{
 
   box-shadow:
     5px 0 20px
-    rgba(0,0,0,.20);
+    rgba(0,0,0,.2);
 
   overflow-y:auto;
 }
@@ -263,7 +281,7 @@ body{
 
   color:#ffffff;
 
-  padding:18px 16px;
+  padding:18px;
 
   border-bottom:
     4px solid
@@ -282,7 +300,7 @@ body{
     "Times New Roman",
     serif;
 
-  font-size:22px;
+  font-size:21px;
 }
 
 .drawer-close{
@@ -304,31 +322,33 @@ body{
 .drawer-links a{
   display:block;
 
-  padding:15px 18px;
+  padding:16px 18px;
 
   color:var(--navy);
 
   text-decoration:none;
 
-  border-bottom:
-    1px solid
-    #e7ebf0;
-
   font-size:13px;
 
   font-weight:700;
+
+  border-bottom:
+    1px solid
+    #e5e9ee;
 }
 
 .drawer-links a:hover{
-  background:#f1f5fa;
+  background:#f2f5f9;
 }
 
 
 /* =========================================================
-   LATEST BAR
+   LATEST NEWS TICKER
 ========================================================= */
 
 .breaking{
+  width:100%;
+
   background:#ffffff;
 
   border-bottom:
@@ -337,19 +357,25 @@ body{
 }
 
 .breaking-inner{
+  width:100%;
+
   max-width:1280px;
 
   margin:0 auto;
 
+  min-height:43px;
+
   display:flex;
 
   align-items:stretch;
-
-  min-height:42px;
 }
 
-.breaking .label{
-  flex:0 0 auto;
+.breaking-label{
+  background:var(--red);
+
+  color:#ffffff;
+
+  min-width:155px;
 
   display:flex;
 
@@ -357,17 +383,11 @@ body{
 
   justify-content:center;
 
-  background:var(--red);
-
-  color:#ffffff;
-
   font-size:12px;
 
   font-weight:700;
 
   letter-spacing:1px;
-
-  padding:0 18px;
 }
 
 .ticker{
@@ -379,13 +399,13 @@ body{
 
   overflow:hidden;
 
-  padding:0 14px;
-
   white-space:nowrap;
 
-  font-size:13px;
+  padding:
+    0
+    14px;
 
-  color:var(--ink);
+  font-size:13px;
 }
 
 .ticker a{
@@ -400,15 +420,14 @@ body{
 
 
 /* =========================================================
-   MAIN
+   MAIN PAGE
 ========================================================= */
 
 .page{
-  min-height:
-    calc(100vh - 260px);
+  min-height:600px;
 
   padding:
-    24px
+    25px
     14px
     50px;
 }
@@ -421,7 +440,7 @@ body{
 
 
 /* =========================================================
-   DIGITAL NEWS SECTION HEADER
+   DIGITAL NEWS TITLE
 ========================================================= */
 
 .section-title{
@@ -436,8 +455,8 @@ body{
     var(--red);
 
   padding:
-    12px
-    16px;
+    13px
+    18px;
 
   margin-bottom:14px;
 }
@@ -452,34 +471,34 @@ body{
     "Times New Roman",
     serif;
 
-  font-size:30px;
+  font-size:31px;
 
   line-height:1;
-
-  letter-spacing:.3px;
 }
 
 
 /* =========================================================
-   LIVE BAR
+   LIVE STATUS
 ========================================================= */
 
 .livebar{
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:15px;
-
   background:#ffffff;
 
   border:
     1px solid
     var(--line);
 
-  padding:10px 14px;
+  min-height:70px;
+
+  padding:
+    0
+    15px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
 
   margin-bottom:14px;
 }
@@ -487,11 +506,9 @@ body{
 .live{
   color:var(--red);
 
+  font-size:14px;
+
   font-weight:700;
-
-  font-size:12px;
-
-  letter-spacing:.5px;
 
   white-space:nowrap;
 }
@@ -499,7 +516,7 @@ body{
 .status{
   color:var(--muted);
 
-  font-size:12px;
+  font-size:13px;
 
   text-align:right;
 }
@@ -520,25 +537,25 @@ body{
 }
 
 .toolbar button{
-  border:
-    1px solid
-    #bcc7d4;
-
   background:#ffffff;
 
   color:var(--navy);
 
+  border:
+    1px solid
+    #bcc7d4;
+
   border-radius:4px;
 
   padding:
-    9px
-    13px;
-
-  cursor:pointer;
+    10px
+    14px;
 
   font-size:12px;
 
   font-weight:700;
+
+  cursor:pointer;
 }
 
 .toolbar button:hover{
@@ -561,17 +578,15 @@ body{
 .searchbar{
   display:flex;
 
-  gap:8px;
+  gap:10px;
 
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .searchbar input{
   flex:1;
 
-  min-width:0;
-
-  height:42px;
+  height:44px;
 
   border:
     1px solid
@@ -581,7 +596,7 @@ body{
 
   padding:
     0
-    13px;
+    14px;
 
   font-size:14px;
 
@@ -593,17 +608,15 @@ body{
 }
 
 .searchbar button{
-  height:42px;
+  height:44px;
+
+  min-width:145px;
 
   border:0;
 
   background:var(--red);
 
   color:#ffffff;
-
-  padding:
-    0
-    20px;
 
   font-size:12px;
 
@@ -652,82 +665,52 @@ body{
   flex-direction:column;
 
   min-width:0;
-
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease;
-}
-
-.news-card:hover{
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 5px 16px
-    rgba(0,0,0,.08);
 }
 
 
 /* =========================================================
-   FEATURED CARD
+   FEATURED STORY
 ========================================================= */
 
 .news-card.featured{
-  grid-column:span 2;
+  grid-column:
+    span 2;
 
-  display:grid;
+  display:block;
+}
 
-  grid-template-columns:
-    1.15fr
-    1fr;
+
+/*
+ IMPORTANT:
+ There is NO image placeholder.
+
+ If an article has no image,
+ no image element is created.
+*/
+
+
+.news-card.featured.no-image{
+  display:block;
+
+  grid-column:
+    span 2;
 }
 
 
 /* =========================================================
-   ARTICLE IMAGE
+   IMAGE
 ========================================================= */
 
 .news-image{
   width:100%;
 
-  height:190px;
+  height:250px;
+
+  display:block;
 
   object-fit:cover;
 
-  background:#dfe5ec;
-
-  display:block;
-}
-
-.featured .news-image{
-  height:100%;
-
-  min-height:280px;
-}
-
-
-/*
-   IMPORTANT:
-   If there is NO image, the image element itself
-   is NOT CREATED.
-
-   Therefore there will be NO EMPTY GREY BOX.
-*/
-
-
-/* =========================================================
-   NO IMAGE FEATURED CARD
-========================================================= */
-
-.news-card.featured.no-image{
-  display:block;
-
-  grid-column:span 2;
-}
-
-.news-card.featured.no-image
-.news-content{
-  width:100%;
+  background:#e3e8ee;
 }
 
 
@@ -736,34 +719,33 @@ body{
 ========================================================= */
 
 .news-content{
-  padding:15px;
+  padding:
+    18px
+    18px
+    20px;
 
   display:flex;
 
   flex-direction:column;
-
-  flex:1;
 }
 
 .news-meta{
   color:var(--red);
 
-  font-size:10px;
+  font-size:11px;
 
   font-weight:700;
 
   letter-spacing:.8px;
 
-  text-transform:uppercase;
-
-  margin-bottom:7px;
+  margin-bottom:8px;
 }
 
 .news-title{
   margin:
     0
     0
-    9px;
+    12px;
 
   color:var(--navy);
 
@@ -772,26 +754,26 @@ body{
     "Times New Roman",
     serif;
 
-  font-size:21px;
+  font-size:22px;
 
-  line-height:1.18;
+  line-height:1.2;
 }
 
 .featured .news-title{
-  font-size:28px;
+  font-size:30px;
 }
 
 .news-description{
   color:#4e5a67;
 
-  font-size:13px;
+  font-size:14px;
 
-  line-height:1.5;
+  line-height:1.55;
 
   margin:
     0
     0
-    12px;
+    15px;
 }
 
 .news-date{
@@ -799,9 +781,7 @@ body{
 
   font-size:11px;
 
-  margin-top:auto;
-
-  padding-top:8px;
+  padding-top:10px;
 
   border-top:
     1px solid
@@ -811,11 +791,11 @@ body{
 .read-more{
   display:inline-block;
 
-  margin-top:12px;
+  margin-top:13px;
 
   color:var(--red);
 
-  font-size:11px;
+  font-size:12px;
 
   font-weight:700;
 
@@ -843,7 +823,7 @@ body{
     var(--line);
 
   padding:
-    35px
+    40px
     20px;
 
   text-align:center;
@@ -867,11 +847,11 @@ footer{
 
   color:#ffffff;
 
-  padding:
-    24px
-    15px;
-
   text-align:center;
+
+  padding:
+    25px
+    15px;
 
   border-top:
     5px solid
@@ -884,7 +864,7 @@ footer{
     "Times New Roman",
     serif;
 
-  font-size:25px;
+  font-size:24px;
 
   font-weight:700;
 
@@ -897,12 +877,10 @@ footer p{
   color:#dbe5f3;
 
   font-size:11px;
-
-  line-height:1.5;
 }
 
 .footer-nav{
-  margin-top:14px;
+  margin-top:13px;
 }
 
 .footer-nav a{
@@ -919,10 +897,6 @@ footer p{
     10px;
 }
 
-.footer-nav a:hover{
-  color:#ffced0;
-}
-
 
 /* =========================================================
    TABLET
@@ -930,20 +904,15 @@ footer p{
 
 @media(max-width:900px){
 
-  .brand{
-    font-size:46px;
-  }
-
-  .edition{
-    min-width:160px;
-
-    padding-left:16px;
-  }
-
-  .desktop-nav a{
+  .mast{
     padding:
-      13px
-      18px;
+      10px
+      14px
+      8px;
+  }
+
+  .mast-logo{
+    max-width:900px;
   }
 
   .news-grid{
@@ -967,164 +936,83 @@ footer p{
 
 @media(max-width:650px){
 
+  /* -------------------------------------------------------
+     LOGO
+  ------------------------------------------------------- */
+
   .topline{
     height:4px;
   }
 
-
-  /* -------------------------------------------------------
-     EXACT E-PAPER STYLE MASTHEAD
-  ------------------------------------------------------- */
-
   .mast{
     padding:
-      14px
-      10px
-      12px;
+      8px
+      5px
+      6px;
 
     display:block;
-
-    text-align:center;
 
     background:#ffffff;
   }
 
-  .brand{
-    width:100%;
-
-    text-align:center;
-
-    color:var(--navy);
-
-    font-family:
-      Georgia,
-      "Times New Roman",
-      serif;
-
-    font-size:38px;
-
-    line-height:.9;
-
-    font-weight:700;
-
-    letter-spacing:-1.2px;
-  }
-
-  .brand small{
+  .mast-logo{
     display:block;
 
-    margin-top:10px;
-
-    font-family:
-      Arial,
-      Helvetica,
-      sans-serif;
-
-    font-size:8px;
-
-    line-height:1.2;
-
-    letter-spacing:2px;
-
-    font-weight:700;
-
-    color:var(--navy);
-  }
-
-  .edition{
-    margin-top:12px;
-
-    min-width:0;
-
     width:100%;
 
-    text-align:center;
+    max-width:none;
 
-    border-left:0;
+    height:auto;
 
-    padding-left:0;
-
-    color:#222222;
-
-    font-family:
-      Arial,
-      Helvetica,
-      sans-serif;
-
-    font-size:11px;
-
-    line-height:1.5;
-  }
-
-  .edition b{
-    color:var(--navy);
-
-    font-size:13px;
+    margin:0 auto;
   }
 
 
   /* -------------------------------------------------------
-     MOBILE NAV
+     NAV BAR
+     
+     DATE FIRST
+     MENU SECOND
+     HOME THIRD
   ------------------------------------------------------- */
 
-  .desktop-nav{
-    display:none;
-  }
+  .main-nav{
+    min-height:52px;
 
-  .mobile-nav{
-    display:flex;
-
-    width:100%;
-
-    height:46px;
-
-    background:var(--navy);
+    grid-template-columns:
+      1.35fr
+      1fr
+      .85fr;
 
     border-bottom:
       4px solid
       var(--red);
   }
 
-  .menu-btn,
-  .mobile-home-btn{
-    flex:1;
+  .date-display{
+    font-size:10px;
 
-    border:0;
+    letter-spacing:.2px;
 
-    background:transparent;
-
-    color:#ffffff;
-
-    text-decoration:none;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    letter-spacing:.7px;
-
-    cursor:pointer;
+    padding:
+      0
+      4px;
   }
 
-  .menu-btn{
-    border-right:
-      1px solid
-      rgba(255,255,255,.18);
+  .date-display .dot{
+    margin:
+      0
+      4px;
   }
 
-  .menu-btn span{
-    margin-left:7px;
+  .menu-button{
+    font-size:11px;
+
+    gap:6px;
   }
 
-  .menu-btn:hover,
-  .mobile-home-btn:hover{
-    background:var(--navy2);
+  .home-button{
+    font-size:11px;
   }
 
 
@@ -1133,15 +1021,17 @@ footer p{
   ------------------------------------------------------- */
 
   .breaking-inner{
-    min-height:40px;
+    min-height:42px;
   }
 
-  .breaking .label{
-    padding:
-      0
-      12px;
+  .breaking-label{
+    min-width:96px;
 
     font-size:10px;
+
+    padding:
+      0
+      8px;
   }
 
   .ticker{
@@ -1166,10 +1056,12 @@ footer p{
 
   .section-title{
     padding:
-      10px
+      11px
       12px;
 
-    margin-bottom:10px;
+    border-top-width:5px;
+
+    border-bottom-width:4px;
   }
 
   .section-title h1{
@@ -1178,21 +1070,26 @@ footer p{
 
 
   /* -------------------------------------------------------
-     LIVE BAR
+     LIVE
   ------------------------------------------------------- */
 
   .livebar{
     display:block;
 
     padding:
-      10px
       12px;
   }
 
-  .status{
-    text-align:left;
+  .live{
+    display:block;
 
-    margin-top:5px;
+    font-size:13px;
+  }
+
+  .status{
+    margin-top:6px;
+
+    text-align:left;
 
     font-size:10px;
   }
@@ -1208,7 +1105,7 @@ footer p{
 
   .toolbar button{
     padding:
-      8px
+      9px
       10px;
 
     font-size:10px;
@@ -1220,33 +1117,29 @@ footer p{
   ------------------------------------------------------- */
 
   .searchbar{
-    gap:5px;
+    gap:6px;
   }
 
   .searchbar input{
-    height:40px;
+    height:42px;
 
     font-size:13px;
   }
 
   .searchbar button{
-    height:40px;
+    min-width:105px;
 
-    padding:
-      0
-      13px;
+    height:42px;
 
     font-size:10px;
   }
 
 
   /* -------------------------------------------------------
-     MOBILE NEWS GRID
+     NEWS
   ------------------------------------------------------- */
 
   .news-grid{
-    display:grid;
-
     grid-template-columns:1fr;
 
     gap:12px;
@@ -1259,52 +1152,37 @@ footer p{
   .news-card.featured{
     grid-column:span 1;
 
-    display:flex;
-
-    flex-direction:column;
+    display:block;
   }
 
   .news-card.featured.no-image{
     grid-column:span 1;
 
-    display:flex;
+    display:block;
   }
 
 
   /* -------------------------------------------------------
-     MOBILE ARTICLE IMAGE
+     NO IMAGE = NO EMPTY BOX
   ------------------------------------------------------- */
 
-  .news-image{
-    width:100%;
-
-    height:190px;
-
-    min-height:0;
+  .news-card.no-image .news-image{
+    display:none;
   }
 
-  .featured .news-image{
-    height:190px;
-
-    min-height:0;
-  }
-
-
-  /* -------------------------------------------------------
-     NEWS CONTENT
-  ------------------------------------------------------- */
 
   .news-content{
-    padding:13px;
+    padding:
+      15px;
   }
 
   .news-title,
   .featured .news-title{
-    font-size:21px;
+    font-size:22px;
   }
 
   .news-description{
-    font-size:12px;
+    font-size:13px;
   }
 
 
@@ -1339,31 +1217,29 @@ footer p{
 
 @media(max-width:380px){
 
-  .brand{
-    font-size:34px;
+  .mast{
+    padding:
+      6px
+      3px;
+      5px;
   }
 
-  .brand small{
-    font-size:7px;
-
-    letter-spacing:1.5px;
+  .date-display{
+    font-size:9px;
   }
 
-  .edition{
+  .menu-button{
     font-size:10px;
   }
 
-  .edition b{
-    font-size:12px;
-  }
-
-  .section-title h1{
-    font-size:22px;
+  .home-button{
+    font-size:10px;
   }
 
 }
 
 </style>
+
 </head>
 
 
@@ -1378,59 +1254,68 @@ footer p{
 
 
 <!-- =======================================================
-     MASTHEAD
+     EXACT HYDERABAD DAILY LOGO
 ======================================================= -->
 
 <header>
 
   <div class="mast">
 
-    <div class="brand">
-
-      The Hyderabad Daily
-
-      <small>
-        YOUR CITY. YOUR STATE. YOUR NATION. OUR WORLD.
-      </small>
-
-    </div>
-
-
-    <!-- SAME DATE / EDITION AS E-PAPER -->
-
-    <div class="edition">
-
-      <b>
-        FRIDAY
-      </b>
-
-      <br>
-
-      18 SEPTEMBER 2026
-
-      <br>
-
-      HYDERABAD
-
-    </div>
+    <img
+      class="mast-logo"
+      src="masthead-logo.png"
+      alt="The Hyderabad Daily"
+    >
 
   </div>
 
 
   <!-- =====================================================
-       MOBILE NAV
+       DATE + MENU + HOME
+       
+       DATE IS NOW BEFORE MENU
   ====================================================== -->
 
-  <div class="mobile-nav">
+  <nav class="main-nav">
+
+
+    <!-- AUTOMATIC DAY / DATE -->
+
+    <div
+      class="date-display"
+      id="dateDisplay"
+    >
+      <span
+        class="day"
+        id="dayText"
+      >
+        FRIDAY
+      </span>
+
+      <span class="dot">
+        •
+      </span>
+
+      <span
+        id="dateText"
+      >
+        18 SEPTEMBER 2026
+      </span>
+    </div>
+
+
+    <!-- MENU -->
 
     <button
-      class="menu-btn"
-      onclick="toggleMenu()"
+      class="menu-button"
       type="button"
+      onclick="toggleMenu()"
       aria-label="Open menu"
     >
 
-      ☰
+      <span style="font-size:20px;">
+        ☰
+      </span>
 
       <span>
         MENU
@@ -1439,35 +1324,13 @@ footer p{
     </button>
 
 
+    <!-- HOME -->
+
     <a
-      class="mobile-home-btn"
+      class="home-button"
       href="index.html"
     >
       HOME
-    </a>
-
-  </div>
-
-
-  <!-- =====================================================
-       DESKTOP NAV
-  ====================================================== -->
-
-  <nav class="desktop-nav">
-
-    <a href="index.html">
-      HOME
-    </a>
-
-    <a
-      class="active"
-      href="digital-news.html"
-    >
-      DIGITAL NEWS
-    </a>
-
-    <a href="index.html#epaper">
-      E-PAPER
     </a>
 
   </nav>
@@ -1487,6 +1350,7 @@ footer p{
 
   <div class="drawer-panel">
 
+
     <div class="drawer-head">
 
       <strong>
@@ -1495,8 +1359,8 @@ footer p{
 
       <button
         class="drawer-close"
-        onclick="toggleMenu()"
         type="button"
+        onclick="toggleMenu()"
         aria-label="Close menu"
       >
         ×
@@ -1527,16 +1391,16 @@ footer p{
 
 
 <!-- =======================================================
-     LATEST HEADLINES
+     LATEST NEWS
 ======================================================= -->
 
 <div class="breaking">
 
   <div class="breaking-inner">
 
-    <span class="label">
+    <div class="breaking-label">
       LATEST
-    </span>
+    </div>
 
     <div
       class="ticker"
@@ -1560,7 +1424,7 @@ footer p{
 
 
     <!-- =================================================
-         SECTION HEADER
+         DIGITAL NEWS HEADER
     ================================================== -->
 
     <div class="section-title">
@@ -1593,7 +1457,7 @@ footer p{
 
 
     <!-- =================================================
-         CATEGORY BUTTONS
+         CATEGORIES
     ================================================== -->
 
     <div
@@ -1603,57 +1467,57 @@ footer p{
 
       <button
         class="active"
-        data-q="Hyderabad Telangana"
         type="button"
+        data-q="Hyderabad Telangana"
       >
         Hyderabad
       </button>
 
       <button
-        data-q="Telangana Andhra Pradesh"
         type="button"
+        data-q="Telangana Andhra Pradesh"
       >
         Telangana • AP
       </button>
 
       <button
-        data-q="India"
         type="button"
+        data-q="India"
       >
         India
       </button>
 
       <button
-        data-q="World"
         type="button"
+        data-q="World"
       >
         World
       </button>
 
       <button
-        data-q="Business India"
         type="button"
+        data-q="Business India"
       >
         Business
       </button>
 
       <button
-        data-q="Technology India"
         type="button"
+        data-q="Technology India"
       >
         Technology
       </button>
 
       <button
-        data-q="Sports India"
         type="button"
+        data-q="Sports India"
       >
         Sports
       </button>
 
       <button
-        data-q="Entertainment India"
         type="button"
+        data-q="Entertainment India"
       >
         Entertainment
       </button>
@@ -1685,7 +1549,7 @@ footer p{
 
 
     <!-- =================================================
-         NEWS
+         NEWS RESULTS
     ================================================== -->
 
     <div
@@ -1719,7 +1583,7 @@ footer p{
   </p>
 
   <p>
-    Digital News Edition • Hyderabad
+    Digital News • Hyderabad
   </p>
 
   <div class="footer-nav">
@@ -1741,14 +1605,10 @@ footer p{
 </footer>
 
 
-<!-- =======================================================
-     JAVASCRIPT
-======================================================= -->
-
 <script>
 
 /* =========================================================
-   SETTINGS
+   RSS SETTINGS
 ========================================================= */
 
 const RSS_BASE =
@@ -1761,7 +1621,61 @@ const RSS_SUFFIX =
 let currentQuery =
   "Hyderabad Telangana";
 
-let currentArticles = [];
+
+/* =========================================================
+   AUTOMATIC DAY + DATE
+========================================================= */
+
+function updateDate(){
+
+  const now =
+    new Date();
+
+  const day =
+    now.toLocaleDateString(
+      "en-IN",
+      {
+        weekday:"long"
+      }
+    ).toUpperCase();
+
+
+  const date =
+    now.toLocaleDateString(
+      "en-IN",
+      {
+        day:"2-digit",
+        month:"long",
+        year:"numeric"
+      }
+    ).toUpperCase();
+
+
+  document.getElementById(
+    "dayText"
+  ).textContent =
+    day;
+
+
+  document.getElementById(
+    "dateText"
+  ).textContent =
+    date;
+
+}
+
+
+/* Run immediately */
+
+updateDate();
+
+
+/* Check once every minute */
+
+setInterval(
+  updateDate,
+  60000
+);
 
 
 /* =========================================================
@@ -1791,7 +1705,9 @@ function cleanText(value){
   }
 
   const div =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   div.innerHTML =
     value;
@@ -1813,15 +1729,12 @@ function cleanText(value){
 
 function googleFeed(query){
 
-  const q =
+  return (
+    RSS_BASE +
     encodeURIComponent(
       query +
       " when:1d"
-    );
-
-  return (
-    RSS_BASE +
-    q +
+    ) +
     RSS_SUFFIX
   );
 
@@ -1834,17 +1747,19 @@ function googleFeed(query){
 
 async function fetchRSS2JSON(feed){
 
-  const url =
+  const endpoint =
     "https://api.rss2json.com/v1/api.json?rss_url=" +
     encodeURIComponent(feed);
 
+
   const response =
     await fetch(
-      url,
+      endpoint,
       {
         cache:"no-store"
       }
     );
+
 
   if(!response.ok){
 
@@ -1854,8 +1769,10 @@ async function fetchRSS2JSON(feed){
 
   }
 
+
   const data =
     await response.json();
+
 
   if(
     !data ||
@@ -1863,10 +1780,11 @@ async function fetchRSS2JSON(feed){
   ){
 
     throw new Error(
-      "No RSS items received"
+      "No RSS items"
     );
 
   }
+
 
   return data.items;
 
@@ -1874,22 +1792,24 @@ async function fetchRSS2JSON(feed){
 
 
 /* =========================================================
-   ALLORIGINS FALLBACK
+   FALLBACK RSS
 ========================================================= */
 
 async function fetchAllOrigins(feed){
 
-  const url =
+  const endpoint =
     "https://api.allorigins.win/get?url=" +
     encodeURIComponent(feed);
 
+
   const response =
     await fetch(
-      url,
+      endpoint,
       {
         cache:"no-store"
       }
     );
+
 
   if(!response.ok){
 
@@ -1899,8 +1819,10 @@ async function fetchAllOrigins(feed){
 
   }
 
+
   const data =
     await response.json();
+
 
   if(!data.contents){
 
@@ -1910,14 +1832,17 @@ async function fetchAllOrigins(feed){
 
   }
 
+
   const parser =
     new DOMParser();
+
 
   const xml =
     parser.parseFromString(
       data.contents,
       "text/xml"
     );
+
 
   const items =
     [
@@ -1926,34 +1851,31 @@ async function fetchAllOrigins(feed){
       )
     ];
 
+
   return items.map(
-    item => {
+    item => ({
 
-      return {
+      title:
+        item.querySelector(
+          "title"
+        )?.textContent || "",
 
-        title:
-          item.querySelector(
-            "title"
-          )?.textContent || "",
+      description:
+        item.querySelector(
+          "description"
+        )?.textContent || "",
 
-        description:
-          item.querySelector(
-            "description"
-          )?.textContent || "",
+      link:
+        item.querySelector(
+          "link"
+        )?.textContent || "",
 
-        link:
-          item.querySelector(
-            "link"
-          )?.textContent || "",
+      pubDate:
+        item.querySelector(
+          "pubDate"
+        )?.textContent || ""
 
-        pubDate:
-          item.querySelector(
-            "pubDate"
-          )?.textContent || ""
-
-      };
-
-    }
+    })
   );
 
 }
@@ -1968,6 +1890,7 @@ async function getNews(query){
   const feed =
     googleFeed(query);
 
+
   try{
 
     return await fetchRSS2JSON(
@@ -1977,8 +1900,7 @@ async function getNews(query){
   }catch(error){
 
     console.warn(
-      "RSS2JSON failed.",
-      error
+      "RSS2JSON failed. Using fallback."
     );
 
     return await fetchAllOrigins(
@@ -2000,8 +1922,10 @@ function isToday(dateString){
     return true;
   }
 
+
   const date =
     new Date(dateString);
+
 
   if(
     Number.isNaN(
@@ -2013,8 +1937,10 @@ function isToday(dateString){
 
   }
 
+
   const today =
     new Date();
+
 
   return (
     date.toLocaleDateString(
@@ -2029,7 +1955,7 @@ function isToday(dateString){
 
 
 /* =========================================================
-   DATE FORMAT
+   DATE FORMAT FOR ARTICLES
 ========================================================= */
 
 function formatDate(dateString){
@@ -2038,8 +1964,10 @@ function formatDate(dateString){
     return "LATEST";
   }
 
+
   const date =
     new Date(dateString);
+
 
   if(
     Number.isNaN(
@@ -2050,6 +1978,7 @@ function formatDate(dateString){
     return "LATEST";
 
   }
+
 
   return date.toLocaleString(
     "en-IN",
@@ -2098,6 +2027,7 @@ function articleURL(article){
 
     });
 
+
   return (
     "article.html?" +
     params.toString()
@@ -2107,7 +2037,7 @@ function articleURL(article){
 
 
 /* =========================================================
-   GET IMAGE
+   IMAGE
 ========================================================= */
 
 function getImage(article){
@@ -2121,6 +2051,7 @@ function getImage(article){
 
   }
 
+
   if(
     article.enclosure &&
     article.enclosure.link
@@ -2129,6 +2060,7 @@ function getImage(article){
     return article.enclosure.link;
 
   }
+
 
   return "";
 
@@ -2163,15 +2095,9 @@ function renderNews(items){
   }
 
 
-  currentArticles =
-    items.slice(
-      0,
-      18
-    );
-
-
   news.innerHTML =
-    currentArticles
+    items
+      .slice(0,18)
       .map(
         (article,index) => {
 
@@ -2181,56 +2107,59 @@ function renderNews(items){
               "Untitled story"
             );
 
+
           const description =
             cleanText(
               article.description ||
               ""
             );
 
+
           const image =
-            getImage(article);
+            getImage(
+              article
+            );
+
 
           const articlePage =
-            articleURL(article);
+            articleURL(
+              article
+            );
+
 
           const featured =
             index === 0;
 
 
           /*
-             IMPORTANT:
-             imageHTML remains EMPTY when
-             there is no image.
+            IMPORTANT:
+            No image element is created
+            when no image exists.
           */
 
-          let imageHTML =
-            "";
-
-
-          if(image){
-
-            imageHTML = `
-              <img
-                class="news-image"
-                src="${esc(image)}"
-                alt="${esc(title)}"
-                loading="${
-                  featured
-                    ? "eager"
-                    : "lazy"
-                }"
-                onerror="
-                  this.remove();
-                  this.closest('.news-card')
+          const imageHTML =
+            image
+              ? `
+                <img
+                  class="news-image"
+                  src="${esc(image)}"
+                  alt="${esc(title)}"
+                  loading="${
+                    featured
+                      ? "eager"
+                      : "lazy"
+                  }"
+                  onerror="
+                    this.remove();
+                    this.closest('.news-card')
                     .classList.add('no-image');
-                "
-              >
-            `;
+                  "
+                >
+              `
+              : "";
 
-          }
 
-
-          const noImageClass =
+          const noImage =
             image
               ? ""
               : "no-image";
@@ -2241,12 +2170,8 @@ function renderNews(items){
             <article
               class="
                 news-card
-                ${
-                  featured
-                    ? "featured"
-                    : ""
-                }
-                ${noImageClass}
+                ${featured ? "featured" : ""}
+                ${noImage}
               "
             >
 
@@ -2299,9 +2224,7 @@ function renderNews(items){
                   class="read-more"
                   href="${esc(articlePage)}"
                 >
-
                   READ FULL STORY →
-
                 </a>
 
               </div>
@@ -2342,45 +2265,32 @@ function renderTicker(items){
   }
 
 
-  const headlines =
+  ticker.innerHTML =
     items
       .slice(0,8)
       .map(
-        item =>
-          cleanText(
-            item.title || ""
-          )
-      )
-      .filter(Boolean);
+        item => {
 
-
-  ticker.innerHTML =
-    headlines
-      .map(
-        (headline,index) => {
-
-          const article =
-            items[index];
-
-          const url =
-            articleURL(
-              article
+          const title =
+            cleanText(
+              item.title ||
+              ""
             );
+
 
           return `
 
             <a
-              href="${esc(url)}"
+              href="${esc(
+                articleURL(item)
+              )}"
             >
-              ${esc(headline)}
+              ${esc(title)}
             </a>
 
-            ${
-              index <
-              headlines.length - 1
-                ? " &nbsp; • &nbsp; "
-                : ""
-            }
+            <span>
+              &nbsp; • &nbsp;
+            </span>
 
           `;
 
@@ -2406,6 +2316,7 @@ async function loadNews(query){
     document.getElementById(
       "news"
     );
+
 
   const status =
     document.getElementById(
@@ -2468,6 +2379,7 @@ async function loadNews(query){
       items
     );
 
+
     renderTicker(
       items
     );
@@ -2519,7 +2431,7 @@ async function loadNews(query){
 
 
 /* =========================================================
-   CATEGORY FILTERS
+   CATEGORY BUTTONS
 ========================================================= */
 
 document
@@ -2550,14 +2462,10 @@ document
           );
 
 
-          const query =
+          loadNews(
             this.getAttribute(
               "data-q"
-            );
-
-
-          loadNews(
-            query
+            )
           );
 
         }
@@ -2577,6 +2485,7 @@ function performSearch(){
     document.getElementById(
       "searchBox"
     );
+
 
   const query =
     input.value.trim();
@@ -2626,7 +2535,7 @@ document
   )
   .addEventListener(
     "keydown",
-    function(event){
+    event => {
 
       if(
         event.key ===
@@ -2699,41 +2608,7 @@ function closeDrawerOutside(event){
 
 
 /* =========================================================
-   CLOSE DRAWER WHEN LINK CLICKED
-========================================================= */
-
-document
-  .querySelectorAll(
-    ".drawer-links a"
-  )
-  .forEach(
-    link => {
-
-      link.addEventListener(
-        "click",
-        function(){
-
-          const drawer =
-            document.getElementById(
-              "mobileDrawer"
-            );
-
-          drawer.classList.remove(
-            "open"
-          );
-
-          document.body.style.overflow =
-            "";
-
-        }
-      );
-
-    }
-  );
-
-
-/* =========================================================
-   INITIAL LOAD
+   INITIAL NEWS
 ========================================================= */
 
 loadNews(
@@ -2742,7 +2617,7 @@ loadNews(
 
 
 /* =========================================================
-   AUTO REFRESH
+   AUTO REFRESH NEWS
    EVERY 10 MINUTES
 ========================================================= */
 
