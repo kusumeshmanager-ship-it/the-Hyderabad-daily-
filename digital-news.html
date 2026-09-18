@@ -14,23 +14,24 @@
 
 <meta
   name="description"
-  content="The Hyderabad Daily Digital News — latest developments from Hyderabad, Telangana, India and around the world."
+  content="The Hyderabad Daily Digital News — independently selected latest developments across Hyderabad, Telangana, India and the world."
 >
 
 <style>
 
 /* =========================================================
    THE HYDERABAD DAILY
-   DIGITAL NEWS — FINAL VERSION
+   DIGITAL NEWS
+   FINAL PUBLICATION ENGINE
 ========================================================= */
 
 :root{
-  --red:#97151b;
+  --red:#95151b;
   --black:#111;
   --dark:#181818;
   --grey:#666;
-  --light:#f4f4f4;
-  --border:#d2d2d2;
+  --border:#d3d3d3;
+  --light:#f3f3f3;
   --white:#fff;
 }
 
@@ -45,7 +46,7 @@ html{
 body{
   margin:0;
   background:#ededed;
-  color:#151515;
+  color:#161616;
   font-family:Georgia,"Times New Roman",serif;
 }
 
@@ -165,7 +166,7 @@ input{
 
 
 /* =========================================================
-   MOBILE DRAWER
+   MOBILE MENU
 ========================================================= */
 
 .drawer{
@@ -279,7 +280,7 @@ input{
 .ticker-list{
   display:flex;
   align-items:center;
-  gap:4px;
+  gap:3px;
   white-space:nowrap;
 }
 
@@ -356,7 +357,7 @@ input{
 
 
 /* =========================================================
-   CATEGORY BAR
+   CATEGORIES
 ========================================================= */
 
 .category-bar{
@@ -510,7 +511,7 @@ input{
 
 
 /* =========================================================
-   STATUS BOXES
+   STATUS
 ========================================================= */
 
 .loading-box,
@@ -561,7 +562,7 @@ input{
 }
 
 .article-reader{
-  width:min(1120px,96%);
+  width:min(1100px,96%);
   min-height:calc(100vh - 40px);
   margin:20px auto 30px;
   background:#fff;
@@ -609,7 +610,7 @@ input{
 }
 
 .article-body{
-  max-width:1050px;
+  max-width:1000px;
   margin:auto;
   padding:24px 32px 40px;
 }
@@ -621,14 +622,12 @@ input{
   font-size:11px;
   font-weight:900;
   text-transform:uppercase;
-  letter-spacing:.4px;
 }
 
 .article-title{
   margin:0 0 11px;
   font-size:34px;
   line-height:1.12;
-  letter-spacing:-.2px;
 }
 
 .article-meta{
@@ -644,7 +643,7 @@ input{
 }
 
 .article-lead{
-  margin:0 0 17px;
+  margin:0 0 18px;
   color:#252525;
   font-family:Arial,Helvetica,sans-serif;
   font-size:16px;
@@ -653,12 +652,11 @@ input{
 }
 
 .article-section-heading{
-  margin:20px 0 8px;
+  margin:21px 0 9px;
   padding-bottom:5px;
   border-bottom:2px solid #111;
   font-family:Georgia,"Times New Roman",serif;
   font-size:18px;
-  font-weight:700;
 }
 
 .article-copy{
@@ -673,7 +671,7 @@ input{
 }
 
 .article-points{
-  margin:15px 0 20px;
+  margin:18px 0 20px;
   padding:13px 16px;
   border-left:3px solid var(--red);
   background:#f6f6f6;
@@ -1003,15 +1001,15 @@ input{
     </div>
 
 
-    <!-- ===================================================
-         DESKTOP NAVIGATION
-    ==================================================== -->
-
     <nav class="main-nav">
 
-      <a href="index.html">HOME</a>
+      <a href="index.html">
+        HOME
+      </a>
 
-      <a href="digital-news.html">DIGITAL NEWS</a>
+      <a href="digital-news.html">
+        DIGITAL NEWS
+      </a>
 
       <a href="digital-news.html?category=Hyderabad">
         HYDERABAD
@@ -1084,9 +1082,13 @@ input{
   </div>
 
 
-  <a href="index.html">HOME</a>
+  <a href="index.html">
+    HOME
+  </a>
 
-  <a href="digital-news.html">DIGITAL NEWS</a>
+  <a href="digital-news.html">
+    DIGITAL NEWS
+  </a>
 
   <a href="digital-news.html?category=Hyderabad">
     HYDERABAD
@@ -1124,7 +1126,7 @@ input{
 
 
 <!-- =======================================================
-     LATEST HIGHLIGHTS
+     LATEST
 ======================================================== -->
 
 <section class="latest-bar">
@@ -1156,7 +1158,7 @@ input{
 
 
 <!-- =======================================================
-     MAIN DIGITAL NEWS
+     MAIN
 ======================================================== -->
 
 <main
@@ -1194,7 +1196,7 @@ input{
 
 
   <!-- =====================================================
-       CATEGORIES
+       CATEGORY FILTER
   ====================================================== -->
 
   <section class="category-bar">
@@ -1432,11 +1434,11 @@ input{
 
       <div class="article-source-note">
 
-        The Digital News page provides a concise
-        news presentation based on available
-        verified source information. Use the
-        original source button above for the
-        publisher's complete report.
+        This Digital News page presents a concise
+        editorial summary based on available
+        published reports. The original publisher's
+        complete report is available through the
+        original-source link above.
 
       </div>
 
@@ -1451,12 +1453,13 @@ input{
 
 /* =========================================================
    THE HYDERABAD DAILY
-   DIGITAL NEWS ENGINE
+   DIGITAL NEWS
+   PUBLICATION CONTROL ENGINE
 ========================================================= */
 
 
 /* =========================================================
-   CONFIGURATION
+   CONFIG
 ========================================================= */
 
 const DIGITAL_REGISTRY_URL =
@@ -1472,8 +1475,26 @@ const NEWS_HOURS =
   48;
 
 
+/*
+   Maximum number of stories shown
+   from one event/topic family.
+*/
+
+const MAX_STORIES_PER_EVENT =
+  1;
+
+
+/*
+   Minimum meaningful overlap required
+   to treat two stories as related.
+*/
+
+const RELATED_THRESHOLD =
+  0.58;
+
+
 /* =========================================================
-   FEEDS
+   CATEGORY FEEDS
 ========================================================= */
 
 const FEEDS = [
@@ -1483,7 +1504,8 @@ const FEEDS = [
     queries:[
       "Hyderabad latest news",
       "Hyderabad breaking news",
-      "Hyderabad city developments"
+      "Hyderabad city developments",
+      "Hyderabad civic latest"
     ]
   },
 
@@ -1492,7 +1514,8 @@ const FEEDS = [
     queries:[
       "Telangana latest news",
       "Telangana breaking news",
-      "Telangana government latest news"
+      "Telangana government latest",
+      "Telangana state developments"
     ]
   },
 
@@ -1501,16 +1524,18 @@ const FEEDS = [
     queries:[
       "India latest news",
       "India breaking news",
-      "India national latest developments"
+      "India national developments",
+      "India latest developments"
     ]
   },
 
   {
     category:"World",
     queries:[
-      "World latest news",
+      "world latest news",
       "international latest news",
-      "world breaking news"
+      "world breaking news",
+      "global latest developments"
     ]
   },
 
@@ -1519,7 +1544,8 @@ const FEEDS = [
     queries:[
       "India business latest news",
       "Indian economy latest news",
-      "India companies business latest"
+      "India companies latest",
+      "Indian business developments"
     ]
   },
 
@@ -1527,8 +1553,10 @@ const FEEDS = [
     category:"Technology",
     queries:[
       "India technology latest news",
-      "technology AI India latest news",
-      "Indian technology startups latest"
+      "India AI technology latest",
+      "Indian technology companies latest",
+      "technology innovation India latest",
+      "India digital technology developments"
     ]
   },
 
@@ -1536,8 +1564,9 @@ const FEEDS = [
     category:"Sports",
     queries:[
       "India sports latest news",
-      "Indian sports breaking news",
-      "sports India latest developments"
+      "Indian sports latest",
+      "India sports breaking news",
+      "Indian athletes latest developments"
     ]
   },
 
@@ -1546,9 +1575,9 @@ const FEEDS = [
     queries:[
       "Bollywood latest news",
       "Tollywood latest news",
+      "South Indian cinema latest news",
       "OTT India latest news",
-      "Hollywood latest entertainment news",
-      "South Indian cinema latest news"
+      "Hollywood entertainment latest"
     ]
   }
 
@@ -1823,7 +1852,7 @@ function getCategoryFromURL(){
 
 
 /* =========================================================
-   ACTIVATE CATEGORY
+   CATEGORY STATE
 ========================================================= */
 
 function activateCategoryButton(){
@@ -1881,7 +1910,7 @@ activateCategoryButton();
 
 
 /* =========================================================
-   RSS URL
+   RSS
 ========================================================= */
 
 function buildRSSUrl(
@@ -1898,10 +1927,6 @@ function buildRSSUrl(
 
 }
 
-
-/* =========================================================
-   RSS2JSON
-========================================================= */
 
 async function fetchRSS2JSON(
   rssUrl
@@ -1926,7 +1951,7 @@ async function fetchRSS2JSON(
   ){
 
     throw new Error(
-      "RSS2JSON failed"
+      "RSS2JSON request failed"
     );
 
   }
@@ -1942,7 +1967,7 @@ async function fetchRSS2JSON(
   ){
 
     throw new Error(
-      "No RSS items"
+      "RSS2JSON returned no items"
     );
 
   }
@@ -1951,10 +1976,6 @@ async function fetchRSS2JSON(
 
 }
 
-
-/* =========================================================
-   ALLORIGINS FALLBACK
-========================================================= */
 
 async function fetchRSSFallback(
   rssUrl
@@ -1996,29 +2017,27 @@ async function fetchRSSFallback(
       "text/xml"
     );
 
-  const nodes =
-    Array.from(
-      doc.querySelectorAll(
-        "item"
-      )
-    );
-
-  return nodes.map(
+  return Array.from(
+    doc.querySelectorAll(
+      "item"
+    )
+  ).map(
     node => {
 
-      const get =
-        tag => {
+      function get(
+        tag
+      ){
 
-          const el =
-            node.querySelector(
-              tag
-            );
+        const element =
+          node.querySelector(
+            tag
+          );
 
-          return el
-            ? el.textContent
-            : "";
+        return element
+          ? element.textContent
+          : "";
 
-        };
+      }
 
       return {
         title:get("title"),
@@ -2034,7 +2053,7 @@ async function fetchRSSFallback(
 
 
 /* =========================================================
-   HTML CLEANING
+   TEXT CLEANING
 ========================================================= */
 
 function stripHTML(
@@ -2049,17 +2068,17 @@ function stripHTML(
 
   }
 
-  const temp =
+  const box =
     document.createElement(
       "div"
     );
 
-  temp.innerHTML =
+  box.innerHTML =
     value;
 
   return (
-    temp.textContent ||
-    temp.innerText ||
+    box.textContent ||
+    box.innerText ||
     ""
   )
     .replace(
@@ -2067,6 +2086,18 @@ function stripHTML(
       " "
     )
     .trim();
+
+}
+
+
+function escapeRegex(
+  value
+){
+
+  return value.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    "\\$&"
+  );
 
 }
 
@@ -2099,7 +2130,7 @@ function getSourceName(
 
 
 /* =========================================================
-   HEADLINE CLEANING
+   REMOVE PUBLISHER FROM HEADLINE
 ========================================================= */
 
 function cleanHeadline(
@@ -2120,40 +2151,11 @@ function cleanHeadline(
       )
       .trim();
 
-  const source =
-    stripHTML(
-      sourceName
-    );
 
-  if(
-    source
-  ){
+  const publishers = [
 
-    const suffix =
-      new RegExp(
-        "\\s+[-|–—]\\s+" +
-        escapeRegex(
-          source
-        ) +
-        "\\s*$",
-        "i"
-      );
+    sourceName,
 
-    value =
-      value.replace(
-        suffix,
-        ""
-      );
-  }
-
-  /*
-     Google News titles can sometimes
-     contain the publisher after the
-     final separator even when the
-     source field is unavailable.
-  */
-
-  const commonPublishers = [
     "The Times of India",
     "India Today",
     "Hindustan Times",
@@ -2169,59 +2171,119 @@ function cleanHeadline(
     "News18",
     "Economic Times",
     "Moneycontrol",
+    "Business Standard",
     "The New Indian Express",
     "Telangana Today",
-    "Business Standard",
     "The Hans India",
-    "Greatandhra",
-    "Gulte",
-    "123telugu"
+    "Daily Excelsior",
+    "ET EnergyWorld",
+    "India Technology News"
+
   ];
 
-  commonPublishers.forEach(
-    publisher => {
 
-      const regex =
-        new RegExp(
-          "\\s+[-|–—]\\s+" +
-          escapeRegex(
-            publisher
-          ) +
-          "\\s*$",
-          "i"
-        );
+  publishers
+    .filter(
+      Boolean
+    )
+    .forEach(
+      publisher => {
 
-      value =
-        value.replace(
-          regex,
-          ""
-        );
+        const regex =
+          new RegExp(
+            "\\s+[-|–—]\\s+" +
+            escapeRegex(
+              publisher
+            ) +
+            "\\s*$",
+            "i"
+          );
 
-    }
-  );
+        value =
+          value.replace(
+            regex,
+            ""
+          );
 
-  return value.trim();
+      }
+    );
 
-}
 
-
-function escapeRegex(
-  value
-){
-
-  return value.replace(
-    /[.*+?^${}()|[\]\\]/g,
-    "\\$&"
-  );
+  return value
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .trim();
 
 }
 
 
 /* =========================================================
-   NORMALIZE TITLE
+   STOP WORDS
 ========================================================= */
 
-function normalizeTitle(
+const STOP_WORDS =
+  new Set([
+
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "of",
+    "to",
+    "in",
+    "on",
+    "at",
+    "for",
+    "from",
+    "with",
+    "by",
+    "as",
+    "is",
+    "are",
+    "was",
+    "were",
+    "be",
+    "been",
+    "has",
+    "have",
+    "had",
+    "this",
+    "that",
+    "these",
+    "those",
+    "into",
+    "over",
+    "after",
+    "before",
+    "during",
+    "through",
+    "about",
+    "latest",
+    "news",
+    "update",
+    "updates",
+    "breaking",
+    "live",
+    "says",
+    "said",
+    "will",
+    "can",
+    "could",
+    "new",
+    "india",
+    "indian"
+
+  ]);
+
+
+/* =========================================================
+   NORMALIZE TEXT
+========================================================= */
+
+function normalizeText(
   value
 ){
 
@@ -2246,46 +2308,18 @@ function normalizeTitle(
 }
 
 
-/* =========================================================
-   SIMILAR TITLE
-========================================================= */
-
-function titleWords(
+function meaningfulWords(
   value
 ){
 
-  const stopWords = new Set([
-    "the",
-    "a",
-    "an",
-    "of",
-    "to",
-    "in",
-    "on",
-    "for",
-    "and",
-    "with",
-    "as",
-    "is",
-    "at",
-    "by",
-    "from",
-    "after",
-    "over",
-    "latest",
-    "news",
-    "live",
-    "update"
-  ]);
-
-  return normalizeTitle(
+  return normalizeText(
     value
   )
     .split(" ")
     .filter(
       word =>
-        word.length > 2 &&
-        !stopWords.has(
+        word.length >= 3 &&
+        !STOP_WORDS.has(
           word
         )
     );
@@ -2293,43 +2327,58 @@ function titleWords(
 }
 
 
-function isSimilarTitle(
+/* =========================================================
+   WORD SET
+========================================================= */
+
+function wordSet(
+  value
+){
+
+  return new Set(
+    meaningfulWords(
+      value
+    )
+  );
+
+}
+
+
+/* =========================================================
+   JACCARD SIMILARITY
+========================================================= */
+
+function jaccard(
   first,
   second
 ){
 
   const a =
-    titleWords(
+    wordSet(
       first
     );
 
   const b =
-    titleWords(
+    wordSet(
       second
     );
 
   if(
-    !a.length ||
-    !b.length
+    !a.size ||
+    !b.size
   ){
 
-    return false;
+    return 0;
 
   }
 
-  const setA =
-    new Set(a);
-
-  const setB =
-    new Set(b);
-
   let common = 0;
 
-  setA.forEach(
+  a.forEach(
     word => {
 
       if(
-        setB.has(
+        b.has(
           word
         )
       ){
@@ -2341,30 +2390,600 @@ function isSimilarTitle(
     }
   );
 
-  const smaller =
-    Math.min(
-      setA.size,
-      setB.size
-    );
 
-  if(
-    smaller === 0
-  ){
+  const union =
+    new Set(
+      [
+        ...a,
+        ...b
+      ]
+    ).size;
 
-    return false;
 
-  }
-
-  return (
-    common /
-    smaller
-  ) >= .72;
+  return union
+    ? common / union
+    : 0;
 
 }
 
 
 /* =========================================================
-   ARTICLE NORMALIZATION
+   OVERLAP SIMILARITY
+========================================================= */
+
+function overlapSimilarity(
+  first,
+  second
+){
+
+  const a =
+    wordSet(
+      first
+    );
+
+  const b =
+    wordSet(
+      second
+    );
+
+  if(
+    !a.size ||
+    !b.size
+  ){
+
+    return 0;
+
+  }
+
+  let common = 0;
+
+  a.forEach(
+    word => {
+
+      if(
+        b.has(
+          word
+        )
+      ){
+
+        common++;
+
+      }
+
+    }
+  );
+
+
+  return (
+    common /
+    Math.min(
+      a.size,
+      b.size
+    )
+  );
+
+}
+
+
+/* =========================================================
+   TOPIC FAMILIES
+========================================================= */
+
+/*
+   These families prevent several differently
+   worded headlines about the same broad
+   development from appearing together.
+*/
+
+const TOPIC_FAMILIES = {
+
+  artificial_intelligence:[
+    "ai",
+    "artificial intelligence",
+    "machine learning",
+    "generative ai",
+    "chatgpt",
+    "openai",
+    "gemini",
+    "copilot",
+    "deep learning"
+  ],
+
+  mining:[
+    "mining",
+    "miner",
+    "mine",
+    "coal",
+    "mineral",
+    "metals"
+  ],
+
+  defence:[
+    "defence",
+    "defense",
+    "army",
+    "air force",
+    "navy",
+    "military",
+    "drone",
+    "missile",
+    "fighter",
+    "weapon"
+  ],
+
+  semiconductor:[
+    "semiconductor",
+    "chip",
+    "chips",
+    "fab",
+    "fabrication",
+    "electronics",
+    "fujifilm"
+  ],
+
+  weather:[
+    "rain",
+    "rainfall",
+    "weather",
+    "cyclone",
+    "storm",
+    "flood",
+    "monsoon",
+    "depression",
+    "bay of bengal"
+  ],
+
+  elections:[
+    "election",
+    "poll",
+    "polls",
+    "voting",
+    "vote",
+    "mla",
+    "mp",
+    "constituency"
+  ],
+
+  courts:[
+    "court",
+    "high court",
+    "supreme court",
+    "judgment",
+    "judgement",
+    "petition",
+    "verdict",
+    "hearing",
+    "case"
+  ],
+
+  politics:[
+    "government",
+    "minister",
+    "chief minister",
+    "political",
+    "party",
+    "assembly",
+    "parliament",
+    "mla",
+    "mp"
+  ],
+
+  banking:[
+    "bank",
+    "banking",
+    "rbi",
+    "interest rate",
+    "repo rate",
+    "loan",
+    "credit"
+  ],
+
+  markets:[
+    "stock",
+    "stocks",
+    "share",
+    "shares",
+    "market",
+    "sensex",
+    "nifty",
+    "equity"
+  ],
+
+  cinema:[
+    "movie",
+    "film",
+    "cinema",
+    "actor",
+    "actress",
+    "director",
+    "bollywood",
+    "tollywood",
+    "kollywood",
+    "ott"
+  ],
+
+  cricket:[
+    "cricket",
+    "ipl",
+    "test",
+    "odi",
+    "t20",
+    "wicket",
+    "batsman",
+    "bowler"
+  ],
+
+  football:[
+    "football",
+    "soccer",
+    "fifa",
+    "league",
+    "goal",
+    "club"
+  ]
+
+};
+
+
+/* =========================================================
+   DETECT TOPIC FAMILIES
+========================================================= */
+
+function detectTopicFamilies(
+  article
+){
+
+  const text =
+    normalizeText(
+      article.title +
+      " " +
+      article.description
+    );
+
+  const found = [];
+
+  Object.entries(
+    TOPIC_FAMILIES
+  ).forEach(
+    ([family,keywords]) => {
+
+      const matched =
+        keywords.some(
+          keyword =>
+            text.includes(
+              normalizeText(
+                keyword
+              )
+            )
+        );
+
+      if(
+        matched
+      ){
+
+        found.push(
+          family
+        );
+
+      }
+
+    }
+  );
+
+  return found;
+
+}
+
+
+/* =========================================================
+   ENTITY EXTRACTION
+========================================================= */
+
+function extractEntities(
+  article
+){
+
+  const text =
+    stripHTML(
+      article.title +
+      " " +
+      article.description
+    );
+
+  const entities = new Set();
+
+
+  /*
+     Numbers / dates / prices.
+  */
+
+  const numbers =
+    text.match(
+      /\b(?:\d+(?:\.\d+)?%?|\₹[\d,]+|Rs\.?\s*[\d,]+)\b/gi
+    ) || [];
+
+  numbers.forEach(
+    item =>
+      entities.add(
+        normalizeText(
+          item
+        )
+      )
+  );
+
+
+  /*
+     Capitalized multi-word names.
+  */
+
+  const proper =
+    text.match(
+      /\b[A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3}\b/g
+    ) || [];
+
+  proper.forEach(
+    item => {
+
+      const normalized =
+        normalizeText(
+          item
+        );
+
+      if(
+        normalized.length >= 4
+      ){
+
+        entities.add(
+          normalized
+        );
+
+      }
+
+    }
+  );
+
+
+  /*
+     Important family keywords.
+  */
+
+  detectTopicFamilies(
+    article
+  ).forEach(
+    family =>
+      entities.add(
+        family
+      )
+  );
+
+
+  return entities;
+
+}
+
+
+/* =========================================================
+   EVENT FINGERPRINT
+========================================================= */
+
+function buildEventFingerprint(
+  article
+){
+
+  const families =
+    detectTopicFamilies(
+      article
+    );
+
+  const words =
+    meaningfulWords(
+      article.title
+    )
+      .slice(
+        0,
+        12
+      );
+
+
+  const entities =
+    [
+      ...extractEntities(
+        article
+      )
+    ]
+      .slice(
+        0,
+        10
+      );
+
+
+  return [
+    ...families,
+    ...words,
+    ...entities
+  ]
+    .sort()
+    .join("|");
+
+}
+
+
+/* =========================================================
+   RELATED STORY TEST
+========================================================= */
+
+function relatedStoryScore(
+  first,
+  second
+){
+
+  const titleScore =
+    Math.max(
+      jaccard(
+        first.title,
+        second.title
+      ),
+      overlapSimilarity(
+        first.title,
+        second.title
+      )
+    );
+
+
+  const contentScore =
+    Math.max(
+      jaccard(
+        first.description,
+        second.description
+      ),
+      overlapSimilarity(
+        first.description,
+        second.description
+      )
+    );
+
+
+  const combinedScore =
+    Math.max(
+      jaccard(
+        first.title +
+        " " +
+        first.description,
+
+        second.title +
+        " " +
+        second.description
+      ),
+
+      overlapSimilarity(
+        first.title +
+        " " +
+        first.description,
+
+        second.title +
+        " " +
+        second.description
+      )
+    );
+
+
+  const familiesA =
+    new Set(
+      detectTopicFamilies(
+        first
+      )
+    );
+
+  const familiesB =
+    new Set(
+      detectTopicFamilies(
+        second
+      )
+    );
+
+
+  let sharedFamilies = 0;
+
+  familiesA.forEach(
+    family => {
+
+      if(
+        familiesB.has(
+          family
+        )
+      ){
+
+        sharedFamilies++;
+
+      }
+
+    }
+  );
+
+
+  const entitiesA =
+    extractEntities(
+      first
+    );
+
+  const entitiesB =
+    extractEntities(
+      second
+    );
+
+
+  let sharedEntities = 0;
+
+  entitiesA.forEach(
+    entity => {
+
+      if(
+        entitiesB.has(
+          entity
+        )
+      ){
+
+        sharedEntities++;
+
+      }
+
+    }
+  );
+
+
+  /*
+     Strong title overlap is enough.
+  */
+
+  if(
+    titleScore >= .72
+  ){
+
+    return 1;
+
+  }
+
+
+  /*
+     Same topic family + meaningful
+     content overlap.
+  */
+
+  if(
+    sharedFamilies >= 1 &&
+    combinedScore >= .45
+  ){
+
+    return .85;
+
+  }
+
+
+  /*
+     Same named entities + content overlap.
+  */
+
+  if(
+    sharedEntities >= 2 &&
+    combinedScore >= .40
+  ){
+
+    return .82;
+
+  }
+
+
+  return Math.max(
+    titleScore,
+    contentScore * .75,
+    combinedScore
+  );
+
+}
+
+
+/* =========================================================
+   NORMALIZE ARTICLE
 ========================================================= */
 
 function normalizeArticle(
@@ -2377,11 +2996,13 @@ function normalizeArticle(
       item
     );
 
+
   const title =
     cleanHeadline(
       item.title,
       sourceName
     );
+
 
   const description =
     stripHTML(
@@ -2390,7 +3011,8 @@ function normalizeArticle(
       ""
     );
 
-  return {
+
+  const article = {
 
     category:
       category,
@@ -2413,36 +3035,26 @@ function normalizeArticle(
     sourceName:
       sourceName,
 
-    eventKey:
-      buildEventKey(
-        title
-      )
+    topicFamilies:[],
+
+    eventFingerprint:""
 
   };
 
-}
+
+  article.topicFamilies =
+    detectTopicFamilies(
+      article
+    );
 
 
-/* =========================================================
-   EVENT KEY
-========================================================= */
+  article.eventFingerprint =
+    buildEventFingerprint(
+      article
+    );
 
-function buildEventKey(
-  title
-){
 
-  const words =
-    titleWords(
-      title
-    )
-      .slice(
-        0,
-        12
-      );
-
-  return words.join(
-    "-"
-  );
+  return article;
 
 }
 
@@ -2460,6 +3072,7 @@ function isRecent(
       article.pubDate
     );
 
+
   if(
     Number.isNaN(
       date.getTime()
@@ -2470,9 +3083,11 @@ function isRecent(
 
   }
 
+
   const age =
     Date.now() -
     date.getTime();
+
 
   return (
     age >= 0 &&
@@ -2487,7 +3102,7 @@ function isRecent(
 
 
 /* =========================================================
-   REGISTRY LOADING
+   REGISTRIES
 ========================================================= */
 
 async function loadPublicationRegistries(){
@@ -2513,6 +3128,7 @@ async function loadPublicationRegistries(){
         }
       );
 
+
     if(
       response.ok
     ){
@@ -2525,8 +3141,7 @@ async function loadPublicationRegistries(){
   }catch(error){
 
     console.warn(
-      "Digital registry unavailable",
-      error
+      "Digital registry unavailable"
     );
 
   }
@@ -2544,6 +3159,7 @@ async function loadPublicationRegistries(){
         }
       );
 
+
     if(
       response.ok
     ){
@@ -2556,8 +3172,7 @@ async function loadPublicationRegistries(){
   }catch(error){
 
     console.warn(
-      "E-paper registry unavailable",
-      error
+      "E-paper registry unavailable"
     );
 
   }
@@ -2566,7 +3181,7 @@ async function loadPublicationRegistries(){
 
 
 /* =========================================================
-   REGISTRY MATCHING
+   REGISTRY MATCH
 ========================================================= */
 
 function registryContainsStory(
@@ -2584,7 +3199,8 @@ function registryContainsStory(
 
   }
 
-  const articleURL =
+
+  const url =
     String(
       article.canonicalUrl ||
       article.link ||
@@ -2596,14 +3212,16 @@ function registryContainsStory(
         ""
       );
 
-  const articleTitle =
-    normalizeTitle(
+
+  const title =
+    normalizeText(
       article.title
     );
 
-  const articleEvent =
-    normalizeTitle(
-      article.eventKey ||
+
+  const event =
+    normalizeText(
+      article.eventFingerprint ||
       ""
     );
 
@@ -2623,25 +3241,27 @@ function registryContainsStory(
             ""
           );
 
+
       const storyTitle =
-        normalizeTitle(
+        normalizeText(
           story.normalizedTitle ||
           story.title ||
           ""
         );
 
+
       const storyEvent =
-        normalizeTitle(
+        normalizeText(
           story.eventKey ||
+          story.eventFingerprint ||
           ""
         );
 
 
       if(
-        articleURL &&
+        url &&
         storyURL &&
-        articleURL ===
-        storyURL
+        url === storyURL
       ){
 
         return true;
@@ -2650,10 +3270,9 @@ function registryContainsStory(
 
 
       if(
-        articleTitle &&
+        title &&
         storyTitle &&
-        articleTitle ===
-        storyTitle
+        title === storyTitle
       ){
 
         return true;
@@ -2662,10 +3281,9 @@ function registryContainsStory(
 
 
       if(
-        articleEvent &&
+        event &&
         storyEvent &&
-        articleEvent ===
-        storyEvent
+        event === storyEvent
       ){
 
         return true;
@@ -2674,10 +3292,10 @@ function registryContainsStory(
 
 
       if(
-        articleTitle &&
+        title &&
         storyTitle &&
         isSimilarTitle(
-          articleTitle,
+          title,
           storyTitle
         )
       ){
@@ -2727,11 +3345,6 @@ function passesPublicationControl(
   article
 ){
 
-  /*
-     NEVER display a story already
-     recorded in Digital News.
-  */
-
   if(
     alreadyPublished(
       article
@@ -2742,11 +3355,6 @@ function passesPublicationControl(
 
   }
 
-
-  /*
-     NEVER display a story recorded
-     in the e-paper registry.
-  */
 
   if(
     appearsInEpaper(
@@ -2765,7 +3373,32 @@ function passesPublicationControl(
 
 
 /* =========================================================
-   LOCAL BROWSER HISTORY
+   SIMPLE TITLE SIMILARITY
+========================================================= */
+
+function isSimilarTitle(
+  first,
+  second
+){
+
+  return (
+    Math.max(
+      jaccard(
+        first,
+        second
+      ),
+      overlapSimilarity(
+        first,
+        second
+      )
+    ) >= .68
+  );
+
+}
+
+
+/* =========================================================
+   LOCAL HISTORY
 ========================================================= */
 
 function getLocalHistory(){
@@ -2793,35 +3426,35 @@ function saveLocalHistory(
 
   try{
 
-    const old =
+    const previous =
       getLocalHistory();
+
 
     const current =
       articles.map(
         article =>
-          normalizeTitle(
+          normalizeText(
             article.title
           )
       );
 
-    const combined =
-      [
-        ...old,
-        ...current
-      ];
 
     const unique =
       [
         ...new Set(
-          combined
+          [
+            ...previous,
+            ...current
+          ]
         )
       ];
+
 
     localStorage.setItem(
       "thd_digital_history",
       JSON.stringify(
         unique.slice(
-          -500
+          -1000
         )
       )
     );
@@ -2838,21 +3471,18 @@ function saveLocalHistory(
 
 
 /* =========================================================
-   LOAD ONE CATEGORY
+   LOAD FEED
 ========================================================= */
 
 async function loadFeed(
   feed
 ){
 
-  const queries =
-    feed.queries ||
-    [];
-
   const collected = [];
 
+
   for(
-    const query of queries
+    const query of feed.queries
   ){
 
     let items = [];
@@ -2883,7 +3513,7 @@ async function loadFeed(
       ){
 
         console.warn(
-          "Feed unavailable:",
+          "Feed failed:",
           query
         );
 
@@ -2924,13 +3554,293 @@ async function loadFeed(
 
   }
 
+
   return collected;
 
 }
 
 
 /* =========================================================
-   LOAD ALL NEWS
+   REMOVE SAME URL
+========================================================= */
+
+function removeExactDuplicates(
+  articles
+){
+
+  const seen =
+    new Set();
+
+  const result = [];
+
+
+  articles.forEach(
+    article => {
+
+      const key =
+        (
+          article.canonicalUrl ||
+          article.link ||
+          normalizeText(
+            article.title
+          )
+        )
+          .trim();
+
+
+      if(
+        !seen.has(
+          key
+        )
+      ){
+
+        seen.add(
+          key
+        );
+
+        result.push(
+          article
+        );
+
+      }
+
+    }
+  );
+
+
+  return result;
+
+}
+
+
+/* =========================================================
+   SELECT UNIQUE DEVELOPMENTS
+========================================================= */
+
+function selectUniqueDevelopments(
+  articles
+){
+
+  const selected = [];
+
+
+  /*
+     Newest stories are considered first.
+  */
+
+  const sorted =
+    [...articles].sort(
+      (a,b) =>
+        new Date(
+          b.pubDate
+        ) -
+        new Date(
+          a.pubDate
+        )
+    );
+
+
+  for(
+    const article of sorted
+  ){
+
+    let related =
+      false;
+
+
+    for(
+      const existing of selected
+    ){
+
+      const score =
+        relatedStoryScore(
+          article,
+          existing
+        );
+
+
+      if(
+        score >=
+        RELATED_THRESHOLD
+      ){
+
+        related = true;
+
+        break;
+
+      }
+
+    }
+
+
+    if(
+      !related
+    ){
+
+      selected.push(
+        article
+      );
+
+    }
+
+  }
+
+
+  return selected;
+
+}
+
+
+/* =========================================================
+   GLOBAL EVENT CONTROL
+========================================================= */
+
+function enforceEventFamilies(
+  articles
+){
+
+  const result = [];
+
+  const familyCounts =
+    new Map();
+
+
+  for(
+    const article of articles
+  ){
+
+    let blocked =
+      false;
+
+
+    /*
+       Do not allow the same event
+       fingerprint more than once.
+    */
+
+    const fingerprint =
+      article.eventFingerprint;
+
+
+    if(
+      fingerprint
+    ){
+
+      const count =
+        familyCounts.get(
+          fingerprint
+        ) || 0;
+
+
+      if(
+        count >=
+        MAX_STORIES_PER_EVENT
+      ){
+
+        blocked = true;
+
+      }else{
+
+        familyCounts.set(
+          fingerprint,
+          count + 1
+        );
+
+      }
+
+    }
+
+
+    if(
+      !blocked
+    ){
+
+      result.push(
+        article
+      );
+
+    }
+
+  }
+
+
+  return result;
+
+}
+
+
+/* =========================================================
+   CROSS-CATEGORY DUPLICATE CONTROL
+========================================================= */
+
+function removeCrossCategoryDuplicates(
+  articles
+){
+
+  const result = [];
+
+
+  /*
+     A story appearing in several RSS
+     searches gets only one primary
+     category.
+  */
+
+  for(
+    const article of articles
+  ){
+
+    const duplicate =
+      result.some(
+        existing => {
+
+          if(
+            existing.canonicalUrl &&
+            article.canonicalUrl &&
+            existing.canonicalUrl ===
+            article.canonicalUrl
+          ){
+
+            return true;
+
+          }
+
+
+          const score =
+            relatedStoryScore(
+              existing,
+              article
+            );
+
+
+          return (
+            score >= .72
+          );
+
+        }
+      );
+
+
+    if(
+      !duplicate
+    ){
+
+      result.push(
+        article
+      );
+
+    }
+
+  }
+
+
+  return result;
+
+}
+
+
+/* =========================================================
+   MAIN LOAD
 ========================================================= */
 
 async function loadNews(){
@@ -2938,13 +3848,14 @@ async function loadNews(){
   updateStatus.textContent =
     "Updating...";
 
+
   newsGrid.innerHTML = `
 
     <div class="loading-box">
 
       <div class="spinner"></div>
 
-      Loading latest Digital News...
+      Checking latest Digital News...
 
     </div>
 
@@ -2953,6 +3864,11 @@ async function loadNews(){
 
   await loadPublicationRegistries();
 
+
+  /*
+     STEP 1
+     Collect source material.
+  */
 
   const results =
     await Promise.all(
@@ -2970,6 +3886,67 @@ async function loadNews(){
 
 
   /*
+     STEP 2
+     Exact URL duplicate removal.
+  */
+
+  combined =
+    removeExactDuplicates(
+      combined
+    );
+
+
+  /*
+     STEP 3
+     Publication registry.
+  */
+
+  combined =
+    combined.filter(
+      article =>
+        passesPublicationControl(
+          article
+        )
+    );
+
+
+  /*
+     STEP 4
+     Same-event / related-story
+     elimination.
+  */
+
+  combined =
+    selectUniqueDevelopments(
+      combined
+    );
+
+
+  /*
+     STEP 5
+     Cross-category duplicate
+     elimination.
+  */
+
+  combined =
+    removeCrossCategoryDuplicates(
+      combined
+    );
+
+
+  /*
+     STEP 6
+     Final event fingerprint control.
+  */
+
+  combined =
+    enforceEventFamilies(
+      combined
+    );
+
+
+  /*
+     STEP 7
      Newest first.
   */
 
@@ -2985,58 +3962,14 @@ async function loadNews(){
 
 
   /*
-     Remove exact and near-duplicate
-     stories across categories.
-  */
+     STEP 8
+     Browser history.
 
-  const unique = [];
-
-  combined.forEach(
-    article => {
-
-      const duplicate =
-        unique.some(
-          existing =>
-            isSimilarTitle(
-              existing.title,
-              article.title
-            )
-        );
-
-      if(
-        !duplicate
-      ){
-
-        unique.push(
-          article
-        );
-
-      }
-
-    }
-  );
-
-
-  /*
-     Permanent publication control.
-  */
-
-  const controlled =
-    unique.filter(
-      article =>
-        passesPublicationControl(
-          article
-        )
-    );
-
-
-  /*
-     Local history prevents the same
-     stories from continually appearing
-     to the same browser.
-
-     It can NEVER override the permanent
-     Digital News / e-paper registries.
+     IMPORTANT:
+     Browser history is only a
+     secondary convenience layer.
+     It can NEVER override registry
+     or e-paper exclusion.
   */
 
   const history =
@@ -3044,10 +3977,10 @@ async function loadNews(){
 
 
   let fresh =
-    controlled.filter(
+    combined.filter(
       article =>
         !history.includes(
-          normalizeTitle(
+          normalizeText(
             article.title
           )
         )
@@ -3055,11 +3988,10 @@ async function loadNews(){
 
 
   /*
-     If browser history has consumed
-     today's available stories, use
-     controlled stories again.
-
-     Registry exclusion remains active.
+     If the browser has already seen
+     today's stories, show the controlled
+     unique stories again rather than
+     bypassing publication control.
   */
 
   if(
@@ -3067,15 +3999,21 @@ async function loadNews(){
   ){
 
     fresh =
-      controlled;
+      combined;
 
   }
 
 
+  /*
+     Keep enough material for all
+     categories while avoiding an
+     excessive feed.
+  */
+
   allArticles =
     fresh.slice(
       0,
-      100
+      80
     );
 
 
@@ -3115,18 +4053,21 @@ function createCardSummary(
       description
     );
 
+
   if(
     !text
   ){
 
-    return "Latest developments are being updated.";
+    return "Latest developments are being reported.";
 
   }
+
 
   const sentences =
     splitIntoSentences(
       text
     );
+
 
   return (
     sentences
@@ -3137,7 +4078,8 @@ function createCardSummary(
       .join(
         " "
       )
-  ).trim();
+      .trim()
+  );
 
 }
 
@@ -3158,7 +4100,7 @@ function renderNews(){
           activeCategory;
 
 
-        const combinedText =
+        const searchable =
           (
             article.title +
             " " +
@@ -3171,7 +4113,7 @@ function renderNews(){
 
         const searchMatch =
           !searchTerm ||
-          combinedText.includes(
+          searchable.includes(
             searchTerm
           );
 
@@ -3193,7 +4135,7 @@ function renderNews(){
 
       <div class="empty-box">
 
-        No matching Digital News stories
+        No distinct Digital News developments
         are currently available in this category.
 
       </div>
@@ -3205,7 +4147,8 @@ function renderNews(){
   }
 
 
-  newsGrid.innerHTML = "";
+  newsGrid.innerHTML =
+    "";
 
 
   filtered.forEach(
@@ -3372,7 +4315,7 @@ function renderTicker(){
 
 
   if(
-    articles.length === 0
+    !articles.length
   ){
 
     tickerList.innerHTML = `
@@ -3478,49 +4421,92 @@ function openArticle(
 
 
   /*
-     FIRST SENTENCE ONLY:
-     used as the lead.
+     Remove repeated sentences.
   */
 
-  const lead =
-    sentences.length
-      ? sentences[0]
-      : createCardSummary(
-          article.description
+  const uniqueSentences =
+    [];
+
+
+  sentences.forEach(
+    sentence => {
+
+      const clean =
+        sentence.trim();
+
+
+      if(
+        !clean
+      ){
+
+        return;
+
+      }
+
+
+      const repeated =
+        uniqueSentences.some(
+          existing =>
+            isNearDuplicate(
+              existing,
+              clean
+            )
         );
 
 
-  articleLead.textContent =
-    lead;
+      if(
+        !repeated
+      ){
+
+        uniqueSentences.push(
+          clean
+        );
+
+      }
+
+    }
+  );
 
 
   /*
-     DIGITAL NEWS BRIEF:
-     use distinct additional information
-     rather than repeating the lead.
+     LEAD
+  */
+
+  if(
+    uniqueSentences.length
+  ){
+
+    articleLead.textContent =
+      uniqueSentences[0];
+
+  }else{
+
+    articleLead.textContent =
+      "The latest available report is being updated.";
+
+  }
+
+
+  /*
+     DIGITAL NEWS BRIEF
   */
 
   articleCopy.innerHTML =
     "";
 
 
-  const remaining =
-    sentences
-      .slice(
-        1,
-        5
-      )
-      .filter(
-        sentence =>
-          sentence.trim()
-      );
+  const briefSentences =
+    uniqueSentences.slice(
+      1,
+      5
+    );
 
 
   if(
-    remaining.length
+    briefSentences.length
   ){
 
-    remaining.forEach(
+    briefSentences.forEach(
       sentence => {
 
         const paragraph =
@@ -3529,7 +4515,7 @@ function openArticle(
           );
 
         paragraph.textContent =
-          sentence.trim();
+          sentence;
 
         articleCopy.appendChild(
           paragraph
@@ -3546,7 +4532,7 @@ function openArticle(
       );
 
     paragraph.textContent =
-      "The latest available information is reflected in the report. Further details can be checked through the original source.";
+      "Further details are available through the original source.";
 
     articleCopy.appendChild(
       paragraph
@@ -3564,55 +4550,18 @@ function openArticle(
 
 
   const points =
-    sentences
+    uniqueSentences
       .slice(
         0,
         4
-      )
-      .map(
-        sentence =>
-          sentence.trim()
-      )
-      .filter(
-        Boolean
       );
 
 
-  /*
-     Do not repeat the exact same
-     sentence twice in the article.
-  */
-
-  const uniquePoints = [];
-
-  points.forEach(
-    point => {
-
-      if(
-        !uniquePoints.some(
-          existing =>
-            isNearDuplicate(
-              existing,
-              point
-            )
-        )
-      ){
-
-        uniquePoints.push(
-          point
-        );
-
-      }
-
-    }
-  );
-
-
   if(
-    uniquePoints.length >= 2
+    points.length >= 2
   ){
 
-    uniquePoints
+    points
       .slice(
         0,
         3
@@ -3635,6 +4584,7 @@ function openArticle(
         }
       );
 
+
     articlePointsBox.style.display =
       "block";
 
@@ -3647,7 +4597,7 @@ function openArticle(
 
 
   /*
-     ORIGINAL SOURCE
+     SOURCE
   */
 
   articleSource.href =
@@ -3661,11 +4611,6 @@ function openArticle(
 
   document.body.style.overflow =
     "hidden";
-
-
-  /*
-     Start article at the top.
-  */
 
   articleOverlay.scrollTop =
     0;
@@ -3693,6 +4638,7 @@ articleBack.addEventListener(
   closeArticle
 );
 
+
 articleOverlay.addEventListener(
   "click",
   event => {
@@ -3708,6 +4654,7 @@ articleOverlay.addEventListener(
 
   }
 );
+
 
 document.addEventListener(
   "keydown",
@@ -3742,6 +4689,7 @@ function splitIntoSentences(
 
   }
 
+
   const cleaned =
     stripHTML(
       text
@@ -3772,76 +4720,17 @@ function isNearDuplicate(
   second
 ){
 
-  const a =
-    normalizeTitle(
-      first
-    );
-
-  const b =
-    normalizeTitle(
-      second
-    );
-
-
-  if(
-    !a ||
-    !b
-  ){
-
-    return false;
-
-  }
-
-
-  if(
-    a === b
-  ){
-
-    return true;
-
-  }
-
-
-  const setA =
-    new Set(
-      a.split(" ")
-    );
-
-  const setB =
-    new Set(
-      b.split(" ")
-    );
-
-
-  let common = 0;
-
-  setA.forEach(
-    word => {
-
-      if(
-        setB.has(
-          word
-        )
-      ){
-
-        common++;
-
-      }
-
-    }
-  );
-
-
-  const base =
-    Math.min(
-      setA.size,
-      setB.size
-    );
-
-
   return (
-    base > 0 &&
-    common / base > .78
+    Math.max(
+      jaccard(
+        first,
+        second
+      ),
+      overlapSimilarity(
+        first,
+        second
+      )
+    ) >= .78
   );
 
 }
@@ -3958,10 +4847,12 @@ function performSearch(){
 
 }
 
+
 searchButton.addEventListener(
   "click",
   performSearch
 );
+
 
 searchInput.addEventListener(
   "keydown",
@@ -3978,6 +4869,7 @@ searchInput.addEventListener(
 
   }
 );
+
 
 searchInput.addEventListener(
   "input",
