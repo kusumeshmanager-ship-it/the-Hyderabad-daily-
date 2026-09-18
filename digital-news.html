@@ -2001,38 +2001,7 @@ function formatDate(dateString){
 
 function articleURL(article){
 
-  const params =
-    new URLSearchParams({
-
-      title:
-        article.title || "",
-
-      description:
-        cleanText(
-          article.description || ""
-        ),
-
-      image:
-        article.thumbnail ||
-        article.enclosure?.link ||
-        "",
-
-      url:
-        article.link || "",
-
-      section:
-        currentQuery,
-
-      date:
-        article.pubDate || ""
-
-    });
-
-
-  return (
-    "article.html?" +
-    params.toString()
-  );
+  return article.link || "#";
 
 }
 
