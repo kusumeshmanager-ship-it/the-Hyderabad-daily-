@@ -916,46 +916,45 @@ body{
 
     <nav class="main-nav">
 
-      <a href="index.html">HOME</a>
+  <a href="index.html">HOME</a>
 
-      <a href="digital-news.html">
-        DIGITAL NEWS
-      </a>
+  <a href="digital-news.html">
+    DIGITAL NEWS
+  </a>
 
-      <a href="#hyderabad">
-        HYDERABAD
-      </a>
+  <a href="digital-news.html?category=Hyderabad">
+    HYDERABAD
+  </a>
 
-      <a href="#telangana">
-        TELANGANA
-      </a>
+  <a href="digital-news.html?category=Telangana">
+    TELANGANA
+  </a>
 
-      <a href="#india">
-        INDIA
-      </a>
+  <a href="digital-news.html?category=India">
+    INDIA
+  </a>
 
-      <a href="#world">
-        WORLD
-      </a>
+  <a href="digital-news.html?category=World">
+    WORLD
+  </a>
 
-      <a href="#business">
-        BUSINESS
-      </a>
+  <a href="digital-news.html?category=Business">
+    BUSINESS
+  </a>
 
-      <a href="#technology">
-        TECHNOLOGY
-      </a>
+  <a href="digital-news.html?category=Technology">
+    TECHNOLOGY
+  </a>
 
-      <a href="#sports">
-        SPORTS
-      </a>
+  <a href="digital-news.html?category=Sports">
+    SPORTS
+  </a>
 
-      <a href="#entertainment">
-        ENTERTAINMENT
-      </a>
+  <a href="digital-news.html?category=Entertainment">
+    ENTERTAINMENT
+  </a>
 
-    </nav>
-
+</nav>
   </div>
 
 </header>
@@ -990,8 +989,7 @@ body{
     </button>
 
   </div>
-
-  <a href="index.html">HOME</a>
+href="index.html">HOME</a>
   <a href="digital-news.html">DIGITAL NEWS</a>
   <a href="#hyderabad">HYDERABAD</a>
   <a href="#telangana">TELANGANA</a>
@@ -1000,7 +998,8 @@ body{
   <a href="#business">BUSINESS</a>
   <a href="#technology">TECHNOLOGY</a>
   <a href="#sports">SPORTS</a>
-  <a href="#entertainment">ENTERTAINMENT</a>
+  <a href="#entertainment">
+  
 
 </aside>
 
@@ -1342,7 +1341,6 @@ const REFRESH_INTERVAL =
 /* =========================================================
    FEEDS
 ========================================================= */
-
 const FEEDS = [
 
   {
@@ -1383,6 +1381,8 @@ const FEEDS = [
   {
     category:"Entertainment",
     query:"India entertainment latest news"
+]
+  
   }
 
 ];
@@ -2346,72 +2346,76 @@ function savePublishedTitles(
    LOAD ONE FEED
 ========================================================= */
 
-async function loadFeed(
-  feed
-){
+async function loadFeed(feed){
 
-  const feedUrl =
-    buildRSSUrl(
-      feed.query
-    );
+  const queries =
+    feed.queries ||
+    [feed.query];
 
+  const collected = [];
 
-  let items = [];
+  for(const query of queries){
 
+    const feedUrl =
+      buildRSSUrl(query);
 
-  try{
-
-    items =
-      await fetchRSS2JSON(
-        feedUrl
-      );
-
-  }catch(error){
+    let items = [];
 
     try{
 
       items =
-        await fetchRSSFallback(
-          feedUrl
+        await fetchRSS2JSON(feedUrl);
+
+    }catch(error){
+
+      try{
+
+        items =
+          await fetchRSSFallback(feedUrl);
+
+      }catch(fallbackError){
+
+        console.warn(
+          "Feed failed:",
+          feed.category,
+          query
         );
 
-    }catch(fallbackError){
+        continue;
 
-      console.warn(
-        "Feed failed:",
-        feed.category
-      );
-
-      return [];
+      }
 
     }
 
+    items
+      .filter(
+        item =>
+          item.title
+      )
+      .map(
+        item =>
+          normalizeArticle(
+            item,
+            feed.category
+          )
+      )
+      .filter(
+        article =>
+          article.title &&
+          article.link &&
+          isRecent(article)
+      )
+      .forEach(
+        article =>
+          collected.push(article)
+      );
+
   }
 
-
-  return items
-    .filter(
-      item =>
-        item.title
-    )
-    .map(
-      item =>
-        normalizeArticle(
-          item,
-          feed.category
-        )
-    )
-    .filter(
-      article =>
-        article.title &&
-        article.link &&
-        isRecent(
-          article
-        )
-    );
+  return collected;
 
 }
-
+    
 
 /* =========================================================
    LOAD ALL NEWS
