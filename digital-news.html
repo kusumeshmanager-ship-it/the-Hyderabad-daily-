@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta
@@ -18,8 +20,9 @@
 <style>
 
 /* =========================================================
-   THE HYDERABAD DAILY — DIGITAL NEWS
-   PHASE 2
+   THE HYDERABAD DAILY
+   DIGITAL NEWS
+   COMPLETE REPLACEMENT VERSION
 ========================================================= */
 
 :root{
@@ -27,7 +30,7 @@
   --black:#111;
   --dark:#1a1a1a;
   --grey:#666;
-  --border:#d7d7d7;
+  --border:#d5d5d5;
   --paper:#fff;
   --light:#f5f5f5;
 }
@@ -71,7 +74,7 @@ body{
 }
 
 .date-box{
-  min-width:100px;
+  min-width:110px;
   font-family:Arial,Helvetica,sans-serif;
   font-size:11px;
   line-height:1.35;
@@ -97,7 +100,7 @@ body{
 }
 
 .menu-area{
-  min-width:100px;
+  min-width:110px;
   display:flex;
   justify-content:flex-end;
 }
@@ -106,7 +109,7 @@ body{
   border:1px solid #222;
   background:#fff;
   color:#111;
-  padding:7px 10px;
+  padding:9px 13px;
   font-family:Arial,Helvetica,sans-serif;
   font-size:11px;
   font-weight:800;
@@ -117,6 +120,10 @@ body{
   background:#111;
   color:#fff;
 }
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
 
 .main-nav{
   display:flex;
@@ -144,15 +151,15 @@ body{
 }
 
 /* =========================================================
-   MOBILE MENU
+   MOBILE DRAWER
 ========================================================= */
 
 .drawer{
   position:fixed;
   top:0;
-  right:-330px;
-  width:310px;
-  max-width:85vw;
+  right:-340px;
+  width:315px;
+  max-width:88vw;
   height:100vh;
   background:#fff;
   z-index:10000;
@@ -169,37 +176,42 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:15px;
+  padding:18px;
   border-bottom:1px solid #ddd;
 }
 
 .drawer-title{
   font-family:Arial,Helvetica,sans-serif;
   font-weight:800;
-  font-size:14px;
+  font-size:16px;
 }
 
 .drawer-close{
   border:0;
   background:none;
-  font-size:25px;
+  font-size:30px;
   cursor:pointer;
 }
 
 .drawer a{
   display:block;
-  padding:13px 17px;
+  padding:17px 20px;
   color:#111;
   text-decoration:none;
   border-bottom:1px solid #eee;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:12px;
+  font-size:14px;
   font-weight:700;
 }
 
 .drawer a:hover{
   background:#f5f5f5;
   color:var(--red);
+}
+
+.drawer a.active{
+  color:var(--red);
+  background:#f5f5f5;
 }
 
 .drawer-overlay{
@@ -215,7 +227,7 @@ body{
 }
 
 /* =========================================================
-   LATEST HIGHLIGHTS
+   LATEST
 ========================================================= */
 
 .latest-bar{
@@ -230,15 +242,15 @@ body{
   display:flex;
   align-items:center;
   gap:8px;
-  min-height:39px;
+  min-height:42px;
 }
 
 .latest-label{
   flex:0 0 auto;
   background:var(--red);
-  padding:8px 10px;
+  padding:10px 13px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:11px;
   font-weight:900;
 }
 
@@ -262,13 +274,13 @@ body{
 .ticker-item{
   display:inline-flex;
   align-items:center;
-  gap:5px;
+  gap:7px;
   border:0;
   background:transparent;
   color:#fff;
-  padding:5px 8px;
+  padding:7px 9px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:11px;
   cursor:pointer;
   text-align:left;
 }
@@ -278,8 +290,8 @@ body{
 }
 
 .ticker-dot{
-  width:5px;
-  height:5px;
+  width:6px;
+  height:6px;
   background:#fff;
   border-radius:50%;
 }
@@ -296,59 +308,59 @@ body{
 .section-head{
   background:#fff;
   border:1px solid var(--border);
-  padding:12px 15px 9px;
-  margin-bottom:9px;
+  padding:17px 18px 13px;
+  margin-bottom:10px;
 }
 
 .section-title-row{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  gap:10px;
+  gap:15px;
 }
 
 .section-title{
   margin:0;
-  font-size:27px;
+  font-size:34px;
   line-height:1.05;
   text-transform:uppercase;
 }
 
 .section-subtitle{
-  margin:4px 0 0;
+  margin:6px 0 0;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:13px;
   color:#666;
 }
 
 .update-status{
   font-family:Arial,Helvetica,sans-serif;
-  font-size:9px;
+  font-size:11px;
   color:#777;
   white-space:nowrap;
 }
 
 /* =========================================================
-   CATEGORY
+   CATEGORY BUTTONS
 ========================================================= */
 
 .category-bar{
   display:flex;
   flex-wrap:wrap;
-  gap:5px;
+  gap:7px;
   background:#fff;
   border:1px solid var(--border);
-  padding:7px;
-  margin-bottom:9px;
+  padding:9px;
+  margin-bottom:10px;
 }
 
 .category-button{
   border:1px solid #bbb;
   background:#fff;
   color:#222;
-  padding:5px 8px;
+  padding:8px 13px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:12px;
   font-weight:800;
   cursor:pointer;
 }
@@ -366,18 +378,18 @@ body{
 
 .search-row{
   display:flex;
-  gap:6px;
-  margin-bottom:10px;
+  gap:7px;
+  margin-bottom:11px;
 }
 
 .search-input{
   flex:1;
   min-width:0;
   border:1px solid #bbb;
-  padding:8px 10px;
+  padding:11px 13px;
   background:#fff;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
+  font-size:13px;
   outline:none;
 }
 
@@ -385,9 +397,9 @@ body{
   border:1px solid #111;
   background:#111;
   color:#fff;
-  padding:0 14px;
+  padding:0 20px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:12px;
   font-weight:800;
   cursor:pointer;
 }
@@ -399,7 +411,7 @@ body{
 .news-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
+  gap:11px;
 }
 
 .news-card{
@@ -417,33 +429,33 @@ body{
 
 .news-card-inner{
   width:100%;
-  padding:11px 12px 10px;
+  padding:14px 15px 12px;
   display:flex;
   flex-direction:column;
 }
 
 .news-category{
   color:var(--red);
-  margin-bottom:4px;
+  margin-bottom:5px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:8px;
+  font-size:10px;
   font-weight:900;
   text-transform:uppercase;
   letter-spacing:.5px;
 }
 
 .news-title{
-  margin:0 0 6px;
-  font-size:17px;
-  line-height:1.17;
+  margin:0 0 8px;
+  font-size:20px;
+  line-height:1.18;
 }
 
 .news-summary{
-  margin:0 0 8px;
+  margin:0 0 10px;
   color:#3d3d3d;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:11.5px;
-  line-height:1.48;
+  font-size:13px;
+  line-height:1.5;
 
   display:-webkit-box;
   -webkit-box-orient:vertical;
@@ -453,7 +465,7 @@ body{
 
 .news-meta{
   margin-top:auto;
-  padding-top:6px;
+  padding-top:8px;
   border-top:1px solid #eee;
   display:flex;
   align-items:center;
@@ -464,7 +476,7 @@ body{
 .news-time{
   color:#777;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:8px;
+  font-size:9px;
 }
 
 .read-button{
@@ -473,13 +485,13 @@ body{
   color:var(--red);
   padding:0;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:9px;
+  font-size:10px;
   font-weight:900;
   cursor:pointer;
 }
 
 /* =========================================================
-   STATUS BOXES
+   STATUS
 ========================================================= */
 
 .loading-box,
@@ -488,17 +500,17 @@ body{
   grid-column:1/-1;
   background:#fff;
   border:1px solid var(--border);
-  padding:25px;
+  padding:35px 20px;
   text-align:center;
   color:#666;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:12px;
+  font-size:13px;
 }
 
 .spinner{
-  width:22px;
-  height:22px;
-  margin:0 auto 10px;
+  width:25px;
+  height:25px;
+  margin:0 auto 12px;
   border:3px solid #ddd;
   border-top-color:#111;
   border-radius:50%;
@@ -543,7 +555,7 @@ body{
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  padding:8px 12px;
+  padding:9px 12px;
   background:#111;
 }
 
@@ -551,7 +563,7 @@ body{
   border:1px solid #555;
   background:#222;
   color:#fff;
-  padding:7px 10px;
+  padding:8px 11px;
   font-family:Arial,Helvetica,sans-serif;
   font-size:10px;
   font-weight:800;
@@ -561,7 +573,7 @@ body{
 .article-brand{
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:11px;
   font-weight:800;
 }
 
@@ -570,7 +582,7 @@ body{
   background:#fff;
   color:#111;
   text-decoration:none;
-  padding:7px 9px;
+  padding:8px 10px;
   font-family:Arial,Helvetica,sans-serif;
   font-size:9px;
   font-weight:900;
@@ -579,20 +591,20 @@ body{
 .article-body{
   max-width:1080px;
   margin:auto;
-  padding:20px 30px 35px;
+  padding:22px 30px 38px;
 }
 
 .article-category{
   color:var(--red);
-  margin-bottom:6px;
+  margin-bottom:7px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:9px;
+  font-size:10px;
   font-weight:900;
   text-transform:uppercase;
 }
 
 .article-title{
-  margin:0 0 8px;
+  margin:0 0 9px;
   font-size:36px;
   line-height:1.1;
   letter-spacing:-.3px;
@@ -602,8 +614,8 @@ body{
   display:flex;
   flex-wrap:wrap;
   gap:8px 15px;
-  padding-bottom:9px;
-  margin-bottom:12px;
+  padding-bottom:10px;
+  margin-bottom:13px;
   border-bottom:1px solid #ddd;
   color:#777;
   font-family:Arial,Helvetica,sans-serif;
@@ -632,13 +644,13 @@ body{
 
 .article-points{
   margin:15px 0;
-  padding:10px 14px;
+  padding:11px 14px;
   border-left:3px solid var(--red);
   background:#f6f6f6;
 }
 
 .article-points-title{
-  margin-bottom:6px;
+  margin-bottom:7px;
   font-family:Arial,Helvetica,sans-serif;
   font-size:9px;
   font-weight:900;
@@ -674,18 +686,18 @@ body{
 .footer{
   background:#111;
   color:#fff;
-  padding:17px 10px;
+  padding:18px 10px;
   text-align:center;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:9px;
+  font-size:10px;
 }
 
 .footer strong{
-  font-size:11px;
+  font-size:12px;
 }
 
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
 @media(max-width:1050px){
@@ -700,6 +712,10 @@ body{
 
 }
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:700px){
 
   .header-inner{
@@ -707,13 +723,13 @@ body{
   }
 
   .top-line{
-    padding:6px 8px;
+    padding:7px 8px;
     gap:7px;
   }
 
   .date-box{
-    min-width:78px;
-    font-size:8px;
+    min-width:82px;
+    font-size:9px;
   }
 
   .mast-logo{
@@ -726,7 +742,7 @@ body{
   }
 
   .menu-button{
-    padding:6px 8px;
+    padding:8px 9px;
     font-size:9px;
   }
 
@@ -739,7 +755,7 @@ body{
   }
 
   .latest-label{
-    padding:8px 7px;
+    padding:9px 8px;
     font-size:8px;
   }
 
@@ -755,29 +771,48 @@ body{
   .section-head{
     border-left:0;
     border-right:0;
-    padding:9px 10px;
+    padding:11px 11px 10px;
+  }
+
+  .section-title-row{
+    align-items:flex-start;
   }
 
   .section-title{
-    font-size:22px;
+    font-size:24px;
   }
 
   .section-subtitle{
-    font-size:9px;
+    font-size:10px;
   }
 
   .update-status{
-    font-size:7px;
+    font-size:8px;
   }
 
   .category-bar{
     border-left:0;
     border-right:0;
-    padding:6px;
+    padding:7px;
+    gap:5px;
+  }
+
+  .category-button{
+    padding:7px 9px;
+    font-size:10px;
   }
 
   .search-row{
     padding:0 7px;
+  }
+
+  .search-input{
+    font-size:12px;
+  }
+
+  .search-button{
+    padding:0 12px;
+    font-size:10px;
   }
 
   .news-grid{
@@ -791,15 +826,15 @@ body{
   }
 
   .news-card-inner{
-    padding:10px 11px 9px;
+    padding:11px 12px 10px;
   }
 
   .news-title{
-    font-size:17px;
+    font-size:19px;
   }
 
   .news-summary{
-    font-size:11.5px;
+    font-size:12px;
     line-height:1.48;
   }
 
@@ -869,9 +904,12 @@ body{
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =======================================================
      HEADER
@@ -884,25 +922,40 @@ body{
     <div class="top-line">
 
       <div class="date-box">
-        <span id="currentDay">Loading...</span>
+
+        <span id="currentDay">
+          Loading...
+        </span>
+
         <br>
-        <span id="currentDate">Loading...</span>
+
+        <span id="currentDate">
+          Loading...
+        </span>
+
       </div>
 
+
       <div class="logo-wrap">
+
         <a
           href="index.html"
           aria-label="The Hyderabad Daily Home"
         >
+
           <img
             class="mast-logo"
             src="masthead-logo(1).png"
             alt="The Hyderabad Daily"
           >
+
         </a>
+
       </div>
 
+
       <div class="menu-area">
+
         <button
           class="menu-button"
           id="menuButton"
@@ -910,13 +963,102 @@ body{
         >
           ☰ MENU
         </button>
+
       </div>
 
     </div>
 
+
+    <!-- ===================================================
+         FUNCTIONAL DESKTOP NAVIGATION
+    ==================================================== -->
+
     <nav class="main-nav">
 
-  <a href="index.html">HOME</a>
+      <a href="index.html">
+        HOME
+      </a>
+
+      <a href="digital-news.html">
+        DIGITAL NEWS
+      </a>
+
+      <a href="digital-news.html?category=Hyderabad">
+        HYDERABAD
+      </a>
+
+      <a href="digital-news.html?category=Telangana">
+        TELANGANA
+      </a>
+
+      <a href="digital-news.html?category=India">
+        INDIA
+      </a>
+
+      <a href="digital-news.html?category=World">
+        WORLD
+      </a>
+
+      <a href="digital-news.html?category=Business">
+        BUSINESS
+      </a>
+
+      <a href="digital-news.html?category=Technology">
+        TECHNOLOGY
+      </a>
+
+      <a href="digital-news.html?category=Sports">
+        SPORTS
+      </a>
+
+      <a href="digital-news.html?category=Entertainment">
+        ENTERTAINMENT
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     MOBILE DRAWER
+======================================================== -->
+
+<div
+  class="drawer-overlay"
+  id="drawerOverlay"
+></div>
+
+
+<aside
+  class="drawer"
+  id="drawer"
+>
+
+  <div class="drawer-head">
+
+    <div class="drawer-title">
+      THE HYDERABAD DAILY
+    </div>
+
+    <button
+      class="drawer-close"
+      id="drawerClose"
+      type="button"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- FUNCTIONAL MOBILE LINKS -->
+
+  <a href="index.html">
+    HOME
+  </a>
 
   <a href="digital-news.html">
     DIGITAL NEWS
@@ -953,53 +1095,6 @@ body{
   <a href="digital-news.html?category=Entertainment">
     ENTERTAINMENT
   </a>
-
-</nav>
-  </div>
-
-</header>
-
-
-<!-- =======================================================
-     MOBILE DRAWER
-======================================================== -->
-
-<div
-  class="drawer-overlay"
-  id="drawerOverlay"
-></div>
-
-<aside
-  class="drawer"
-  id="drawer"
->
-
-  <div class="drawer-head">
-
-    <div class="drawer-title">
-      THE HYDERABAD DAILY
-    </div>
-
-    <button
-      class="drawer-close"
-      id="drawerClose"
-      type="button"
-    >
-      ×
-    </button>
-
-  </div>
-href="index.html">HOME</a>
-  <a href="digital-news.html">DIGITAL NEWS</a>
-  <a href="#hyderabad">HYDERABAD</a>
-  <a href="#telangana">TELANGANA</a>
-  <a href="#india">INDIA</a>
-  <a href="#world">WORLD</a>
-  <a href="#business">BUSINESS</a>
-  <a href="#technology">TECHNOLOGY</a>
-  <a href="#sports">SPORTS</a>
-  <a href="#entertainment">
-  
 
 </aside>
 
@@ -1062,6 +1157,7 @@ href="index.html">HOME</a>
 
       </div>
 
+
       <div
         class="update-status"
         id="updateStatus"
@@ -1074,12 +1170,14 @@ href="index.html">HOME</a>
   </section>
 
 
-  <!-- CATEGORY FILTER -->
+  <!-- =====================================================
+       CATEGORY FILTER
+  ====================================================== -->
 
   <div class="category-bar">
 
     <button
-      class="category-button active"
+      class="category-button"
       data-category="all"
       type="button"
     >
@@ -1153,7 +1251,9 @@ href="index.html">HOME</a>
   </div>
 
 
-  <!-- SEARCH -->
+  <!-- =====================================================
+       SEARCH
+  ====================================================== -->
 
   <div class="search-row">
 
@@ -1176,7 +1276,9 @@ href="index.html">HOME</a>
   </div>
 
 
-  <!-- NEWS GRID -->
+  <!-- =====================================================
+       NEWS GRID
+  ====================================================== -->
 
   <section
     class="news-grid"
@@ -1238,9 +1340,11 @@ href="index.html">HOME</a>
         ← BACK TO DIGITAL NEWS
       </button>
 
+
       <div class="article-brand">
         THE HYDERABAD DAILY
       </div>
+
 
       <a
         href="#"
@@ -1262,10 +1366,12 @@ href="index.html">HOME</a>
         id="articleCategory"
       ></div>
 
+
       <h1
         class="article-title"
         id="articleTitle"
       ></h1>
+
 
       <div class="article-meta">
 
@@ -1277,15 +1383,18 @@ href="index.html">HOME</a>
 
       </div>
 
+
       <div
         class="article-lead"
         id="articleLead"
       ></div>
 
+
       <div
         class="article-copy"
         id="articleCopy"
       ></div>
+
 
       <div
         class="article-points"
@@ -1300,6 +1409,7 @@ href="index.html">HOME</a>
         <ul id="articlePoints"></ul>
 
       </div>
+
 
       <div class="article-original-note">
 
@@ -1341,48 +1451,93 @@ const REFRESH_INTERVAL =
 /* =========================================================
    FEEDS
 ========================================================= */
+
 const FEEDS = [
 
   {
     category:"Hyderabad",
-    query:"Hyderabad latest news"
+
+    queries:[
+      "Hyderabad latest news",
+      "Hyderabad breaking news"
+    ]
   },
+
 
   {
     category:"Telangana",
-    query:"Telangana latest news"
+
+    queries:[
+      "Telangana latest news",
+      "Telangana breaking news"
+    ]
   },
+
 
   {
     category:"India",
-    query:"India latest news"
+
+    queries:[
+      "India latest news",
+      "India breaking news"
+    ]
   },
+
 
   {
     category:"World",
-    query:"World latest news"
+
+    queries:[
+      "World latest news",
+      "international latest news"
+    ]
   },
+
 
   {
     category:"Business",
-    query:"India business latest news"
+
+    queries:[
+      "India business latest news",
+      "Indian economy business latest"
+    ]
   },
+
 
   {
     category:"Technology",
-    query:"India technology latest news"
+
+    queries:[
+      "India technology latest news",
+      "technology AI India latest news"
+    ]
   },
+
 
   {
     category:"Sports",
-    query:"India sports latest news"
+
+    queries:[
+      "India sports latest news",
+      "Indian sports breaking news"
+    ]
   },
+
+
+  /*
+     ENTERTAINMENT
+     Multiple dedicated feeds
+  */
 
   {
     category:"Entertainment",
-    query:"India entertainment latest news"
-]
-  
+
+    queries:[
+      "Bollywood latest news",
+      "Tollywood latest news",
+      "OTT India latest news",
+      "Hollywood latest entertainment news"
+    ]
   }
 
 ];
@@ -1405,6 +1560,52 @@ let digitalRegistry = {
 let epaperRegistry = {
   stories:[]
 };
+
+
+/* =========================================================
+   CATEGORY FROM URL
+========================================================= */
+
+function getCategoryFromURL(){
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const category =
+    params.get("category");
+
+  const validCategories = [
+
+    "Hyderabad",
+    "Telangana",
+    "India",
+    "World",
+    "Business",
+    "Technology",
+    "Sports",
+    "Entertainment"
+
+  ];
+
+  if(
+    validCategories.includes(
+      category
+    )
+  ){
+
+    return category;
+
+  }
+
+  return "all";
+
+}
+
+
+activeCategory =
+  getCategoryFromURL();
 
 
 /* =========================================================
@@ -1435,6 +1636,7 @@ const searchButton =
   document.getElementById(
     "searchButton"
   );
+
 
 const articleOverlay =
   document.getElementById(
@@ -1476,56 +1678,16 @@ const articleCopy =
     "articleCopy"
   );
 
-const articlePointsBox =
-  document.getElementById(
-    "articlePointsBox"
-  );
-
 const articlePoints =
   document.getElementById(
     "articlePoints"
   );
 
-
-/* =========================================================
-   DATE
-========================================================= */
-
-function updateDate(){
-
-  const now =
-    new Date();
-
+const articlePointsBox =
   document.getElementById(
-    "currentDay"
-  ).textContent =
-    now.toLocaleDateString(
-      "en-IN",
-      {
-        weekday:"long"
-      }
-    );
+    "articlePointsBox"
+  );
 
-  document.getElementById(
-    "currentDate"
-  ).textContent =
-    now.toLocaleDateString(
-      "en-IN",
-      {
-        day:"2-digit",
-        month:"long",
-        year:"numeric"
-      }
-    );
-
-}
-
-updateDate();
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
 
 const menuButton =
   document.getElementById(
@@ -1548,6 +1710,52 @@ const drawerOverlay =
   );
 
 
+/* =========================================================
+   DATE
+========================================================= */
+
+function updateDate(){
+
+  const now =
+    new Date();
+
+  const day =
+    now.toLocaleDateString(
+      "en-IN",
+      {
+        weekday:"long"
+      }
+    );
+
+  const date =
+    now.toLocaleDateString(
+      "en-IN",
+      {
+        day:"2-digit",
+        month:"long",
+        year:"numeric"
+      }
+    );
+
+  document.getElementById(
+    "currentDay"
+  ).textContent =
+    day;
+
+  document.getElementById(
+    "currentDate"
+  ).textContent =
+    date;
+
+}
+
+updateDate();
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
 function openDrawer(){
 
   drawer.classList.add(
@@ -1557,6 +1765,9 @@ function openDrawer(){
   drawerOverlay.classList.add(
     "open"
   );
+
+  document.body.style.overflow =
+    "hidden";
 
 }
 
@@ -1570,6 +1781,9 @@ function closeDrawer(){
   drawerOverlay.classList.remove(
     "open"
   );
+
+  document.body.style.overflow =
+    "";
 
 }
 
@@ -1591,53 +1805,554 @@ drawerOverlay.addEventListener(
 
 
 /* =========================================================
-   PUBLICATION REGISTRIES
+   ACTIVE MENU
 ========================================================= */
 
-async function loadPublicationRegistries(){
+function activateMenuCategory(){
+
+  const links =
+    drawer.querySelectorAll(
+      "a"
+    );
+
+  links.forEach(
+    link =>
+      link.classList.remove(
+        "active"
+      )
+  );
+
+  const current =
+    activeCategory;
+
+  links.forEach(
+    link => {
+
+      if(
+        current !== "all" &&
+        link.href.includes(
+          "category=" +
+          current
+        )
+      ){
+
+        link.classList.add(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   CATEGORY BUTTON
+========================================================= */
+
+function activateCategoryButton(){
+
+  document
+    .querySelectorAll(
+      ".category-button"
+    )
+    .forEach(
+      button =>
+        button.classList.remove(
+          "active"
+        )
+    );
+
+  const selector =
+    `[data-category="${activeCategory}"]`;
+
+  const activeButton =
+    document.querySelector(
+      selector
+    );
+
+  if(activeButton){
+
+    activeButton.classList.add(
+      "active"
+    );
+
+  }else{
+
+    document
+      .querySelector(
+        '[data-category="all"]'
+      )
+      ?.classList.add(
+        "active"
+      );
+
+  }
+
+}
+
+activateCategoryButton();
+activateMenuCategory();
+
+
+/* =========================================================
+   BUILD RSS URL
+========================================================= */
+
+function buildRSSUrl(
+  query
+){
+
+  const googleNewsURL =
+    "https://news.google.com/rss/search?q=" +
+    encodeURIComponent(
+      query
+    ) +
+    "&hl=en-IN&gl=IN&ceid=IN:en";
+
+  return googleNewsURL;
+
+}
+
+
+/* =========================================================
+   RSS2JSON
+========================================================= */
+
+async function fetchRSS2JSON(
+  feedUrl
+){
+
+  const response =
+    await fetch(
+      RSS2JSON +
+      encodeURIComponent(
+        feedUrl
+      ),
+      {
+        cache:"no-store"
+      }
+    );
+
+  if(
+    !response.ok
+  ){
+
+    throw new Error(
+      "RSS2JSON request failed"
+    );
+
+  }
+
+  const data =
+    await response.json();
+
+  if(
+    !data.items
+  ){
+
+    throw new Error(
+      "No RSS items"
+    );
+
+  }
+
+  return data.items;
+
+}
+
+
+/* =========================================================
+   ALLORIGINS FALLBACK
+========================================================= */
+
+async function fetchRSSFallback(
+  feedUrl
+){
+
+  const response =
+    await fetch(
+      ALL_ORIGINS +
+      encodeURIComponent(
+        feedUrl
+      ),
+      {
+        cache:"no-store"
+      }
+    );
+
+  if(
+    !response.ok
+  ){
+
+    throw new Error(
+      "Fallback failed"
+    );
+
+  }
+
+  const text =
+    await response.text();
+
+  const parser =
+    new DOMParser();
+
+  const xml =
+    parser.parseFromString(
+      text,
+      "text/xml"
+    );
+
+  return Array.from(
+    xml.querySelectorAll(
+      "item"
+    )
+  ).map(
+    item => ({
+
+      title:
+        item.querySelector(
+          "title"
+        )?.textContent || "",
+
+      link:
+        item.querySelector(
+          "link"
+        )?.textContent || "",
+
+      description:
+        item.querySelector(
+          "description"
+        )?.textContent || "",
+
+      pubDate:
+        item.querySelector(
+          "pubDate"
+        )?.textContent || ""
+
+    })
+  );
+
+}
+
+
+/* =========================================================
+   NORMALIZE TITLE
+========================================================= */
+
+function normalizeTitle(
+  value
+){
+
+  return (
+    String(
+      value || ""
+    )
+    .toLowerCase()
+    .replace(
+      /&[^;]+;/g,
+      " "
+    )
+    .replace(
+      /[^a-z0-9\s]/g,
+      " "
+    )
+    .replace(
+      /\s+/g,
+      " "
+    )
+    .trim()
+  );
+
+}
+
+
+/* =========================================================
+   CLEAN DESCRIPTION
+========================================================= */
+
+function cleanDescription(
+  value
+){
+
+  const temp =
+    document.createElement(
+      "div"
+    );
+
+  temp.innerHTML =
+    value || "";
+
+  let text =
+    temp.textContent ||
+    temp.innerText ||
+    "";
+
+  text =
+    text
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+  return text;
+
+}
+
+
+/* =========================================================
+   NORMALIZE ARTICLE
+========================================================= */
+
+function normalizeArticle(
+  item,
+  category
+){
+
+  const title =
+    cleanDescription(
+      item.title
+    );
+
+  const description =
+    cleanDescription(
+      item.description
+    );
+
+  const link =
+    String(
+      item.link || ""
+    ).trim();
+
+  const pubDate =
+    item.pubDate ||
+    new Date().toISOString();
+
+  return {
+
+    title,
+    description,
+    link,
+    pubDate,
+    category,
+
+    normalizedTitle:
+      normalizeTitle(
+        title
+      ),
+
+    canonicalUrl:
+      link,
+
+    eventKey:
+      ""
+
+  };
+
+}
+
+
+/* =========================================================
+   RECENT STORIES
+========================================================= */
+
+function isRecent(
+  article
+){
+
+  const date =
+    new Date(
+      article.pubDate
+    );
+
+  if(
+    Number.isNaN(
+      date.getTime()
+    )
+  ){
+
+    return false;
+
+  }
+
+  const now =
+    Date.now();
+
+  const age =
+    now -
+    date.getTime();
+
+  const maxAge =
+    48 *
+    60 *
+    60 *
+    1000;
+
+  return (
+    age >= 0 &&
+    age <= maxAge
+  );
+
+}
+
+
+/* =========================================================
+   SIMILAR TITLES
+========================================================= */
+
+function isSimilarTitle(
+  a,
+  b
+){
+
+  const x =
+    normalizeTitle(
+      a
+    );
+
+  const y =
+    normalizeTitle(
+      b
+    );
+
+  if(
+    x === y
+  ){
+
+    return true;
+
+  }
+
+  const xa =
+    new Set(
+      x
+        .split(" ")
+        .filter(
+          word =>
+            word.length > 3
+        )
+    );
+
+  const ya =
+    new Set(
+      y
+        .split(" ")
+        .filter(
+          word =>
+            word.length > 3
+        )
+    );
+
+  if(
+    xa.size < 3 ||
+    ya.size < 3
+  ){
+
+    return false;
+
+  }
+
+  let common = 0;
+
+  xa.forEach(
+    word => {
+
+      if(
+        ya.has(
+          word
+        )
+      ){
+
+        common++;
+
+      }
+
+    }
+  );
+
+  const smaller =
+    Math.min(
+      xa.size,
+      ya.size
+    );
+
+  return (
+    common /
+    smaller
+  ) >= .72;
+
+}
+
+
+/* =========================================================
+   LOCAL BROWSER HISTORY
+========================================================= */
+
+function getPublishedTitles(){
 
   try{
 
-    const responses =
-      await Promise.all([
-        fetch(
-          DIGITAL_REGISTRY_URL +
-          "?v=" +
-          Date.now()
-        ),
-        fetch(
-          EPAPER_REGISTRY_URL +
-          "?v=" +
-          Date.now()
+    return JSON.parse(
+      localStorage.getItem(
+        "thd_digital_published"
+      ) ||
+      "[]"
+    );
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function savePublishedTitles(
+  articles
+){
+
+  try{
+
+    const old =
+      getPublishedTitles();
+
+    const values =
+      [
+        ...old,
+
+        ...articles.map(
+          article =>
+            normalizeTitle(
+              article.title
+            )
         )
-      ]);
 
+      ];
 
-    if(
-      responses[0].ok
-    ){
+    const unique =
+      [
+        ...new Set(
+          values
+        )
+      ];
 
-      digitalRegistry =
-        await responses[0].json();
-
-    }
-
-
-    if(
-      responses[1].ok
-    ){
-
-      epaperRegistry =
-        await responses[1].json();
-
-    }
-
+    localStorage.setItem(
+      "thd_digital_published",
+      JSON.stringify(
+        unique.slice(
+          -500
+        )
+      )
+    );
 
   }catch(error){
 
     console.warn(
-      "Publication registries unavailable:",
-      error
+      "Local storage unavailable"
     );
 
   }
@@ -1646,43 +2361,83 @@ async function loadPublicationRegistries(){
 
 
 /* =========================================================
-   NORMALIZATION
+   LOAD REGISTRIES
 ========================================================= */
 
-function normalizeRegistryText(
-  value
-){
+async function loadPublicationRegistries(){
 
-  return String(
-    value || ""
-  )
-  .toLowerCase()
-  .replace(
-    /[^a-z0-9\s]/g,
-    ""
-  )
-  .replace(
-    /\s+/g,
-    " "
-  )
-  .trim();
+  try{
 
-}
+    const response =
+      await fetch(
+        DIGITAL_REGISTRY_URL +
+        "?v=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
+      );
+
+    if(
+      response.ok
+    ){
+
+      digitalRegistry =
+        await response.json();
+
+    }
+
+  }catch(error){
+
+    console.warn(
+      "Digital registry unavailable"
+    );
+
+    digitalRegistry = {
+      publishedStories:[]
+    };
+
+  }
 
 
-function normalizeTitle(
-  title
-){
+  try{
 
-  return normalizeRegistryText(
-    title
-  );
+    const response =
+      await fetch(
+        EPAPER_REGISTRY_URL +
+        "?v=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
+      );
+
+    if(
+      response.ok
+    ){
+
+      epaperRegistry =
+        await response.json();
+
+    }
+
+  }catch(error){
+
+    console.warn(
+      "E-paper registry unavailable"
+    );
+
+    epaperRegistry = {
+      stories:[]
+    };
+
+  }
 
 }
 
 
 /* =========================================================
-   REGISTRY MATCHING
+   REGISTRY STORY MATCH
 ========================================================= */
 
 function registryContainsStory(
@@ -1700,76 +2455,79 @@ function registryContainsStory(
 
   }
 
+  const articleURL =
+    String(
+      article.canonicalUrl ||
+      article.link ||
+      ""
+    ).trim();
 
-  const title =
-    normalizeRegistryText(
+  const articleTitle =
+    normalizeTitle(
       article.title
     );
 
-  const url =
-    String(
-      article.link ||
+  const articleEvent =
+    normalizeTitle(
+      article.eventKey ||
       ""
-    )
-    .trim();
-
+    );
 
   return stories.some(
     story => {
 
-      const storyTitle =
-        normalizeRegistryText(
-          story.title
-        );
-
-      const storyUrl =
+      const storyURL =
         String(
           story.canonicalUrl ||
           story.url ||
           ""
-        )
-        .trim();
+        ).trim();
 
+      const storyTitle =
+        normalizeTitle(
+          story.normalizedTitle ||
+          story.title ||
+          ""
+        );
 
-      /* Exact canonical URL */
+      const storyEvent =
+        normalizeTitle(
+          story.eventKey ||
+          ""
+        );
 
       if(
-        url &&
-        storyUrl &&
-        url === storyUrl
+        articleURL &&
+        storyURL &&
+        articleURL ===
+        storyURL
       ){
 
         return true;
 
       }
 
-
-      /* Exact normalized title */
-
       if(
-        title &&
+        articleTitle &&
         storyTitle &&
-        title === storyTitle
+        articleTitle ===
+        storyTitle
       ){
 
         return true;
 
       }
-
-
-      /* Event key */
 
       if(
-        article.eventKey &&
-        story.eventKey &&
-        article.eventKey ===
-        story.eventKey
+        articleEvent &&
+        storyEvent &&
+        articleEvent ===
+        storyEvent
       ){
 
         return true;
 
       }
-
 
       return false;
 
@@ -1821,7 +2579,6 @@ function passesPublicationControl(
 
   }
 
-
   if(
     appearsInEpaper(
       article
@@ -1832,512 +2589,7 @@ function passesPublicationControl(
 
   }
 
-
   return true;
-
-}
-
-
-/* =========================================================
-   RSS
-========================================================= */
-
-function buildRSSUrl(
-  query
-){
-
-  return (
-    "https://news.google.com/rss/search?" +
-    "q=" +
-    encodeURIComponent(
-      query
-    ) +
-    "&hl=en-IN" +
-    "&gl=IN" +
-    "&ceid=IN:en"
-  );
-
-}
-
-
-async function fetchRSS2JSON(
-  feedUrl
-){
-
-  const response =
-    await fetch(
-      RSS2JSON +
-      encodeURIComponent(
-        feedUrl
-      )
-    );
-
-
-  if(
-    !response.ok
-  ){
-
-    throw new Error(
-      "RSS2JSON failed"
-    );
-
-  }
-
-
-  const data =
-    await response.json();
-
-
-  if(
-    !data ||
-    !Array.isArray(
-      data.items
-    )
-  ){
-
-    throw new Error(
-      "Invalid RSS data"
-    );
-
-  }
-
-
-  return data.items;
-
-}
-
-
-/* =========================================================
-   RSS FALLBACK
-========================================================= */
-
-async function fetchRSSFallback(
-  feedUrl
-){
-
-  const response =
-    await fetch(
-      ALL_ORIGINS +
-      encodeURIComponent(
-        feedUrl
-      )
-    );
-
-
-  if(
-    !response.ok
-  ){
-
-    throw new Error(
-      "Fallback failed"
-    );
-
-  }
-
-
-  const xmlText =
-    await response.text();
-
-
-  const parser =
-    new DOMParser();
-
-
-  const xml =
-    parser.parseFromString(
-      xmlText,
-      "text/xml"
-    );
-
-
-  return Array.from(
-    xml.querySelectorAll(
-      "item"
-    )
-  )
-  .map(
-    item => ({
-
-      title:
-        item.querySelector(
-          "title"
-        )?.textContent ||
-        "",
-
-      link:
-        item.querySelector(
-          "link"
-        )?.textContent ||
-        "",
-
-      description:
-        item.querySelector(
-          "description"
-        )?.textContent ||
-        "",
-
-      pubDate:
-        item.querySelector(
-          "pubDate"
-        )?.textContent ||
-        ""
-
-    })
-  );
-
-}
-
-
-/* =========================================================
-   TEXT CLEANER
-========================================================= */
-
-function cleanText(
-  value
-){
-
-  if(!value){
-
-    return "";
-
-  }
-
-
-  const element =
-    document.createElement(
-      "div"
-    );
-
-
-  element.innerHTML =
-    value;
-
-
-  return (
-    element.textContent ||
-    element.innerText ||
-    ""
-  )
-  .replace(
-    /\s+/g,
-    " "
-  )
-  .trim();
-
-}
-
-
-/* =========================================================
-   DATE
-========================================================= */
-
-function getArticleDate(
-  article
-){
-
-  const date =
-    new Date(
-      article.pubDate ||
-      article.isoDate ||
-      ""
-    );
-
-
-  if(
-    Number.isNaN(
-      date.getTime()
-    )
-  ){
-
-    return null;
-
-  }
-
-
-  return date;
-
-}
-
-
-function isRecent(
-  article
-){
-
-  const date =
-    getArticleDate(
-      article
-    );
-
-
-  if(!date){
-
-    return true;
-
-  }
-
-
-  const hours =
-    (
-      Date.now() -
-      date.getTime()
-    ) /
-    (1000 * 60 * 60);
-
-
-  return (
-    hours >= -1 &&
-    hours <= 48
-  );
-
-}
-
-
-/* =========================================================
-   NORMALIZE ARTICLE
-========================================================= */
-
-function normalizeArticle(
-  item,
-  category
-){
-
-  const title =
-    cleanText(
-      item.title
-    );
-
-  const description =
-    cleanText(
-      item.description ||
-      item.content ||
-      ""
-    );
-
-  const link =
-    item.link ||
-    item.guid ||
-    "#";
-
-
-  const date =
-    getArticleDate(
-      item
-    );
-
-
-  return {
-
-    id:
-      createArticleId(
-        title,
-        link
-      ),
-
-    title,
-
-    description,
-
-    link,
-
-    category,
-
-    pubDate:
-      date
-        ? date.toISOString()
-        : new Date().toISOString(),
-
-    eventKey:""
-
-  };
-
-}
-
-
-/* =========================================================
-   ID
-========================================================= */
-
-function createArticleId(
-  title,
-  link
-){
-
-  return (
-    normalizeTitle(
-      title
-    ) +
-    "|" +
-    link
-  )
-  .slice(
-    0,
-    120
-  );
-
-}
-
-
-/* =========================================================
-   SIMILAR TITLES
-========================================================= */
-
-function isSimilarTitle(
-  a,
-  b
-){
-
-  const x =
-    normalizeTitle(
-      a
-    );
-
-  const y =
-    normalizeTitle(
-      b
-    );
-
-
-  if(
-    x === y
-  ){
-
-    return true;
-
-  }
-
-
-  const xa =
-    new Set(
-      x.split(" ")
-        .filter(
-          word =>
-            word.length > 3
-        )
-    );
-
-
-  const ya =
-    new Set(
-      y.split(" ")
-        .filter(
-          word =>
-            word.length > 3
-        )
-    );
-
-
-  if(
-    xa.size < 3 ||
-    ya.size < 3
-  ){
-
-    return false;
-
-  }
-
-
-  let common = 0;
-
-
-  xa.forEach(
-    word => {
-
-      if(
-        ya.has(word)
-      ){
-
-        common++;
-
-      }
-
-    }
-  );
-
-
-  const smaller =
-    Math.min(
-      xa.size,
-      ya.size
-    );
-
-
-  return (
-    common /
-    smaller
-  ) >= .72;
-
-}
-
-
-/* =========================================================
-   LOCAL BROWSER HISTORY
-========================================================= */
-
-function getPublishedTitles(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        "thd_digital_published"
-      ) ||
-      "[]"
-    );
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-function savePublishedTitles(
-  articles
-){
-
-  try{
-
-    const old =
-      getPublishedTitles();
-
-
-    const values =
-      [
-        ...old,
-        ...articles.map(
-          article =>
-            normalizeTitle(
-              article.title
-            )
-        )
-      ];
-
-
-    const unique =
-      [
-        ...new Set(
-          values
-        )
-      ];
-
-
-    localStorage.setItem(
-      "thd_digital_published",
-      JSON.stringify(
-        unique.slice(-500)
-      )
-    );
-
-
-  }catch(error){
-
-    console.warn(
-      "Local storage unavailable"
-    );
-
-  }
 
 }
 
@@ -2346,7 +2598,9 @@ function savePublishedTitles(
    LOAD ONE FEED
 ========================================================= */
 
-async function loadFeed(feed){
+async function loadFeed(
+  feed
+){
 
   const queries =
     feed.queries ||
@@ -2354,26 +2608,36 @@ async function loadFeed(feed){
 
   const collected = [];
 
-  for(const query of queries){
+  for(
+    const query of queries
+  ){
 
     const feedUrl =
-      buildRSSUrl(query);
+      buildRSSUrl(
+        query
+      );
 
     let items = [];
 
     try{
 
       items =
-        await fetchRSS2JSON(feedUrl);
+        await fetchRSS2JSON(
+          feedUrl
+        );
 
     }catch(error){
 
       try{
 
         items =
-          await fetchRSSFallback(feedUrl);
+          await fetchRSSFallback(
+            feedUrl
+          );
 
-      }catch(fallbackError){
+      }catch(
+        fallbackError
+      ){
 
         console.warn(
           "Feed failed:",
@@ -2386,6 +2650,7 @@ async function loadFeed(feed){
       }
 
     }
+
 
     items
       .filter(
@@ -2403,11 +2668,15 @@ async function loadFeed(feed){
         article =>
           article.title &&
           article.link &&
-          isRecent(article)
+          isRecent(
+            article
+          )
       )
       .forEach(
         article =>
-          collected.push(article)
+          collected.push(
+            article
+          )
       );
 
   }
@@ -2415,7 +2684,7 @@ async function loadFeed(feed){
   return collected;
 
 }
-    
+
 
 /* =========================================================
    LOAD ALL NEWS
@@ -2441,14 +2710,14 @@ async function loadNews(){
 
 
   /*
-    FIRST load the shared registries.
+     Load shared registries first.
   */
 
   await loadPublicationRegistries();
 
 
   /*
-    THEN load current feeds.
+     Load all feeds.
   */
 
   const results =
@@ -2467,7 +2736,7 @@ async function loadNews(){
 
 
   /*
-    Latest first.
+     Latest first.
   */
 
   combined.sort(
@@ -2482,7 +2751,7 @@ async function loadNews(){
 
 
   /*
-    Remove similar stories.
+     Remove similar stories.
   */
 
   const unique = [];
@@ -2500,7 +2769,6 @@ async function loadNews(){
             )
         );
 
-
       if(
         !duplicate
       ){
@@ -2516,7 +2784,7 @@ async function loadNews(){
 
 
   /*
-    Browser history.
+     Local browser history.
   */
 
   const browserHistory =
@@ -2524,15 +2792,8 @@ async function loadNews(){
 
 
   /*
-    IMPORTANT:
-    A story blocked by the shared
-    publication registry or e-paper
-    registry is permanently excluded
-    from this load.
-
-    It is NOT brought back if the
-    local browser history removes
-    everything.
+     Shared publication control
+     + e-paper exclusion.
   */
 
   const eligible =
@@ -2544,18 +2805,15 @@ async function loadNews(){
             article.title
           );
 
-
         const localBlocked =
           browserHistory.includes(
             normalized
           );
 
-
         const registryBlocked =
           !passesPublicationControl(
             article
           );
-
 
         return (
           !localBlocked &&
@@ -2567,13 +2825,10 @@ async function loadNews(){
 
 
   /*
-    If local browser history blocks
-    all stories but the shared registry
-    does not, use only stories that
-    pass the shared publication control.
-
-    This does NOT bypass the permanent
-    registry or e-paper exclusion.
+     If local browser history blocks
+     everything, use only stories
+     passing permanent publication
+     control.
   */
 
   if(
@@ -2597,19 +2852,19 @@ async function loadNews(){
 
 
   /*
-    Keep a useful number of stories.
+     Keep useful number of stories.
   */
 
   allArticles =
     allArticles.slice(
       0,
-      60
+      80
     );
 
 
   /*
-    Remember displayed stories
-    locally.
+     Remember displayed stories
+     locally.
   */
 
   savePublishedTitles(
@@ -2650,7 +2905,6 @@ function renderNews(){
           article.category ===
             activeCategory;
 
-
         const searchMatch =
           !searchTerm ||
           (
@@ -2664,7 +2918,6 @@ function renderNews(){
           .includes(
             searchTerm
           );
-
 
         return (
           categoryMatch &&
@@ -2707,7 +2960,6 @@ function renderNews(){
           "article"
         );
 
-
       card.className =
         "news-card";
 
@@ -2716,7 +2968,6 @@ function renderNews(){
         document.createElement(
           "div"
         );
-
 
       inner.className =
         "news-card-inner";
@@ -2727,10 +2978,8 @@ function renderNews(){
           "div"
         );
 
-
       category.className =
         "news-category";
-
 
       category.textContent =
         article.category;
@@ -2741,10 +2990,8 @@ function renderNews(){
           "h2"
         );
 
-
       title.className =
         "news-title";
-
 
       title.textContent =
         article.title;
@@ -2755,10 +3002,8 @@ function renderNews(){
           "p"
         );
 
-
       summary.className =
         "news-summary";
-
 
       summary.textContent =
         article.description ||
@@ -2770,7 +3015,6 @@ function renderNews(){
           "div"
         );
 
-
       meta.className =
         "news-meta";
 
@@ -2780,10 +3024,8 @@ function renderNews(){
           "span"
         );
 
-
       time.className =
         "news-time";
-
 
       time.textContent =
         formatDate(
@@ -2796,14 +3038,11 @@ function renderNews(){
           "button"
         );
 
-
       button.type =
         "button";
 
-
       button.className =
         "read-button";
-
 
       button.textContent =
         "READ DETAILS →";
@@ -2847,7 +3086,6 @@ function renderNews(){
       card.appendChild(
         inner
       );
-
 
       newsGrid.appendChild(
         card
@@ -2901,10 +3139,8 @@ function renderTicker(){
           "button"
         );
 
-
       button.type =
         "button";
-
 
       button.className =
         "ticker-item";
@@ -2915,7 +3151,6 @@ function renderTicker(){
           "span"
         );
 
-
       dot.className =
         "ticker-dot";
 
@@ -2924,7 +3159,6 @@ function renderTicker(){
         document.createElement(
           "span"
         );
-
 
       text.textContent =
         article.title;
@@ -2943,89 +3177,8 @@ function renderTicker(){
         "click",
         () => {
 
-          activeCategory =
-            "all";
-
-          searchTerm =
-            "";
-
-          searchInput.value =
-            "";
-
-
-          document
-            .querySelectorAll(
-              ".category-button"
-            )
-            .forEach(
-              item =>
-                item.classList.remove(
-                  "active"
-                )
-            );
-
-
-          document
-            .querySelector(
-              '[data-category="all"]'
-            )
-            ?.classList.add(
-              "active"
-            );
-
-
-          renderNews();
-
-
-          setTimeout(
-            () => {
-
-              const cards =
-                Array.from(
-                  document.querySelectorAll(
-                    ".news-card"
-                  )
-                );
-
-
-              const target =
-                cards.find(
-                  card =>
-                    card.querySelector(
-                      ".news-title"
-                    )?.textContent ===
-                    article.title
-                );
-
-
-              if(target){
-
-                target.scrollIntoView(
-                  {
-                    behavior:"smooth",
-                    block:"center"
-                  }
-                );
-
-
-                target.style.outline =
-                  "3px solid #9d1118";
-
-
-                setTimeout(
-                  () => {
-
-                    target.style.outline =
-                      "";
-
-                  },
-                  1800
-                );
-
-              }
-
-            },
-            50
+          openArticle(
+            article
           );
 
         }
@@ -3065,19 +3218,14 @@ function openArticle(
 
 
   /*
-    Description appears ONCE as
-    the lead.
+     Description appears once
+     as the lead.
   */
 
   articleLead.textContent =
     article.description ||
     "Latest developments are being reported. See the original source for the complete report.";
 
-
-  /*
-    Do not repeat the same description
-    as a second paragraph.
-  */
 
   articleCopy.innerHTML =
     "";
@@ -3089,13 +3237,14 @@ function openArticle(
     );
 
 
-  /*
-    Additional distinct sentences only.
-  */
-
   const details =
     [];
 
+
+  /*
+     Add only distinct sentences
+     after the lead.
+  */
 
   sentences
     .slice(1,4)
@@ -3104,7 +3253,6 @@ function openArticle(
 
         const cleaned =
           sentence.trim();
-
 
         if(
           cleaned &&
@@ -3136,12 +3284,10 @@ function openArticle(
         "p"
       );
 
-
     paragraph.textContent =
       details.join(
         " "
       );
-
 
     articleCopy.appendChild(
       paragraph
@@ -3154,10 +3300,8 @@ function openArticle(
         "p"
       );
 
-
     paragraph.textContent =
       "For the complete report, use the original source link above.";
-
 
     articleCopy.appendChild(
       paragraph
@@ -3167,7 +3311,7 @@ function openArticle(
 
 
   /*
-    Key details.
+     Key details.
   */
 
   articlePoints.innerHTML =
@@ -3176,7 +3320,10 @@ function openArticle(
 
   const points =
     sentences
-      .slice(0,3)
+      .slice(
+        0,
+        3
+      )
       .filter(
         item =>
           item.trim()
@@ -3195,10 +3342,8 @@ function openArticle(
             "li"
           );
 
-
         li.textContent =
           point.trim();
-
 
         articlePoints.appendChild(
           li
@@ -3220,7 +3365,7 @@ function openArticle(
 
 
   /*
-    Original article.
+     Original source.
   */
 
   articleSource.href =
@@ -3231,7 +3376,6 @@ function openArticle(
   articleOverlay.classList.add(
     "open"
   );
-
 
   document.body.style.overflow =
     "hidden";
@@ -3303,12 +3447,13 @@ function splitIntoSentences(
   text
 ){
 
-  if(!text){
+  if(
+    !text
+  ){
 
     return [];
 
   }
-
 
   return (
     text
@@ -3356,7 +3501,6 @@ function isNearDuplicate(
       x.split(" ")
     );
 
-
   const ya =
     new Set(
       y.split(" ")
@@ -3370,7 +3514,9 @@ function isNearDuplicate(
     word => {
 
       if(
-        ya.has(word)
+        ya.has(
+          word
+        )
       ){
 
         common++;
@@ -3459,26 +3605,42 @@ document
         "click",
         () => {
 
-          document
-            .querySelectorAll(
-              ".category-button"
-            )
-            .forEach(
-              item =>
-                item.classList.remove(
-                  "active"
-                )
-            );
-
-
-          button.classList.add(
-            "active"
-          );
-
-
           activeCategory =
             button.dataset.category;
 
+          /*
+             Update URL without
+             reloading page.
+          */
+
+          if(
+            activeCategory ===
+            "all"
+          ){
+
+            history.replaceState(
+              {},
+              "",
+              "digital-news.html"
+            );
+
+          }else{
+
+            history.replaceState(
+              {},
+              "",
+              "digital-news.html?category=" +
+              encodeURIComponent(
+                activeCategory
+              )
+            );
+
+          }
+
+
+          activateCategoryButton();
+
+          activateMenuCategory();
 
           renderNews();
 
@@ -3499,7 +3661,6 @@ function performSearch(){
     searchInput.value
       .trim()
       .toLowerCase();
-
 
   renderNews();
 
@@ -3537,7 +3698,6 @@ searchInput.addEventListener(
       searchInput.value
         .trim()
         .toLowerCase();
-
 
     renderNews();
 
@@ -3578,4 +3738,5 @@ setInterval(
 </script>
 
 </body>
+
 </html>
