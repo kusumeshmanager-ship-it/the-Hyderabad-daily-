@@ -17,14 +17,19 @@
 
 <style>
 
+/* =========================================================
+   THE HYDERABAD DAILY — DIGITAL NEWS
+   PHASE 2
+========================================================= */
+
 :root{
   --red:#9d1118;
-  --dark:#171717;
+  --black:#111;
+  --dark:#1a1a1a;
   --grey:#666;
-  --light:#f4f4f4;
-  --border:#d8d8d8;
-  --paper:#ffffff;
-  --gold:#b28a35;
+  --border:#d7d7d7;
+  --paper:#fff;
+  --light:#f5f5f5;
 }
 
 *{
@@ -37,13 +42,13 @@ html{
 
 body{
   margin:0;
-  background:#eeeeee;
+  background:#ededed;
   color:#171717;
   font-family:Georgia,"Times New Roman",serif;
 }
 
 /* =========================================================
-   TOP HEADER
+   HEADER
 ========================================================= */
 
 .site-header{
@@ -60,17 +65,18 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
-  padding:8px 0 5px;
-  border-bottom:1px solid #d5d5d5;
+  gap:15px;
+  padding:7px 0 5px;
+  border-bottom:1px solid #ddd;
 }
 
 .date-box{
+  min-width:100px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:12px;
+  font-size:11px;
+  line-height:1.35;
   font-weight:700;
   color:#555;
-  white-space:nowrap;
 }
 
 .date-box span{
@@ -78,22 +84,20 @@ body{
 }
 
 .logo-wrap{
-  text-align:center;
   flex:1;
+  text-align:center;
 }
 
 .mast-logo{
   display:block;
   width:auto;
   max-width:min(560px,70vw);
-  max-height:105px;
-  height:auto;
-  margin:2px auto 4px;
-  object-fit:contain;
+  max-height:100px;
+  margin:2px auto;
 }
 
 .menu-area{
-  min-width:95px;
+  min-width:100px;
   display:flex;
   justify-content:flex-end;
 }
@@ -102,10 +106,10 @@ body{
   border:1px solid #222;
   background:#fff;
   color:#111;
+  padding:7px 10px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:12px;
-  font-weight:700;
-  padding:7px 11px;
+  font-size:11px;
+  font-weight:800;
   cursor:pointer;
 }
 
@@ -118,18 +122,17 @@ body{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:4px;
-  padding:7px 0;
+  padding:6px 0;
 }
 
 .main-nav a{
-  text-decoration:none;
   color:#111;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:12px;
-  font-weight:700;
-  padding:5px 9px;
+  text-decoration:none;
+  padding:4px 9px;
   border-right:1px solid #ccc;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  font-weight:800;
 }
 
 .main-nav a:last-child{
@@ -141,7 +144,7 @@ body{
 }
 
 /* =========================================================
-   MOBILE DRAWER
+   MOBILE MENU
 ========================================================= */
 
 .drawer{
@@ -153,7 +156,7 @@ body{
   height:100vh;
   background:#fff;
   z-index:10000;
-  box-shadow:-5px 0 25px rgba(0,0,0,.25);
+  box-shadow:-5px 0 25px rgba(0,0,0,.3);
   transition:right .25s ease;
   overflow-y:auto;
 }
@@ -173,7 +176,7 @@ body{
 .drawer-title{
   font-family:Arial,Helvetica,sans-serif;
   font-weight:800;
-  font-size:15px;
+  font-size:14px;
 }
 
 .drawer-close{
@@ -190,12 +193,12 @@ body{
   text-decoration:none;
   border-bottom:1px solid #eee;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:13px;
+  font-size:12px;
   font-weight:700;
 }
 
 .drawer a:hover{
-  background:#f3f3f3;
+  background:#f5f5f5;
   color:var(--red);
 }
 
@@ -226,19 +229,17 @@ body{
   margin:auto;
   display:flex;
   align-items:center;
-  gap:10px;
-  min-height:40px;
+  gap:8px;
+  min-height:39px;
 }
 
 .latest-label{
   flex:0 0 auto;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  font-weight:900;
-  text-transform:uppercase;
   background:var(--red);
   padding:8px 10px;
-  letter-spacing:.3px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  font-weight:900;
 }
 
 .ticker-window{
@@ -254,85 +255,81 @@ body{
 .ticker-list{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:5px;
   white-space:nowrap;
-  padding:4px 0;
 }
 
 .ticker-item{
   display:inline-flex;
   align-items:center;
-  gap:6px;
+  gap:5px;
   border:0;
   background:transparent;
   color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  cursor:pointer;
   padding:5px 8px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  cursor:pointer;
   text-align:left;
 }
 
 .ticker-item:hover{
-  background:#2b2b2b;
-  color:#fff;
+  background:#292929;
 }
 
 .ticker-dot{
   width:5px;
   height:5px;
-  border-radius:50%;
   background:#fff;
-  flex:0 0 5px;
+  border-radius:50%;
 }
 
 /* =========================================================
-   MAIN CONTAINER
+   MAIN
 ========================================================= */
 
 .page-wrap{
   width:min(1400px,96%);
-  margin:15px auto 35px;
+  margin:14px auto 30px;
 }
 
 .section-head{
   background:#fff;
   border:1px solid var(--border);
-  padding:13px 16px 10px;
-  margin-bottom:10px;
+  padding:12px 15px 9px;
+  margin-bottom:9px;
 }
 
 .section-title-row{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  gap:15px;
+  gap:10px;
 }
 
 .section-title{
   margin:0;
-  font-size:28px;
+  font-size:27px;
   line-height:1.05;
   text-transform:uppercase;
-  letter-spacing:-.4px;
 }
 
 .section-subtitle{
   margin:4px 0 0;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
+  font-size:10px;
   color:#666;
 }
 
 .update-status{
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:9px;
   color:#777;
   white-space:nowrap;
 }
 
 /* =========================================================
-   CATEGORY BAR
+   CATEGORY
 ========================================================= */
 
 .category-bar{
@@ -342,17 +339,17 @@ body{
   background:#fff;
   border:1px solid var(--border);
   padding:7px;
-  margin-bottom:10px;
+  margin-bottom:9px;
 }
 
 .category-button{
   border:1px solid #bbb;
   background:#fff;
   color:#222;
-  padding:6px 9px;
+  padding:5px 8px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  font-weight:700;
+  font-size:10px;
+  font-weight:800;
   cursor:pointer;
 }
 
@@ -369,33 +366,29 @@ body{
 
 .search-row{
   display:flex;
-  gap:7px;
-  margin-bottom:12px;
+  gap:6px;
+  margin-bottom:10px;
 }
 
 .search-input{
   flex:1;
   min-width:0;
   border:1px solid #bbb;
+  padding:8px 10px;
   background:#fff;
-  padding:9px 11px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:12px;
+  font-size:11px;
   outline:none;
 }
 
-.search-input:focus{
-  border-color:#777;
-}
-
 .search-button{
-  border:1px solid #222;
+  border:1px solid #111;
   background:#111;
   color:#fff;
-  padding:0 15px;
+  padding:0 14px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  font-weight:700;
+  font-size:10px;
+  font-weight:800;
   cursor:pointer;
 }
 
@@ -406,74 +399,72 @@ body{
 .news-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:11px;
+  gap:10px;
 }
 
 .news-card{
   background:#fff;
-  border:1px solid #d1d1d1;
+  border:1px solid #d0d0d0;
   min-width:0;
   display:flex;
-  flex-direction:column;
-  transition:box-shadow .15s ease, transform .15s ease;
+  transition:.15s;
 }
 
 .news-card:hover{
-  box-shadow:0 3px 12px rgba(0,0,0,.09);
+  box-shadow:0 3px 12px rgba(0,0,0,.1);
   transform:translateY(-1px);
 }
 
 .news-card-inner{
-  padding:12px 13px 11px;
+  width:100%;
+  padding:11px 12px 10px;
   display:flex;
   flex-direction:column;
-  height:100%;
 }
 
 .news-category{
-  font-family:Arial,Helvetica,sans-serif;
   color:var(--red);
-  font-size:9px;
+  margin-bottom:4px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:8px;
   font-weight:900;
   text-transform:uppercase;
   letter-spacing:.5px;
-  margin-bottom:5px;
 }
 
 .news-title{
   margin:0 0 6px;
-  font-size:18px;
+  font-size:17px;
   line-height:1.17;
-  font-weight:800;
 }
 
 .news-summary{
   margin:0 0 8px;
+  color:#3d3d3d;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:12px;
-  line-height:1.5;
-  color:#3f3f3f;
+  font-size:11.5px;
+  line-height:1.48;
 
   display:-webkit-box;
   -webkit-box-orient:vertical;
-  -webkit-line-clamp:6;
+  -webkit-line-clamp:7;
   overflow:hidden;
 }
 
 .news-meta{
   margin-top:auto;
-  padding-top:7px;
-  border-top:1px solid #ededed;
+  padding-top:6px;
+  border-top:1px solid #eee;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   gap:8px;
 }
 
 .news-time{
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:9px;
   color:#777;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:8px;
 }
 
 .read-button{
@@ -482,40 +473,36 @@ body{
   color:var(--red);
   padding:0;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:9px;
   font-weight:900;
   cursor:pointer;
-  text-transform:uppercase;
-}
-
-.read-button:hover{
-  text-decoration:underline;
 }
 
 /* =========================================================
-   EMPTY / LOADING
+   STATUS BOXES
 ========================================================= */
 
 .loading-box,
 .empty-box,
 .error-box{
+  grid-column:1/-1;
   background:#fff;
   border:1px solid var(--border);
   padding:25px;
   text-align:center;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:13px;
   color:#666;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
 }
 
 .spinner{
-  width:23px;
-  height:23px;
+  width:22px;
+  height:22px;
+  margin:0 auto 10px;
   border:3px solid #ddd;
   border-top-color:#111;
   border-radius:50%;
   animation:spin .7s linear infinite;
-  margin:0 auto 10px;
 }
 
 @keyframes spin{
@@ -543,10 +530,9 @@ body{
 
 .article-reader{
   width:min(1120px,96%);
-  margin:20px auto 35px;
+  min-height:calc(100vh - 40px);
+  margin:20px auto 30px;
   background:#fff;
-  min-height:calc(100vh - 55px);
-  box-shadow:0 8px 35px rgba(0,0,0,.3);
 }
 
 .article-topbar{
@@ -556,10 +542,9 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
-  padding:8px 13px;
+  gap:10px;
+  padding:8px 12px;
   background:#111;
-  color:#fff;
 }
 
 .article-back{
@@ -568,18 +553,15 @@ body{
   color:#fff;
   padding:7px 10px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
-  font-weight:700;
+  font-size:10px;
+  font-weight:800;
   cursor:pointer;
 }
 
-.article-back:hover{
-  background:#333;
-}
-
 .article-brand{
+  color:#fff;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:11px;
+  font-size:10px;
   font-weight:800;
 }
 
@@ -588,67 +570,60 @@ body{
   background:#fff;
   color:#111;
   text-decoration:none;
-  padding:7px 10px;
+  padding:7px 9px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.article-source:hover{
-  background:#eee;
+  font-size:9px;
+  font-weight:900;
 }
 
 .article-body{
   max-width:1080px;
-  margin:0 auto;
+  margin:auto;
   padding:20px 30px 35px;
 }
 
 .article-category{
+  color:var(--red);
+  margin-bottom:6px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:9px;
   font-weight:900;
   text-transform:uppercase;
-  color:var(--red);
-  letter-spacing:.6px;
-  margin-bottom:7px;
 }
 
 .article-title{
   margin:0 0 8px;
   font-size:36px;
   line-height:1.1;
-  letter-spacing:-.35px;
-  max-width:100%;
+  letter-spacing:-.3px;
 }
 
 .article-meta{
   display:flex;
   flex-wrap:wrap;
   gap:8px 15px;
-  padding-bottom:10px;
+  padding-bottom:9px;
   margin-bottom:12px;
   border-bottom:1px solid #ddd;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
   color:#777;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:9px;
 }
 
 .article-lead{
+  margin:0 0 14px;
+  color:#333;
   font-family:Arial,Helvetica,sans-serif;
   font-size:15px;
   line-height:1.55;
   font-weight:700;
-  color:#333;
-  margin:0 0 15px;
 }
 
 .article-copy{
+  color:#222;
   font-family:Arial,Helvetica,sans-serif;
   font-size:15px;
   line-height:1.65;
-  color:#222;
 }
 
 .article-copy p{
@@ -656,18 +631,18 @@ body{
 }
 
 .article-points{
-  border-left:3px solid var(--red);
-  background:#f7f7f7;
-  padding:10px 14px;
   margin:15px 0;
+  padding:10px 14px;
+  border-left:3px solid var(--red);
+  background:#f6f6f6;
 }
 
 .article-points-title{
+  margin-bottom:6px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:9px;
   font-weight:900;
   text-transform:uppercase;
-  margin-bottom:6px;
 }
 
 .article-points ul{
@@ -676,20 +651,20 @@ body{
 }
 
 .article-points li{
-  margin:0 0 5px;
+  margin-bottom:5px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:13px;
+  font-size:12px;
   line-height:1.45;
 }
 
 .article-original-note{
   margin-top:18px;
-  padding-top:11px;
+  padding-top:10px;
   border-top:1px solid #ddd;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
-  line-height:1.5;
   color:#777;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:9px;
+  line-height:1.5;
 }
 
 /* =========================================================
@@ -697,21 +672,20 @@ body{
 ========================================================= */
 
 .footer{
-  margin-top:20px;
   background:#111;
   color:#fff;
+  padding:17px 10px;
   text-align:center;
-  padding:18px 10px;
   font-family:Arial,Helvetica,sans-serif;
-  font-size:10px;
+  font-size:9px;
 }
 
 .footer strong{
-  font-size:12px;
+  font-size:11px;
 }
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
 @media(max-width:1050px){
@@ -733,17 +707,18 @@ body{
   }
 
   .top-line{
-    padding:6px 9px 5px;
-    gap:8px;
+    padding:6px 8px;
+    gap:7px;
   }
 
   .date-box{
-    font-size:9px;
+    min-width:78px;
+    font-size:8px;
   }
 
   .mast-logo{
     max-width:58vw;
-    max-height:75px;
+    max-height:72px;
   }
 
   .menu-area{
@@ -751,8 +726,8 @@ body{
   }
 
   .menu-button{
-    font-size:10px;
     padding:6px 8px;
+    font-size:9px;
   }
 
   .main-nav{
@@ -764,35 +739,35 @@ body{
   }
 
   .latest-label{
-    font-size:9px;
     padding:8px 7px;
+    font-size:8px;
   }
 
   .ticker-item{
-    font-size:10px;
+    font-size:9px;
   }
 
   .page-wrap{
     width:100%;
-    margin:9px auto 20px;
+    margin:8px auto 20px;
   }
 
   .section-head{
     border-left:0;
     border-right:0;
-    padding:10px 10px 8px;
+    padding:9px 10px;
   }
 
   .section-title{
-    font-size:23px;
+    font-size:22px;
   }
 
-  .section-title-row{
-    align-items:flex-start;
+  .section-subtitle{
+    font-size:9px;
   }
 
   .update-status{
-    font-size:8px;
+    font-size:7px;
   }
 
   .category-bar{
@@ -807,7 +782,7 @@ body{
 
   .news-grid{
     grid-template-columns:1fr;
-    gap:7px;
+    gap:6px;
   }
 
   .news-card{
@@ -821,19 +796,17 @@ body{
 
   .news-title{
     font-size:17px;
-    line-height:1.18;
   }
 
   .news-summary{
     font-size:11.5px;
     line-height:1.48;
-    -webkit-line-clamp:7;
   }
 
   .article-reader{
     width:100%;
-    margin:0;
     min-height:100vh;
+    margin:0;
   }
 
   .article-topbar{
@@ -852,13 +825,11 @@ body{
   .article-title{
     font-size:25px;
     line-height:1.18;
-    letter-spacing:-.2px;
   }
 
   .article-lead{
     font-size:14px;
     line-height:1.5;
-    margin-bottom:13px;
   }
 
   .article-copy{
@@ -866,18 +837,12 @@ body{
     line-height:1.6;
   }
 
-  .article-copy p{
-    margin-bottom:11px;
-  }
-
   .article-points{
     padding:9px 11px;
-    margin:13px 0;
   }
 
   .article-points li{
-    font-size:12.5px;
-    line-height:1.45;
+    font-size:12px;
   }
 
 }
@@ -901,15 +866,6 @@ body{
     background:#fff;
   }
 
-  .page-wrap{
-    width:100%;
-    margin:0;
-  }
-
-  .news-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
 }
 
 </style>
@@ -927,16 +883,17 @@ body{
 
     <div class="top-line">
 
-      <!-- DATE / DAY BEFORE MENU -->
       <div class="date-box">
         <span id="currentDay">Loading...</span>
         <br>
         <span id="currentDate">Loading...</span>
       </div>
 
-      <!-- MASTHEAD -->
       <div class="logo-wrap">
-        <a href="index.html" aria-label="The Hyderabad Daily Home">
+        <a
+          href="index.html"
+          aria-label="The Hyderabad Daily Home"
+        >
           <img
             class="mast-logo"
             src="masthead-logo(1).png"
@@ -945,7 +902,6 @@ body{
         </a>
       </div>
 
-      <!-- MENU -->
       <div class="menu-area">
         <button
           class="menu-button"
@@ -958,28 +914,45 @@ body{
 
     </div>
 
-    <!-- DESKTOP NAVIGATION -->
     <nav class="main-nav">
 
       <a href="index.html">HOME</a>
 
-      <a href="digital-news.html">DIGITAL NEWS</a>
+      <a href="digital-news.html">
+        DIGITAL NEWS
+      </a>
 
-      <a href="#hyderabad">HYDERABAD</a>
+      <a href="#hyderabad">
+        HYDERABAD
+      </a>
 
-      <a href="#telangana">TELANGANA</a>
+      <a href="#telangana">
+        TELANGANA
+      </a>
 
-      <a href="#india">INDIA</a>
+      <a href="#india">
+        INDIA
+      </a>
 
-      <a href="#world">WORLD</a>
+      <a href="#world">
+        WORLD
+      </a>
 
-      <a href="#business">BUSINESS</a>
+      <a href="#business">
+        BUSINESS
+      </a>
 
-      <a href="#technology">TECHNOLOGY</a>
+      <a href="#technology">
+        TECHNOLOGY
+      </a>
 
-      <a href="#sports">SPORTS</a>
+      <a href="#sports">
+        SPORTS
+      </a>
 
-      <a href="#entertainment">ENTERTAINMENT</a>
+      <a href="#entertainment">
+        ENTERTAINMENT
+      </a>
 
     </nav>
 
@@ -1012,7 +985,6 @@ body{
       class="drawer-close"
       id="drawerClose"
       type="button"
-      aria-label="Close menu"
     >
       ×
     </button>
@@ -1020,30 +992,21 @@ body{
   </div>
 
   <a href="index.html">HOME</a>
-
   <a href="digital-news.html">DIGITAL NEWS</a>
-
   <a href="#hyderabad">HYDERABAD</a>
-
   <a href="#telangana">TELANGANA</a>
-
   <a href="#india">INDIA</a>
-
   <a href="#world">WORLD</a>
-
   <a href="#business">BUSINESS</a>
-
   <a href="#technology">TECHNOLOGY</a>
-
   <a href="#sports">SPORTS</a>
-
   <a href="#entertainment">ENTERTAINMENT</a>
 
 </aside>
 
 
 <!-- =======================================================
-     LATEST HIGHLIGHTS
+     LATEST
 ======================================================== -->
 
 <section class="latest-bar">
@@ -1060,9 +1023,11 @@ body{
         class="ticker-list"
         id="tickerList"
       >
+
         <span class="ticker-item">
           Loading latest highlights...
         </span>
+
       </div>
 
     </div>
@@ -1092,7 +1057,8 @@ body{
         </h1>
 
         <p class="section-subtitle">
-          Latest developments across Hyderabad, Telangana, India and the world
+          Latest developments across Hyderabad,
+          Telangana, India and the world
         </p>
 
       </div>
@@ -1109,7 +1075,7 @@ body{
   </section>
 
 
-  <!-- CATEGORY FILTERS -->
+  <!-- CATEGORY FILTER -->
 
   <div class="category-bar">
 
@@ -1211,7 +1177,7 @@ body{
   </div>
 
 
-  <!-- NEWS -->
+  <!-- NEWS GRID -->
 
   <section
     class="news-grid"
@@ -1247,7 +1213,7 @@ body{
 
   <br><br>
 
-  Updated automatically with the latest available news feeds.
+  Latest available digital updates
 
 </footer>
 
@@ -1312,22 +1278,15 @@ body{
 
       </div>
 
-
-      <!-- SUMMARY APPEARS ONCE ONLY -->
-
       <div
         class="article-lead"
         id="articleLead"
       ></div>
 
-
-      <!-- ARTICLE DETAILS -->
-
       <div
         class="article-copy"
         id="articleCopy"
       ></div>
-
 
       <div
         class="article-points"
@@ -1343,13 +1302,11 @@ body{
 
       </div>
 
-
       <div class="article-original-note">
 
-        This Digital News page provides a concise news summary
-        and links to the original publication for the complete
-        report. The original publication remains the authoritative
-        source for its full article.
+        This page provides a concise Digital News
+        summary. Use the original source link for
+        the publisher's complete report.
 
       </div>
 
@@ -1363,14 +1320,8 @@ body{
 <script>
 
 /* =========================================================
-   THE HYDERABAD DAILY
-   DIGITAL NEWS ENGINE
-========================================================= */
-
-
-/* ---------------------------------------------------------
    CONFIGURATION
---------------------------------------------------------- */
+========================================================= */
 
 const RSS2JSON =
   "https://api.rss2json.com/v1/api.json?rss_url=";
@@ -1378,13 +1329,19 @@ const RSS2JSON =
 const ALL_ORIGINS =
   "https://api.allorigins.win/raw?url=";
 
+const DIGITAL_REGISTRY_URL =
+  "data/digital-news-registry.json";
+
+const EPAPER_REGISTRY_URL =
+  "data/epaper-registry.json";
+
 const REFRESH_INTERVAL =
   10 * 60 * 1000;
 
 
-/* ---------------------------------------------------------
-   NEWS FEEDS
---------------------------------------------------------- */
+/* =========================================================
+   FEEDS
+========================================================= */
 
 const FEEDS = [
 
@@ -1431,9 +1388,9 @@ const FEEDS = [
 ];
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    STATE
---------------------------------------------------------- */
+========================================================= */
 
 let allArticles = [];
 
@@ -1441,67 +1398,107 @@ let activeCategory = "all";
 
 let searchTerm = "";
 
+let digitalRegistry = {
+  publishedStories:[]
+};
 
-/* ---------------------------------------------------------
+let epaperRegistry = {
+  stories:[]
+};
+
+
+/* =========================================================
    ELEMENTS
---------------------------------------------------------- */
+========================================================= */
 
 const newsGrid =
-  document.getElementById("newsGrid");
+  document.getElementById(
+    "newsGrid"
+  );
 
 const tickerList =
-  document.getElementById("tickerList");
+  document.getElementById(
+    "tickerList"
+  );
 
 const updateStatus =
-  document.getElementById("updateStatus");
+  document.getElementById(
+    "updateStatus"
+  );
 
 const searchInput =
-  document.getElementById("searchInput");
+  document.getElementById(
+    "searchInput"
+  );
 
 const searchButton =
-  document.getElementById("searchButton");
+  document.getElementById(
+    "searchButton"
+  );
 
 const articleOverlay =
-  document.getElementById("articleOverlay");
+  document.getElementById(
+    "articleOverlay"
+  );
 
 const articleBack =
-  document.getElementById("articleBack");
+  document.getElementById(
+    "articleBack"
+  );
 
 const articleSource =
-  document.getElementById("articleSource");
+  document.getElementById(
+    "articleSource"
+  );
 
 const articleCategory =
-  document.getElementById("articleCategory");
+  document.getElementById(
+    "articleCategory"
+  );
 
 const articleTitle =
-  document.getElementById("articleTitle");
+  document.getElementById(
+    "articleTitle"
+  );
 
 const articleDate =
-  document.getElementById("articleDate");
+  document.getElementById(
+    "articleDate"
+  );
 
 const articleLead =
-  document.getElementById("articleLead");
+  document.getElementById(
+    "articleLead"
+  );
 
 const articleCopy =
-  document.getElementById("articleCopy");
+  document.getElementById(
+    "articleCopy"
+  );
 
 const articlePointsBox =
-  document.getElementById("articlePointsBox");
+  document.getElementById(
+    "articlePointsBox"
+  );
 
 const articlePoints =
-  document.getElementById("articlePoints");
+  document.getElementById(
+    "articlePoints"
+  );
 
 
-/* ---------------------------------------------------------
-   DATE / DAY
---------------------------------------------------------- */
+/* =========================================================
+   DATE
+========================================================= */
 
 function updateDate(){
 
   const now =
     new Date();
 
-  const day =
+  document.getElementById(
+    "currentDay"
+  ).textContent =
     now.toLocaleDateString(
       "en-IN",
       {
@@ -1509,7 +1506,9 @@ function updateDate(){
       }
     );
 
-  const date =
+  document.getElementById(
+    "currentDate"
+  ).textContent =
     now.toLocaleDateString(
       "en-IN",
       {
@@ -1519,51 +1518,58 @@ function updateDate(){
       }
     );
 
-  document.getElementById(
-    "currentDay"
-  ).textContent =
-    day;
-
-  document.getElementById(
-    "currentDate"
-  ).textContent =
-    date;
 }
 
 updateDate();
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOBILE MENU
---------------------------------------------------------- */
+========================================================= */
 
 const menuButton =
-  document.getElementById("menuButton");
+  document.getElementById(
+    "menuButton"
+  );
 
 const drawer =
-  document.getElementById("drawer");
+  document.getElementById(
+    "drawer"
+  );
 
 const drawerClose =
-  document.getElementById("drawerClose");
+  document.getElementById(
+    "drawerClose"
+  );
 
 const drawerOverlay =
-  document.getElementById("drawerOverlay");
+  document.getElementById(
+    "drawerOverlay"
+  );
 
 
 function openDrawer(){
 
-  drawer.classList.add("open");
+  drawer.classList.add(
+    "open"
+  );
 
-  drawerOverlay.classList.add("open");
+  drawerOverlay.classList.add(
+    "open"
+  );
 
 }
 
 
 function closeDrawer(){
 
-  drawer.classList.remove("open");
+  drawer.classList.remove(
+    "open"
+  );
 
-  drawerOverlay.classList.remove("open");
+  drawerOverlay.classList.remove(
+    "open"
+  );
 
 }
 
@@ -1583,30 +1589,269 @@ drawerOverlay.addEventListener(
   closeDrawer
 );
 
-document.querySelectorAll(
-  ".drawer a"
-).forEach(
-  link => {
 
-    link.addEventListener(
-      "click",
-      closeDrawer
+/* =========================================================
+   PUBLICATION REGISTRIES
+========================================================= */
+
+async function loadPublicationRegistries(){
+
+  try{
+
+    const responses =
+      await Promise.all([
+        fetch(
+          DIGITAL_REGISTRY_URL +
+          "?v=" +
+          Date.now()
+        ),
+        fetch(
+          EPAPER_REGISTRY_URL +
+          "?v=" +
+          Date.now()
+        )
+      ]);
+
+
+    if(
+      responses[0].ok
+    ){
+
+      digitalRegistry =
+        await responses[0].json();
+
+    }
+
+
+    if(
+      responses[1].ok
+    ){
+
+      epaperRegistry =
+        await responses[1].json();
+
+    }
+
+
+  }catch(error){
+
+    console.warn(
+      "Publication registries unavailable:",
+      error
     );
 
   }
-);
+
+}
 
 
-/* ---------------------------------------------------------
-   GOOGLE NEWS RSS URL
---------------------------------------------------------- */
+/* =========================================================
+   NORMALIZATION
+========================================================= */
 
-function buildRSSUrl(query){
+function normalizeRegistryText(
+  value
+){
+
+  return String(
+    value || ""
+  )
+  .toLowerCase()
+  .replace(
+    /[^a-z0-9\s]/g,
+    ""
+  )
+  .replace(
+    /\s+/g,
+    " "
+  )
+  .trim();
+
+}
+
+
+function normalizeTitle(
+  title
+){
+
+  return normalizeRegistryText(
+    title
+  );
+
+}
+
+
+/* =========================================================
+   REGISTRY MATCHING
+========================================================= */
+
+function registryContainsStory(
+  article,
+  stories
+){
+
+  if(
+    !Array.isArray(
+      stories
+    )
+  ){
+
+    return false;
+
+  }
+
+
+  const title =
+    normalizeRegistryText(
+      article.title
+    );
+
+  const url =
+    String(
+      article.link ||
+      ""
+    )
+    .trim();
+
+
+  return stories.some(
+    story => {
+
+      const storyTitle =
+        normalizeRegistryText(
+          story.title
+        );
+
+      const storyUrl =
+        String(
+          story.canonicalUrl ||
+          story.url ||
+          ""
+        )
+        .trim();
+
+
+      /* Exact canonical URL */
+
+      if(
+        url &&
+        storyUrl &&
+        url === storyUrl
+      ){
+
+        return true;
+
+      }
+
+
+      /* Exact normalized title */
+
+      if(
+        title &&
+        storyTitle &&
+        title === storyTitle
+      ){
+
+        return true;
+
+      }
+
+
+      /* Event key */
+
+      if(
+        article.eventKey &&
+        story.eventKey &&
+        article.eventKey ===
+        story.eventKey
+      ){
+
+        return true;
+
+      }
+
+
+      return false;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   PUBLICATION CONTROL
+========================================================= */
+
+function alreadyPublished(
+  article
+){
+
+  return registryContainsStory(
+    article,
+    digitalRegistry.publishedStories
+  );
+
+}
+
+
+function appearsInEpaper(
+  article
+){
+
+  return registryContainsStory(
+    article,
+    epaperRegistry.stories
+  );
+
+}
+
+
+function passesPublicationControl(
+  article
+){
+
+  if(
+    alreadyPublished(
+      article
+    )
+  ){
+
+    return false;
+
+  }
+
+
+  if(
+    appearsInEpaper(
+      article
+    )
+  ){
+
+    return false;
+
+  }
+
+
+  return true;
+
+}
+
+
+/* =========================================================
+   RSS
+========================================================= */
+
+function buildRSSUrl(
+  query
+){
 
   return (
     "https://news.google.com/rss/search?" +
     "q=" +
-    encodeURIComponent(query) +
+    encodeURIComponent(
+      query
+    ) +
     "&hl=en-IN" +
     "&gl=IN" +
     "&ceid=IN:en"
@@ -1615,37 +1860,39 @@ function buildRSSUrl(query){
 }
 
 
-/* ---------------------------------------------------------
-   FETCH RSS USING RSS2JSON
---------------------------------------------------------- */
-
 async function fetchRSS2JSON(
   feedUrl
 ){
 
-  const url =
-    RSS2JSON +
-    encodeURIComponent(feedUrl);
-
   const response =
-    await fetch(url);
+    await fetch(
+      RSS2JSON +
+      encodeURIComponent(
+        feedUrl
+      )
+    );
+
 
   if(
     !response.ok
   ){
 
     throw new Error(
-      "RSS2JSON request failed"
+      "RSS2JSON failed"
     );
 
   }
 
+
   const data =
     await response.json();
 
+
   if(
     !data ||
-    !Array.isArray(data.items)
+    !Array.isArray(
+      data.items
+    )
   ){
 
     throw new Error(
@@ -1654,41 +1901,47 @@ async function fetchRSS2JSON(
 
   }
 
+
   return data.items;
 
 }
 
 
-/* ---------------------------------------------------------
-   FALLBACK RSS FETCH
---------------------------------------------------------- */
+/* =========================================================
+   RSS FALLBACK
+========================================================= */
 
 async function fetchRSSFallback(
   feedUrl
 ){
 
-  const url =
-    ALL_ORIGINS +
-    encodeURIComponent(feedUrl);
-
   const response =
-    await fetch(url);
+    await fetch(
+      ALL_ORIGINS +
+      encodeURIComponent(
+        feedUrl
+      )
+    );
+
 
   if(
     !response.ok
   ){
 
     throw new Error(
-      "Fallback RSS request failed"
+      "Fallback failed"
     );
 
   }
 
+
   const xmlText =
     await response.text();
 
+
   const parser =
     new DOMParser();
+
 
   const xml =
     parser.parseFromString(
@@ -1696,47 +1949,48 @@ async function fetchRSSFallback(
       "text/xml"
     );
 
-  const items =
-    Array.from(
-      xml.querySelectorAll("item")
-    );
 
-  return items.map(
-    item => {
+  return Array.from(
+    xml.querySelectorAll(
+      "item"
+    )
+  )
+  .map(
+    item => ({
 
-      return {
+      title:
+        item.querySelector(
+          "title"
+        )?.textContent ||
+        "",
 
-        title:
-          item.querySelector(
-            "title"
-          )?.textContent || "",
+      link:
+        item.querySelector(
+          "link"
+        )?.textContent ||
+        "",
 
-        link:
-          item.querySelector(
-            "link"
-          )?.textContent || "",
+      description:
+        item.querySelector(
+          "description"
+        )?.textContent ||
+        "",
 
-        description:
-          item.querySelector(
-            "description"
-          )?.textContent || "",
+      pubDate:
+        item.querySelector(
+          "pubDate"
+        )?.textContent ||
+        ""
 
-        pubDate:
-          item.querySelector(
-            "pubDate"
-          )?.textContent || ""
-
-      };
-
-    }
+    })
   );
 
 }
 
 
-/* ---------------------------------------------------------
-   HTML CLEANER
---------------------------------------------------------- */
+/* =========================================================
+   TEXT CLEANER
+========================================================= */
 
 function cleanText(
   value
@@ -1748,45 +2002,50 @@ function cleanText(
 
   }
 
-  const temp =
+
+  const element =
     document.createElement(
       "div"
     );
 
-  temp.innerHTML =
+
+  element.innerHTML =
     value;
 
+
   return (
-    temp.textContent ||
-    temp.innerText ||
+    element.textContent ||
+    element.innerText ||
     ""
   )
-  .replace(/\s+/g," ")
+  .replace(
+    /\s+/g,
+    " "
+  )
   .trim();
 
 }
 
 
-/* ---------------------------------------------------------
-   DATE PARSER
---------------------------------------------------------- */
+/* =========================================================
+   DATE
+========================================================= */
 
-function articleDateValue(
+function getArticleDate(
   article
 ){
 
-  const value =
-    article.pubDate ||
-    article.isoDate ||
-    article.date ||
-    "";
+  const date =
+    new Date(
+      article.pubDate ||
+      article.isoDate ||
+      ""
+    );
 
-  const parsed =
-    new Date(value);
 
   if(
     Number.isNaN(
-      parsed.getTime()
+      date.getTime()
     )
   ){
 
@@ -1794,23 +2053,21 @@ function articleDateValue(
 
   }
 
-  return parsed;
+
+  return date;
 
 }
 
-
-/* ---------------------------------------------------------
-   RECENCY FILTER
---------------------------------------------------------- */
 
 function isRecent(
   article
 ){
 
   const date =
-    articleDateValue(
+    getArticleDate(
       article
     );
+
 
   if(!date){
 
@@ -1818,23 +2075,14 @@ function isRecent(
 
   }
 
-  const now =
-    Date.now();
-
-  const age =
-    now -
-    date.getTime();
 
   const hours =
-    age /
+    (
+      Date.now() -
+      date.getTime()
+    ) /
     (1000 * 60 * 60);
 
-  /*
-    Keep approximately the latest
-    48 hours so the page has enough
-    content while still prioritising
-    current news.
-  */
 
   return (
     hours >= -1 &&
@@ -1844,9 +2092,9 @@ function isRecent(
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    NORMALIZE ARTICLE
---------------------------------------------------------- */
+========================================================= */
 
 function normalizeArticle(
   item,
@@ -1870,10 +2118,12 @@ function normalizeArticle(
     item.guid ||
     "#";
 
+
   const date =
-    articleDateValue(
+    getArticleDate(
       item
     );
+
 
   return {
 
@@ -1892,18 +2142,20 @@ function normalizeArticle(
     category,
 
     pubDate:
-      date ?
-      date.toISOString() :
-      new Date().toISOString()
+      date
+        ? date.toISOString()
+        : new Date().toISOString(),
+
+    eventKey:""
 
   };
 
 }
 
 
-/* ---------------------------------------------------------
-   ARTICLE ID
---------------------------------------------------------- */
+/* =========================================================
+   ID
+========================================================= */
 
 function createArticleId(
   title,
@@ -1911,106 +2163,87 @@ function createArticleId(
 ){
 
   return (
-    btoa(
-      unescape(
-        encodeURIComponent(
-          title +
-          "|" +
-          link
-        )
-      )
-    )
-    .replace(/[^a-zA-Z0-9]/g,"")
-    .slice(0,20)
+    normalizeTitle(
+      title
+    ) +
+    "|" +
+    link
+  )
+  .slice(
+    0,
+    120
   );
 
 }
 
 
-/* ---------------------------------------------------------
-   SIMILAR TITLE NORMALIZATION
---------------------------------------------------------- */
-
-function normalizeTitle(
-  title
-){
-
-  return title
-    .toLowerCase()
-    .replace(
-      /[^a-z0-9\s]/g,
-      ""
-    )
-    .replace(
-      /\s+/g,
-      " "
-    )
-    .trim();
-
-}
-
-
-/* ---------------------------------------------------------
-   SIMPLE DUPLICATE DETECTION
---------------------------------------------------------- */
+/* =========================================================
+   SIMILAR TITLES
+========================================================= */
 
 function isSimilarTitle(
-  titleA,
-  titleB
+  a,
+  b
 ){
 
-  const a =
+  const x =
     normalizeTitle(
-      titleA
+      a
     );
 
-  const b =
+  const y =
     normalizeTitle(
-      titleB
+      b
     );
 
-  if(
-    !a ||
-    !b
-  ){
-
-    return false;
-
-  }
 
   if(
-    a === b
+    x === y
   ){
 
     return true;
 
   }
 
-  const wordsA =
+
+  const xa =
     new Set(
-      a.split(" ")
+      x.split(" ")
         .filter(
           word =>
             word.length > 3
         )
     );
 
-  const wordsB =
+
+  const ya =
     new Set(
-      b.split(" ")
+      y.split(" ")
         .filter(
           word =>
             word.length > 3
         )
     );
+
+
+  if(
+    xa.size < 3 ||
+    ya.size < 3
+  ){
+
+    return false;
+
+  }
+
 
   let common = 0;
 
-  wordsA.forEach(
+
+  xa.forEach(
     word => {
 
       if(
-        wordsB.has(word)
+        ya.has(word)
       ){
 
         common++;
@@ -2020,19 +2253,13 @@ function isSimilarTitle(
     }
   );
 
+
   const smaller =
     Math.min(
-      wordsA.size,
-      wordsB.size
+      xa.size,
+      ya.size
     );
 
-  if(
-    smaller < 3
-  ){
-
-    return false;
-
-  }
 
   return (
     common /
@@ -2042,9 +2269,9 @@ function isSimilarTitle(
 }
 
 
-/* ---------------------------------------------------------
-   LOCAL PUBLISHED MEMORY
---------------------------------------------------------- */
+/* =========================================================
+   LOCAL BROWSER HISTORY
+========================================================= */
 
 function getPublishedTitles(){
 
@@ -2053,12 +2280,11 @@ function getPublishedTitles(){
     return JSON.parse(
       localStorage.getItem(
         "thd_digital_published"
-      ) || "[]"
+      ) ||
+      "[]"
     );
 
-  }catch(
-    error
-  ){
+  }catch(error){
 
     return [];
 
@@ -2076,7 +2302,8 @@ function savePublishedTitles(
     const old =
       getPublishedTitles();
 
-    const combined =
+
+    const values =
       [
         ...old,
         ...articles.map(
@@ -2087,17 +2314,14 @@ function savePublishedTitles(
         )
       ];
 
+
     const unique =
       [
         ...new Set(
-          combined
+          values
         )
       ];
 
-    /*
-      Keep a reasonable browser
-      history size.
-    */
 
     localStorage.setItem(
       "thd_digital_published",
@@ -2106,9 +2330,8 @@ function savePublishedTitles(
       )
     );
 
-  }catch(
-    error
-  ){
+
+  }catch(error){
 
     console.warn(
       "Local storage unavailable"
@@ -2119,9 +2342,9 @@ function savePublishedTitles(
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    LOAD ONE FEED
---------------------------------------------------------- */
+========================================================= */
 
 async function loadFeed(
   feed
@@ -2132,7 +2355,9 @@ async function loadFeed(
       feed.query
     );
 
+
   let items = [];
+
 
   try{
 
@@ -2141,9 +2366,7 @@ async function loadFeed(
         feedUrl
       );
 
-  }catch(
-    firstError
-  ){
+  }catch(error){
 
     try{
 
@@ -2152,9 +2375,7 @@ async function loadFeed(
           feedUrl
         );
 
-    }catch(
-      secondError
-    ){
+    }catch(fallbackError){
 
       console.warn(
         "Feed failed:",
@@ -2166,6 +2387,7 @@ async function loadFeed(
     }
 
   }
+
 
   return items
     .filter(
@@ -2183,20 +2405,23 @@ async function loadFeed(
       article =>
         article.title &&
         article.link &&
-        isRecent(article)
+        isRecent(
+          article
+        )
     );
 
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    LOAD ALL NEWS
---------------------------------------------------------- */
+========================================================= */
 
 async function loadNews(){
 
   updateStatus.textContent =
     "Updating...";
+
 
   newsGrid.innerHTML = `
 
@@ -2211,11 +2436,24 @@ async function loadNews(){
   `;
 
 
+  /*
+    FIRST load the shared registries.
+  */
+
+  await loadPublicationRegistries();
+
+
+  /*
+    THEN load current feeds.
+  */
+
   const results =
     await Promise.all(
       FEEDS.map(
         feed =>
-          loadFeed(feed)
+          loadFeed(
+            feed
+          )
       )
     );
 
@@ -2225,34 +2463,26 @@ async function loadNews(){
 
 
   /*
-    Sort latest first.
+    Latest first.
   */
 
   combined.sort(
-    (
-      a,
-      b
-    ) => {
-
-      return (
-        new Date(
-          b.pubDate
-        ) -
-        new Date(
-          a.pubDate
-        )
-      );
-
-    }
+    (a,b) =>
+      new Date(
+        b.pubDate
+      ) -
+      new Date(
+        a.pubDate
+      )
   );
 
 
   /*
-    Remove exact and highly
-    similar headlines.
+    Remove similar stories.
   */
 
   const unique = [];
+
 
   combined.forEach(
     article => {
@@ -2266,7 +2496,10 @@ async function loadNews(){
             )
         );
 
-      if(!duplicate){
+
+      if(
+        !duplicate
+      ){
 
         unique.push(
           article
@@ -2279,20 +2512,26 @@ async function loadNews(){
 
 
   /*
-    Remove previously displayed
-    stories from this browser where
-    possible.
-
-    We do NOT completely rely on this
-    because different publishers can
-    update the same story.
+    Browser history.
   */
 
-  const published =
+  const browserHistory =
     getPublishedTitles();
 
 
-  const filtered =
+  /*
+    IMPORTANT:
+    A story blocked by the shared
+    publication registry or e-paper
+    registry is permanently excluded
+    from this load.
+
+    It is NOT brought back if the
+    local browser history removes
+    everything.
+  */
+
+  const eligible =
     unique.filter(
       article => {
 
@@ -2301,8 +2540,22 @@ async function loadNews(){
             article.title
           );
 
-        return !published.includes(
-          normalized
+
+        const localBlocked =
+          browserHistory.includes(
+            normalized
+          );
+
+
+        const registryBlocked =
+          !passesPublicationControl(
+            article
+          );
+
+
+        return (
+          !localBlocked &&
+          !registryBlocked
         );
 
       }
@@ -2310,19 +2563,37 @@ async function loadNews(){
 
 
   /*
-    If local history filters everything,
-    use current unique stories rather
-    than showing a blank page.
+    If local browser history blocks
+    all stories but the shared registry
+    does not, use only stories that
+    pass the shared publication control.
+
+    This does NOT bypass the permanent
+    registry or e-paper exclusion.
   */
 
-  allArticles =
-    filtered.length >= 6
-      ? filtered
-      : unique;
+  if(
+    eligible.length === 0
+  ){
+
+    allArticles =
+      unique.filter(
+        article =>
+          passesPublicationControl(
+            article
+          )
+      );
+
+  }else{
+
+    allArticles =
+      eligible;
+
+  }
 
 
   /*
-    Keep page reasonably compact.
+    Keep a useful number of stories.
   */
 
   allArticles =
@@ -2332,6 +2603,11 @@ async function loadNews(){
     );
 
 
+  /*
+    Remember displayed stories
+    locally.
+  */
+
   savePublishedTitles(
     allArticles
   );
@@ -2340,6 +2616,7 @@ async function loadNews(){
   renderNews();
 
   renderTicker();
+
 
   updateStatus.textContent =
     "Updated " +
@@ -2354,9 +2631,9 @@ async function loadNews(){
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    RENDER NEWS
---------------------------------------------------------- */
+========================================================= */
 
 function renderNews(){
 
@@ -2368,6 +2645,7 @@ function renderNews(){
           activeCategory === "all" ||
           article.category ===
             activeCategory;
+
 
         const searchMatch =
           !searchTerm ||
@@ -2382,6 +2660,7 @@ function renderNews(){
           .includes(
             searchTerm
           );
+
 
         return (
           categoryMatch &&
@@ -2401,7 +2680,7 @@ function renderNews(){
       <div class="empty-box">
 
         No matching Digital News
-        stories found.
+        stories are currently available.
 
       </div>
 
@@ -2412,31 +2691,28 @@ function renderNews(){
   }
 
 
-  newsGrid.innerHTML = "";
+  newsGrid.innerHTML =
+    "";
 
 
   filtered.forEach(
-    (
-      article,
-      index
-    ) => {
+    article => {
 
       const card =
         document.createElement(
           "article"
         );
 
+
       card.className =
         "news-card";
 
-      card.id =
-        "news-" +
-        index;
 
       const inner =
         document.createElement(
           "div"
         );
+
 
       inner.className =
         "news-card-inner";
@@ -2447,8 +2723,10 @@ function renderNews(){
           "div"
         );
 
+
       category.className =
         "news-category";
+
 
       category.textContent =
         article.category;
@@ -2459,8 +2737,10 @@ function renderNews(){
           "h2"
         );
 
+
       title.className =
         "news-title";
+
 
       title.textContent =
         article.title;
@@ -2471,8 +2751,10 @@ function renderNews(){
           "p"
         );
 
+
       summary.className =
         "news-summary";
+
 
       summary.textContent =
         article.description ||
@@ -2484,6 +2766,7 @@ function renderNews(){
           "div"
         );
 
+
       meta.className =
         "news-meta";
 
@@ -2493,8 +2776,10 @@ function renderNews(){
           "span"
         );
 
+
       time.className =
         "news-time";
+
 
       time.textContent =
         formatDate(
@@ -2507,11 +2792,14 @@ function renderNews(){
           "button"
         );
 
+
       button.type =
         "button";
 
+
       button.className =
         "read-button";
+
 
       button.textContent =
         "READ DETAILS →";
@@ -2519,13 +2807,10 @@ function renderNews(){
 
       button.addEventListener(
         "click",
-        () => {
-
+        () =>
           openArticle(
             article
-          );
-
-        }
+          )
       );
 
 
@@ -2554,9 +2839,11 @@ function renderNews(){
         meta
       );
 
+
       card.appendChild(
         inner
       );
+
 
       newsGrid.appendChild(
         card
@@ -2568,16 +2855,17 @@ function renderNews(){
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    TICKER
---------------------------------------------------------- */
+========================================================= */
 
 function renderTicker(){
 
-  tickerList.innerHTML = "";
+  tickerList.innerHTML =
+    "";
 
 
-  const tickerArticles =
+  const articles =
     allArticles.slice(
       0,
       12
@@ -2585,7 +2873,7 @@ function renderTicker(){
 
 
   if(
-    tickerArticles.length === 0
+    articles.length === 0
   ){
 
     tickerList.innerHTML = `
@@ -2601,34 +2889,50 @@ function renderTicker(){
   }
 
 
-  tickerArticles.forEach(
-    (
-      article,
-      index
-    ) => {
+  articles.forEach(
+    article => {
 
       const button =
         document.createElement(
           "button"
         );
 
+
       button.type =
         "button";
+
 
       button.className =
         "ticker-item";
 
-      button.innerHTML = `
 
-        <span class="ticker-dot"></span>
+      const dot =
+        document.createElement(
+          "span"
+        );
 
-        <span>
-          ${escapeHTML(
-            article.title
-          )}
-        </span>
 
-      `;
+      dot.className =
+        "ticker-dot";
+
+
+      const text =
+        document.createElement(
+          "span"
+        );
+
+
+      text.textContent =
+        article.title;
+
+
+      button.appendChild(
+        dot
+      );
+
+      button.appendChild(
+        text
+      );
 
 
       button.addEventListener(
@@ -2644,19 +2948,18 @@ function renderTicker(){
           searchInput.value =
             "";
 
+
           document
             .querySelectorAll(
               ".category-button"
             )
             .forEach(
-              button => {
-
-                button.classList.remove(
+              item =>
+                item.classList.remove(
                   "active"
-                );
-
-              }
+                )
             );
+
 
           document
             .querySelector(
@@ -2673,68 +2976,47 @@ function renderTicker(){
           setTimeout(
             () => {
 
-              const visible =
-                allArticles
-                  .filter(
-                    item =>
-                      item.id ===
-                      article.id
-                  )[0];
-
-
-              if(
-                visible
-              ){
-
-                const cards =
+              const cards =
+                Array.from(
                   document.querySelectorAll(
                     ".news-card"
-                  );
-
-                const target =
-                  Array.from(
-                    cards
-                  ).find(
-                    card => {
-
-                      const title =
-                        card.querySelector(
-                          ".news-title"
-                        );
-
-                      return (
-                        title &&
-                        title.textContent ===
-                        article.title
-                      );
-
-                    }
-                  );
+                  )
+                );
 
 
-                if(target){
+              const target =
+                cards.find(
+                  card =>
+                    card.querySelector(
+                      ".news-title"
+                    )?.textContent ===
+                    article.title
+                );
 
-                  target.scrollIntoView(
-                    {
-                      behavior:"smooth",
-                      block:"center"
-                    }
-                  );
 
-                  target.style.outline =
-                    "3px solid #9d1118";
+              if(target){
 
-                  setTimeout(
-                    () => {
+                target.scrollIntoView(
+                  {
+                    behavior:"smooth",
+                    block:"center"
+                  }
+                );
 
-                      target.style.outline =
-                        "";
 
-                    },
-                    1800
-                  );
+                target.style.outline =
+                  "3px solid #9d1118";
 
-                }
+
+                setTimeout(
+                  () => {
+
+                    target.style.outline =
+                      "";
+
+                  },
+                  1800
+                );
 
               }
 
@@ -2756,9 +3038,9 @@ function renderTicker(){
 }
 
 
-/* ---------------------------------------------------------
-   OPEN ARTICLE
---------------------------------------------------------- */
+/* =========================================================
+   ARTICLE READER
+========================================================= */
 
 function openArticle(
   article
@@ -2767,8 +3049,10 @@ function openArticle(
   articleCategory.textContent =
     article.category;
 
+
   articleTitle.textContent =
     article.title;
+
 
   articleDate.textContent =
     formatDate(
@@ -2777,13 +3061,8 @@ function openArticle(
 
 
   /*
-    IMPORTANT:
-    Description appears ONLY ONCE
-    as the lead.
-
-    We deliberately do NOT place
-    the same description again in
-    articleCopy.
+    Description appears ONCE as
+    the lead.
   */
 
   articleLead.textContent =
@@ -2791,17 +3070,14 @@ function openArticle(
     "Latest developments are being reported. See the original source for the complete report.";
 
 
-  articleCopy.innerHTML = "";
-
-
   /*
-    Add useful key details only when
-    the source description contains
-    multiple distinct sentences.
-
-    This avoids copying the same
-    paragraph twice.
+    Do not repeat the same description
+    as a second paragraph.
   */
+
+  articleCopy.innerHTML =
+    "";
+
 
   const sentences =
     splitIntoSentences(
@@ -2809,23 +3085,26 @@ function openArticle(
     );
 
 
-  if(
-    sentences.length >= 2
-  ){
+  /*
+    Additional distinct sentences only.
+  */
 
-    const uniqueSentences =
-      [];
+  const details =
+    [];
 
 
-    sentences.forEach(
+  sentences
+    .slice(1,4)
+    .forEach(
       sentence => {
 
         const cleaned =
           sentence.trim();
 
+
         if(
           cleaned &&
-          !uniqueSentences.some(
+          !details.some(
             existing =>
               isNearDuplicate(
                 existing,
@@ -2834,7 +3113,7 @@ function openArticle(
           )
         ){
 
-          uniqueSentences.push(
+          details.push(
             cleaned
           );
 
@@ -2844,111 +3123,85 @@ function openArticle(
     );
 
 
-    /*
-      Do not repeat the complete lead
-      as a paragraph.
-
-      The first sentence is already
-      represented in the lead.
-    */
-
-    const detailSentences =
-      uniqueSentences
-        .slice(1,4);
-
-
-    if(
-      detailSentences.length > 0
-    ){
-
-      const p =
-        document.createElement(
-          "p"
-        );
-
-      p.textContent =
-        detailSentences.join(
-          " "
-        );
-
-      articleCopy.appendChild(
-        p
-      );
-
-    }
-
-  }
-
-
-  /*
-    If no additional detail exists,
-    leave body clean rather than
-    repeating the same text.
-  */
-
   if(
-    articleCopy.children.length === 0
+    details.length
   ){
 
-    const p =
+    const paragraph =
       document.createElement(
         "p"
       );
 
-    p.textContent =
-      "For the complete report, use the original source link above.";
+
+    paragraph.textContent =
+      details.join(
+        " "
+      );
+
 
     articleCopy.appendChild(
-      p
+      paragraph
+    );
+
+  }else{
+
+    const paragraph =
+      document.createElement(
+        "p"
+      );
+
+
+    paragraph.textContent =
+      "For the complete report, use the original source link above.";
+
+
+    articleCopy.appendChild(
+      paragraph
     );
 
   }
 
 
   /*
-    KEY DETAILS BOX
+    Key details.
   */
 
-  articlePoints.innerHTML = "";
+  articlePoints.innerHTML =
+    "";
+
 
   const points =
     sentences
       .slice(0,3)
       .filter(
-        sentence =>
-          sentence.trim()
+        item =>
+          item.trim()
       );
 
-
-  /*
-    Only show key details when there
-    are at least two separate pieces
-    of information.
-  */
 
   if(
     points.length >= 2
   ){
 
-    points
-      .slice(0,3)
-      .forEach(
-        point => {
+    points.forEach(
+      point => {
 
-          const li =
-            document.createElement(
-              "li"
-            );
-
-          li.textContent =
-            point.trim();
-
-          articlePoints.appendChild(
-            li
+        const li =
+          document.createElement(
+            "li"
           );
 
-        }
-      );
+
+        li.textContent =
+          point.trim();
+
+
+        articlePoints.appendChild(
+          li
+        );
+
+      }
+    );
 
 
     articlePointsBox.style.display =
@@ -2963,7 +3216,7 @@ function openArticle(
 
 
   /*
-    Original source link.
+    Original article.
   */
 
   articleSource.href =
@@ -2971,30 +3224,20 @@ function openArticle(
     "#";
 
 
-  /*
-    Open article reader.
-  */
-
   articleOverlay.classList.add(
     "open"
   );
 
+
   document.body.style.overflow =
     "hidden";
-
-  window.scrollTo(
-    {
-      top:0,
-      behavior:"instant"
-    }
-  );
 
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    CLOSE ARTICLE
---------------------------------------------------------- */
+========================================================= */
 
 function closeArticle(){
 
@@ -3048,9 +3291,9 @@ document.addEventListener(
 );
 
 
-/* ---------------------------------------------------------
-   SENTENCE SPLITTER
---------------------------------------------------------- */
+/* =========================================================
+   SENTENCE FUNCTIONS
+========================================================= */
 
 function splitIntoSentences(
   text
@@ -3062,24 +3305,22 @@ function splitIntoSentences(
 
   }
 
-  return text
-    .replace(
-      /\s+/g,
-      " "
-    )
-    .match(
-      /[^.!?]+[.!?]+/g
-    ) ||
-    [
-      text
-    ];
+
+  return (
+    text
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .match(
+        /[^.!?]+[.!?]+/g
+      )
+    ||
+    [text]
+  );
 
 }
 
-
-/* ---------------------------------------------------------
-   NEAR DUPLICATE SENTENCE
---------------------------------------------------------- */
 
 function isNearDuplicate(
   a,
@@ -3096,6 +3337,7 @@ function isNearDuplicate(
       b
     );
 
+
   if(
     x === y
   ){
@@ -3104,17 +3346,21 @@ function isNearDuplicate(
 
   }
 
+
   const xa =
     new Set(
       x.split(" ")
     );
+
 
   const ya =
     new Set(
       y.split(" ")
     );
 
+
   let common = 0;
+
 
   xa.forEach(
     word => {
@@ -3130,11 +3376,13 @@ function isNearDuplicate(
     }
   );
 
+
   const base =
     Math.min(
       xa.size,
       ya.size
     );
+
 
   if(
     base === 0
@@ -3144,6 +3392,7 @@ function isNearDuplicate(
 
   }
 
+
   return (
     common /
     base
@@ -3152,9 +3401,9 @@ function isNearDuplicate(
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    DATE FORMAT
---------------------------------------------------------- */
+========================================================= */
 
 function formatDate(
   value
@@ -3165,6 +3414,7 @@ function formatDate(
       value
     );
 
+
   if(
     Number.isNaN(
       date.getTime()
@@ -3174,6 +3424,7 @@ function formatDate(
     return "";
 
   }
+
 
   return date.toLocaleString(
     "en-IN",
@@ -3189,44 +3440,9 @@ function formatDate(
 }
 
 
-/* ---------------------------------------------------------
-   ESCAPE HTML
---------------------------------------------------------- */
-
-function escapeHTML(
-  value
-){
-
-  return String(
-    value || ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
-  );
-
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    CATEGORY BUTTONS
---------------------------------------------------------- */
+========================================================= */
 
 document
   .querySelectorAll(
@@ -3244,13 +3460,10 @@ document
               ".category-button"
             )
             .forEach(
-              item => {
-
+              item =>
                 item.classList.remove(
                   "active"
-                );
-
-              }
+                )
             );
 
 
@@ -3272,9 +3485,9 @@ document
   );
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    SEARCH
---------------------------------------------------------- */
+========================================================= */
 
 function performSearch(){
 
@@ -3282,6 +3495,7 @@ function performSearch(){
     searchInput.value
       .trim()
       .toLowerCase();
+
 
   renderNews();
 
@@ -3320,22 +3534,23 @@ searchInput.addEventListener(
         .trim()
         .toLowerCase();
 
+
     renderNews();
 
   }
 );
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    INITIAL LOAD
---------------------------------------------------------- */
+========================================================= */
 
 loadNews();
 
 
-/* ---------------------------------------------------------
-   AUTOMATIC REFRESH
---------------------------------------------------------- */
+/* =========================================================
+   AUTO REFRESH
+========================================================= */
 
 setInterval(
   () => {
@@ -3347,28 +3562,13 @@ setInterval(
 );
 
 
-/* ---------------------------------------------------------
-   UPDATE DATE PERIODICALLY
---------------------------------------------------------- */
+/* =========================================================
+   DATE REFRESH
+========================================================= */
 
 setInterval(
   updateDate,
   60 * 1000
-);
-
-
-/* ---------------------------------------------------------
-   PREVENT BODY SCROLL WHEN ARTICLE OPEN
---------------------------------------------------------- */
-
-window.addEventListener(
-  "beforeunload",
-  () => {
-
-    document.body.style.overflow =
-      "";
-
-  }
 );
 
 </script>
