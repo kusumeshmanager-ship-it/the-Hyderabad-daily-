@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIRA | The Hyderabad Daily</title>
+<style>
+:root{--b:#0b2f68;--i:#172033;--m:#687386;--bg:#f3f6fa}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--i)}
+header{background:var(--b);color:#fff;padding:14px 18px;position:sticky;top:0;z-index:5}
+.top{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-family:Georgia,serif;font-size:24px;font-weight:700}
+.badge{background:#8bd21d;color:#071a0b;border-radius:999px;padding:5px 10px;font-weight:800;font-size:12px}
+main{max-width:1050px;margin:22px auto;padding:0 14px}
+.hero{background:#fff;border-radius:18px;padding:22px;box-shadow:0 5px 20px #10204012}
+h1{margin:0 0 6px;font-size:32px}
+.sub{color:var(--m);margin:0 0 20px}
+.status{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.pill{padding:7px 11px;border-radius:999px;background:#edf2f8;font-size:12px}
+.ok{background:#e6f7ea;color:#176b2b}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+button{border:0;border-radius:12px;padding:15px;background:var(--b);color:white;font-size:15px;font-weight:700;cursor:pointer}
+.secondary{background:#e9eef5;color:var(--i)}
+.chat{margin-top:18px;border:1px solid #dce3ed;border-radius:14px;overflow:hidden;background:#fff}
+.messages{min-height:210px;max-height:430px;overflow:auto;padding:16px}
+.msg{padding:12px 14px;border-radius:12px;margin:8px 0;white-space:pre-wrap;line-height:1.45}
+.aira{background:#eef4ff}
+.user{background:#f4f4f4;margin-left:12%}
+.composer{display:flex;border-top:1px solid #e2e6ec}
+.composer textarea{flex:1;border:0;resize:none;padding:15px;font:inherit;min-height:60px;outline:none}
+.composer button{border-radius:0;width:90px}
+.note{margin-top:14px;font-size:12px;color:var(--m)}
+@media(max-width:650px){
+h1{font-size:26px}
+.grid{grid-template-columns:1fr}
+.brand{font-size:20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="top">
+<div class="brand">The Hyderabad Daily</div>
+<div class="badge">AIRA CONTROL CENTER</div>
+</div>
+</header>
+
+<main>
+<section class="hero">
+
+<h1>Artificial Intelligence Response Agent</h1>
+
+<p class="sub">
+Editorial control center for The Hyderabad Daily
+</p>
+
+<div class="status">
+<span class="pill ok">Vercel: Connected</span>
+<span class="pill ok">GitHub: Connected</span>
+<span class="pill">AI: Setup required</span>
+</div>
+
+<div class="grid">
+
+<button onclick="quick('Prepare a checklist for today\\'s Hyderabad Daily edition. Do not publish anything yet.')">
+📰 Today's Edition
+</button>
+
+<button onclick="quick('Review the Digital News workflow and tell me what should be checked before publishing.')">
+🌐 Digital News
+</button>
+
+<button class="secondary" onclick="quick('Explain how you will detect duplicate or substantially repeated stories across pages.')">
+🔍 Duplicate Check
+</button>
+
+<button class="secondary" onclick="quick('Show me the AIRA publishing workflow from news collection to publication.')">
+🚀 Publishing Workflow
+</button>
+
+</div>
+
+<div class="chat">
+
+<div id="messages" class="messages">
+
+<div class="msg aira">
+Hello. I am AIRA, the editorial control agent for The Hyderabad Daily.
+
+Ask me about the newspaper workflow, editorial rules, Digital News, e-paper, or the next publishing step.
+</div>
+
+</div>
+
+<div class="composer">
+
+<textarea id="input"
+placeholder="Ask AIRA..."></textarea>
+
+<button onclick="send()">Send</button>
+
+</div>
+
+</div>
+
+<div class="note">
+Initial version is read-only. Publishing and GitHub write actions will be added after the AI connection and approval workflow are configured.
+</div>
+
+</section>
+</main>
+
+<script>
+
+const box=document.getElementById('messages');
+const input=document.getElementById('input');
+
+function add(t,w){
+
+const d=document.createElement('div');
+
+d.className='msg '+w;
+
+d.textContent=t;
+
+box.appendChild(d);
+
+box.scrollTop=box.scrollHeight;
+
+}
+
+function quick(t){
+
+input.value=t;
+
+send();
+
+}
+
+async function send(){
+
+const text=input.value.trim();
+
+if(!text)return;
+
+add(text,'user');
+
+input.value='';
+
+add('AIRA is processing...','aira');
+
+const p=box.lastChild;
+
+try{
+
+const r=await fetch('/api/aira',{
+
+method:'POST',
+
+headers:{
+'Content-Type':'application/json'
+},
+
+body:JSON.stringify({
+message:text
+})
+
+});
+
+const d=await r.json();
+
+p.remove();
+
+add(
+d.reply ||
+d.error ||
+'No response returned.',
+'aira'
+);
+
+}catch(e){
+
+p.remove();
+
+add(
+'AIRA backend is not connected yet. The next step is to add the Vercel AI Gateway key.',
+'aira'
+);
+
+}
+
+}
+
+input.addEventListener('keydown',e=>{
+
+if(e.key==='Enter'&&!e.shiftKey){
+
+e.preventDefault();
+
+send();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
