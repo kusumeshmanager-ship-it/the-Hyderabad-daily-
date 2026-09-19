@@ -5,25 +5,52 @@ import time
 import hashlib
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
-from urllib.parse import quote, urlparse
+from urllib.parse import quote
 
 import requests
 
 
+# ============================================================
+# THE HYDERABAD DAILY
+# AIRA DIGITAL NEWS AUTOMATION
+# ============================================================
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
 
-CONTENT_FILE = os.path.join(DATA_DIR, "digital-news-content.json")
-REGISTRY_FILE = os.path.join(DATA_DIR, "digital-news-registry.json")
-EPAPER_FILE = os.path.join(DATA_DIR, "epaper-registry.json")
+CONTENT_FILE = os.path.join(
+    DATA_DIR,
+    "digital-news-content.json"
+)
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "").strip()
-MODEL = os.environ.get("OPENAI_MODEL", "gpt-5.6-luna")
+REGISTRY_FILE = os.path.join(
+    DATA_DIR,
+    "digital-news-registry.json"
+)
+
+EPAPER_FILE = os.path.join(
+    DATA_DIR,
+    "epaper-registry.json"
+)
+
+OPENAI_API_KEY = os.environ.get(
+    "OPENAI_API_KEY",
+    ""
+).strip()
+
+MODEL = os.environ.get(
+    "OPENAI_MODEL",
+    "gpt-5.6-luna"
+)
 
 MAX_NEW_STORIES = 8
 MAX_AGE_HOURS = 36
 TIMEOUT = 30
 
+
+# ============================================================
+# NEWS CATEGORIES
+# ============================================================
 
 FEEDS = {
     "Hyderabad": "Hyderabad Telangana latest news",
@@ -37,47 +64,108 @@ FEEDS = {
 }
 
 
+# ============================================================
+# TIME
+# ============================================================
+
 def now_utc():
     return datetime.now(timezone.utc)
 
+
+# ============================================================
+# JSON HELPERS
+# ============================================================
 
 def load_json(path, default):
     if not os.path.exists(path):
         return default
 
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(
+            path,
+            "r",
+            encoding="utf-8"
+        ) as f:
             return json.load(f)
+
     except Exception:
         return default
 
 
 def save_json(path, data):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    os.makedirs(
+        os.path.dirname(path),
+        exist_ok=True
+    )
 
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    with open(
+        path,
+        "w",
+        encoding="utf-8"
+    ) as f:
+        json.dump(
+            data,
+            f,
+            ensure_ascii=False,
+            indent=2
+        )
 
+
+# ============================================================
+# TEXT NORMALIZATION
+# ============================================================
 
 def normalize(text):
     text = str(text or "").lower()
-    text = re.sub(r"https?://\S+", " ", text)
-    text = re.sub(r"[^a-z0-9\s]", " ", text)
-    text = re.sub(r"\s+", " ", text).strip()
+
+    text = re.sub(
+        r"https?://\S+",
+        " ",
+        text
+    )
+
+    text = re.sub(
+        r"[^a-z0-9\s]",
+        " ",
+        text
+    )
+
+    text = re.sub(
+        r"\s+",
+        " ",
+        text
+    ).strip()
 
     stopwords = {
-        "the", "a", "an", "and", "or", "of", "to", "in",
-        "on", "for", "with", "from", "by", "at", "is", "are"
+        "the",
+        "a",
+        "an",
+        "and",
+        "or",
+        "of",
+        "to",
+        "in",
+        "on",
+        "for",
+        "with",
+        "from",
+        "by",
+        "at",
+        "is",
+        "are"
     }
 
     return " ".join(
-        word for word in text.split()
+        word
+        for word in text.split()
         if word not in stopwords
     )
 
 
 def words(text):
-    return set(normalize(text).split())
+    return set(
+        normalize(text).split()
+    )
 
 
 def similarity(a, b):
@@ -87,13 +175,33 @@ def similarity(a, b):
     if not wa or not wb:
         return 0
 
-    return len(wa & wb) / max(len(wa | wb), 1)
+    return len(
+        wa & wb
+    ) / max(
+        len(wa | wb),
+        1
+    )
 
+
+# ============================================================
+# STORY ID
+# ============================================================
 
 def story_id(url, title):
-    value = (url or "") + "|" + normalize(title)
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()[:16]
+    value = (
+        (url or "")
+        + "|"
+        + normalize(title)
+    )
 
+    return hashlib.sha256(
+        value.encode("utf-8")
+    ).hexdigest()[:16]
+
+
+# ============================================================
+# DATE PARSING
+# ============================================================
 
 def parse_date(value):
     if not value:
@@ -105,181 +213,386 @@ def parse_date(value):
         dt = parsedate_to_datetime(value)
 
         if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
+            dt = dt.replace(
+                tzinfo=timezone.utc
+            )
 
-        return dt.astimezone(timezone.utc)
+        return dt.astimezone(
+            timezone.utc
+        )
 
     except Exception:
         return None
 
 
+# ============================================================
+# GOOGLE NEWS RSS
+# ============================================================
+
 def fetch_feed(category, query):
+
     url = (
         "https://news.google.com/rss/search?"
-        f"q={quote(query)}&hl=en-IN&gl=IN&ceid=IN:en"
+        f"q={quote(query)}"
+        "&hl=en-IN"
+        "&gl=IN"
+        "&ceid=IN:en"
     )
 
     response = requests.get(
         url,
         timeout=TIMEOUT,
         headers={
-            "User-Agent": "The Hyderabad Daily AIRA/1.0"
-        },
+            "User-Agent":
+                "The Hyderabad Daily AIRA/1.0"
+        }
     )
 
     response.raise_for_status()
 
-    root = ET.fromstring(response.text)
+    root = ET.fromstring(
+        response.text
+    )
 
     results = []
 
-    for item in root.findall(".//item"):
-        title = item.findtext("title", "").strip()
-        link = item.findtext("link", "").strip()
-        description = item.findtext("description", "").strip()
-        pub_date = item.findtext("pubDate", "").strip()
+    for item in root.findall(
+        ".//item"
+    ):
+
+        title = item.findtext(
+            "title",
+            ""
+        ).strip()
+
+        link = item.findtext(
+            "link",
+            ""
+        ).strip()
+
+        description = item.findtext(
+            "description",
+            ""
+        ).strip()
+
+        pub_date = item.findtext(
+            "pubDate",
+            ""
+        ).strip()
 
         if not title or not link:
             continue
 
-        dt = parse_date(pub_date)
+        dt = parse_date(
+            pub_date
+        )
 
         if dt:
-            age = now_utc() - dt
 
-            if age > timedelta(hours=MAX_AGE_HOURS):
+            age = (
+                now_utc() - dt
+            )
+
+            if age > timedelta(
+                hours=MAX_AGE_HOURS
+            ):
                 continue
 
         results.append({
+
             "category": category,
+
             "title": title,
+
             "link": link,
+
             "canonicalUrl": link,
+
             "description": re.sub(
                 r"<[^>]+>",
                 " ",
                 description
             ).strip(),
-            "pubDate": pub_date,
+
+            "pubDate": pub_date
+
         })
 
     return results
 
 
-def already_published(article, registry, content):
-    url = article.get("canonicalUrl") or article.get("link")
-    title = article.get("title", "")
+# ============================================================
+# DIGITAL NEWS DUPLICATE CHECK
+# ============================================================
 
-    normalized_url = normalize(url)
-    normalized_title = normalize(title)
+def already_published(
+    article,
+    registry,
+    content
+):
 
-    for story in registry.get("publishedStories", []):
+    url = (
+        article.get("canonicalUrl")
+        or article.get("link")
+    )
+
+    title = article.get(
+        "title",
+        ""
+    )
+
+    normalized_url = normalize(
+        url
+    )
+
+    normalized_title = normalize(
+        title
+    )
+
+    # Check historical Digital News registry
+
+    for story in registry.get(
+        "publishedStories",
+        []
+    ):
+
         old_url = normalize(
-            story.get("canonicalUrl") or story.get("url")
-        )
-        old_title = normalize(
-            story.get("normalizedTitle") or story.get("title")
+            story.get(
+                "canonicalUrl"
+            )
+            or story.get("url")
         )
 
-        if normalized_url and old_url == normalized_url:
-            return True
+        old_title = normalize(
+            story.get(
+                "normalizedTitle"
+            )
+            or story.get("title")
+        )
 
         if (
-            normalized_title
-            and old_title
-            and similarity(normalized_title, old_title) >= 0.84
+            normalized_url
+            and old_url
+            and normalized_url == old_url
         ):
             return True
 
-    for story in content.get("stories", []):
+        if (
+            normalized_title
+            and old_title
+            and similarity(
+                normalized_title,
+                old_title
+            ) >= 0.84
+        ):
+            return True
+
+    # Check published content
+
+    for story in content.get(
+        "stories",
+        []
+    ):
+
         old_url = normalize(
-            story.get("canonicalUrl") or story.get("url")
-        )
-        old_title = normalize(
-            story.get("normalizedTitle") or story.get("title")
+            story.get(
+                "canonicalUrl"
+            )
+            or story.get("url")
         )
 
-        if normalized_url and old_url == normalized_url:
+        old_title = normalize(
+            story.get(
+                "normalizedTitle"
+            )
+            or story.get("title")
+        )
+
+        if (
+            normalized_url
+            and old_url
+            and normalized_url == old_url
+        ):
             return True
 
         if (
             normalized_title
             and old_title
-            and similarity(normalized_title, old_title) >= 0.84
+            and similarity(
+                normalized_title,
+                old_title
+            ) >= 0.84
         ):
             return True
 
     return False
 
 
-def in_epaper(article, epaper):
-    title = normalize(article.get("title", ""))
-    url = normalize(
-        article.get("canonicalUrl") or article.get("link")
+# ============================================================
+# E-PAPER EXCLUSION
+# ============================================================
+
+def in_epaper(
+    article,
+    epaper
+):
+
+    title = normalize(
+        article.get(
+            "title",
+            ""
+        )
     )
 
-    for story in epaper.get("stories", []):
-        old_url = normalize(
-            story.get("canonicalUrl") or story.get("url")
+    url = normalize(
+        article.get(
+            "canonicalUrl"
         )
-        old_title = normalize(
-            story.get("normalizedTitle") or story.get("title")
+        or article.get(
+            "link"
+        )
+    )
+
+    for story in epaper.get(
+        "stories",
+        []
+    ):
+
+        old_url = normalize(
+            story.get(
+                "canonicalUrl"
+            )
+            or story.get("url")
         )
 
-        if url and old_url and url == old_url:
+        old_title = normalize(
+            story.get(
+                "normalizedTitle"
+            )
+            or story.get("title")
+        )
+
+        if (
+            url
+            and old_url
+            and url == old_url
+        ):
             return True
 
         if (
             title
             and old_title
-            and similarity(title, old_title) >= 0.82
+            and similarity(
+                title,
+                old_title
+            ) >= 0.82
         ):
             return True
 
     return False
 
 
-def cross_feed_duplicate(article, selected):
-    title = article.get("title", "")
+# ============================================================
+# CROSS-FEED DUPLICATE CHECK
+# ============================================================
+
+def cross_feed_duplicate(
+    article,
+    selected
+):
+
+    title = article.get(
+        "title",
+        ""
+    )
 
     for other in selected:
-        if similarity(title, other.get("title", "")) >= 0.82:
+
+        if similarity(
+            title,
+            other.get(
+                "title",
+                ""
+            )
+        ) >= 0.82:
+
             return True
 
     return False
 
 
+# ============================================================
+# AIRA EDITORIAL PROMPT
+# ============================================================
+
 def editorial_prompt(article):
+
     return f"""
-You are the editorial desk of The Hyderabad Daily Digital News.
+You are the editorial desk of
+The Hyderabad Daily Digital News.
 
-Prepare an ORIGINAL editorial presentation of the news item below.
+Prepare an ORIGINAL editorial presentation
+of the news item below.
 
-IMPORTANT RULES:
+IMPORTANT EDITORIAL RULES:
 
 1. Do not copy the source article.
-2. Do not reproduce sentences from the source.
+
+2. Do not reproduce sentences from the
+   source article.
+
 3. Do not invent facts.
+
 4. Use only facts that can be verified.
-5. Keep the writing natural and newspaper-like.
-6. This is Digital News, not the e-paper.
-7. Do not mention that the article was generated by AI.
-8. Do not write source-credit lines inside the article.
-9. Do not create political persuasion or political endorsements.
-10. Clearly distinguish reported facts from claims when necessary.
-11. The article must be suitable for publication by The Hyderabad Daily.
 
-Return ONLY valid JSON.
+5. Use natural newspaper-style language.
 
-Required JSON structure:
+6. This is Digital News, NOT the
+   The Hyderabad Daily e-paper.
+
+7. Digital News must remain different
+   from the e-paper.
+
+8. Do not mention that the article
+   was generated by AI.
+
+9. Do not write source-credit lines
+   inside the article.
+
+10. For political stories, remain
+    strictly factual and neutral.
+    Do not persuade readers to support
+    or oppose any party, candidate,
+    politician or policy.
+
+11. Clearly distinguish reported facts,
+    official statements and claims
+    where necessary.
+
+12. Do not speculate about people's
+    health, mental state, intelligence
+    or fitness.
+
+13. Do not create a political ranking,
+    recommendation or prediction.
+
+14. Write original material suitable
+    for publication by The Hyderabad Daily.
+
+RETURN ONLY VALID JSON.
+
+Use exactly this structure:
 
 {{
-  "editorialSummary": "A concise original summary in 2-4 sentences.",
+  "editorialSummary":
+    "A concise original summary in 2-4 sentences.",
+
   "brief": [
     "Original factual paragraph.",
     "Original factual paragraph.",
     "Original factual paragraph."
   ],
+
   "keyPoints": [
     "Important factual point.",
     "Important factual point.",
@@ -287,9 +600,10 @@ Required JSON structure:
   ]
 }}
 
-NEWS ITEM:
+NEWS ITEM
 
-Category: {article.get("category", "")}
+Category:
+{article.get("category", "")}
 
 Headline:
 {article.get("title", "")}
@@ -305,105 +619,220 @@ Available description:
 """.strip()
 
 
+# ============================================================
+# OPENAI EDITORIAL GENERATION
+# ============================================================
+
 def call_openai(article):
+
     if not OPENAI_API_KEY:
+
         raise RuntimeError(
             "OPENAI_API_KEY is not configured."
         )
 
+    # IMPORTANT:
+    #
+    # OpenAI Web Search cannot be combined
+    # with JSON mode in this request.
+    #
+    # Therefore we use Web Search and ask
+    # the model to return JSON through the
+    # prompt. The response is parsed below.
+
     payload = {
+
         "model": MODEL,
+
         "tools": [
             {
                 "type": "web_search"
             }
         ],
-        "input": editorial_prompt(article),
-        "text": {
-            "format": {
-                "type": "json_object"
-            }
-        }
+
+        "input": editorial_prompt(
+            article
+        )
     }
 
     response = requests.post(
+
         "https://api.openai.com/v1/responses",
+
         headers={
-            "Authorization": f"Bearer {OPENAI_API_KEY}",
-            "Content-Type": "application/json"
+            "Authorization":
+                f"Bearer {OPENAI_API_KEY}",
+
+            "Content-Type":
+                "application/json"
         },
+
         json=payload,
+
         timeout=120
     )
 
     if response.status_code >= 400:
+
         raise RuntimeError(
-            f"OpenAI API error {response.status_code}: "
-            f"{response.text[:1000]}"
+            f"OpenAI API error "
+            f"{response.status_code}: "
+            f"{response.text[:1500]}"
         )
 
     data = response.json()
 
     output_text = ""
 
-    for item in data.get("output", []):
-        if item.get("type") == "message":
-            for content in item.get("content", []):
-                if content.get("type") == "output_text":
-                    output_text += content.get("text", "")
+    for item in data.get(
+        "output",
+        []
+    ):
+
+        if item.get(
+            "type"
+        ) == "message":
+
+            for content in item.get(
+                "content",
+                []
+            ):
+
+                if content.get(
+                    "type"
+                ) == "output_text":
+
+                    output_text += (
+                        content.get(
+                            "text",
+                            ""
+                        )
+                    )
 
     if not output_text:
+
         raise RuntimeError(
             "OpenAI returned no editorial text."
         )
 
+    output_text = (
+        output_text.strip()
+    )
+
+    # First attempt:
+    # direct JSON
+
     try:
-        return json.loads(output_text)
-    except json.JSONDecodeError:
-        match = re.search(
-            r"\{.*\}",
-            output_text,
-            re.DOTALL
+
+        return json.loads(
+            output_text
         )
 
-        if not match:
-            raise RuntimeError(
-                "OpenAI response was not valid JSON."
-            )
+    except json.JSONDecodeError:
+        pass
 
-        return json.loads(match.group(0))
+    # Second attempt:
+    # extract JSON object if the model
+    # added surrounding text
 
+    match = re.search(
+        r"\{.*\}",
+        output_text,
+        re.DOTALL
+    )
+
+    if not match:
+
+        raise RuntimeError(
+            "OpenAI response was not "
+            "valid JSON."
+        )
+
+    try:
+
+        return json.loads(
+            match.group(0)
+        )
+
+    except json.JSONDecodeError as exc:
+
+        raise RuntimeError(
+            "OpenAI returned invalid JSON: "
+            f"{exc}"
+        )
+
+
+# ============================================================
+# EDITORIAL VALIDATION
+# ============================================================
 
 def valid_editorial(data):
+
+    if not isinstance(
+        data,
+        dict
+    ):
+        return False
+
     summary = str(
-        data.get("editorialSummary", "")
+        data.get(
+            "editorialSummary",
+            ""
+        )
     ).strip()
 
-    brief = data.get("brief", [])
-    points = data.get("keyPoints", [])
+    brief = data.get(
+        "brief",
+        []
+    )
+
+    points = data.get(
+        "keyPoints",
+        []
+    )
 
     if not summary:
         return False
 
-    if not isinstance(brief, list):
+    if not isinstance(
+        brief,
+        list
+    ):
         return False
 
-    if not isinstance(points, list):
+    if not isinstance(
+        points,
+        list
+    ):
         return False
 
     return True
 
 
+# ============================================================
+# MAIN AIRA UPDATE
+# ============================================================
+
 def main():
-    print("AIRA Digital News update started.")
+
+    print(
+        "AIRA Digital News update started."
+    )
 
     if not OPENAI_API_KEY:
+
         raise SystemExit(
             "OPENAI_API_KEY is missing."
         )
 
+    # --------------------------------------------------------
+    # LOAD CONTENT
+    # --------------------------------------------------------
+
     content = load_json(
+
         CONTENT_FILE,
+
         {
             "version": 1,
             "lastUpdated": "",
@@ -411,8 +840,14 @@ def main():
         }
     )
 
+    # --------------------------------------------------------
+    # LOAD DIGITAL REGISTRY
+    # --------------------------------------------------------
+
     registry = load_json(
+
         REGISTRY_FILE,
+
         {
             "version": 1,
             "lastUpdated": "",
@@ -420,8 +855,14 @@ def main():
         }
     )
 
+    # --------------------------------------------------------
+    # LOAD E-PAPER REGISTRY
+    # --------------------------------------------------------
+
     epaper = load_json(
+
         EPAPER_FILE,
+
         {
             "version": 1,
             "stories": []
@@ -430,12 +871,26 @@ def main():
 
     candidates = []
 
+    # --------------------------------------------------------
+    # FETCH NEWS
+    # --------------------------------------------------------
+
     for category, query in FEEDS.items():
+
         try:
-            print(f"Fetching {category}...")
-            items = fetch_feed(category, query)
+
+            print(
+                f"Fetching {category}..."
+            )
+
+            items = fetch_feed(
+                category,
+                query
+            )
 
             for item in items:
+
+                # Digital News history
                 if already_published(
                     item,
                     registry,
@@ -443,32 +898,58 @@ def main():
                 ):
                     continue
 
-                if in_epaper(item, epaper):
+                # E-paper exclusion
+                if in_epaper(
+                    item,
+                    epaper
+                ):
+
                     print(
                         "Excluded e-paper story:",
                         item["title"]
                     )
+
                     continue
 
-                candidates.append(item)
+                candidates.append(
+                    item
+                )
 
         except Exception as exc:
+
             print(
-                f"Feed error for {category}: {exc}"
+                f"Feed error for "
+                f"{category}: {exc}"
             )
 
+    # --------------------------------------------------------
+    # SORT BY RECENCY
+    # --------------------------------------------------------
+
     candidates.sort(
-        key=lambda x: parse_date(
-            x.get("pubDate", "")
-        ) or datetime.min.replace(
-            tzinfo=timezone.utc
-        ),
+
+        key=lambda x:
+            parse_date(
+                x.get(
+                    "pubDate",
+                    ""
+                )
+            )
+            or datetime.min.replace(
+                tzinfo=timezone.utc
+            ),
+
         reverse=True
     )
+
+    # --------------------------------------------------------
+    # SELECT UNIQUE STORIES
+    # --------------------------------------------------------
 
     selected = []
 
     for article in candidates:
+
         if len(selected) >= MAX_NEW_STORIES:
             break
 
@@ -478,57 +959,101 @@ def main():
         ):
             continue
 
-        selected.append(article)
+        selected.append(
+            article
+        )
 
     print(
-        f"Selected {len(selected)} new stories."
+        f"Selected "
+        f"{len(selected)} new stories."
     )
+
+    # --------------------------------------------------------
+    # GENERATE EDITORIAL CONTENT
+    # --------------------------------------------------------
 
     added = 0
 
     for article in selected:
+
         try:
+
             print(
                 "Preparing editorial:",
                 article["title"]
             )
 
-            editorial = call_openai(article)
+            editorial = call_openai(
+                article
+            )
 
-            if not valid_editorial(editorial):
+            if not valid_editorial(
+                editorial
+            ):
+
                 print(
-                    "Rejected: incomplete editorial."
+                    "Rejected: "
+                    "incomplete editorial."
                 )
+
                 continue
 
-            editorial_date = now_utc().date().isoformat()
+            editorial_date = (
+                now_utc()
+                .date()
+                .isoformat()
+            )
 
             record = {
+
                 "id": story_id(
-                    article.get("link"),
-                    article.get("title")
-                ),
-                "approved": True,
-                "category": article.get(
-                    "category",
-                    "Latest"
-                ),
-                "title": article.get(
-                    "title",
-                    ""
-                ),
-                "normalizedTitle": normalize(
-                    article.get("title", "")
-                ),
-                "canonicalUrl": article.get(
-                    "canonicalUrl"
-                ) or article.get("link", ""),
-                "editorialSummary": str(
-                    editorial.get(
-                        "editorialSummary",
-                        ""
+                    article.get(
+                        "link"
+                    ),
+                    article.get(
+                        "title"
                     )
-                ).strip(),
+                ),
+
+                "approved": True,
+
+                "category":
+                    article.get(
+                        "category",
+                        "Latest"
+                    ),
+
+                "title":
+                    article.get(
+                        "title",
+                        ""
+                    ),
+
+                "normalizedTitle":
+                    normalize(
+                        article.get(
+                            "title",
+                            ""
+                        )
+                    ),
+
+                "canonicalUrl":
+                    article.get(
+                        "canonicalUrl"
+                    )
+                    or article.get(
+                        "link",
+                        ""
+                    ),
+
+                "editorialSummary":
+                    str(
+                        editorial.get(
+                            "editorialSummary",
+                            ""
+                        )
+                    ).strip(),
+
                 "brief": [
                     str(x).strip()
                     for x in editorial.get(
@@ -537,6 +1062,7 @@ def main():
                     )
                     if str(x).strip()
                 ],
+
                 "keyPoints": [
                     str(x).strip()
                     for x in editorial.get(
@@ -545,27 +1071,52 @@ def main():
                     )
                     if str(x).strip()
                 ],
-                "editorialDate": editorial_date,
+
+                "editorialDate":
+                    editorial_date,
+
                 "editorialByline":
-                    "The Hyderabad Daily Digital Desk"
+                    "The Hyderabad Daily "
+                    "Digital Desk"
             }
+
+            # ------------------------------------------------
+            # ADD TO CONTENT REGISTRY
+            # ------------------------------------------------
 
             content.setdefault(
                 "stories",
                 []
-            ).insert(0, record)
+            ).insert(
+                0,
+                record
+            )
+
+            # ------------------------------------------------
+            # ADD TO PUBLISHED REGISTRY
+            # ------------------------------------------------
 
             registry.setdefault(
                 "publishedStories",
                 []
             ).append({
-                "id": record["id"],
+
+                "id":
+                    record["id"],
+
                 "canonicalUrl":
-                    record["canonicalUrl"],
+                    record[
+                        "canonicalUrl"
+                    ],
+
                 "normalizedTitle":
-                    record["normalizedTitle"],
+                    record[
+                        "normalizedTitle"
+                    ],
+
                 "eventKey":
                     record["id"],
+
                 "publishedAt":
                     datetime.now(
                         timezone.utc
@@ -574,39 +1125,73 @@ def main():
 
             added += 1
 
+            # Small delay between
+            # editorial requests
+
             time.sleep(1)
 
         except Exception as exc:
+
             print(
                 "Editorial error:",
                 exc
             )
 
-    content["lastUpdated"] = (
+    # --------------------------------------------------------
+    # UPDATE TIMESTAMPS
+    # --------------------------------------------------------
+
+    timestamp = (
         datetime.now(
             timezone.utc
         ).isoformat()
     )
 
-    registry["lastUpdated"] = (
-        datetime.now(
-            timezone.utc
-        ).isoformat()
-    )
+    content[
+        "lastUpdated"
+    ] = timestamp
 
-    content["publicationPolicy"] = {
-        "requireEditorialContent": True,
-        "requireApproval": True,
-        "displayOnlyApprovedStories": True,
-        "fallbackText": False,
+    registry[
+        "lastUpdated"
+    ] = timestamp
+
+    # --------------------------------------------------------
+    # PUBLICATION POLICY
+    # --------------------------------------------------------
+
+    content[
+        "publicationPolicy"
+    ] = {
+
+        "requireEditorialContent":
+            True,
+
+        "requireApproval":
+            True,
+
+        "displayOnlyApprovedStories":
+            True,
+
+        "fallbackText":
+            False,
+
         "fieldsRequired": [
+
             "editorialSummary",
+
             "brief",
+
             "keyPoints",
+
             "editorialDate",
+
             "editorialByline"
         ]
     }
+
+    # --------------------------------------------------------
+    # SAVE FILES
+    # --------------------------------------------------------
 
     save_json(
         CONTENT_FILE,
@@ -619,10 +1204,16 @@ def main():
     )
 
     print(
-        f"AIRA Digital News update complete. "
+        "AIRA Digital News update "
+        "complete. "
         f"Added {added} stories."
     )
 
 
+# ============================================================
+# START
+# ============================================================
+
 if __name__ == "__main__":
+
     main()
