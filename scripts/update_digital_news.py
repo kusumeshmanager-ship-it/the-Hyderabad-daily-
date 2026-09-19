@@ -43,13 +43,15 @@ MODEL = os.environ.get(
     "gpt-5.6-luna"
 )
 
-MAX_NEW_STORIES = 8
+# SAFER RATE-LIMIT SETTINGS
+MAX_NEW_STORIES = 2
 MAX_AGE_HOURS = 36
+MAX_DESCRIPTION_CHARS = 900
 TIMEOUT = 30
 
 
 # ============================================================
-# NEWS CATEGORIES
+# NEWS FEEDS
 # ============================================================
 
 FEEDS = {
@@ -60,7 +62,7 @@ FEEDS = {
     "Business": "India business markets latest news",
     "Technology": "technology AI gadgets latest news",
     "Entertainment": "India entertainment OTT movies music latest news",
-    "Sports": "India sports latest news",
+    "Sports": "India sports latest news"
 }
 
 
@@ -73,26 +75,31 @@ def now_utc():
 
 
 # ============================================================
-# JSON HELPERS
+# JSON
 # ============================================================
 
 def load_json(path, default):
+
     if not os.path.exists(path):
         return default
 
     try:
+
         with open(
             path,
             "r",
             encoding="utf-8"
         ) as f:
+
             return json.load(f)
 
     except Exception:
+
         return default
 
 
 def save_json(path, data):
+
     os.makedirs(
         os.path.dirname(path),
         exist_ok=True
@@ -103,6 +110,7 @@ def save_json(path, data):
         "w",
         encoding="utf-8"
     ) as f:
+
         json.dump(
             data,
             f,
@@ -112,10 +120,11 @@ def save_json(path, data):
 
 
 # ============================================================
-# TEXT NORMALIZATION
+# NORMALIZATION
 # ============================================================
 
 def normalize(text):
+
     text = str(text or "").lower()
 
     text = re.sub(
@@ -163,12 +172,14 @@ def normalize(text):
 
 
 def words(text):
+
     return set(
         normalize(text).split()
     )
 
 
 def similarity(a, b):
+
     wa = words(a)
     wb = words(b)
 
@@ -188,6 +199,7 @@ def similarity(a, b):
 # ============================================================
 
 def story_id(url, title):
+
     value = (
         (url or "")
         + "|"
@@ -200,19 +212,22 @@ def story_id(url, title):
 
 
 # ============================================================
-# DATE PARSING
+# DATE
 # ============================================================
 
 def parse_date(value):
+
     if not value:
         return None
 
     try:
+
         from email.utils import parsedate_to_datetime
 
         dt = parsedate_to_datetime(value)
 
         if dt.tzinfo is None:
+
             dt = dt.replace(
                 tzinfo=timezone.utc
             )
@@ -222,6 +237,7 @@ def parse_date(value):
         )
 
     except Exception:
+
         return None
 
 
@@ -296,7 +312,20 @@ def fetch_feed(category, query):
             if age > timedelta(
                 hours=MAX_AGE_HOURS
             ):
+
                 continue
+
+        # Remove HTML
+        description = re.sub(
+            r"<[^>]+>",
+            " ",
+            description
+        ).strip()
+
+        # Limit description size
+        description = description[
+            :MAX_DESCRIPTION_CHARS
+        ]
 
         results.append({
 
@@ -308,11 +337,7 @@ def fetch_feed(category, query):
 
             "canonicalUrl": link,
 
-            "description": re.sub(
-                r"<[^>]+>",
-                " ",
-                description
-            ).strip(),
+            "description": description,
 
             "pubDate": pub_date
 
@@ -322,7 +347,7 @@ def fetch_feed(category, query):
 
 
 # ============================================================
-# DIGITAL NEWS DUPLICATE CHECK
+# DUPLICATE CHECK
 # ============================================================
 
 def already_published(
@@ -349,8 +374,7 @@ def already_published(
         title
     )
 
-    # Check historical Digital News registry
-
+    # Digital News history
     for story in registry.get(
         "publishedStories",
         []
@@ -375,6 +399,7 @@ def already_published(
             and old_url
             and normalized_url == old_url
         ):
+
             return True
 
         if (
@@ -385,10 +410,10 @@ def already_published(
                 old_title
             ) >= 0.84
         ):
+
             return True
 
-    # Check published content
-
+    # Content history
     for story in content.get(
         "stories",
         []
@@ -413,6 +438,7 @@ def already_published(
             and old_url
             and normalized_url == old_url
         ):
+
             return True
 
         if (
@@ -423,6 +449,7 @@ def already_published(
                 old_title
             ) >= 0.84
         ):
+
             return True
 
     return False
@@ -432,10 +459,7 @@ def already_published(
 # E-PAPER EXCLUSION
 # ============================================================
 
-def in_epaper(
-    article,
-    epaper
-):
+def in_epaper(article, epaper):
 
     title = normalize(
         article.get(
@@ -477,6 +501,7 @@ def in_epaper(
             and old_url
             and url == old_url
         ):
+
             return True
 
         if (
@@ -487,13 +512,14 @@ def in_epaper(
                 old_title
             ) >= 0.82
         ):
+
             return True
 
     return False
 
 
 # ============================================================
-# CROSS-FEED DUPLICATE CHECK
+# CROSS-FEED DUPLICATE
 # ============================================================
 
 def cross_feed_duplicate(
@@ -528,79 +554,39 @@ def cross_feed_duplicate(
 def editorial_prompt(article):
 
     return f"""
-You are the editorial desk of
-The Hyderabad Daily Digital News.
+You are The Hyderabad Daily Digital News
+editorial desk.
 
-Prepare an ORIGINAL editorial presentation
-of the news item below.
+Prepare a short ORIGINAL editorial presentation
+for the news item below.
 
-IMPORTANT EDITORIAL RULES:
+Rules:
 
-1. Do not copy the source article.
+- Do not copy source wording.
+- Do not invent facts.
+- Use verified facts.
+- Write natural newspaper language.
+- Digital News must be different from the e-paper.
+- For political stories, remain neutral and factual.
+- Do not endorse parties, candidates or policies.
+- Do not make election predictions.
+- Do not speculate about people.
+- Do not mention AI generation.
+- Return ONLY JSON.
 
-2. Do not reproduce sentences from the
-   source article.
-
-3. Do not invent facts.
-
-4. Use only facts that can be verified.
-
-5. Use natural newspaper-style language.
-
-6. This is Digital News, NOT the
-   The Hyderabad Daily e-paper.
-
-7. Digital News must remain different
-   from the e-paper.
-
-8. Do not mention that the article
-   was generated by AI.
-
-9. Do not write source-credit lines
-   inside the article.
-
-10. For political stories, remain
-    strictly factual and neutral.
-    Do not persuade readers to support
-    or oppose any party, candidate,
-    politician or policy.
-
-11. Clearly distinguish reported facts,
-    official statements and claims
-    where necessary.
-
-12. Do not speculate about people's
-    health, mental state, intelligence
-    or fitness.
-
-13. Do not create a political ranking,
-    recommendation or prediction.
-
-14. Write original material suitable
-    for publication by The Hyderabad Daily.
-
-RETURN ONLY VALID JSON.
-
-Use exactly this structure:
+JSON format:
 
 {{
-  "editorialSummary":
-    "A concise original summary in 2-4 sentences.",
-
+  "editorialSummary": "2-3 sentence original summary.",
   "brief": [
-    "Original factual paragraph.",
-    "Original factual paragraph.",
-    "Original factual paragraph."
+    "One concise factual paragraph.",
+    "One concise factual paragraph."
   ],
-
   "keyPoints": [
-    "Important factual point.",
     "Important factual point.",
     "Important factual point."
   ]
 }}
-
-NEWS ITEM
 
 Category:
 {article.get("category", "")}
@@ -608,19 +594,19 @@ Category:
 Headline:
 {article.get("title", "")}
 
-Published date:
+Date:
 {article.get("pubDate", "")}
 
-Original article URL:
+Original URL:
 {article.get("link", "")}
 
-Available description:
+Available information:
 {article.get("description", "")}
 """.strip()
 
 
 # ============================================================
-# OPENAI EDITORIAL GENERATION
+# OPENAI
 # ============================================================
 
 def call_openai(article):
@@ -632,13 +618,11 @@ def call_openai(article):
         )
 
     # IMPORTANT:
+    # Web Search and JSON response-format mode
+    # cannot be combined in this request.
     #
-    # OpenAI Web Search cannot be combined
-    # with JSON mode in this request.
-    #
-    # Therefore we use Web Search and ask
-    # the model to return JSON through the
-    # prompt. The response is parsed below.
+    # JSON is requested through the prompt and
+    # parsed locally.
 
     payload = {
 
@@ -660,11 +644,13 @@ def call_openai(article):
         "https://api.openai.com/v1/responses",
 
         headers={
+
             "Authorization":
                 f"Bearer {OPENAI_API_KEY}",
 
             "Content-Type":
                 "application/json"
+
         },
 
         json=payload,
@@ -677,7 +663,7 @@ def call_openai(article):
         raise RuntimeError(
             f"OpenAI API error "
             f"{response.status_code}: "
-            f"{response.text[:1500]}"
+            f"{response.text[:1200]}"
         )
 
     data = response.json()
@@ -719,9 +705,7 @@ def call_openai(article):
         output_text.strip()
     )
 
-    # First attempt:
-    # direct JSON
-
+    # Direct JSON
     try:
 
         return json.loads(
@@ -729,12 +713,10 @@ def call_openai(article):
         )
 
     except json.JSONDecodeError:
+
         pass
 
-    # Second attempt:
-    # extract JSON object if the model
-    # added surrounding text
-
+    # Extract JSON object
     match = re.search(
         r"\{.*\}",
         output_text,
@@ -744,8 +726,7 @@ def call_openai(article):
     if not match:
 
         raise RuntimeError(
-            "OpenAI response was not "
-            "valid JSON."
+            "OpenAI response was not valid JSON."
         )
 
     try:
@@ -763,7 +744,7 @@ def call_openai(article):
 
 
 # ============================================================
-# EDITORIAL VALIDATION
+# VALIDATE EDITORIAL
 # ============================================================
 
 def valid_editorial(data):
@@ -772,6 +753,7 @@ def valid_editorial(data):
         data,
         dict
     ):
+
         return False
 
     summary = str(
@@ -798,19 +780,21 @@ def valid_editorial(data):
         brief,
         list
     ):
+
         return False
 
     if not isinstance(
         points,
         list
     ):
+
         return False
 
     return True
 
 
 # ============================================================
-# MAIN AIRA UPDATE
+# MAIN
 # ============================================================
 
 def main():
@@ -825,9 +809,7 @@ def main():
             "OPENAI_API_KEY is missing."
         )
 
-    # --------------------------------------------------------
-    # LOAD CONTENT
-    # --------------------------------------------------------
+    # Load Digital News content
 
     content = load_json(
 
@@ -840,9 +822,7 @@ def main():
         }
     )
 
-    # --------------------------------------------------------
-    # LOAD DIGITAL REGISTRY
-    # --------------------------------------------------------
+    # Load Digital News registry
 
     registry = load_json(
 
@@ -855,9 +835,7 @@ def main():
         }
     )
 
-    # --------------------------------------------------------
-    # LOAD E-PAPER REGISTRY
-    # --------------------------------------------------------
+    # Load e-paper registry
 
     epaper = load_json(
 
@@ -890,15 +868,16 @@ def main():
 
             for item in items:
 
-                # Digital News history
+                # Already published
                 if already_published(
                     item,
                     registry,
                     content
                 ):
+
                     continue
 
-                # E-paper exclusion
+                # Already in e-paper
                 if in_epaper(
                     item,
                     epaper
@@ -923,7 +902,7 @@ def main():
             )
 
     # --------------------------------------------------------
-    # SORT BY RECENCY
+    # SORT NEWEST FIRST
     # --------------------------------------------------------
 
     candidates.sort(
@@ -943,7 +922,7 @@ def main():
     )
 
     # --------------------------------------------------------
-    # SELECT UNIQUE STORIES
+    # SELECT ONLY TWO
     # --------------------------------------------------------
 
     selected = []
@@ -951,12 +930,14 @@ def main():
     for article in candidates:
 
         if len(selected) >= MAX_NEW_STORIES:
+
             break
 
         if cross_feed_duplicate(
             article,
             selected
         ):
+
             continue
 
         selected.append(
@@ -969,12 +950,14 @@ def main():
     )
 
     # --------------------------------------------------------
-    # GENERATE EDITORIAL CONTENT
+    # EDITORIAL PROCESSING
     # --------------------------------------------------------
 
     added = 0
 
-    for article in selected:
+    for index, article in enumerate(
+        selected
+    ):
 
         try:
 
@@ -1006,16 +989,18 @@ def main():
 
             record = {
 
-                "id": story_id(
-                    article.get(
-                        "link"
+                "id":
+                    story_id(
+                        article.get(
+                            "link"
+                        ),
+                        article.get(
+                            "title"
+                        )
                     ),
-                    article.get(
-                        "title"
-                    )
-                ),
 
-                "approved": True,
+                "approved":
+                    True,
 
                 "category":
                     article.get(
@@ -1055,21 +1040,29 @@ def main():
                     ).strip(),
 
                 "brief": [
+
                     str(x).strip()
+
                     for x in editorial.get(
                         "brief",
                         []
                     )
+
                     if str(x).strip()
+
                 ],
 
                 "keyPoints": [
+
                     str(x).strip()
+
                     for x in editorial.get(
                         "keyPoints",
                         []
                     )
+
                     if str(x).strip()
+
                 ],
 
                 "editorialDate":
@@ -1080,9 +1073,7 @@ def main():
                     "Digital Desk"
             }
 
-            # ------------------------------------------------
-            # ADD TO CONTENT REGISTRY
-            # ------------------------------------------------
+            # Add to content
 
             content.setdefault(
                 "stories",
@@ -1092,9 +1083,7 @@ def main():
                 record
             )
 
-            # ------------------------------------------------
-            # ADD TO PUBLISHED REGISTRY
-            # ------------------------------------------------
+            # Add to registry
 
             registry.setdefault(
                 "publishedStories",
@@ -1121,14 +1110,16 @@ def main():
                     datetime.now(
                         timezone.utc
                     ).isoformat()
+
             })
 
             added += 1
 
-            # Small delay between
-            # editorial requests
+            # Small pause between requests
 
-            time.sleep(1)
+            if index < len(selected) - 1:
+
+                time.sleep(8)
 
         except Exception as exc:
 
@@ -1138,7 +1129,7 @@ def main():
             )
 
     # --------------------------------------------------------
-    # UPDATE TIMESTAMPS
+    # TIMESTAMP
     # --------------------------------------------------------
 
     timestamp = (
@@ -1186,11 +1177,12 @@ def main():
             "editorialDate",
 
             "editorialByline"
+
         ]
     }
 
     # --------------------------------------------------------
-    # SAVE FILES
+    # SAVE
     # --------------------------------------------------------
 
     save_json(
