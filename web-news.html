@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Hyderabad Daily — Web News</title>
+<meta name="description" content="The Hyderabad Daily Web News — latest headlines with links to original web reports">
+<style>
+:root{--red:#95151b;--black:#111;--border:#d2d2d2;--muted:#666}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#ededed;color:#151515;font-family:Georgia,"Times New Roman",serif}
+button{font:inherit;cursor:pointer}
+.site-header{background:#fff;border-bottom:1px solid #222}
+.header-inner{width:min(1400px,96%);margin:auto}
+.top-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #ddd}
+.date-box{width:130px;flex:0 0 130px;font:700 11px/1.4 Arial;color:#666}
+.date-box span:last-child{color:#111}
+.logo-wrap{flex:1;text-align:center}
+.mast-logo{display:block;width:auto;max-width:min(560px,72vw);max-height:96px;margin:auto}
+.menu-area{width:130px;flex:0 0 130px;text-align:right}
+.menu-button{border:1px solid #222;background:#fff;padding:9px 13px;font:800 11px Arial}
+.menu-button:hover{background:#111;color:#fff}
+.main-nav{display:flex;justify-content:center;flex-wrap:wrap;padding:6px 0}
+.main-nav a{color:#111;text-decoration:none;padding:4px 9px;border-right:1px solid #ccc;font:800 11px Arial}
+.main-nav a:hover{color:var(--red)}
+.drawer{position:fixed;top:0;right:-340px;width:315px;max-width:88vw;height:100vh;background:#fff;z-index:10000;box-shadow:-5px 0 25px #0005;transition:right .25s;overflow:auto}
+.drawer.open{right:0}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:18px;border-bottom:1px solid #ddd;font:800 15px Arial}
+.drawer-close{border:0;background:none;font-size:30px}
+.drawer a{display:block;padding:16px 20px;color:#111;text-decoration:none;border-bottom:1px solid #eee;font:700 14px Arial}
+.drawer a.active{color:var(--red);background:#f5f5f5}
+.drawer-overlay{position:fixed;inset:0;background:#0007;z-index:9999;display:none}
+.drawer-overlay.open{display:block}
+
+.latest-bar{background:#111;color:#fff;border-bottom:3px solid var(--red)}
+.latest-inner{width:min(1400px,96%);margin:auto;display:flex;align-items:center;min-height:42px}
+.latest-label{background:var(--red);padding:10px 13px;font:900 11px Arial}
+.ticker-window{flex:1;overflow:auto;scrollbar-width:none}
+.ticker-window::-webkit-scrollbar{display:none}
+.ticker-list{display:flex;white-space:nowrap}
+.ticker-item{display:inline-flex;align-items:center;gap:7px;border:0;background:transparent;color:#fff;padding:7px 9px;font:11px Arial}
+.ticker-item:hover{background:#292929}
+.ticker-dot{width:6px;height:6px;background:#fff;border-radius:50%;flex:0 0 6px}
+
+.page-wrap{width:min(1400px,96%);margin:10px auto 30px}
+.web-banner{background:#fff;border:1px solid var(--border);padding:18px 20px;margin-bottom:10px}
+.web-banner h1{margin:0 0 5px;font-size:30px}
+.web-banner p{margin:0;color:#666;font:12px/1.5 Arial}
+.category-bar{display:flex;flex-wrap:wrap;gap:7px;background:#fff;border:1px solid var(--border);padding:9px;margin-bottom:10px}
+.category-button{border:1px solid #bbb;background:#fff;color:#222;padding:8px 13px;font:800 12px Arial}
+.category-button.active,.category-button:hover{background:#111;color:#fff;border-color:#111}
+
+.highlights{background:#fff;border:1px solid var(--border);margin-bottom:11px}
+.highlights-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 15px;background:#111;color:#fff}
+.highlights-head strong{font:900 13px Arial}
+.last-check{font:10px Arial;color:#ddd}
+.highlight-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.highlight{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-bottom:1px solid #eee;text-decoration:none;color:#111}
+.highlight:nth-child(odd){border-right:1px solid #eee}
+.highlight:hover{background:#f7f7f7}
+.highlight-dot{width:7px;height:7px;background:var(--red);border-radius:50%;margin-top:6px;flex:0 0 7px}
+.highlight-text{font:700 14px/1.4 Arial}
+.highlight-meta{display:block;margin-top:4px;color:#888;font:9px Arial}
+
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.news-card{background:#fff;border:1px solid #d0d0d0}
+.news-card a{display:block;padding:14px 15px;text-decoration:none;color:#111}
+.news-category{color:var(--red);margin-bottom:6px;font:900 10px Arial;text-transform:uppercase;letter-spacing:.5px}
+.news-title{margin:0 0 9px;font-size:19px;line-height:1.22}
+.news-source{color:#777;font:10px Arial}
+.news-arrow{float:right;color:var(--red);font-weight:900}
+.loading-box,.empty-box,.error-box{grid-column:1/-1;background:#fff;border:1px solid var(--border);padding:38px 20px;text-align:center;color:#666;font:13px Arial}
+.spinner{width:25px;height:25px;margin:0 auto 12px;border:3px solid #ddd;border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.note{background:#fff;border:1px solid var(--border);padding:13px 15px;margin-top:11px;color:#666;font:10px/1.5 Arial}
+.footer{background:#111;color:#fff;padding:18px 10px;text-align:center;font:10px Arial}
+
+@media(max-width:1050px){.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){
+.header-inner{width:100%}.top-line{padding:7px 8px;gap:6px}
+.date-box{width:83px;flex-basis:83px;font-size:9px}
+.mast-logo{max-width:58vw;max-height:72px}
+.menu-area{width:auto;flex-basis:auto}.menu-button{padding:8px 9px;font-size:9px}
+.main-nav{display:none}.latest-inner{width:100%}.latest-label{padding:9px 8px;font-size:8px}
+.ticker-item{font-size:9px}.page-wrap{width:100%;margin:0 auto 20px}
+.web-banner{border-left:0;border-right:0;padding:15px}.web-banner h1{font-size:25px}
+.category-bar{border-left:0;border-right:0;padding:7px;gap:5px}
+.category-button{padding:8px 9px;font-size:10px}
+.highlight-list{grid-template-columns:1fr}.highlight:nth-child(odd){border-right:0}
+.news-grid{grid-template-columns:1fr;gap:6px}.news-card{border-left:0;border-right:0}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<div class="header-inner">
+<div class="top-line">
+<div class="date-box"><span id="currentDay"></span><br><span id="currentDate"></span></div>
+<div class="logo-wrap"><a href="index.html"><img class="mast-logo" src="masthead-logo(1).png" alt="The Hyderabad Daily"></a></div>
+<div class="menu-area"><button class="menu-button" id="menuButton">☰ MENU</button></div>
+</div>
+<nav class="main-nav">
+<a href="index.html">HOME</a>
+<a href="digital-news.html">DIGITAL NEWS</a>
+<a href="web-news.html">WEB NEWS</a>
+<a href="digital-news.html?category=Hyderabad">HYDERABAD</a>
+<a href="digital-news.html?category=Telangana">TELANGANA</a>
+<a href="digital-news.html?category=India">INDIA</a>
+<a href="digital-news.html?category=World">WORLD</a>
+<a href="digital-news.html?category=Business">BUSINESS</a>
+<a href="digital-news.html?category=Technology">TECHNOLOGY</a>
+<a href="digital-news.html?category=Sports">SPORTS</a>
+<a href="digital-news.html?category=Entertainment">ENTERTAINMENT</a>
+</nav>
+</div>
+</header>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+<div class="drawer-head"><span>THE HYDERABAD DAILY</span><button class="drawer-close" id="drawerClose">×</button></div>
+<a href="index.html">HOME</a>
+<a href="digital-news.html">DIGITAL NEWS</a>
+<a href="web-news.html" class="active">WEB NEWS</a>
+<a href="digital-news.html?category=Hyderabad">HYDERABAD</a>
+<a href="digital-news.html?category=Telangana">TELANGANA</a>
+<a href="digital-news.html?category=India">INDIA</a>
+<a href="digital-news.html?category=World">WORLD</a>
+<a href="digital-news.html?category=Business">BUSINESS</a>
+<a href="digital-news.html?category=Technology">TECHNOLOGY</a>
+<a href="digital-news.html?category=Sports">SPORTS</a>
+<a href="digital-news.html?category=Entertainment">ENTERTAINMENT</a>
+</aside>
+
+<section class="latest-bar">
+<div class="latest-inner">
+<div class="latest-label">LATEST</div>
+<div class="ticker-window"><div class="ticker-list" id="tickerList"></div></div>
+</div>
+</section>
+
+<main class="page-wrap">
+
+<section class="web-banner">
+<h1>WEB NEWS</h1>
+<p>Latest web headlines from current news feeds. Tap any headline to open the original report. No article text is copied or republished here.</p>
+</section>
+
+<section class="category-bar">
+<button class="category-button active" data-category="all">ALL</button>
+<button class="category-button" data-category="Hyderabad">HYDERABAD</button>
+<button class="category-button" data-category="Telangana">TELANGANA</button>
+<button class="category-button" data-category="India">INDIA</button>
+<button class="category-button" data-category="World">WORLD</button>
+<button class="category-button" data-category="Business">BUSINESS</button>
+<button class="category-button" data-category="Technology">TECHNOLOGY</button>
+<button class="category-button" data-category="Sports">SPORTS</button>
+<button class="category-button" data-category="Entertainment">ENTERTAINMENT</button>
+</section>
+
+<section class="highlights">
+<div class="highlights-head">
+<strong>WEB NEWS HIGHLIGHTS — TAP TO OPEN ORIGINAL REPORT</strong>
+<span class="last-check" id="lastCheck">Checking...</span>
+</div>
+<div class="highlight-list" id="highlightList">
+<div class="loading-box"><div class="spinner"></div>Loading latest web headlines...</div>
+</div>
+</section>
+
+<section class="news-grid" id="newsGrid">
+<div class="loading-box"><div class="spinner"></div>Loading latest web headlines...</div>
+</section>
+
+<div class="note">
+<strong>Editorial note:</strong> Web News is a headline-linking service. The Hyderabad Daily does not reproduce the linked article text here. External reports remain the responsibility of their original publishers.
+</div>
+</main>
+
+<footer class="footer"><strong>THE HYDERABAD DAILY</strong></footer>
+
+<script>
+const NEWS_HOURS=36;
+const REFRESH_INTERVAL=10*60*1000;
+
+const FEEDS=[
+{category:"Hyderabad",queries:["Hyderabad latest news","Hyderabad breaking news","Hyderabad civic latest"]},
+{category:"Telangana",queries:["Telangana latest news","Telangana breaking news","Telangana state developments"]},
+{category:"India",queries:["India latest news","India breaking news","India national developments"]},
+{category:"World",queries:["world latest news","international latest news","world breaking news"]},
+{category:"Business",queries:["India business latest news","Indian economy latest news","Indian companies latest"]},
+{category:"Technology",queries:["India technology latest news","India AI technology latest","Indian technology companies latest"]},
+{category:"Sports",queries:["India sports latest news","Indian sports latest","India sports breaking news"]},
+{category:"Entertainment",queries:["Bollywood latest news","Tollywood latest news","South Indian cinema latest news","OTT India latest news","Hollywood entertainment latest"]}
+];
+
+const STOP=new Set(["the","and","for","with","from","this","that","have","has","had","will","can","are","was","were","into","over","after","before","latest","news","india","indian","today","says","said","new","more"]);
+
+let allArticles=[];
+let activeCategory="all";
+
+const $=id=>document.getElementById(id);
+
+function normalize(s=""){
+return s.toLowerCase().replace(/https?:\/\/\S+/g,"").replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+}
+function words(s){return normalize(s).split(" ").filter(x=>x.length>2&&!STOP.has(x));}
+function jaccard(a,b){
+const A=new Set(words(a)),B=new Set(words(b));
+if(!A.size||!B.size)return 0;
+let n=0;A.forEach(x=>B.has(x)&&n++);
+return n/(new Set([...A,...B]).size);
+}
+function overlap(a,b){
+const A=new Set(words(a)),B=new Set(words(b));
+if(!A.size||!B.size)return 0;
+let n=0;A.forEach(x=>B.has(x)&&n++);
+return n/Math.min(A.size,B.size);
+}
+function stripHTML(s=""){
+const d=document.createElement("div");d.innerHTML=s;
+return(d.textContent||"").replace(/\s+/g," ").trim();
+}
+function sourceFromTitle(raw=""){
+const m=stripHTML(raw).match(/\s(?:-|–|—|\|)\s+([^|–—-]{2,80})\s*$/);
+return m?m[1].trim():"";
+}
+function cleanHeadline(raw="",source=""){
+let t=stripHTML(raw);
+const pubs=[source,"The Times of India","India Today","Hindustan Times","The Hindu","Deccan Chronicle","The Indian Express","NDTV","Reuters","ANI","PTI","News18","Economic Times","Moneycontrol","Business Standard","Telangana Today"].filter(Boolean);
+pubs.forEach(p=>t=t.replace(new RegExp("\\s+(?:-|–|—|\\|)\\s+"+p.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*$","i"),""));
+return t.replace(/\s+/g," ").trim();
+}
+function recent(a){
+const d=new Date(a.pubDate);
+if(isNaN(d))return false;
+const age=Date.now()-d.getTime();
+return age>=0&&age<=NEWS_HOURS*3600000;
+}
+function rssURL(q){
+return "https://news.google.com/rss/search?q="+encodeURIComponent(q)+"&hl=en-IN&gl=IN&ceid=IN:en";
+}
+async function rss2json(url){
+const r=await fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(url),{cache:"no-store"});
+if(!r.ok)throw Error("rss");
+const d=await r.json();
+return Array.isArray(d.items)?d.items:[];
+}
+async function fallback(url){
+const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(url),{cache:"no-store"});
+if(!r.ok)throw Error("fallback");
+const xml=await r.text();
+const doc=new DOMParser().parseFromString(xml,"text/xml");
+return [...doc.querySelectorAll("item")].map(n=>({
+title:n.querySelector("title")?.textContent||"",
+link:n.querySelector("link")?.textContent||"",
+description:n.querySelector("description")?.textContent||"",
+pubDate:n.querySelector("pubDate")?.textContent||""
+}));
+}
+async function loadFeed(feed){
+const out=[];
+for(const q of feed.queries){
+let items=[];
+try{items=await rss2json(rssURL(q));}
+catch(e){try{items=await fallback(rssURL(q));}catch(e2){continue;}}
+items.forEach(item=>{
+const source=(item.source&&item.source.title)||sourceFromTitle(item.title);
+const title=cleanHeadline(item.title,source);
+const a={
+category:feed.category,
+title,
+link:item.link||"",
+pubDate:item.pubDate||"",
+sourceName:source
+};
+if(title&&a.link&&recent(a))out.push(a);
+});
+}
+return out;
+}
+function related(a,b){
+const title=Math.max(jaccard(a.title,b.title),overlap(a.title,b.title));
+return title>=.72;
+}
+function dedupe(list){
+const out=[],urls=new Set();
+const sorted=[...list].sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
+for(const a of sorted){
+if(urls.has(a.link))continue;
+if(out.some(b=>related(a,b)))continue;
+urls.add(a.link);
+out.push(a);
+}
+return out;
+}
+async function loadNews(silent=false){
+if(!silent){
+$("highlightList").innerHTML='<div class="loading-box"><div class="spinner"></div>Loading latest web headlines...</div>';
+$("newsGrid").innerHTML='<div class="loading-box"><div class="spinner"></div>Loading latest web headlines...</div>';
+}
+const results=await Promise.all(FEEDS.map(loadFeed));
+let list=dedupe(results.flat());
+list=list.slice(0,80);
+
+const previous=allArticles.map(x=>x.link).join("|");
+const current=list.map(x=>x.link).join("|");
+allArticles=list;
+
+if(previous!==current||!silent){
+render();
+renderHighlights();
+renderTicker();
+}
+$("lastCheck").textContent="Last checked "+new Date().toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"});
+}
+
+function render(){
+const list=allArticles.filter(a=>activeCategory==="all"||a.category===activeCategory);
+if(!list.length){
+$("newsGrid").innerHTML='<div class="empty-box">No recent web headlines are currently available in this category.</div>';
+return;
+}
+$("newsGrid").innerHTML="";
+list.forEach(a=>{
+const card=document.createElement("article");
+card.className="news-card";
+const link=document.createElement("a");
+link.href=a.link;
+link.target="_blank";
+link.rel="noopener noreferrer";
+const cat=document.createElement("div");
+cat.className="news-category";
+cat.textContent=a.category;
+const title=document.createElement("h2");
+title.className="news-title";
+title.textContent=a.title;
+const source=document.createElement("div");
+source.className="news-source";
+source.textContent=(a.sourceName||"Original web report")+" ";
+const arrow=document.createElement("span");
+arrow.className="news-arrow";
+arrow.textContent="↗";
+source.appendChild(arrow);
+link.append(cat,title,source);
+card.appendChild(link);
+$("newsGrid").appendChild(card);
+});
+}
+function renderHighlights(){
+$("highlightList").innerHTML="";
+const list=allArticles.filter(a=>activeCategory==="all"||a.category===activeCategory).slice(0,12);
+if(!list.length){
+$("highlightList").innerHTML='<div class="empty-box">No recent web headlines are currently available.</div>';
+return;
+}
+list.forEach(a=>{
+const link=document.createElement("a");
+link.className="highlight";
+link.href=a.link;
+link.target="_blank";
+link.rel="noopener noreferrer";
+const dot=document.createElement("span");
+dot.className="highlight-dot";
+const wrap=document.createElement("span");
+const text=document.createElement("span");
+text.className="highlight-text";
+text.textContent=a.title;
+const meta=document.createElement("span");
+meta.className="highlight-meta";
+meta.textContent=(a.category+" • "+formatDate(a.pubDate)+" • ORIGINAL REPORT");
+wrap.append(text,meta);
+link.append(dot,wrap);
+$("highlightList").appendChild(link);
+});
+}
+function renderTicker(){
+$("tickerList").innerHTML="";
+allArticles.slice(0,12).forEach(a=>{
+const b=document.createElement("a");
+b.className="ticker-item";
+b.href=a.link;
+b.target="_blank";
+b.rel="noopener noreferrer";
+b.innerHTML='<span class="ticker-dot"></span><span></span>';
+b.querySelector("span:last-child").textContent=a.title;
+$("tickerList").appendChild(b);
+});
+}
+function formatDate(v){
+const d=new Date(v);
+return isNaN(d)?"":d.toLocaleString("en-IN",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+}
+
+document.querySelectorAll(".category-button").forEach(b=>b.onclick=()=>{
+activeCategory=b.dataset.category;
+document.querySelectorAll(".category-button").forEach(x=>x.classList.toggle("active",x.dataset.category===activeCategory));
+render();
+renderHighlights();
+});
+
+function closeMenu(){
+$("drawer").classList.remove("open");
+$("drawerOverlay").classList.remove("open");
+document.body.style.overflow="";
+}
+$("menuButton").onclick=()=>{
+$("drawer").classList.add("open");
+$("drawerOverlay").classList.add("open");
+document.body.style.overflow="hidden";
+};
+$("drawerClose").onclick=closeMenu;
+$("drawerOverlay").onclick=closeMenu;
+document.querySelectorAll(".drawer a").forEach(a=>a.onclick=closeMenu);
+
+function updateDate(){
+const d=new Date();
+$("currentDay").textContent=d.toLocaleDateString("en-IN",{weekday:"long"});
+$("currentDate").textContent=d.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});
+}
+
+updateDate();
+loadNews(false);
+setInterval(()=>loadNews(true),REFRESH_INTERVAL);
+setInterval(updateDate,60000);
+</script>
+</body>
+</html>
