@@ -1,7 +1,6 @@
-
 {
   "version": 1,
-  "lastUpdated": "2026-09-19",
+  "lastUpdated": "2026-09-19T06:36:58.769480+00:00",
   "stories": [],
   "schema": {
     "canonicalUrl": "Original article URL",
@@ -17,5 +16,18 @@
     ],
     "editorialDate": "YYYY-MM-DD",
     "editorialByline": "The Hyderabad Daily Digital Desk"
+  },
+  "publicationPolicy": {
+    "requireEditorialContent": true,
+    "requireApproval": true,
+    "displayOnlyApprovedStories": true,
+    "fallbackText": false,
+    "fieldsRequired": [
+      "editorialSummary",
+      "brief",
+      "keyPoints",
+      "editorialDate",
+      "editorialByline"
+    ]
   }
 }
