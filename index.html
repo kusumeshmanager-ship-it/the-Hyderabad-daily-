@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="The Hyderabad Daily — Digital News and Today's 10-Page E-Paper.">
+
+<meta name="description" content="The Hyderabad Daily — Digital News, Web News and Today's 10-Page E-Paper.">
 <meta name="theme-color" content="#0b2f6b">
 <meta property="og:title" content="The Hyderabad Daily">
-<meta property="og:description" content="Digital News and Today's 10-Page E-Paper.">
+<meta property="og:description" content="Digital News, Web News and Today's 10-Page E-Paper.">
+
 <title>The Hyderabad Daily | Digital News & E-Paper</title>
 
 <style>
@@ -20,91 +22,117 @@
   --line:#d5dce5;
   --white:#fff;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
   font-family:Georgia,"Times New Roman",serif;
 }
-body.menu-open{overflow:hidden}
+
+/* TOP COLOUR LINE */
 .topline{
   height:5px;
-  background:linear-gradient(90deg,var(--navy) 0 70%,var(--red) 70%);
+  background:linear-gradient(
+    90deg,
+    var(--navy) 0 70%,
+    var(--red) 70%
+  );
 }
+
+/* HEADER */
 header{
   background:var(--white);
   border-bottom:1px solid var(--line);
 }
+
 .mast{
   max-width:1200px;
   margin:auto;
   padding:16px 18px 14px;
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:20px;
 }
-.brand{
-  flex:1;
-  text-align:center;
-  color:var(--navy);
-  font-weight:700;
-  font-size:clamp(38px,6vw,66px);
-  line-height:.88;
-  letter-spacing:-2px;
-}
-.brand small{
+
+.mast-logo{
   display:block;
-  margin-top:12px;
-  font:700 10px Arial,sans-serif;
-  letter-spacing:3px;
+  width:auto;
+  max-width:min(760px,72vw);
+  max-height:150px;
+  margin:auto;
 }
+
+/* DATE */
 .edition{
-  min-width:160px;
-  text-align:right;
+  min-width:180px;
+  text-align:center;
   font:13px/1.5 Arial,sans-serif;
   color:#222;
 }
+
 .edition b{
   color:var(--navy);
-  font-size:15px;
+  font-size:16px;
 }
+
+/* BLUE NAVIGATION BAR */
 .desktop-nav{
   background:var(--navy);
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:3px;
-  padding:8px;
+  gap:0;
+  padding:0;
+  width:100%;
 }
+
 .desktop-nav a{
+  flex:0 0 auto;
   color:#fff;
   text-decoration:none;
-  font:700 13px Arial,sans-serif;
-  padding:10px 18px;
-  border-radius:3px;
+  font:700 14px Arial,sans-serif;
+  padding:13px 30px;
+  border-left:1px solid rgba(255,255,255,.20);
+  text-align:center;
+  transition:.15s;
 }
-.desktop-nav a:hover,
-.desktop-nav a.active{
+
+.desktop-nav a:last-child{
+  border-right:1px solid rgba(255,255,255,.20);
+}
+
+.desktop-nav a:hover{
   background:var(--navy2);
 }
-.mobile-nav{display:none}
 
-/* Simple two-section architecture */
+/* MAIN PAGE */
 .page{
   max-width:1200px;
   margin:auto;
 }
+
 .section{
   padding:24px 16px;
 }
+
+/* E-PAPER TITLE */
 .section-title{
   display:flex;
   align-items:center;
   border-bottom:4px solid var(--navy);
   margin-bottom:18px;
 }
+
 .section-title h2{
   margin:0;
   background:var(--navy);
@@ -113,57 +141,19 @@ header{
   font-size:24px;
   letter-spacing:.4px;
 }
-.digital-panel{
-  background:#fff;
-  border:1px solid var(--line);
-  padding:26px;
-  box-shadow:0 3px 12px rgba(0,0,0,.05);
-}
-.digital-panel h1{
-  margin:0 0 10px;
-  color:var(--navy);
-  font-size:clamp(28px,4vw,44px);
-}
-.digital-panel p{
-  margin:0 0 20px;
-  color:var(--muted);
-  font:16px/1.6 Arial,sans-serif;
-}
-.digital-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:46px;
-  padding:11px 18px;
-  border-radius:4px;
-  border:1px solid var(--navy);
-  background:var(--navy);
-  color:#fff;
-  text-decoration:none;
-  font:700 13px Arial,sans-serif;
-  cursor:pointer;
-}
-.btn.secondary{
-  background:#fff;
-  color:var(--navy);
-}
-.btn:hover{background:var(--navy2);color:#fff}
 
-/* E-paper */
+/* E-PAPER */
 #epaper{
   scroll-margin-top:15px;
 }
+
 .epaper-shell{
   background:#101827;
   padding:12px;
   border-radius:3px;
-  box-shadow:0 6px 24px rgba(0,0,0,.2);
+  box-shadow:0 6px 24px rgba(0,0,0,.20);
 }
+
 .epaper-shell img{
   display:block;
   width:100%;
@@ -173,6 +163,8 @@ header{
   min-height:240px;
   object-fit:contain;
 }
+
+/* E-PAPER CONTROLS */
 .epaper-tools{
   background:#fff;
   display:flex;
@@ -184,7 +176,9 @@ header{
   border:1px solid var(--line);
   border-top:0;
 }
-button,.tool-btn{
+
+button,
+.tool-btn{
   border:1px solid var(--navy);
   background:var(--navy);
   color:#fff;
@@ -194,43 +188,53 @@ button,.tool-btn{
   text-decoration:none;
   cursor:pointer;
 }
-button:hover,.tool-btn:hover{
+
+button:hover,
+.tool-btn:hover{
   background:var(--navy2);
 }
+
 #counter{
   min-width:115px;
   text-align:center;
   font:bold 12px Arial,sans-serif;
   color:#222;
 }
+
+/* PAGE THUMBNAILS */
 .page-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:10px;
   margin-top:12px;
 }
+
 .page-card{
   background:#fff;
   border:2px solid transparent;
   padding:6px;
   cursor:pointer;
 }
+
 .page-card:hover,
 .page-card.active{
   border-color:var(--navy);
 }
+
 .page-card img{
   display:block;
   width:100%;
   aspect-ratio:3/4;
   object-fit:cover;
 }
+
 .page-card b{
   display:block;
   padding:7px 3px 2px;
   color:var(--navy);
   font:700 12px Arial,sans-serif;
 }
+
 .page-card span{
   display:block;
   padding:0 3px 5px;
@@ -238,14 +242,7 @@ button:hover,.tool-btn:hover{
   font:10px Arial,sans-serif;
 }
 
-/* Mobile drawer */
-.mobile-backdrop{
-  display:none;
-}
-.mobile-drawer{
-  display:none;
-}
-
+/* FOOTER */
 footer{
   margin-top:20px;
   background:var(--navy);
@@ -255,409 +252,678 @@ footer{
   font:12px/1.6 Arial,sans-serif;
 }
 
-/* Tablet */
+/* TABLET */
 @media(max-width:900px){
-  .mast{padding:13px 14px}
-  .brand{font-size:44px}
-  .edition{min-width:130px;font-size:11px}
-  .desktop-nav a{padding:9px 12px;font-size:12px}
-  .page-grid{grid-template-columns:repeat(4,1fr)}
+
+  .mast{
+    padding:13px 14px;
+  }
+
+  .mast-logo{
+    max-width:65vw;
+    max-height:120px;
+  }
+
+  .edition{
+    min-width:150px;
+    font-size:11px;
+  }
+
+  .edition b{
+    font-size:14px;
+  }
+
+  .desktop-nav a{
+    padding:12px 20px;
+    font-size:12px;
+  }
+
+  .page-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
 }
 
-/* Phone */
+/* MOBILE */
 @media(max-width:650px){
-  .topline{height:4px}
+
+  .topline{
+    height:4px;
+  }
+
+  /* LOGO + DATE */
   .mast{
-    padding:14px 10px 12px;
+    padding:12px 8px 10px;
     display:block;
   }
-  .brand{
-    font-size:38px;
-    line-height:.9;
-    letter-spacing:-1.2px;
+
+  .mast-logo{
+    display:block;
+    width:auto;
+    max-width:92vw;
+    max-height:105px;
+    margin:0 auto 8px;
   }
-  .brand small{
-    font-size:8px;
-    letter-spacing:2px;
-    margin-top:10px;
-  }
+
   .edition{
-    margin-top:12px;
+    margin-top:4px;
     min-width:0;
     text-align:center;
     font-size:11px;
-  }
-  .edition b{font-size:13px}
-
-  .desktop-nav{display:none}
-
-  .mobile-nav{
-    display:flex;
-    background:var(--navy);
-    padding:8px 10px;
-    align-items:center;
-    justify-content:space-between;
-    gap:8px;
-  }
-  .menu-btn{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    border:0;
-    background:transparent;
-    color:#fff;
-    padding:9px 7px;
-    font-size:15px;
-  }
-  .mobile-epaper-btn{
-    background:#fff;
-    color:var(--navy);
-    padding:10px 14px;
-    border-radius:4px;
-    text-decoration:none;
-    font:700 13px Arial,sans-serif;
+    line-height:1.45;
   }
 
-  .mobile-backdrop{
-    display:block;
-    position:fixed;
-    inset:0;
-    z-index:1998;
-    background:rgba(0,0,0,.5);
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transition:.2s;
+  .edition b{
+    font-size:14px;
   }
-  .mobile-backdrop.open{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-  }
-  .mobile-drawer{
-    display:block;
-    position:fixed;
-    top:0;
-    left:0;
-    bottom:0;
-    width:min(86vw,390px);
-    z-index:1999;
-    background:#fff;
-    box-shadow:8px 0 30px rgba(0,0,0,.35);
-    overflow-y:auto;
-    transform:translateX(-102%);
-    transition:transform .22s ease;
-  }
-  .mobile-drawer.open{transform:translateX(0)}
-  .drawer-head{
-    background:var(--navy);
-    color:#fff;
-    padding:16px;
+
+  /* THREE LINKS ALWAYS VISIBLE */
+  .desktop-nav{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font:700 14px Arial,sans-serif;
-  }
-  .drawer-head button{
-    background:transparent;
-    border:0;
+    width:100%;
+    justify-content:stretch;
+    align-items:stretch;
     padding:0;
-    font-size:28px;
-    line-height:1;
-  }
-  .mobile-drawer a{
-    display:block;
-    color:#172033;
-    text-decoration:none;
-    padding:15px 17px;
-    border-bottom:1px solid #e4e7eb;
-    font:700 14px Arial,sans-serif;
-  }
-  .mobile-drawer a:hover{
-    background:#f2f5f9;
-    color:var(--navy);
+    gap:0;
   }
 
-  .section{padding:18px 10px}
+  .desktop-nav a{
+    flex:1 1 33.333%;
+    min-width:0;
+    padding:13px 3px;
+    font-size:10px;
+    line-height:1.2;
+    border-left:1px solid rgba(255,255,255,.25);
+    border-radius:0;
+    white-space:nowrap;
+  }
+
+  .desktop-nav a:last-child{
+    border-right:1px solid rgba(255,255,255,.25);
+  }
+
+  /* MAIN CONTENT */
+  .section{
+    padding:16px 8px;
+  }
+
+  .section-title{
+    margin-bottom:12px;
+    border-bottom-width:3px;
+  }
+
   .section-title h2{
     font-size:20px;
-    padding:10px 14px;
+    padding:9px 13px;
   }
-  .digital-panel{padding:20px 16px}
-  .digital-panel h1{font-size:29px}
-  .digital-panel p{font-size:14px}
-  .digital-actions{display:grid;grid-template-columns:1fr}
-  .btn{width:100%}
 
-  .epaper-shell{padding:5px}
-  .epaper-shell img{min-height:160px}
+  /* E-PAPER */
+  .epaper-shell{
+    padding:5px;
+  }
+
+  .epaper-shell img{
+    min-height:160px;
+  }
+
   .epaper-tools{
     gap:6px;
     padding:9px 6px;
   }
+
   .epaper-tools button,
   .epaper-tools .tool-btn{
     padding:9px 10px;
     font-size:11px;
   }
-  #counter{width:100%;order:-1}
-  .page-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+
+  #counter{
+    width:100%;
+    order:-1;
+  }
+
+  /* THUMBNAILS */
+  .page-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+  }
+
+  .page-card b{
+    font-size:11px;
+  }
+
+  .page-card span{
+    font-size:9px;
+  }
 }
 
-/* Prevent accidental horizontal overflow */
-img{max-width:100%}
-a,button{touch-action:manipulation}
+/* PREVENT HORIZONTAL OVERFLOW */
+img{
+  max-width:100%;
+}
+
+a,
+button{
+  touch-action:manipulation;
+}
 </style>
 </head>
 
 <body>
+
 <div class="topline"></div>
 
+<!-- ============================= -->
+<!-- HEADER -->
+<!-- ============================= -->
+
 <header>
+
   <div class="mast">
+
     <img
-  class="mast-logo"
-  src="masthead-logo(1).png"
-  alt="The Hyderabad Daily"
->
+      class="mast-logo"
+      src="masthead-logo(1).png"
+      alt="The Hyderabad Daily"
+    >
+
     <div class="edition">
-  <b id="homeDay"></b><br>
-  <span id="homeDate"></span><br>
-  HYDERABAD
-</div>
-  </div>
-
-  <div class="mobile-nav">
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰ <span>MENU</span></button>
-    <a class="mobile-epaper-btn" href="#epaper">E-PAPER</a>
-  </div>
-
-  <nav class="desktop-nav">
-<a href="#digital-news" class="active">DIGITAL NEWS</a>
-<a href="web-news.html">WEB NEWS</a>
-<a href="#epaper">E-PAPER</a>
-  </nav>
-
-  <div class="mobile-backdrop" id="mobileBackdrop" onclick="closeMenu()"></div>
-
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-head">
-      <b>THE HYDERABAD DAILY</b>
-      <button onclick="closeMenu()" aria-label="Close menu">×</button>
+      <b id="homeDay"></b><br>
+      <span id="homeDate"></span><br>
+      HYDERABAD
     </div>
 
-    <a href="#digital-news" onclick="closeMenu()">📰 &nbsp; Digital News</a>
-    <a href="web-news.html" onclick="closeMenu()">🌐 &nbsp; Web News</a>
-    <a href="#epaper" onclick="closeMenu()">📖 &nbsp; Today's E-Paper</a>
-</div>
+  </div>
+
+  <!-- ONLY THREE LINKS -->
+  <nav class="desktop-nav">
+
+    <a href="digital-news.html">
+      DIGITAL NEWS
+    </a>
+
+    <a href="web-news.html">
+      WEB NEWS
+    </a>
+
+    <a href="#epaper">
+      E-PAPER
+    </a>
+
+  </nav>
+
 </header>
+
+
+<!-- ============================= -->
+<!-- MAIN -->
+<!-- ============================= -->
 
 <main class="page">
 
-  <!-- ONLY DIGITAL NEWS -->
-  <section class="section" id="digital-news">
-    <div class="section-title">
-      <h2>DIGITAL NEWS</h2>
-    </div>
+  <!-- =========================== -->
+  <!-- TODAY'S E-PAPER -->
+  <!-- =========================== -->
 
-    <div class="digital-panel">
-      <h1>Digital News</h1>
-      <p>
-        Read the latest digital edition of The Hyderabad Daily.
-        The separate Digital News page remains the dedicated home for
-        continuously updated news content.
-      </p>
-
-      <div class="digital-actions">
-        <a class="btn" href="digital-news.html">OPEN DIGITAL NEWS →</a>
-        <a class="btn secondary" href="#epaper">OPEN TODAY'S E-PAPER ↓</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ONLY E-PAPER -->
   <section class="section" id="epaper">
+
     <div class="section-title">
       <h2>TODAY'S E-PAPER</h2>
     </div>
 
     <div class="epaper-shell">
+
       <img
         id="pageImage"
         src="page-01.png"
         alt="The Hyderabad Daily E-Paper Page 1"
         onerror="handleImageError(this)"
       >
+
     </div>
+
+
+    <!-- E-PAPER CONTROLS -->
 
     <div class="epaper-tools">
-      <button type="button" onclick="previousPage()">‹ PREVIOUS</button>
-      <span id="counter">PAGE 01 OF 10</span>
-      <button type="button" onclick="nextPage()">NEXT ›</button>
-      <button type="button" onclick="fullScreen()">FULL SCREEN</button>
+
+      <button
+        type="button"
+        onclick="previousPage()"
+      >
+        ‹ PREVIOUS
+      </button>
+
+      <span id="counter">
+        PAGE 01 OF 10
+      </span>
+
+      <button
+        type="button"
+        onclick="nextPage()"
+      >
+        NEXT ›
+      </button>
+
+      <button
+        type="button"
+        onclick="fullScreen()"
+      >
+        FULL SCREEN
+      </button>
+
     </div>
 
-    <div class="page-grid" id="pageGrid" aria-label="E-paper pages"></div>
+
+    <!-- PAGE THUMBNAILS -->
+
+    <div
+      class="page-grid"
+      id="pageGrid"
+      aria-label="E-paper pages"
+    ></div>
+
   </section>
 
 </main>
 
+
+<!-- ============================= -->
+<!-- FOOTER -->
+<!-- ============================= -->
+
 <footer>
+
   <b>THE HYDERABAD DAILY</b><br>
-  Digital News • Today's E-Paper<br>
+
+  Digital News • Web News • Today's E-Paper<br>
+
   © 2026 The Hyderabad Daily
+
 </footer>
 
+
+<!-- ============================= -->
+<!-- E-PAPER JAVASCRIPT -->
+<!-- ============================= -->
+
 <script>
+
 const pages = [
+
   ["page-01.png","01","FRONT PAGE"],
+
   ["page-02.png","02","TELANGANA • ANDHRA PRADESH"],
+
   ["page-03.png","03","INTERNATIONAL • NATIONAL"],
+
   ["page-04.png","04","BUSINESS & MARKETS"],
+
   ["page-05.png","05","INDIA • WORLD • HERITAGE & TRAVEL"],
+
   ["page-06.png","06","LIFE & LEISURE"],
+
   ["page-07.png","07","SCIENCE & TECHNOLOGY"],
+
   ["page-08.png","08","SPORTS"],
+
   ["page-09.png","09","ENTERTAINMENT"],
+
   ["page-10.png","10","CITY LIFE"]
+
 ];
+
 
 let current = 0;
 
-const image = document.getElementById("pageImage");
-const counter = document.getElementById("counter");
-const grid = document.getElementById("pageGrid");
+
+const image =
+  document.getElementById("pageImage");
+
+const counter =
+  document.getElementById("counter");
+
+const grid =
+  document.getElementById("pageGrid");
+
+
+/* BUILD PAGE THUMBNAILS */
 
 function buildPageGrid(){
+
   pages.forEach((page,index)=>{
-    const card = document.createElement("div");
-    card.className = "page-card";
-    card.setAttribute("role","button");
-    card.setAttribute("tabindex","0");
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "page-card";
+
+    card.setAttribute(
+      "role",
+      "button"
+    );
+
+    card.setAttribute(
+      "tabindex",
+      "0"
+    );
+
     card.innerHTML = `
-      <img src="${page[0]}" loading="lazy" alt="The Hyderabad Daily Page ${page[1]}">
-      <b>PAGE ${page[1]}</b>
-      <span>${page[2]}</span>
+
+      <img
+        src="${page[0]}"
+        loading="lazy"
+        alt="The Hyderabad Daily Page ${page[1]}"
+      >
+
+      <b>
+        PAGE ${page[1]}
+      </b>
+
+      <span>
+        ${page[2]}
+      </span>
+
     `;
-    card.addEventListener("click",()=>showPage(index));
-    card.addEventListener("keydown",(event)=>{
-      if(event.key==="Enter" || event.key===" "){
-        event.preventDefault();
+
+
+    card.addEventListener(
+      "click",
+      ()=>{
         showPage(index);
       }
-    });
+    );
+
+
+    card.addEventListener(
+      "keydown",
+      (event)=>{
+
+        if(
+          event.key === "Enter" ||
+          event.key === " "
+        ){
+
+          event.preventDefault();
+
+          showPage(index);
+
+        }
+
+      }
+    );
+
+
     grid.appendChild(card);
+
   });
+
 }
+
+
+/* UPDATE ACTIVE PAGE */
 
 function updateActiveCard(){
-  document.querySelectorAll(".page-card").forEach((card,index)=>{
-    card.classList.toggle("active",index===current);
-  });
+
+  document
+    .querySelectorAll(".page-card")
+    .forEach((card,index)=>{
+
+      card.classList.toggle(
+        "active",
+        index === current
+      );
+
+    });
+
 }
+
+
+/* SHOW PAGE */
 
 function showPage(index){
-  current = Math.max(0,Math.min(index,pages.length-1));
 
-  image.src = pages[current][0];
-  image.alt = "The Hyderabad Daily E-Paper Page " + pages[current][1];
-  counter.textContent = "PAGE " + pages[current][1] + " OF 10";
+  current =
+    Math.max(
+      0,
+      Math.min(
+        index,
+        pages.length - 1
+      )
+    );
+
+
+  image.src =
+    pages[current][0];
+
+
+  image.alt =
+    "The Hyderabad Daily E-Paper Page "
+    + pages[current][1];
+
+
+  counter.textContent =
+    "PAGE "
+    + pages[current][1]
+    + " OF 10";
+
 
   updateActiveCard();
+
 }
+
+
+/* PREVIOUS */
 
 function previousPage(){
-  if(current>0) showPage(current-1);
+
+  if(current > 0){
+
+    showPage(
+      current - 1
+    );
+
+  }
+
 }
+
+
+/* NEXT */
 
 function nextPage(){
-  if(current<pages.length-1) showPage(current+1);
+
+  if(
+    current <
+    pages.length - 1
+  ){
+
+    showPage(
+      current + 1
+    );
+
+  }
+
 }
+
+
+/* FULL SCREEN */
 
 function fullScreen(){
-  const el = document.getElementById("pageImage");
+
+  const el =
+    document.getElementById(
+      "pageImage"
+    );
+
 
   if(el.requestFullscreen){
+
     el.requestFullscreen();
-  }else if(el.webkitRequestFullscreen){
-    el.webkitRequestFullscreen();
-  }else{
-    window.open(el.src,"_blank");
+
   }
+
+  else if(
+    el.webkitRequestFullscreen
+  ){
+
+    el.webkitRequestFullscreen();
+
+  }
+
+  else{
+
+    window.open(
+      el.src,
+      "_blank"
+    );
+
+  }
+
 }
+
+
+/* IMAGE ERROR */
 
 function handleImageError(img){
-  img.alt = "E-paper page could not be loaded. Check that page-01.png through page-10.png are in the same GitHub folder as index.html.";
+
+  img.alt =
+    "E-paper page could not be loaded. "
+    + "Check that page-01.png through "
+    + "page-10.png are in the same "
+    + "GitHub folder as index.html.";
+
 }
 
-function openMenu(){
-  document.getElementById("mobileDrawer").classList.add("open");
-  document.getElementById("mobileBackdrop").classList.add("open");
-  document.body.classList.add("menu-open");
-}
 
-function closeMenu(){
-  document.getElementById("mobileDrawer").classList.remove("open");
-  document.getElementById("mobileBackdrop").classList.remove("open");
-  document.body.classList.remove("menu-open");
-}
-
-function toggleMenu(){
-  const drawer = document.getElementById("mobileDrawer");
-
-  if(drawer.classList.contains("open")){
-    closeMenu();
-  }else{
-    openMenu();
-  }
-}
-
-document.addEventListener("keydown",(event)=>{
-  if(event.key==="Escape") closeMenu();
-});
+/* SWIPE BETWEEN E-PAPER PAGES */
 
 let startX = 0;
 
-image.addEventListener("touchstart",(event)=>{
-  startX = event.touches[0].clientX;
-},{passive:true});
 
-image.addEventListener("touchend",(event)=>{
-  const distance = startX - event.changedTouches[0].clientX;
+image.addEventListener(
+  "touchstart",
+  (event)=>{
 
-  if(Math.abs(distance)>70){
-    if(distance>0) nextPage();
-    else previousPage();
-  }
-},{passive:true});
+    startX =
+      event.touches[0].clientX;
+
+  },
+  {passive:true}
+);
+
+
+image.addEventListener(
+  "touchend",
+  (event)=>{
+
+    const distance =
+      startX -
+      event.changedTouches[0].clientX;
+
+
+    if(
+      Math.abs(distance) > 70
+    ){
+
+      if(distance > 0){
+
+        nextPage();
+
+      }
+
+      else{
+
+        previousPage();
+
+      }
+
+    }
+
+  },
+  {passive:true}
+);
+
+
+/* START E-PAPER */
 
 buildPageGrid();
+
 showPage(0);
+
 </script>
+
+
+<!-- ============================= -->
+<!-- AUTOMATIC CURRENT DATE -->
+<!-- ============================= -->
+
 <script>
+
 function updateHomeDate(){
-  const now = new Date();
 
-  const day = now.toLocaleDateString("en-IN", {
-    weekday: "long"
-  });
+  const now =
+    new Date();
 
-  const date = now.toLocaleDateString("en-IN", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric"
-  });
 
-  const dayEl = document.getElementById("homeDay");
-  const dateEl = document.getElementById("homeDate");
+  const day =
+    now.toLocaleDateString(
+      "en-IN",
+      {
+        weekday:"long"
+      }
+    );
 
-  if(dayEl) dayEl.textContent = day.toUpperCase();
-  if(dateEl) dateEl.textContent = date.toUpperCase();
+
+  const date =
+    now.toLocaleDateString(
+      "en-IN",
+      {
+        day:"2-digit",
+        month:"long",
+        year:"numeric"
+      }
+    );
+
+
+  const dayEl =
+    document.getElementById(
+      "homeDay"
+    );
+
+
+  const dateEl =
+    document.getElementById(
+      "homeDate"
+    );
+
+
+  if(dayEl){
+
+    dayEl.textContent =
+      day.toUpperCase();
+
+  }
+
+
+  if(dateEl){
+
+    dateEl.textContent =
+      date.toUpperCase();
+
+  }
+
 }
 
+
 updateHomeDate();
-setInterval(updateHomeDate, 60 * 1000);
+
+
+setInterval(
+  updateHomeDate,
+  60 * 1000
+);
+
 </script>
+
 </body>
 </html>
-
