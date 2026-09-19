@@ -421,10 +421,10 @@ a,button{touch-action:manipulation}
   alt="The Hyderabad Daily"
 >
     <div class="edition">
-      <b>FRIDAY</b><br>
-      18 SEPTEMBER 2026<br>
-      HYDERABAD
-    </div>
+  <b id="homeDay"></b><br>
+  <span id="homeDate"></span><br>
+  HYDERABAD
+</div>
   </div>
 
   <div class="mobile-nav">
@@ -634,6 +634,30 @@ image.addEventListener("touchend",(event)=>{
 buildPageGrid();
 showPage(0);
 </script>
+<script>
+function updateHomeDate(){
+  const now = new Date();
 
+  const day = now.toLocaleDateString("en-IN", {
+    weekday: "long"
+  });
+
+  const date = now.toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric"
+  });
+
+  const dayEl = document.getElementById("homeDay");
+  const dateEl = document.getElementById("homeDate");
+
+  if(dayEl) dayEl.textContent = day.toUpperCase();
+  if(dateEl) dateEl.textContent = date.toUpperCase();
+}
+
+updateHomeDate();
+setInterval(updateHomeDate, 60 * 1000);
+</script>
 </body>
 </html>
+
