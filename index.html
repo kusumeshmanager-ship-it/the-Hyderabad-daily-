@@ -10,11 +10,14 @@
 >
 
 <meta
-  name="description"
-  content="The Hyderabad Daily — Digital News, Web News and Today's E-Paper."
+  name="theme-color"
+  content="#063b76"
 >
 
-<meta name="theme-color" content="#0b2f6b">
+<meta
+  name="description"
+  content="The Hyderabad Daily — Today's E-Paper"
+>
 
 <title>The Hyderabad Daily | E-Paper</title>
 
@@ -26,14 +29,18 @@
 ===================================================== */
 
 :root{
-  --navy:#073b78;
-  --navy-dark:#062d5b;
-  --blue:#0874c9;
+
+  --navy:#073d78;
+  --navy2:#0b529d;
   --red:#d71920;
-  --text:#172033;
-  --muted:#687384;
-  --paper-bg:#eef5fa;
+
+  --page-bg:#edf4f9;
+
+  --text:#151b25;
+  --muted:#68717d;
+
   --white:#fff;
+
 }
 
 *{
@@ -45,43 +52,52 @@ html{
 }
 
 body{
+
   margin:0;
+
   background:
     linear-gradient(
       180deg,
-      #f5f9fc 0%,
+      #f7fafc 0%,
       #eaf2f8 100%
     );
+
   color:var(--text);
+
   font-family:
     Georgia,
     "Times New Roman",
     serif;
-}
 
-a{
-  -webkit-tap-highlight-color:transparent;
 }
 
 img{
   max-width:100%;
 }
 
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
+
 
 /* =====================================================
-   TOP STRIPE
+   TOP LINE
 ===================================================== */
 
 .topline{
+
   height:5px;
 
   background:
     linear-gradient(
       90deg,
-      #063a76 0 72%,
+      #063b76 0 72%,
       #d71920 72% 100%
     );
+
 }
+
 
 
 /* =====================================================
@@ -89,13 +105,17 @@ img{
 ===================================================== */
 
 header{
+
   background:#fff;
 
   border-bottom:
     1px solid #d6e0e9;
+
 }
 
+
 .mast{
+
   max-width:1250px;
 
   margin:auto;
@@ -103,153 +123,194 @@ header{
   min-height:105px;
 
   padding:
-    10px 24px;
+    10px 20px;
 
   display:grid;
 
   grid-template-columns:
-    180px
+    170px
     1fr
-    180px;
+    190px;
 
   align-items:center;
 
   gap:10px;
+
 }
+
 
 .mast-side{
-  font-family:
+
+  font:
+    700 12px/1.25
     Georgia,
-    "Times New Roman",
     serif;
 
-  font-size:13px;
-
-  line-height:1.15;
-
   color:#111;
+
 }
 
-.mast-side strong{
-  color:#0a4fa0;
-}
 
 .mast-side.right{
+
   text-align:right;
+
 }
 
-.mast-side .underline{
-  width:76px;
+
+.mast-side strong{
+
+  color:#0755a2;
+
+}
+
+
+.mast-line{
+
+  width:75px;
+
   height:2px;
-  background:#e31d2a;
+
+  background:#e21d2a;
+
   margin-top:5px;
+
 }
 
-.mast-side.right .underline{
+
+.mast-side.right .mast-line{
+
   margin-left:auto;
+
 }
+
 
 .mast-logo{
+
   display:block;
 
   width:auto;
 
   max-width:620px;
+
   max-height:92px;
 
   margin:auto;
+
 }
+
 
 
 /* =====================================================
    NAVIGATION
 ===================================================== */
 
-.desktop-nav{
-  background:
-    linear-gradient(
-      180deg,
-      #0b4b91,
-      #06366d
-    );
+.main-nav{
 
   display:flex;
 
   justify-content:center;
 
+  background:
+    linear-gradient(
+      180deg,
+      #0b519b,
+      #06366c
+    );
+
   border-bottom:
-    3px solid #dce8f3;
+    3px solid #d9e6f1;
+
 }
 
-.desktop-nav a{
-  min-width:250px;
+
+.main-nav a{
+
+  flex:1;
+
+  max-width:280px;
 
   padding:
-    12px 24px;
+    12px 15px;
+
+  text-align:center;
 
   color:#fff;
 
   text-decoration:none;
 
-  text-align:center;
-
   font:
-    700 15px
+    800 14px
     Arial,
     sans-serif;
 
   border-left:
     1px solid
-    rgba(255,255,255,.28);
+    rgba(255,255,255,.25);
 
-  transition:.15s;
 }
 
-.desktop-nav a:last-child{
+
+.main-nav a:last-child{
+
   border-right:
     1px solid
-    rgba(255,255,255,.28);
+    rgba(255,255,255,.25);
+
 }
 
-.desktop-nav a:hover{
-  background:#0c5ba9;
+
+.main-nav a:hover{
+
+  background:#0d5eaa;
+
 }
+
 
 
 /* =====================================================
-   PAGE WRAPPER
+   MAIN
 ===================================================== */
 
 .page{
+
   width:100%;
 
   max-width:1250px;
 
   margin:auto;
+
 }
+
+
+.section{
+
+  padding:
+    22px 18px 30px;
+
+}
+
 
 
 /* =====================================================
-   E-PAPER SECTION
+   SECTION TITLE
 ===================================================== */
 
-.section{
-  padding:
-    22px 18px 28px;
-}
-
 .section-title{
-  display:flex;
 
-  align-items:center;
+  border-bottom:
+    5px solid
+    var(--navy);
 
   margin-bottom:15px;
 
-  border-bottom:
-    5px solid var(--navy);
 }
 
+
 .section-title h2{
+
+  display:inline-block;
+
   margin:0;
 
   padding:
@@ -260,12 +321,12 @@ header{
   color:#fff;
 
   font:
-    700 28px
+    700 27px
     Georgia,
     serif;
 
-  letter-spacing:.3px;
 }
+
 
 
 /* =====================================================
@@ -273,25 +334,29 @@ header{
 ===================================================== */
 
 .epaper-shell{
+
   width:100%;
+
+  padding:13px;
 
   background:
     linear-gradient(
       145deg,
-      #07101d,
-      #101d2d
+      #07111e,
+      #101e2e
     );
-
-  padding:13px;
 
   border-radius:8px;
 
   box-shadow:
     0 8px 30px
     rgba(0,0,0,.22);
+
 }
 
+
 .epaper-stage{
+
   width:100%;
 
   max-width:1100px;
@@ -299,9 +364,12 @@ header{
   margin:auto;
 
   background:#fff;
+
 }
 
-.epaper-stage img{
+
+#pageImage{
+
   display:block;
 
   width:100%;
@@ -310,86 +378,95 @@ header{
 
   margin:auto;
 
-  background:#fff;
 }
 
 
+
 /* =====================================================
-   ADVERTISEMENT CONTAINER
+   ADVERTISEMENT AREA
 
    IMPORTANT:
-   NEVER INSIDE NEWSPAPER IMAGE
+   COMPLETELY OUTSIDE THE NEWSPAPER
 ===================================================== */
 
 #pageAdContainer{
+
   width:100%;
 
   max-width:1100px;
 
   margin:
     12px auto 0;
+
 }
 
 
+
 /* =====================================================
-   COMMON PRODUCT AD
+   AD BASE
 ===================================================== */
 
 .product-ad{
+
   position:relative;
-
-  width:100%;
-
-  min-height:165px;
-
-  overflow:hidden;
 
   display:grid;
 
   grid-template-columns:
-    1fr 2.2fr auto;
+    minmax(150px,1fr)
+    minmax(250px,1.65fr)
+    minmax(260px,1.35fr)
+    auto;
 
   align-items:center;
 
-  gap:20px;
+  gap:18px;
+
+  width:100%;
+
+  min-height:205px;
 
   padding:
-    20px 24px;
+    18px 20px;
+
+  overflow:hidden;
 
   border-radius:10px;
 
-  text-decoration:none;
+  border:
+    1px solid
+    rgba(0,0,0,.12);
 
   color:#111;
+
+  text-decoration:none;
 
   box-shadow:
     0 5px 20px
     rgba(0,0,0,.12);
 
-  border:
-    1px solid rgba(0,0,0,.12);
-
   transition:
     transform .15s,
     box-shadow .15s;
+
 }
 
+
 .product-ad:hover{
+
   transform:
     translateY(-2px);
 
   box-shadow:
-    0 8px 24px
+    0 8px 25px
     rgba(0,0,0,.16);
+
 }
 
-.product-ad:active{
-  transform:scale(.995);
-}
 
 
 /* =====================================================
-   PAGE 1 — ZYLA
+   PAGE 1 ZYLA BACKGROUND
 ===================================================== */
 
 #pageAd1{
@@ -397,26 +474,26 @@ header{
   display:none;
 
   background:
+
     radial-gradient(
-      circle at 10% 50%,
-      rgba(255,255,255,.85),
-      transparent 30%
+      circle at 8% 50%,
+      rgba(255,255,255,.9),
+      transparent 27%
     ),
+
     linear-gradient(
-      110deg,
-      #f4e0d3 0%,
+      115deg,
+      #ead0c1 0%,
       #fff8f2 48%,
-      #e8c9b8 100%
+      #e8c5b3 100%
     );
+
 }
 
-#pageAd1 .ad-brand{
-  color:#8e183a;
-}
 
 
 /* =====================================================
-   PAGE 2 — HIGHLANDER
+   PAGE 2 HIGHLANDER BACKGROUND
 ===================================================== */
 
 #pageAd2{
@@ -424,79 +501,175 @@ header{
   display:none;
 
   background:
+
     radial-gradient(
-      circle at 12% 50%,
-      rgba(255,255,255,.9),
+      circle at 8% 50%,
+      rgba(255,255,255,.95),
       transparent 28%
     ),
+
     linear-gradient(
-      110deg,
-      #f2dfcf 0%,
-      #fff7ed 47%,
-      #e7c7b0 100%
+      115deg,
+      #ead6c6 0%,
+      #fff8ef 48%,
+      #e8cbb7 100%
     );
+
 }
 
-#pageAd2 .ad-brand{
-  color:#101010;
-
-  letter-spacing:-1px;
-}
 
 
 /* =====================================================
-   AD BRAND
+   PRODUCT IMAGE
+===================================================== */
+
+.ad-product-image{
+
+  width:100%;
+
+  height:170px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-end;
+
+  overflow:hidden;
+
+  border-radius:7px;
+
+}
+
+
+.ad-product-image img{
+
+  display:block;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  object-position:center top;
+
+}
+
+
+.ad-no-image{
+
+  width:100%;
+
+  height:150px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  font:
+    700 12px
+    Arial,
+    sans-serif;
+
+  color:#777;
+
+  background:
+    rgba(255,255,255,.35);
+
+  border-radius:7px;
+
+}
+
+
+
+/* =====================================================
+   BRAND
 ===================================================== */
 
 .ad-brand{
+
   font:
-    700 35px
+    700 33px
     Georgia,
     "Times New Roman",
     serif;
 
   line-height:1;
+
 }
 
+
+#pageAd1 .ad-brand{
+
+  color:#8d183b;
+
+}
+
+
+#pageAd2 .ad-brand{
+
+  color:#101010;
+
+  letter-spacing:-1px;
+
+}
+
+
 .ad-brand-sub{
+
   display:block;
 
   margin-top:7px;
 
   font:
-    700 10px
+    800 10px
     Arial,
     sans-serif;
 
   letter-spacing:2px;
 
   color:#333;
+
 }
+
 
 
 /* =====================================================
-   PRODUCT
+   PRODUCT TITLE
 ===================================================== */
 
-.ad-product{
+.ad-title{
+
+  margin-top:10px;
+
   font:
-    800 20px
+    800 18px
     Arial,
     sans-serif;
 
-  line-height:1.15;
+  line-height:1.18;
+
 }
+
 
 .ad-description{
+
   margin-top:5px;
 
+  color:#666;
+
   font:
-    500 12px
+    500 11px
     Arial,
     sans-serif;
 
-  color:#65605c;
 }
+
 
 
 /* =====================================================
@@ -504,57 +677,7 @@ header{
 ===================================================== */
 
 .ad-price-row{
-  margin-top:10px;
 
-  display:flex;
-
-  align-items:center;
-
-  flex-wrap:wrap;
-
-  gap:8px;
-}
-
-.ad-mrp{
-  color:#777;
-
-  font:
-    13px
-    Arial,
-    sans-serif;
-}
-
-.ad-price{
-  color:#d71920;
-
-  font:
-    900 32px
-    Arial,
-    sans-serif;
-}
-
-.ad-discount{
-  background:#ff3e68;
-
-  color:#fff;
-
-  padding:
-    7px 9px;
-
-  border-radius:5px;
-
-  font:
-    900 12px
-    Arial,
-    sans-serif;
-}
-
-
-/* =====================================================
-   OFFER ROW
-===================================================== */
-
-.ad-offer-row{
   margin-top:9px;
 
   display:flex;
@@ -564,18 +687,42 @@ header{
   flex-wrap:wrap;
 
   gap:8px;
+
 }
 
-.ad-mega{
-  background:#fff;
 
-  border:
-    1px solid #e6cbd6;
+.ad-mrp{
 
-  color:#9a1746;
+  color:#777;
+
+  font:
+    12px
+    Arial,
+    sans-serif;
+
+}
+
+
+.ad-price{
+
+  color:#d71920;
+
+  font:
+    900 31px
+    Arial,
+    sans-serif;
+
+}
+
+
+.ad-discount{
+
+  background:#ff3f68;
+
+  color:#fff;
 
   padding:
-    7px 9px;
+    6px 8px;
 
   border-radius:5px;
 
@@ -583,28 +730,41 @@ header{
     900 11px
     Arial,
     sans-serif;
+
 }
 
-.ad-get{
-  font:
-    800 16px
-    Arial,
-    sans-serif;
+
+
+/* =====================================================
+   DEAL
+===================================================== */
+
+.ad-deal{
+
+  margin-top:9px;
+
+  display:flex;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+
 }
 
-.ad-get strong{
-  color:#d71920;
 
-  font-size:21px;
-}
-
-.ad-extra{
-  background:#31b979;
-
-  color:#fff;
+.ad-mega{
 
   padding:
-    8px 10px;
+    6px 8px;
+
+  background:#fff;
+
+  color:#941644;
+
+  border:
+    1px solid #dfc2ce;
 
   border-radius:5px;
 
@@ -612,36 +772,80 @@ header{
     900 10px
     Arial,
     sans-serif;
+
 }
 
+
+.ad-get{
+
+  font:
+    800 15px
+    Arial,
+    sans-serif;
+
+}
+
+
+.ad-get strong{
+
+  color:#d71920;
+
+  font-size:20px;
+
+}
+
+
+.ad-extra{
+
+  padding:
+    7px 9px;
+
+  background:#31b978;
+
+  color:#fff;
+
+  border-radius:5px;
+
+  font:
+    900 10px
+    Arial,
+    sans-serif;
+
+}
+
+
 .ad-coupon{
+
   margin-top:5px;
 
   color:#555;
 
   font:
-    10px
+    9px
     Arial,
     sans-serif;
+
 }
 
 
+
 /* =====================================================
-   SHOP NOW
+   SHOP BUTTON
 ===================================================== */
 
 .ad-button{
+
   background:
     linear-gradient(
       135deg,
-      #ff3866,
-      #f21f52
+      #ff3867,
+      #f11f53
     );
 
   color:#fff;
 
   padding:
-    15px 20px;
+    14px 17px;
 
   border-radius:6px;
 
@@ -650,38 +854,16 @@ header{
   white-space:nowrap;
 
   font:
-    900 13px
+    900 12px
     Arial,
     sans-serif;
 
   box-shadow:
-    0 3px 8px
-    rgba(215,25,70,.22);
+    0 4px 10px
+    rgba(220,30,80,.20);
+
 }
 
-
-/* =====================================================
-   AD DECORATION
-===================================================== */
-
-.ad-decoration{
-  position:absolute;
-
-  right:15px;
-
-  bottom:-30px;
-
-  width:130px;
-
-  height:130px;
-
-  border-radius:50%;
-
-  background:
-    rgba(255,255,255,.22);
-
-  pointer-events:none;
-}
 
 
 /* =====================================================
@@ -689,7 +871,6 @@ header{
 ===================================================== */
 
 .epaper-tools{
-  background:#fff;
 
   display:flex;
 
@@ -701,60 +882,61 @@ header{
 
   flex-wrap:wrap;
 
-  padding:
-    12px;
+  padding:12px;
+
+  background:#fff;
 
   border:
-    1px solid #d4dde6;
+    1px solid #d3dde7;
 
-  border-top:0;
 }
 
-.epaper-tools button{
-  background:
-    linear-gradient(
-      180deg,
-      #104a8e,
-      #07366d
-    );
 
-  color:#fff;
+.epaper-tools button{
 
   border:0;
 
   border-radius:6px;
 
+  background:
+    linear-gradient(
+      180deg,
+      #124d91,
+      #07366c
+    );
+
+  color:#fff;
+
   padding:
-    11px 19px;
+    11px 18px;
+
+  cursor:pointer;
+
+  font:
+    800 12px
+    Arial,
+    sans-serif;
+
+}
+
+
+#counter{
+
+  min-width:140px;
+
+  text-align:center;
 
   font:
     800 13px
     Arial,
     sans-serif;
 
-  cursor:pointer;
 }
 
-.epaper-tools button:hover{
-  background:#0d5aa6;
-}
-
-#counter{
-  min-width:135px;
-
-  text-align:center;
-
-  color:#172033;
-
-  font:
-    800 14px
-    Arial,
-    sans-serif;
-}
 
 
 /* =====================================================
-   PAGE THUMBNAILS
+   THUMBNAILS
 ===================================================== */
 
 .page-grid{
@@ -767,9 +949,13 @@ header{
   gap:8px;
 
   margin-top:10px;
+
 }
 
+
 .page-card{
+
+  padding:4px;
 
   background:#fff;
 
@@ -778,30 +964,24 @@ header{
 
   border-radius:4px;
 
-  padding:4px;
-
   cursor:pointer;
 
   box-shadow:
-    0 2px 8px
-    rgba(0,0,0,.07);
+    0 2px 7px
+    rgba(0,0,0,.08);
 
-  transition:.15s;
 }
 
-.page-card:hover{
-  border-color:#9bb8d6;
-}
 
 .page-card.active{
+
   border-color:var(--navy);
 
-  box-shadow:
-    0 0 0 2px
-    rgba(7,59,120,.12);
 }
 
+
 .page-card img{
+
   display:block;
 
   width:100%;
@@ -809,9 +989,12 @@ header{
   aspect-ratio:3/4;
 
   object-fit:cover;
+
 }
 
+
 .page-card b{
+
   display:block;
 
   text-align:center;
@@ -821,17 +1004,20 @@ header{
   color:var(--navy);
 
   font:
-    800 10px
+    800 9px
     Arial,
     sans-serif;
+
 }
 
+
 .page-card span{
+
   display:block;
 
   text-align:center;
 
-  color:#6a7480;
+  color:#697481;
 
   margin:
     2px 0 4px;
@@ -840,7 +1026,9 @@ header{
     8px
     Arial,
     sans-serif;
+
 }
+
 
 
 /* =====================================================
@@ -848,63 +1036,82 @@ header{
 ===================================================== */
 
 footer{
+
+  margin-top:0;
+
+  padding:
+    22px 12px;
+
   background:
     linear-gradient(
       180deg,
-      #083d79,
-      #062d5b
+      #083f7b,
+      #062d5a
     );
 
   color:#fff;
 
   text-align:center;
 
-  padding:
-    24px 12px;
-
   font:
-    12px/1.6
+    11px/1.6
     Arial,
     sans-serif;
+
 }
 
+
 footer strong{
+
   font-size:15px;
+
 }
+
 
 
 /* =====================================================
    TABLET
 ===================================================== */
 
-@media(max-width:1000px){
+@media(max-width:950px){
 
   .mast{
-    grid-template-columns:
-      130px 1fr 130px;
 
-    padding:
-      9px 12px;
+    grid-template-columns:
+      120px
+      1fr
+      145px;
+
   }
+
 
   .mast-logo{
+
     max-width:500px;
+
   }
 
-  .mast-side{
-    font-size:11px;
+
+  .product-ad{
+
+    grid-template-columns:
+      145px
+      1.4fr
+      1fr
+      auto;
+
   }
 
-  .desktop-nav a{
-    min-width:180px;
-  }
 
   .page-grid{
+
     grid-template-columns:
       repeat(5,1fr);
+
   }
 
 }
+
 
 
 /* =====================================================
@@ -914,276 +1121,400 @@ footer strong{
 @media(max-width:650px){
 
   body{
-    background:#eef5fa;
+
+    background:#edf4f9;
+
   }
 
 
   /* HEADER */
 
   .mast{
+
     display:block;
 
     min-height:0;
 
     padding:
-      10px 7px 8px;
+      9px 6px 7px;
+
   }
+
 
   .mast-side{
+
     display:none;
+
   }
 
+
   .mast-logo{
+
     max-width:96vw;
 
     max-height:82px;
+
   }
 
 
   /* NAV */
 
-  .desktop-nav{
+  .main-nav{
+
     width:100%;
+
   }
 
-  .desktop-nav a{
+
+  .main-nav a{
+
     min-width:0;
 
-    flex:1;
+    max-width:none;
 
     padding:
       11px 2px;
 
-    font-size:10px;
+    font-size:9px;
+
   }
 
 
   /* SECTION */
 
   .section{
+
     padding:
-      13px 5px 20px;
+      12px 4px 20px;
+
   }
+
 
   .section-title{
-    margin-bottom:9px;
+
+    margin-bottom:8px;
 
     border-bottom-width:4px;
+
   }
+
 
   .section-title h2{
-    font-size:20px;
+
+    font-size:19px;
 
     padding:
-      8px 13px;
+      8px 12px;
+
   }
 
 
-  /* PAPER */
+  /* NEWSPAPER */
 
   .epaper-shell{
+
     padding:5px;
 
     border-radius:6px;
+
   }
 
 
-  /* AD */
+  /* =================================================
+     MOBILE ADVERTISEMENT
+
+     NO HORIZONTAL OVERFLOW
+  ================================================= */
 
   #pageAdContainer{
+
     margin-top:8px;
+
+    width:100%;
+
+    overflow:hidden;
+
   }
+
 
   .product-ad{
 
-    display:block;
+    display:grid;
+
+    grid-template-columns:
+      100px
+      1fr;
+
+    gap:9px;
+
+    align-items:center;
+
+    width:100%;
 
     min-height:0;
 
     padding:
-      14px 13px;
+      11px;
 
     border-radius:8px;
+
   }
 
-  .ad-brand{
-    font-size:27px;
-  }
 
-  .ad-brand-sub{
-    margin-top:5px;
-
-    font-size:8px;
-
-    letter-spacing:1.5px;
-  }
-
-  .ad-product{
-    margin-top:10px;
-
-    font-size:15px;
-  }
-
-  .ad-description{
-    font-size:9px;
-  }
-
-  .ad-price-row{
-    margin-top:7px;
-
-    gap:6px;
-  }
-
-  .ad-mrp{
-    font-size:11px;
-  }
-
-  .ad-price{
-    font-size:25px;
-  }
-
-  .ad-discount{
-    padding:
-      5px 7px;
-
-    font-size:9px;
-  }
-
-  .ad-offer-row{
-    margin-top:7px;
-
-    gap:6px;
-  }
-
-  .ad-mega{
-    padding:
-      6px 7px;
-
-    font-size:9px;
-  }
-
-  .ad-get{
-    font-size:13px;
-  }
-
-  .ad-get strong{
-    font-size:18px;
-  }
-
-  .ad-extra{
-    padding:
-      6px 8px;
-
-    font-size:8px;
-  }
-
-  .ad-coupon{
-    font-size:8px;
-  }
-
-  .ad-button{
-    display:block;
+  .ad-product-image{
 
     width:100%;
 
-    margin-top:11px;
+    height:145px;
 
-    padding:
-      12px;
+    grid-row:
+      1 / span 3;
 
-    font-size:12px;
   }
 
-  .ad-decoration{
-    display:none;
+
+  .ad-brand{
+
+    font-size:22px;
+
+  }
+
+
+  .ad-brand-sub{
+
+    margin-top:4px;
+
+    font-size:7px;
+
+    letter-spacing:1.2px;
+
+  }
+
+
+  .ad-title{
+
+    margin-top:5px;
+
+    font-size:13px;
+
+  }
+
+
+  .ad-description{
+
+    margin-top:3px;
+
+    font-size:8px;
+
+  }
+
+
+  .ad-price-row{
+
+    margin-top:5px;
+
+    gap:5px;
+
+  }
+
+
+  .ad-mrp{
+
+    font-size:9px;
+
+  }
+
+
+  .ad-price{
+
+    font-size:23px;
+
+  }
+
+
+  .ad-discount{
+
+    padding:
+      4px 6px;
+
+    font-size:8px;
+
+  }
+
+
+  .ad-deal{
+
+    margin-top:5px;
+
+    gap:5px;
+
+  }
+
+
+  .ad-mega{
+
+    padding:
+      5px 6px;
+
+    font-size:8px;
+
+  }
+
+
+  .ad-get{
+
+    font-size:11px;
+
+  }
+
+
+  .ad-get strong{
+
+    font-size:16px;
+
+  }
+
+
+  .ad-extra{
+
+    padding:
+      5px 7px;
+
+    font-size:8px;
+
+  }
+
+
+  .ad-coupon{
+
+    font-size:7px;
+
+  }
+
+
+  .ad-button{
+
+    grid-column:
+      1 / -1;
+
+    width:100%;
+
+    margin-top:4px;
+
+    padding:
+      10px;
+
+    font-size:11px;
+
   }
 
 
   /* CONTROLS */
 
   .epaper-tools{
+
     gap:5px;
 
     padding:
       8px 5px;
+
   }
+
 
   .epaper-tools button{
-    padding:
-      9px 11px;
 
-    font-size:10px;
+    padding:
+      9px 10px;
+
+    font-size:9px;
+
   }
 
+
   #counter{
+
     width:100%;
 
     order:-1;
 
     font-size:13px;
 
-    padding-bottom:2px;
   }
 
 
   /* THUMBNAILS */
 
   .page-grid{
+
     grid-template-columns:
       repeat(2,1fr);
 
     gap:7px;
+
   }
 
-  .page-card{
-    padding:4px;
-  }
 
   .page-card b{
-    font-size:10px;
+
+    font-size:9px;
+
   }
 
+
   .page-card span{
-    font-size:8px;
+
+    font-size:7px;
+
   }
 
 }
 
 
+
 /* =====================================================
-   VERY SMALL PHONES
+   VERY SMALL MOBILE
 ===================================================== */
 
 @media(max-width:380px){
 
-  .desktop-nav a{
-    font-size:9px;
+  .product-ad{
+
+    grid-template-columns:
+      88px
+      1fr;
+
+    padding:9px;
+
   }
 
-  .epaper-tools button{
-    padding:
-      8px 8px;
 
-    font-size:9px;
+  .ad-product-image{
+
+    height:125px;
+
   }
+
+
+  .ad-brand{
+
+    font-size:19px;
+
+  }
+
+
+  .ad-title{
+
+    font-size:12px;
+
+  }
+
 
   .ad-price{
-    font-size:23px;
+
+    font-size:21px;
+
   }
 
-}
-
-
-/* =====================================================
-   ACCESSIBILITY
-===================================================== */
-
-button:focus,
-.page-card:focus{
-  outline:
-    2px solid #0b5ca8;
-
-  outline-offset:2px;
 }
 
 </style>
@@ -1195,14 +1526,14 @@ button:focus,
 
 
 <!-- =====================================================
-     TOP STRIPE
+     TOP
 ===================================================== -->
 
 <div class="topline"></div>
 
 
 <!-- =====================================================
-     MASTHEAD
+     HEADER
 ===================================================== -->
 
 <header>
@@ -1216,7 +1547,7 @@ button:focus,
       PEOPLE<br>
       PROGRESS
 
-      <div class="underline"></div>
+      <div class="mast-line"></div>
 
     </div>
 
@@ -1240,7 +1571,7 @@ button:focus,
 
       HYDERABAD
 
-      <div class="underline"></div>
+      <div class="mast-line"></div>
 
     </div>
 
@@ -1248,9 +1579,7 @@ button:focus,
   </div>
 
 
-  <!-- NAV -->
-
-  <nav class="desktop-nav">
+  <nav class="main-nav">
 
     <a href="digital-news.html">
       DIGITAL NEWS
@@ -1277,288 +1606,330 @@ button:focus,
 <main class="page">
 
 
-  <section
-    class="section"
-    id="epaper"
-  >
+<section
+  class="section"
+  id="epaper"
+>
 
 
-    <!-- SECTION TITLE -->
+  <div class="section-title">
 
-    <div class="section-title">
+    <h2>
+      TODAY'S E-PAPER
+    </h2>
 
-      <h2>
-        TODAY'S E-PAPER
-      </h2>
+  </div>
+
+
+
+  <!-- =================================================
+       NEWSPAPER
+  ================================================= -->
+
+  <div class="epaper-shell">
+
+    <div class="epaper-stage">
+
+      <img
+        id="pageImage"
+        src="page-01.png"
+        alt="The Hyderabad Daily E-Paper Page 1"
+      >
 
     </div>
 
+  </div>
+
+
+
+  <!-- =================================================
+       PAGE-WISE ADVERTISEMENT
+  ================================================= -->
+
+  <div id="pageAdContainer">
+
+
 
     <!-- =================================================
-         NEWSPAPER
+         PAGE 1 — ZYLA
     ================================================= -->
 
-    <div class="epaper-shell">
+    <a
+      id="pageAd1"
+      class="product-ad"
 
-      <div class="epaper-stage">
+      href="https://myntr.in/XuhdWB"
+
+      target="_blank"
+
+      rel="sponsored noopener noreferrer"
+    >
+
+
+      <!-- PRODUCT VISUAL -->
+
+      <div class="ad-product-image">
+
+        <div class="ad-no-image">
+
+          ZYLA<br>
+          WOMEN'S FASHION
+
+        </div>
+
+      </div>
+
+
+      <!-- BRAND / PRODUCT -->
+
+      <div>
+
+        <div class="ad-brand">
+          Zyla
+        </div>
+
+        <span class="ad-brand-sub">
+          WOMEN'S FASHION
+        </span>
+
+
+        <div class="ad-title">
+          Zyla Women Floral Printed Kurta
+        </div>
+
+        <div class="ad-description">
+          Floral Printed • Maroon • Apparel for Women
+        </div>
+
+      </div>
+
+
+      <!-- PRICE -->
+
+      <div>
+
+        <div class="ad-price-row">
+
+          <span class="ad-mrp">
+            MRP <del>₹999</del>
+          </span>
+
+          <span class="ad-price">
+            ₹317
+          </span>
+
+          <span class="ad-discount">
+            68% OFF!
+          </span>
+
+        </div>
+
+
+        <div class="ad-deal">
+
+          <span class="ad-mega">
+            MEGA DEAL
+          </span>
+
+          <span class="ad-get">
+            Get at <strong>₹140</strong>
+          </span>
+
+        </div>
+
+
+        <div class="ad-extra">
+          Extra ₹177 Off
+        </div>
+
+
+        <div class="ad-coupon">
+          With Coupon + Bank Offer
+        </div>
+
+      </div>
+
+
+      <!-- BUTTON -->
+
+      <div class="ad-button">
+        SHOP NOW →
+      </div>
+
+
+    </a>
+
+
+
+    <!-- =================================================
+         PAGE 2 — HIGHLANDER
+    ================================================= -->
+
+    <a
+      id="pageAd2"
+      class="product-ad"
+
+      href="https://myntr.in/KhmDGr"
+
+      target="_blank"
+
+      rel="sponsored noopener noreferrer"
+    >
+
+
+      <!-- PRODUCT IMAGE -->
+
+      <div class="ad-product-image">
 
         <img
-          id="pageImage"
-          src="page-01.png"
-          alt="The Hyderabad Daily E-Paper Page 1"
-          onerror="handleImageError(this)"
+          src="ads/highlander-product.jpg"
+          alt="HIGHLANDER Men Slim Fit Shirt"
+
+          onerror="
+            this.style.display='none';
+            this.parentElement.innerHTML=
+            '<div class=&quot;ad-no-image&quot;>HIGHLANDER<br>MEN&apos;S FASHION</div>';
+          "
         >
 
       </div>
 
-    </div>
+
+      <!-- BRAND / PRODUCT -->
+
+      <div>
+
+        <div class="ad-brand">
+          HIGHLANDER
+        </div>
+
+        <span class="ad-brand-sub">
+          MEN'S FASHION
+        </span>
 
 
+        <div class="ad-title">
+          HIGHLANDER Men Slim Fit Shirt
+        </div>
 
-    <!-- =================================================
-         PAGE-WISE ADS
-    ================================================= -->
+        <div class="ad-description">
+          Slim Fit • Black • Apparel for Men
+        </div>
 
-    <div id="pageAdContainer">
+      </div>
 
 
-      <!-- =================================================
-           PAGE 1 — ZYLA
-      ================================================= -->
+      <!-- PRICE / OFFER -->
 
-      <a
-        id="pageAd1"
-        class="product-ad"
-        href="https://myntr.in/XuhdWB"
-        target="_blank"
-        rel="sponsored noopener noreferrer"
-        aria-label="Buy Zyla Women Floral Printed Kurta"
-      >
+      <div>
 
-        <div>
+        <div class="ad-price-row">
 
-          <div class="ad-brand">
-            Zyla
-          </div>
+          <span class="ad-mrp">
+            MRP <del>₹1,599</del>
+          </span>
 
-          <span class="ad-brand-sub">
-            WOMEN'S FASHION
+          <span class="ad-price">
+            ₹495
+          </span>
+
+          <span class="ad-discount">
+            69% OFF!
           </span>
 
         </div>
 
 
-        <div>
+        <div class="ad-deal">
 
-          <div class="ad-product">
+          <span class="ad-mega">
+            MEGA DEAL
+          </span>
 
-            Zyla Women Floral Printed Kurta
-
-            <div class="ad-description">
-              Floral Printed • Maroon • Apparel for Women
-            </div>
-
-          </div>
-
-
-          <div class="ad-price-row">
-
-            <span class="ad-mrp">
-              MRP <del>₹999</del>
-            </span>
-
-            <span class="ad-price">
-              ₹317
-            </span>
-
-            <span class="ad-discount">
-              68% OFF!
-            </span>
-
-          </div>
-
-
-          <div class="ad-offer-row">
-
-            <span class="ad-mega">
-              MEGA DEAL
-            </span>
-
-            <span class="ad-get">
-              Get at <strong>₹140</strong>
-            </span>
-
-            <span class="ad-extra">
-              Extra ₹177 Off
-            </span>
-
-          </div>
-
-
-          <div class="ad-coupon">
-            With Coupon + Bank Offer
-          </div>
-
-        </div>
-
-
-        <div class="ad-button">
-          SHOP NOW →
-        </div>
-
-
-        <div class="ad-decoration"></div>
-
-      </a>
-
-
-
-      <!-- =================================================
-           PAGE 2 — HIGHLANDER
-      ================================================= -->
-
-      <a
-        id="pageAd2"
-        class="product-ad"
-        href="https://myntr.in/KhmDGr"
-        target="_blank"
-        rel="sponsored noopener noreferrer"
-        aria-label="Buy HIGHLANDER Men Slim Fit Shirt"
-      >
-
-        <div>
-
-          <div class="ad-brand">
-            HIGHLANDER
-          </div>
-
-          <span class="ad-brand-sub">
-            MEN'S FASHION
+          <span class="ad-get">
+            Get at <strong>₹344</strong>
           </span>
 
         </div>
 
 
-        <div>
-
-          <div class="ad-product">
-
-            HIGHLANDER Men Slim Fit Shirt
-
-            <div class="ad-description">
-              Slim Fit • Black • Apparel for Men
-            </div>
-
-          </div>
-
-
-          <div class="ad-price-row">
-
-            <span class="ad-mrp">
-              MRP <del>₹1,599</del>
-            </span>
-
-            <span class="ad-price">
-              ₹495
-            </span>
-
-            <span class="ad-discount">
-              69% OFF!
-            </span>
-
-          </div>
-
-
-          <div class="ad-offer-row">
-
-            <span class="ad-mega">
-              MEGA DEAL
-            </span>
-
-            <span class="ad-get">
-              Get at <strong>₹344</strong>
-            </span>
-
-            <span class="ad-extra">
-              Extra ₹151 Off
-            </span>
-
-          </div>
-
-
-          <div class="ad-coupon">
-            With Coupon + Bank Offer
-          </div>
-
+        <div class="ad-extra">
+          Extra ₹151 Off
         </div>
 
 
-        <div class="ad-button">
-          SHOP NOW →
+        <div class="ad-coupon">
+          With Coupon + Bank Offer
         </div>
 
-
-        <div class="ad-decoration"></div>
-
-      </a>
+      </div>
 
 
-    </div>
+      <!-- BUTTON -->
+
+      <div class="ad-button">
+        SHOP NOW →
+      </div>
 
 
-
-    <!-- =================================================
-         CONTROLS
-    ================================================= -->
-
-    <div class="epaper-tools">
+    </a>
 
 
-      <button
-        type="button"
-        onclick="previousPage()"
-      >
-        ‹ PREVIOUS
-      </button>
-
-
-      <span id="counter">
-        PAGE 01 OF 10
-      </span>
-
-
-      <button
-        type="button"
-        onclick="nextPage()"
-      >
-        NEXT ›
-      </button>
-
-
-      <button
-        type="button"
-        onclick="fullScreen()"
-      >
-        FULL SCREEN
-      </button>
-
-
-    </div>
+  </div>
 
 
 
-    <!-- =================================================
-         THUMBNAILS
-    ================================================= -->
+  <!-- =================================================
+       CONTROLS
+  ================================================= -->
 
-    <div
-      class="page-grid"
-      id="pageGrid"
-      aria-label="E-paper pages"
-    ></div>
+  <div class="epaper-tools">
 
 
-  </section>
+    <button
+      type="button"
+      onclick="previousPage()"
+    >
+      ‹ PREVIOUS
+    </button>
+
+
+    <span id="counter">
+      PAGE 01 OF 10
+    </span>
+
+
+    <button
+      type="button"
+      onclick="nextPage()"
+    >
+      NEXT ›
+    </button>
+
+
+    <button
+      type="button"
+      onclick="fullScreen()"
+    >
+      FULL SCREEN
+    </button>
+
+
+  </div>
+
+
+
+  <!-- =================================================
+       THUMBNAILS
+  ================================================= -->
+
+  <div
+    class="page-grid"
+    id="pageGrid"
+  ></div>
+
+
+</section>
 
 </main>
 
@@ -1589,7 +1960,7 @@ button:focus,
 <script>
 
 /* =====================================================
-   E-PAPER PAGES
+   PAGES
 ===================================================== */
 
 const pages = [
@@ -1660,34 +2031,26 @@ const pages = [
 let current = 0;
 
 
+
 /* =====================================================
    ELEMENTS
 ===================================================== */
 
 const image =
-  document.getElementById(
-    "pageImage"
-  );
+  document.getElementById("pageImage");
 
 const counter =
-  document.getElementById(
-    "counter"
-  );
+  document.getElementById("counter");
 
 const grid =
-  document.getElementById(
-    "pageGrid"
-  );
+  document.getElementById("pageGrid");
 
 const pageAd1 =
-  document.getElementById(
-    "pageAd1"
-  );
+  document.getElementById("pageAd1");
 
 const pageAd2 =
-  document.getElementById(
-    "pageAd2"
-  );
+  document.getElementById("pageAd2");
+
 
 
 /* =====================================================
@@ -1705,15 +2068,7 @@ function buildPageGrid(){
       card.className =
         "page-card";
 
-      card.setAttribute(
-        "role",
-        "button"
-      );
-
-      card.setAttribute(
-        "tabindex",
-        "0"
-      );
+      card.tabIndex = 0;
 
       card.innerHTML = `
 
@@ -1737,9 +2092,7 @@ function buildPageGrid(){
       card.addEventListener(
         "click",
         function(){
-
           showPage(index);
-
         }
       );
 
@@ -1771,6 +2124,7 @@ function buildPageGrid(){
 }
 
 
+
 /* =====================================================
    ACTIVE THUMBNAIL
 ===================================================== */
@@ -1793,15 +2147,12 @@ function updateActiveCard(){
 }
 
 
+
 /* =====================================================
-   PAGE-WISE ADVERTISEMENT
+   PAGE-WISE AD
 ===================================================== */
 
 function updatePageAd(){
-
-  /*
-     PAGE 1
-  */
 
   if(pageAd1){
 
@@ -1813,10 +2164,6 @@ function updatePageAd(){
   }
 
 
-  /*
-     PAGE 2
-  */
-
   if(pageAd2){
 
     pageAd2.style.display =
@@ -1827,6 +2174,7 @@ function updatePageAd(){
   }
 
 }
+
 
 
 /* =====================================================
@@ -1864,7 +2212,14 @@ function showPage(index){
 
   updatePageAd();
 
+
+  window.scrollTo({
+    top:document.getElementById("epaper").offsetTop - 8,
+    behavior:"smooth"
+  });
+
 }
+
 
 
 /* =====================================================
@@ -1875,13 +2230,12 @@ function previousPage(){
 
   if(current > 0){
 
-    showPage(
-      current - 1
-    );
+    showPage(current - 1);
 
   }
 
 }
+
 
 
 /* =====================================================
@@ -1895,13 +2249,12 @@ function nextPage(){
     pages.length - 1
   ){
 
-    showPage(
-      current + 1
-    );
+    showPage(current + 1);
 
   }
 
 }
+
 
 
 /* =====================================================
@@ -1911,22 +2264,16 @@ function nextPage(){
 function fullScreen(){
 
   const el =
-    document.getElementById(
-      "pageImage"
-    );
+    document.getElementById("pageImage");
 
 
-  if(
-    el.requestFullscreen
-  ){
+  if(el.requestFullscreen){
 
     el.requestFullscreen();
 
   }
 
-  else if(
-    el.webkitRequestFullscreen
-  ){
+  else if(el.webkitRequestFullscreen){
 
     el.webkitRequestFullscreen();
 
@@ -1944,21 +2291,9 @@ function fullScreen(){
 }
 
 
-/* =====================================================
-   IMAGE ERROR
-===================================================== */
-
-function handleImageError(img){
-
-  img.alt =
-    "E-paper page could not be loaded. " +
-    "Please check the PNG filename.";
-
-}
-
 
 /* =====================================================
-   MOBILE SWIPE
+   SWIPE
 ===================================================== */
 
 let startX = 0;
@@ -1966,29 +2301,27 @@ let startX = 0;
 
 image.addEventListener(
   "touchstart",
-
   function(event){
 
     startX =
       event.touches[0].clientX;
 
   },
-
   {
     passive:true
   }
-
 );
 
 
 image.addEventListener(
   "touchend",
-
   function(event){
 
-    const distance =
-      startX -
+    const endX =
       event.changedTouches[0].clientX;
+
+    const distance =
+      startX - endX;
 
 
     if(
@@ -2009,12 +2342,11 @@ image.addEventListener(
     }
 
   },
-
   {
     passive:true
   }
-
 );
+
 
 
 /* =====================================================
@@ -2023,7 +2355,6 @@ image.addEventListener(
 
 document.addEventListener(
   "keydown",
-
   function(event){
 
     if(
@@ -2045,6 +2376,7 @@ document.addEventListener(
 
   }
 );
+
 
 
 /* =====================================================
@@ -2091,29 +2423,25 @@ function updateHomeDate(){
     );
 
 
-  const dayEl =
-    document.getElementById(
-      "homeDay"
-    );
+  const dayElement =
+    document.getElementById("homeDay");
 
 
-  const dateEl =
-    document.getElementById(
-      "homeDate"
-    );
+  const dateElement =
+    document.getElementById("homeDate");
 
 
-  if(dayEl){
+  if(dayElement){
 
-    dayEl.textContent =
+    dayElement.textContent =
       day.toUpperCase();
 
   }
 
 
-  if(dateEl){
+  if(dateElement){
 
-    dateEl.textContent =
+    dateElement.textContent =
       date.toUpperCase();
 
   }
