@@ -12,6 +12,7 @@
 <title>The Hyderabad Daily | Digital News & E-Paper</title>
 
 <style>
+
 :root{
   --navy:#0b2f6b;
   --navy2:#123f82;
@@ -38,7 +39,8 @@ body{
   font-family:Georgia,"Times New Roman",serif;
 }
 
-/* TOP COLOUR LINE */
+/* TOP LINE */
+
 .topline{
   height:5px;
   background:linear-gradient(
@@ -49,6 +51,7 @@ body{
 }
 
 /* HEADER */
+
 header{
   background:var(--white);
   border-bottom:1px solid var(--line);
@@ -73,6 +76,7 @@ header{
 }
 
 /* DATE */
+
 .edition{
   min-width:180px;
   text-align:center;
@@ -85,7 +89,8 @@ header{
   font-size:16px;
 }
 
-/* BLUE NAVIGATION BAR */
+/* NAVIGATION */
+
 .desktop-nav{
   background:var(--navy);
   display:flex;
@@ -115,7 +120,8 @@ header{
   background:var(--navy2);
 }
 
-/* MAIN PAGE */
+/* MAIN */
+
 .page{
   max-width:1200px;
   margin:auto;
@@ -125,7 +131,8 @@ header{
   padding:24px 16px;
 }
 
-/* E-PAPER TITLE */
+/* SECTION TITLE */
+
 .section-title{
   display:flex;
   align-items:center;
@@ -143,6 +150,7 @@ header{
 }
 
 /* E-PAPER */
+
 #epaper{
   scroll-margin-top:15px;
 }
@@ -152,6 +160,19 @@ header{
   padding:12px;
   border-radius:3px;
   box-shadow:0 6px 24px rgba(0,0,0,.20);
+}
+
+/*
+  IMPORTANT:
+  The advertisement is positioned over the
+  Page 1 image without changing the PNG.
+*/
+
+.epaper-stage{
+  position:relative;
+  width:100%;
+  max-width:1050px;
+  margin:auto;
 }
 
 .epaper-shell img{
@@ -164,28 +185,147 @@ header{
   object-fit:contain;
 }
 
+/* =====================================================
+   PAGE 1 COMMERCIAL ADVERTISEMENT
+===================================================== */
+
+.page1-ad{
+  position:absolute;
+
+  left:3%;
+  right:3%;
+  bottom:2.2%;
+
+  z-index:5;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:14px;
+
+  padding:10px 14px;
+
+  border:2px solid #111;
+  border-radius:4px;
+
+  background:rgba(255,255,255,.97);
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.28);
+
+  color:#111;
+
+  text-decoration:none;
+
+  font-family:Arial,sans-serif;
+
+  cursor:pointer;
+}
+
+.page1-ad:hover{
+  background:#f5f7fa;
+}
+
+.page1-ad:active{
+  transform:scale(.995);
+}
+
+/* Advertisement label */
+
+.page1-ad-label{
+  flex:0 0 auto;
+
+  font-size:9px;
+  font-weight:700;
+
+  letter-spacing:1px;
+
+  color:#666;
+}
+
+/* Advertisement title */
+
+.page1-ad-title{
+  flex:1;
+
+  font-size:15px;
+
+  font-weight:800;
+
+  line-height:1.15;
+}
+
+.page1-ad-title span{
+  display:block;
+
+  font-size:11px;
+
+  font-weight:500;
+
+  margin-top:3px;
+
+  color:#444;
+}
+
+/* SHOP NOW BUTTON */
+
+.page1-ad-cta{
+  flex:0 0 auto;
+
+  background:var(--navy);
+
+  color:#fff;
+
+  padding:9px 13px;
+
+  border-radius:3px;
+
+  font-size:11px;
+
+  font-weight:800;
+
+  white-space:nowrap;
+}
+
 /* E-PAPER CONTROLS */
+
 .epaper-tools{
   background:#fff;
+
   display:flex;
+
   justify-content:center;
+
   align-items:center;
+
   gap:8px;
+
   flex-wrap:wrap;
+
   padding:12px;
+
   border:1px solid var(--line);
+
   border-top:0;
 }
 
 button,
 .tool-btn{
   border:1px solid var(--navy);
+
   background:var(--navy);
+
   color:#fff;
+
   padding:10px 15px;
+
   border-radius:4px;
+
   font:bold 12px Arial,sans-serif;
+
   text-decoration:none;
+
   cursor:pointer;
 }
 
@@ -196,23 +336,34 @@ button:hover,
 
 #counter{
   min-width:115px;
+
   text-align:center;
+
   font:bold 12px Arial,sans-serif;
+
   color:#222;
 }
 
 /* PAGE THUMBNAILS */
+
 .page-grid{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+
+  grid-template-columns:
+    repeat(5,1fr);
+
   gap:10px;
+
   margin-top:12px;
 }
 
 .page-card{
   background:#fff;
+
   border:2px solid transparent;
+
   padding:6px;
+
   cursor:pointer;
 }
 
@@ -223,36 +374,54 @@ button:hover,
 
 .page-card img{
   display:block;
+
   width:100%;
+
   aspect-ratio:3/4;
+
   object-fit:cover;
 }
 
 .page-card b{
   display:block;
+
   padding:7px 3px 2px;
+
   color:var(--navy);
+
   font:700 12px Arial,sans-serif;
 }
 
 .page-card span{
   display:block;
+
   padding:0 3px 5px;
+
   color:var(--muted);
+
   font:10px Arial,sans-serif;
 }
 
 /* FOOTER */
+
 footer{
   margin-top:20px;
+
   background:var(--navy);
+
   color:#fff;
+
   text-align:center;
+
   padding:24px 12px;
+
   font:12px/1.6 Arial,sans-serif;
 }
 
-/* TABLET */
+/* =====================================================
+   TABLET
+===================================================== */
+
 @media(max-width:900px){
 
   .mast{
@@ -279,18 +448,22 @@ footer{
   }
 
   .page-grid{
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:
+      repeat(4,1fr);
   }
+
 }
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media(max-width:650px){
 
   .topline{
     height:4px;
   }
 
-  /* LOGO + DATE */
   .mast{
     padding:12px 8px 10px;
     display:block;
@@ -298,17 +471,25 @@ footer{
 
   .mast-logo{
     display:block;
+
     width:auto;
+
     max-width:92vw;
+
     max-height:105px;
+
     margin:0 auto 8px;
   }
 
   .edition{
     margin-top:4px;
+
     min-width:0;
+
     text-align:center;
+
     font-size:11px;
+
     line-height:1.45;
   }
 
@@ -316,47 +497,66 @@ footer{
     font-size:14px;
   }
 
-  /* THREE LINKS ALWAYS VISIBLE */
+  /* THREE NAVIGATION LINKS */
+
   .desktop-nav{
     display:flex;
+
     width:100%;
+
     justify-content:stretch;
+
     align-items:stretch;
+
     padding:0;
+
     gap:0;
   }
 
   .desktop-nav a{
     flex:1 1 33.333%;
+
     min-width:0;
+
     padding:13px 3px;
+
     font-size:10px;
+
     line-height:1.2;
-    border-left:1px solid rgba(255,255,255,.25);
+
+    border-left:
+      1px solid rgba(255,255,255,.25);
+
     border-radius:0;
+
     white-space:nowrap;
   }
 
   .desktop-nav a:last-child{
-    border-right:1px solid rgba(255,255,255,.25);
+    border-right:
+      1px solid rgba(255,255,255,.25);
   }
 
-  /* MAIN CONTENT */
+  /* MAIN */
+
   .section{
     padding:16px 8px;
   }
 
   .section-title{
     margin-bottom:12px;
+
     border-bottom-width:3px;
   }
 
   .section-title h2{
     font-size:20px;
+
     padding:9px 13px;
   }
 
   /* E-PAPER */
+
   .epaper-shell{
     padding:5px;
   }
@@ -365,25 +565,69 @@ footer{
     min-height:160px;
   }
 
+  /* MOBILE AD */
+
+  .page1-ad{
+    left:2%;
+
+    right:2%;
+
+    bottom:2%;
+
+    padding:7px 8px;
+
+    gap:7px;
+  }
+
+  .page1-ad-label{
+    font-size:7px;
+
+    letter-spacing:.5px;
+  }
+
+  .page1-ad-title{
+    font-size:10px;
+  }
+
+  .page1-ad-title span{
+    font-size:8px;
+
+    margin-top:2px;
+  }
+
+  .page1-ad-cta{
+    padding:7px 8px;
+
+    font-size:9px;
+  }
+
+  /* CONTROLS */
+
   .epaper-tools{
     gap:6px;
+
     padding:9px 6px;
   }
 
   .epaper-tools button,
   .epaper-tools .tool-btn{
     padding:9px 10px;
+
     font-size:11px;
   }
 
   #counter{
     width:100%;
+
     order:-1;
   }
 
   /* THUMBNAILS */
+
   .page-grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
+
     gap:8px;
   }
 
@@ -394,9 +638,11 @@ footer{
   .page-card span{
     font-size:9px;
   }
+
 }
 
-/* PREVENT HORIZONTAL OVERFLOW */
+/* PREVENT OVERFLOW */
+
 img{
   max-width:100%;
 }
@@ -405,6 +651,7 @@ a,
 button{
   touch-action:manipulation;
 }
+
 </style>
 </head>
 
@@ -412,9 +659,10 @@ button{
 
 <div class="topline"></div>
 
-<!-- ============================= -->
-<!-- HEADER -->
-<!-- ============================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -427,14 +675,24 @@ button{
     >
 
     <div class="edition">
-      <b id="homeDay"></b><br>
-      <span id="homeDate"></span><br>
+
+      <b id="homeDay"></b>
+
+      <br>
+
+      <span id="homeDate"></span>
+
+      <br>
+
       HYDERABAD
+
     </div>
 
   </div>
 
-  <!-- ONLY THREE LINKS -->
+
+  <!-- NAVIGATION -->
+
   <nav class="desktop-nav">
 
     <a href="digital-news.html">
@@ -454,67 +712,156 @@ button{
 </header>
 
 
-<!-- ============================= -->
-<!-- MAIN -->
-<!-- ============================= -->
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="page">
 
-  <!-- =========================== -->
-  <!-- TODAY'S E-PAPER -->
-  <!-- =========================== -->
 
-  <section class="section" id="epaper">
+  <!-- ===================================================
+       TODAY'S E-PAPER
+  =================================================== -->
+
+  <section
+    class="section"
+    id="epaper"
+  >
+
 
     <div class="section-title">
-      <h2>TODAY'S E-PAPER</h2>
+
+      <h2>
+        TODAY'S E-PAPER
+      </h2>
+
     </div>
+
+
+    <!-- E-PAPER IMAGE + AD -->
 
     <div class="epaper-shell">
 
-      <img
-        id="pageImage"
-        src="page-01.png"
-        alt="The Hyderabad Daily E-Paper Page 1"
-        onerror="handleImageError(this)"
-      >
+      <div class="epaper-stage">
+
+
+        <!-- CURRENT PAGE -->
+
+        <img
+          id="pageImage"
+
+          src="page-01.png"
+
+          alt="The Hyderabad Daily E-Paper Page 1"
+
+          onerror="handleImageError(this)"
+        >
+
+
+        <!-- =================================================
+             CLICKABLE PAGE 1 ADVERTISEMENT
+        ================================================= -->
+
+        <a
+          id="page1Ad"
+
+          class="page1-ad"
+
+          href="https://myntr.in/XuhdWB"
+
+          target="_blank"
+
+          rel="noopener noreferrer sponsored"
+
+          aria-label="Buy Zyla Women Floral Printed Kurta on Myntra"
+        >
+
+
+          <div class="page1-ad-label">
+
+            ADVERTISEMENT
+
+          </div>
+
+
+          <div class="page1-ad-title">
+
+            BUY ZYLA WOMEN FLORAL PRINTED KURTA
+
+            <span>
+
+              Apparel for Women • Tap to view on Myntra
+
+            </span>
+
+          </div>
+
+
+          <div class="page1-ad-cta">
+
+            SHOP NOW →
+
+          </div>
+
+
+        </a>
+
+
+      </div>
 
     </div>
 
 
-    <!-- E-PAPER CONTROLS -->
+    <!-- =================================================
+         E-PAPER CONTROLS
+    ================================================= -->
 
     <div class="epaper-tools">
+
 
       <button
         type="button"
         onclick="previousPage()"
       >
+
         ‹ PREVIOUS
+
       </button>
 
+
       <span id="counter">
+
         PAGE 01 OF 10
+
       </span>
+
 
       <button
         type="button"
         onclick="nextPage()"
       >
+
         NEXT ›
+
       </button>
+
 
       <button
         type="button"
         onclick="fullScreen()"
       >
+
         FULL SCREEN
+
       </button>
+
 
     </div>
 
 
-    <!-- PAGE THUMBNAILS -->
+    <!-- =================================================
+         PAGE THUMBNAILS
+    ================================================= -->
 
     <div
       class="page-grid"
@@ -522,163 +869,296 @@ button{
       aria-label="E-paper pages"
     ></div>
 
+
   </section>
 
 </main>
 
 
-<!-- ============================= -->
-<!-- FOOTER -->
-<!-- ============================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-  <b>THE HYDERABAD DAILY</b><br>
+  <b>
+    THE HYDERABAD DAILY
+  </b>
 
-  Digital News • Web News • Today's E-Paper<br>
+  <br>
+
+  Digital News • Web News • Today's E-Paper
+
+  <br>
 
   © 2026 The Hyderabad Daily
 
 </footer>
 
 
-<!-- ============================= -->
-<!-- E-PAPER JAVASCRIPT -->
-<!-- ============================= -->
+<!-- =====================================================
+     E-PAPER JAVASCRIPT
+===================================================== -->
 
 <script>
 
+
+/* =====================================================
+   ALL 10 PAGES
+===================================================== */
+
 const pages = [
 
-  ["page-01.png","01","FRONT PAGE"],
+  [
+    "page-01.png",
+    "01",
+    "FRONT PAGE"
+  ],
 
-["page-02.png","02","TELANGANA • ANDHRA PRADESH"],
+  [
+    "page-02.png",
+    "02",
+    "TELANGANA • ANDHRA PRADESH"
+  ],
 
-["page-03.png","03","TELANGANA • DISTRICTS • REGIONAL"],
+  [
+    "page-03.png",
+    "03",
+    "TELANGANA • DISTRICTS • REGIONAL"
+  ],
 
-["page-04.png","04","BUSINESS • MARKETS • ECONOMY"],
+  [
+    "page-04.png",
+    "04",
+    "BUSINESS • MARKETS • ECONOMY"
+  ],
 
-["page-05.png","05","AROUND THE WORLD • TRAVEL • HERITAGE"],
+  [
+    "page-05.png",
+    "05",
+    "AROUND THE WORLD • TRAVEL • HERITAGE"
+  ],
 
-["page-06.png","06","TECHNOLOGY • AI • GADGETS • EVs"],
+  [
+    "page-06.png",
+    "06",
+    "TECHNOLOGY • AI • GADGETS • EVs"
+  ],
 
-["page-07.png","07","ENTERTAINMENT • CINEMA • OTT • MUSIC"],
+  [
+    "page-07.png",
+    "07",
+    "ENTERTAINMENT • CINEMA • OTT • MUSIC"
+  ],
 
-["page-08.png","08","SPORTS"],
+  [
+    "page-08.png",
+    "08",
+    "SPORTS"
+  ],
 
-["page-09.png","09","LIFESTYLE • FASHION • TRAVEL • HEALTH"],
+  [
+    "page-09.png",
+    "09",
+    "LIFESTYLE • FASHION • TRAVEL • HEALTH"
+  ],
 
-["page-10.png","10","CITY LIFE • HYDERABAD"]
+  [
+    "page-10.png",
+    "10",
+    "CITY LIFE • HYDERABAD"
+  ]
 
 ];
+
 
 let current = 0;
 
 
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
 const image =
-  document.getElementById("pageImage");
+  document.getElementById(
+    "pageImage"
+  );
+
 
 const counter =
-  document.getElementById("counter");
+  document.getElementById(
+    "counter"
+  );
+
 
 const grid =
-  document.getElementById("pageGrid");
+  document.getElementById(
+    "pageGrid"
+  );
 
 
-/* BUILD PAGE THUMBNAILS */
+const page1Ad =
+  document.getElementById(
+    "page1Ad"
+  );
+
+
+/* =====================================================
+   BUILD PAGE THUMBNAILS
+===================================================== */
 
 function buildPageGrid(){
 
-  pages.forEach((page,index)=>{
+  pages.forEach(
+    (page,index)=>{
 
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "page-card";
-
-    card.setAttribute(
-      "role",
-      "button"
-    );
-
-    card.setAttribute(
-      "tabindex",
-      "0"
-    );
-
-    card.innerHTML = `
-
-      <img
-        src="${page[0]}"
-        loading="lazy"
-        alt="The Hyderabad Daily Page ${page[1]}"
-      >
-
-      <b>
-        PAGE ${page[1]}
-      </b>
-
-      <span>
-        ${page[2]}
-      </span>
-
-    `;
+      const card =
+        document.createElement(
+          "div"
+        );
 
 
-    card.addEventListener(
-      "click",
-      ()=>{
-        showPage(index);
-      }
-    );
+      card.className =
+        "page-card";
 
 
-    card.addEventListener(
-      "keydown",
-      (event)=>{
+      card.setAttribute(
+        "role",
+        "button"
+      );
 
-        if(
-          event.key === "Enter" ||
-          event.key === " "
-        ){
 
-          event.preventDefault();
+      card.setAttribute(
+        "tabindex",
+        "0"
+      );
+
+
+      card.innerHTML = `
+
+        <img
+
+          src="${page[0]}"
+
+          loading="lazy"
+
+          alt="The Hyderabad Daily Page ${page[1]}"
+
+        >
+
+        <b>
+
+          PAGE ${page[1]}
+
+        </b>
+
+        <span>
+
+          ${page[2]}
+
+        </span>
+
+      `;
+
+
+      /* CLICK THUMBNAIL */
+
+      card.addEventListener(
+        "click",
+        ()=>{
 
           showPage(index);
 
         }
-
-      }
-    );
+      );
 
 
-    grid.appendChild(card);
+      /* KEYBOARD */
 
-  });
+      card.addEventListener(
+        "keydown",
+        (event)=>{
+
+          if(
+            event.key === "Enter" ||
+            event.key === " "
+          ){
+
+            event.preventDefault();
+
+            showPage(index);
+
+          }
+
+        }
+      );
+
+
+      grid.appendChild(card);
+
+    }
+  );
 
 }
 
 
-/* UPDATE ACTIVE PAGE */
+/* =====================================================
+   ACTIVE THUMBNAIL
+===================================================== */
 
 function updateActiveCard(){
 
   document
-    .querySelectorAll(".page-card")
-    .forEach((card,index)=>{
+    .querySelectorAll(
+      ".page-card"
+    )
+    .forEach(
+      (card,index)=>{
 
-      card.classList.toggle(
-        "active",
-        index === current
-      );
+        card.classList.toggle(
+          "active",
+          index === current
+        );
 
-    });
+      }
+    );
 
 }
 
 
-/* SHOW PAGE */
+/* =====================================================
+   SHOW / HIDE PAGE 1 AD
+===================================================== */
+
+function updatePageAd(){
+
+  if(!page1Ad){
+
+    return;
+
+  }
+
+
+  if(current === 0){
+
+    page1Ad.style.display =
+      "flex";
+
+  }
+
+  else{
+
+    page1Ad.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =====================================================
+   SHOW PAGE
+===================================================== */
 
 function showPage(index){
 
@@ -697,26 +1177,32 @@ function showPage(index){
 
 
   image.alt =
-    "The Hyderabad Daily E-Paper Page "
-    + pages[current][1];
+    "The Hyderabad Daily E-Paper Page " +
+    pages[current][1];
 
 
   counter.textContent =
-    "PAGE "
-    + pages[current][1]
-    + " OF 10";
+    "PAGE " +
+    pages[current][1] +
+    " OF 10";
 
 
   updateActiveCard();
 
+  updatePageAd();
+
 }
 
 
-/* PREVIOUS */
+/* =====================================================
+   PREVIOUS
+===================================================== */
 
 function previousPage(){
 
-  if(current > 0){
+  if(
+    current > 0
+  ){
 
     showPage(
       current - 1
@@ -727,7 +1213,9 @@ function previousPage(){
 }
 
 
-/* NEXT */
+/* =====================================================
+   NEXT
+===================================================== */
 
 function nextPage(){
 
@@ -745,7 +1233,9 @@ function nextPage(){
 }
 
 
-/* FULL SCREEN */
+/* =====================================================
+   FULL SCREEN
+===================================================== */
 
 function fullScreen(){
 
@@ -755,7 +1245,9 @@ function fullScreen(){
     );
 
 
-  if(el.requestFullscreen){
+  if(
+    el.requestFullscreen
+  ){
 
     el.requestFullscreen();
 
@@ -781,38 +1273,51 @@ function fullScreen(){
 }
 
 
-/* IMAGE ERROR */
+/* =====================================================
+   IMAGE ERROR
+===================================================== */
 
 function handleImageError(img){
 
   img.alt =
-    "E-paper page could not be loaded. "
-    + "Check that page-01.png through "
-    + "page-10.png are in the same "
-    + "GitHub folder as index.html.";
+    "E-paper page could not be loaded. " +
+
+    "Check that page-01.png through " +
+
+    "page-10.png are in the same " +
+
+    "GitHub folder as index.html.";
 
 }
 
 
-/* SWIPE BETWEEN E-PAPER PAGES */
+/* =====================================================
+   MOBILE SWIPE
+===================================================== */
 
 let startX = 0;
 
 
 image.addEventListener(
   "touchstart",
+
   (event)=>{
 
     startX =
       event.touches[0].clientX;
 
   },
-  {passive:true}
+
+  {
+    passive:true
+  }
+
 );
 
 
 image.addEventListener(
   "touchend",
+
   (event)=>{
 
     const distance =
@@ -824,7 +1329,9 @@ image.addEventListener(
       Math.abs(distance) > 70
     ){
 
-      if(distance > 0){
+      if(
+        distance > 0
+      ){
 
         nextPage();
 
@@ -839,11 +1346,17 @@ image.addEventListener(
     }
 
   },
-  {passive:true}
+
+  {
+    passive:true
+  }
+
 );
 
 
-/* START E-PAPER */
+/* =====================================================
+   START E-PAPER
+===================================================== */
 
 buildPageGrid();
 
@@ -852,13 +1365,14 @@ showPage(0);
 </script>
 
 
-<!-- ============================= -->
-<!-- AUTOMATIC CURRENT DATE -->
-<!-- ============================= -->
+<!-- =====================================================
+     AUTOMATIC DATE
+===================================================== -->
 
 <script>
 
 function updateHomeDate(){
+
 
   const now =
     new Date();
@@ -878,7 +1392,9 @@ function updateHomeDate(){
       "en-IN",
       {
         day:"2-digit",
+
         month:"long",
+
         year:"numeric"
       }
     );
@@ -923,6 +1439,7 @@ setInterval(
 );
 
 </script>
+
 
 </body>
 </html>
