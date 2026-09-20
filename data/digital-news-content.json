@@ -1,7 +1,26 @@
 {
   "version": 1,
-  "lastUpdated": "2026-09-20T20:04:17.853080+00:00",
+  "lastUpdated": "2026-09-20T21:04:48.446682+00:00",
   "stories": [
+    {
+      "id": "b72efe7465a464f7",
+      "approved": true,
+      "category": "World",
+      "title": "Let’s Talk Climate - The New York Times",
+      "normalizedTitle": "let s talk climate new york times",
+      "canonicalUrl": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPcE9JRng4Ml9Ud3pGcmtZTWZyZ1pjSXA1bDQ4dmd4aG1IbnExellwX1hIR0x4TTBzQ3BQX05QcElhOEI2M2R4WnFNd2pHWWxpaFYwSFRhMmV1N3JPZjdnc21KNnZHR1kzRkkxSGp5Ui1BanV3WDdFTkF2Y2lMLXNERnBEWQ?oc=5",
+      "editorialSummary": "The New York Times has published an item titled “Let’s Talk Climate.” The feed provides no further details about its content.",
+      "brief": [
+        "The climate-related item appears in the World category.",
+        "It is dated 20 September 2026."
+      ],
+      "keyPoints": [
+        "Title: “Let’s Talk Climate”",
+        "Source: The New York Times"
+      ],
+      "editorialDate": "2026-09-20",
+      "editorialByline": "The Hyderabad Daily Digital Desk"
+    },
     {
       "id": "43f329a63a940cb0",
       "approved": true,
