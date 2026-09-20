@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Hyderabad Daily — Web News</title>
-<meta name="description" content="The Hyderabad Daily Web News — latest headlines with links to original web reports">
+<meta name="description" content="The Hyderabad Daily — latest flash and breaking web news from the last three hours">
 
 <style>
 :root{
@@ -83,7 +83,7 @@ button{
 }
 
 /* =========================
-   BLUE THREE-LINK BAR
+   NAVIGATION
 ========================= */
 
 .main-nav{
@@ -118,7 +118,7 @@ button{
 }
 
 /* =========================
-   LATEST BAR
+   LATEST / FLASH BAR
 ========================= */
 
 .latest-bar{
@@ -191,7 +191,7 @@ button{
 }
 
 /* =========================
-   WEB NEWS INTRO
+   INTRO
 ========================= */
 
 .web-banner{
@@ -210,6 +210,56 @@ button{
   margin:0;
   color:#666;
   font:12px/1.5 Arial,sans-serif;
+}
+
+/* =========================
+   LIVE STATUS
+========================= */
+
+.live-status{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:#fff;
+  border:1px solid var(--border);
+  padding:9px 13px;
+  margin-bottom:10px;
+  font:11px Arial,sans-serif;
+}
+
+.live-left{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.live-dot{
+  width:9px;
+  height:9px;
+  background:#1a9b43;
+  border-radius:50%;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{opacity:1}
+  50%{opacity:.35}
+  100%{opacity:1}
+}
+
+.live-text{
+  font-weight:800;
+  color:#111;
+}
+
+.live-window{
+  color:#777;
+}
+
+.last-check{
+  color:#555;
+  font-size:10px;
 }
 
 /* =========================
@@ -263,11 +313,6 @@ button{
 
 .highlights-head strong{
   font:900 13px Arial,sans-serif;
-}
-
-.last-check{
-  font:10px Arial,sans-serif;
-  color:#ddd;
 }
 
 .highlight-list{
@@ -451,12 +496,6 @@ button{
     max-height:72px;
   }
 
-  /*
-     IMPORTANT:
-     The blue navigation remains visible on mobile.
-     There is NO hamburger menu and NO drawer.
-  */
-
   .main-nav{
     display:flex;
     width:100%;
@@ -496,6 +535,13 @@ button{
 
   .web-banner h1{
     font-size:25px;
+  }
+
+  .live-status{
+    border-left:0;
+    border-right:0;
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .category-bar{
@@ -584,7 +630,6 @@ button{
 
     </div>
 
-    <!-- ONLY THREE LINKS -->
     <nav class="main-nav">
 
       <a href="index.html">
@@ -607,7 +652,7 @@ button{
 
 
 <!-- =========================
-     LATEST NEWS BAR
+     FLASH NEWS BAR
 ========================= -->
 
 <section class="latest-bar">
@@ -615,7 +660,7 @@ button{
   <div class="latest-inner">
 
     <div class="latest-label">
-      LATEST
+      FLASH NEWS
     </div>
 
     <div class="ticker-window">
@@ -639,8 +684,6 @@ button{
 <main class="page-wrap">
 
 
-  <!-- WEB NEWS INTRO -->
-
   <section class="web-banner">
 
     <h1>
@@ -648,10 +691,37 @@ button{
     </h1>
 
     <p>
-      Latest web headlines from current news feeds.
-      Tap any headline to open the original report.
-      No article text is copied or republished here.
+      Flash and breaking web headlines published within the
+      last 3 hours. Stories older than 3 hours are automatically
+      removed. The page updates every 15 minutes.
     </p>
+
+  </section>
+
+
+  <!-- LIVE STATUS -->
+
+  <section class="live-status">
+
+    <div class="live-left">
+
+      <span class="live-dot"></span>
+
+      <span class="live-text">
+        LIVE WEB NEWS
+      </span>
+
+      <span class="live-window">
+        • Rolling 3-hour window
+      </span>
+
+    </div>
+
+    <span
+      class="last-check"
+      id="lastCheck">
+      Checking...
+    </span>
 
   </section>
 
@@ -724,14 +794,8 @@ button{
     <div class="highlights-head">
 
       <strong>
-        WEB NEWS HIGHLIGHTS — TAP TO OPEN ORIGINAL REPORT
+        FLASH NEWS HIGHLIGHTS — TAP TO OPEN ORIGINAL REPORT
       </strong>
-
-      <span
-        class="last-check"
-        id="lastCheck">
-        Checking...
-      </span>
 
     </div>
 
@@ -743,7 +807,7 @@ button{
 
         <div class="spinner"></div>
 
-        Loading latest web headlines...
+        Loading flash news from the last 3 hours...
 
       </div>
 
@@ -762,31 +826,26 @@ button{
 
       <div class="spinner"></div>
 
-      Loading latest web headlines...
+      Loading flash news from the last 3 hours...
 
     </div>
 
   </section>
 
 
-  <!-- EDITORIAL NOTE -->
-
   <div class="note">
 
-    <strong>Editorial note:</strong>
+    <strong>Editorial rule:</strong>
 
-    Web News is a headline-linking service.
-    The Hyderabad Daily does not reproduce the linked article text here.
-    External reports remain the responsibility of their original publishers.
+    Only web reports published within the previous
+    3 hours are displayed. Every 15 minutes the feeds
+    are checked again. Once a report becomes older than
+    3 hours, it is automatically removed from this page.
 
   </div>
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer class="footer">
 
@@ -797,99 +856,345 @@ button{
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
-const NEWS_HOURS = 36;
+/* =====================================================
+   WEB NEWS SETTINGS
+===================================================== */
 
-const REFRESH_INTERVAL = 10 * 60 * 1000;
+/*
+   ONLY THE PREVIOUS 3 HOURS ARE DISPLAYED.
+*/
+
+const NEWS_HOURS = 3;
 
 
-/* =========================
+/*
+   AUTOMATIC UPDATE EVERY 15 MINUTES.
+*/
+
+const REFRESH_INTERVAL = 15 * 60 * 1000;
+
+
+/*
+   Allows a very small future timestamp difference
+   caused by RSS/feed clock differences.
+*/
+
+const MAX_FUTURE_MINUTES = 10;
+
+
+/* =====================================================
    NEWS FEEDS
-========================= */
+===================================================== */
 
 const FEEDS = [
 
+  /* =========================
+     HYDERABAD
+  ========================= */
+
   {
     category:"Hyderabad",
+
     queries:[
-      "Hyderabad latest news",
+
+      "Hyderabad flash news",
+
       "Hyderabad breaking news",
-      "Hyderabad civic latest"
+
+      "Hyderabad latest news",
+
+      "Hyderabad live updates",
+
+      "Hyderabad today latest",
+
+      "Hyderabad breaking live",
+
+      "Hyderabad civic breaking news",
+
+      "site:siasat.com Hyderabad",
+
+      "site:thehindu.com Hyderabad",
+
+      "site:timesofindia.indiatimes.com Hyderabad",
+
+      "site:indianexpress.com Hyderabad",
+
+      "site:telanganatoday.com Hyderabad",
+
+      "site:newindianexpress.com Hyderabad"
+
     ]
   },
+
+
+  /* =========================
+     TELANGANA
+  ========================= */
 
   {
     category:"Telangana",
+
     queries:[
-      "Telangana latest news",
+
+      "Telangana flash news",
+
       "Telangana breaking news",
-      "Telangana state developments"
+
+      "Telangana latest news",
+
+      "Telangana live updates",
+
+      "Telangana today latest",
+
+      "Telangana breaking live",
+
+      "Telangana state breaking news",
+
+      "site:telanganatoday.com Telangana",
+
+      "site:newindianexpress.com Telangana",
+
+      "site:thehansindia.com Telangana",
+
+      "site:thehindu.com Telangana",
+
+      "site:timesofindia.indiatimes.com Telangana",
+
+      "site:andhrajyothy.com Telangana"
+
     ]
   },
+
+
+  /* =========================
+     INDIA
+  ========================= */
 
   {
     category:"India",
+
     queries:[
-      "India latest news",
+
+      "India flash news",
+
       "India breaking news",
-      "India national developments"
+
+      "India latest news",
+
+      "India live updates",
+
+      "India today latest",
+
+      "India breaking live",
+
+      "India national breaking news",
+
+      "site:reuters.com India",
+
+      "site:pti.in India",
+
+      "site:ani.in India",
+
+      "site:thehindu.com India",
+
+      "site:indianexpress.com India",
+
+      "site:ndtv.com India",
+
+      "site:hindustantimes.com India"
+
     ]
   },
+
+
+  /* =========================
+     WORLD
+  ========================= */
 
   {
     category:"World",
+
     queries:[
+
+      "world flash news",
+
+      "international breaking news",
+
       "world latest news",
-      "international latest news",
-      "world breaking news"
+
+      "world live updates",
+
+      "world today latest",
+
+      "global breaking live",
+
+      "international flash news",
+
+      "site:reuters.com world",
+
+      "site:apnews.com world",
+
+      "site:bbc.com world",
+
+      "site:aljazeera.com world",
+
+      "site:theguardian.com world"
+
     ]
   },
+
+
+  /* =========================
+     BUSINESS
+  ========================= */
 
   {
     category:"Business",
+
     queries:[
-      "India business latest news",
+
+      "India business flash news",
+
+      "Indian business breaking news",
+
       "Indian economy latest news",
-      "Indian companies latest"
+
+      "Indian companies breaking news",
+
+      "India markets live updates",
+
+      "India stock market breaking",
+
+      "India business live updates",
+
+      "site:reuters.com India business",
+
+      "site:economictimes.indiatimes.com India business",
+
+      "site:business-standard.com India business",
+
+      "site:moneycontrol.com India business"
+
     ]
   },
+
+
+  /* =========================
+     TECHNOLOGY
+  ========================= */
 
   {
     category:"Technology",
+
     queries:[
-      "India technology latest news",
-      "India AI technology latest",
-      "Indian technology companies latest"
+
+      "India technology flash news",
+
+      "India technology breaking news",
+
+      "India AI breaking news",
+
+      "Indian technology latest",
+
+      "India tech live updates",
+
+      "India gadgets latest",
+
+      "AI breaking news India",
+
+      "site:reuters.com technology India",
+
+      "site:thehindu.com technology India",
+
+      "site:indianexpress.com technology India",
+
+      "site:techcrunch.com India technology"
+
     ]
   },
+
+
+  /* =========================
+     SPORTS
+  ========================= */
 
   {
     category:"Sports",
+
     queries:[
-      "India sports latest news",
-      "Indian sports latest",
-      "India sports breaking news"
+
+      "India sports flash news",
+
+      "Indian sports breaking news",
+
+      "India sports latest",
+
+      "India sports live updates",
+
+      "India cricket breaking",
+
+      "India cricket live updates",
+
+      "Indian athletes breaking news",
+
+      "site:reuters.com sports India",
+
+      "site:espncricinfo.com India cricket",
+
+      "site:olympics.com India sports",
+
+      "site:timesofindia.indiatimes.com sports India"
+
     ]
   },
 
+
+  /* =========================
+     ENTERTAINMENT
+  ========================= */
+
   {
     category:"Entertainment",
+
     queries:[
-      "Bollywood latest news",
-      "Tollywood latest news",
-      "South Indian cinema latest news",
-      "OTT India latest news",
-      "Hollywood entertainment latest"
+
+      "Bollywood flash news",
+
+      "Bollywood breaking news",
+
+      "Tollywood flash news",
+
+      "Tollywood breaking news",
+
+      "South Indian cinema breaking news",
+
+      "OTT India latest",
+
+      "Entertainment breaking live",
+
+      "Hollywood entertainment latest",
+
+      "celebrity breaking news India",
+
+      "site:timesofindia.indiatimes.com entertainment",
+
+      "site:indianexpress.com entertainment",
+
+      "site:ndtv.com entertainment",
+
+      "site:telanganatoday.com entertainment"
+
     ]
   }
 
 ];
 
+
+/* =====================================================
+   STOP WORDS
+===================================================== */
 
 const STOP = new Set([
 
@@ -920,7 +1225,10 @@ const STOP = new Set([
   "says",
   "said",
   "new",
-  "more"
+  "more",
+  "breaking",
+  "flash",
+  "live"
 
 ]);
 
@@ -929,14 +1237,20 @@ let allArticles = [];
 
 let activeCategory = "all";
 
+let refreshInProgress = false;
+
+
+/* =====================================================
+   SHORTCUT
+===================================================== */
 
 const $ = id =>
   document.getElementById(id);
 
 
-/* =========================
-   TEXT HELPERS
-========================= */
+/* =====================================================
+   TEXT NORMALIZATION
+===================================================== */
 
 function normalize(s=""){
 
@@ -975,8 +1289,10 @@ function jaccard(a,b){
   let n = 0;
 
   A.forEach(x=>{
+
     if(B.has(x))
       n++;
+
   });
 
   return n /
@@ -997,8 +1313,10 @@ function overlap(a,b){
   let n = 0;
 
   A.forEach(x=>{
+
     if(B.has(x))
       n++;
+
   });
 
   return n /
@@ -1020,6 +1338,10 @@ function stripHTML(s=""){
 
 }
 
+
+/* =====================================================
+   SOURCE EXTRACTION
+===================================================== */
 
 function sourceFromTitle(raw=""){
 
@@ -1043,6 +1365,7 @@ function cleanHeadline(raw="",source=""){
   const pubs = [
 
     source,
+
     "The Times of India",
     "India Today",
     "Hindustan Times",
@@ -1090,9 +1413,9 @@ function cleanHeadline(raw="",source=""){
 }
 
 
-/* =========================
-   DATE FILTER
-========================= */
+/* =====================================================
+   STRICT 3-HOUR FILTER
+===================================================== */
 
 function recent(a){
 
@@ -1106,44 +1429,84 @@ function recent(a){
     Date.now() - d.getTime();
 
   return (
-    age >= 0 &&
-    age <= NEWS_HOURS * 3600000
+
+    age >=
+      -(MAX_FUTURE_MINUTES * 60000)
+
+    &&
+
+    age <=
+      NEWS_HOURS * 3600000
+
   );
 
 }
 
 
-/* =========================
-   RSS
-========================= */
+/* =====================================================
+   GOOGLE NEWS RSS
+===================================================== */
 
 function rssURL(q){
 
+  /*
+     Google News itself is asked for only
+     the previous 3 hours.
+  */
+
+  const freshQuery =
+    q + " when:3h";
+
+
   return (
+
     "https://news.google.com/rss/search?q=" +
-    encodeURIComponent(q) +
-    "&hl=en-IN&gl=IN&ceid=IN:en"
+
+    encodeURIComponent(
+      freshQuery
+    ) +
+
+    "&hl=en-IN" +
+
+    "&gl=IN" +
+
+    "&ceid=IN:en" +
+
+    "&_cb=" +
+    Date.now()
+
   );
 
 }
 
+
+/* =====================================================
+   RSS2JSON
+===================================================== */
 
 async function rss2json(url){
 
   const r =
     await fetch(
+
       "https://api.rss2json.com/v1/api.json?rss_url=" +
+
       encodeURIComponent(url),
+
       {
         cache:"no-store"
       }
+
     );
+
 
   if(!r.ok)
     throw Error("rss");
 
+
   const d =
     await r.json();
+
 
   return Array.isArray(d.items)
     ? d.items
@@ -1152,22 +1515,33 @@ async function rss2json(url){
 }
 
 
+/* =====================================================
+   FALLBACK RSS READER
+===================================================== */
+
 async function fallback(url){
 
   const r =
     await fetch(
+
       "https://api.allorigins.win/raw?url=" +
+
       encodeURIComponent(url),
+
       {
         cache:"no-store"
       }
+
     );
+
 
   if(!r.ok)
     throw Error("fallback");
 
+
   const xml =
     await r.text();
+
 
   const doc =
     new DOMParser()
@@ -1176,8 +1550,11 @@ async function fallback(url){
         "text/xml"
       );
 
+
   return [
+
     ...doc.querySelectorAll("item")
+
   ].map(n=>({
 
     title:
@@ -1201,17 +1578,19 @@ async function fallback(url){
 }
 
 
-/* =========================
-   LOAD FEED
-========================= */
+/* =====================================================
+   LOAD ONE FEED
+===================================================== */
 
 async function loadFeed(feed){
 
   const out = [];
 
+
   for(const q of feed.queries){
 
     let items = [];
+
 
     try{
 
@@ -1220,7 +1599,9 @@ async function loadFeed(feed){
           rssURL(q)
         );
 
-    }catch(e){
+    }
+
+    catch(e){
 
       try{
 
@@ -1229,7 +1610,9 @@ async function loadFeed(feed){
             rssURL(q)
           );
 
-      }catch(e2){
+      }
+
+      catch(e2){
 
         continue;
 
@@ -1241,10 +1624,14 @@ async function loadFeed(feed){
     items.forEach(item=>{
 
       const source =
+
         (
           item.source &&
           item.source.title
-        ) ||
+        )
+
+        ||
+
         sourceFromTitle(
           item.title
         );
@@ -1276,10 +1663,20 @@ async function loadFeed(feed){
       };
 
 
+      /*
+         STRICT FILTER:
+         Do not allow old stories into the
+         displayed collection.
+      */
+
       if(
+
         title &&
+
         a.link &&
+
         recent(a)
+
       ){
 
         out.push(a);
@@ -1290,21 +1687,31 @@ async function loadFeed(feed){
 
   }
 
+
   return out;
 
 }
 
 
-/* =========================
+/* =====================================================
    DUPLICATE CONTROL
-========================= */
+===================================================== */
 
 function related(a,b){
 
   const title =
     Math.max(
-      jaccard(a.title,b.title),
-      overlap(a.title,b.title)
+
+      jaccard(
+        a.title,
+        b.title
+      ),
+
+      overlap(
+        a.title,
+        b.title
+      )
+
     );
 
   return title >= .72;
@@ -1318,18 +1725,24 @@ function dedupe(list){
 
   const urls = new Set();
 
+
   const sorted =
     [...list].sort(
+
       (a,b)=>
         new Date(b.pubDate) -
         new Date(a.pubDate)
+
     );
 
 
   for(const a of sorted){
 
-    if(urls.has(a.link))
+    if(
+      urls.has(a.link)
+    )
       continue;
+
 
     if(
       out.some(b=>
@@ -1338,79 +1751,191 @@ function dedupe(list){
     )
       continue;
 
-    urls.add(a.link);
+
+    urls.add(
+      a.link
+    );
+
 
     out.push(a);
 
   }
+
 
   return out;
 
 }
 
 
-/* =========================
+/* =====================================================
    LOAD ALL NEWS
-========================= */
+===================================================== */
 
 async function loadNews(silent=false){
 
-  if(!silent){
+  if(
+    refreshInProgress
+  ){
 
-    $("highlightList").innerHTML =
-
-      '<div class="loading-box">' +
-      '<div class="spinner"></div>' +
-      'Loading latest web headlines...' +
-      '</div>';
-
-
-    $("newsGrid").innerHTML =
-
-      '<div class="loading-box">' +
-      '<div class="spinner"></div>' +
-      'Loading latest web headlines...' +
-      '</div>';
+    return;
 
   }
 
 
-  const results =
-    await Promise.all(
-      FEEDS.map(loadFeed)
+  refreshInProgress = true;
+
+
+  try{
+
+    if(!silent){
+
+      $("highlightList").innerHTML =
+
+        '<div class="loading-box">' +
+
+        '<div class="spinner"></div>' +
+
+        'Loading flash news from the last 3 hours...' +
+
+        '</div>';
+
+
+      $("newsGrid").innerHTML =
+
+        '<div class="loading-box">' +
+
+        '<div class="spinner"></div>' +
+
+        'Loading flash news from the last 3 hours...' +
+
+        '</div>';
+
+    }
+
+
+    /*
+       Search ALL expanded feeds.
+    */
+
+    const results =
+      await Promise.all(
+        FEEDS.map(loadFeed)
+      );
+
+
+    /*
+       Combine, filter AGAIN,
+       sort newest first,
+       and deduplicate.
+    */
+
+    let list =
+
+      dedupe(
+        results.flat()
+      )
+
+      .filter(recent)
+
+      .sort(
+
+        (a,b)=>
+
+          new Date(b.pubDate) -
+
+          new Date(a.pubDate)
+
+      );
+
+
+    /*
+       Maximum 80 current stories.
+    */
+
+    list =
+      list.slice(0,80);
+
+
+    const previous =
+
+      allArticles
+        .map(x=>x.link)
+        .join("|");
+
+
+    const current =
+
+      list
+        .map(x=>x.link)
+        .join("|");
+
+
+    /*
+       IMPORTANT:
+       Replace the old collection completely.
+       This guarantees that stories older than
+       3 hours disappear.
+    */
+
+    allArticles =
+      list;
+
+
+    if(
+
+      previous !== current ||
+
+      !silent
+
+    ){
+
+      render();
+
+      renderHighlights();
+
+      renderTicker();
+
+    }
+
+
+    $("lastCheck").textContent =
+
+      "Last checked " +
+
+      new Date()
+        .toLocaleTimeString(
+
+          "en-IN",
+
+          {
+            hour:"2-digit",
+            minute:"2-digit"
+          }
+
+        ) +
+
+      " • LAST 3 HOURS";
+
+
+  }
+
+  catch(error){
+
+    console.error(
+      "Web News update failed:",
+      error
     );
 
 
-  let list =
-    dedupe(
-      results.flat()
-    );
+    /*
+       Do NOT retain old stories indefinitely.
+       Re-render from the current 3-hour
+       collection if the refresh succeeds.
+    */
 
+    allArticles =
+      allArticles.filter(recent);
 
-  list =
-    list.slice(0,80);
-
-
-  const previous =
-    allArticles
-      .map(x=>x.link)
-      .join("|");
-
-
-  const current =
-    list
-      .map(x=>x.link)
-      .join("|");
-
-
-  allArticles =
-    list;
-
-
-  if(
-    previous !== current ||
-    !silent
-  ){
 
     render();
 
@@ -1418,76 +1943,106 @@ async function loadNews(silent=false){
 
     renderTicker();
 
+
+    $("lastCheck").textContent =
+
+      "Update attempt " +
+
+      new Date()
+        .toLocaleTimeString(
+
+          "en-IN",
+
+          {
+            hour:"2-digit",
+            minute:"2-digit"
+          }
+
+        ) +
+
+      " • FEED RETRY";
+
+
   }
 
+  finally{
 
-  $("lastCheck").textContent =
-    "Last checked " +
-    new Date().toLocaleTimeString(
-      "en-IN",
-      {
-        hour:"2-digit",
-        minute:"2-digit"
-      }
-    );
+    refreshInProgress =
+      false;
+
+  }
 
 }
 
 
-/* =========================
+/* =====================================================
    NEWS GRID
-========================= */
+===================================================== */
+
 function render(){
 
   const filtered =
+
     allArticles.filter(
+
       a =>
+
         activeCategory === "all" ||
-        a.category === activeCategory
+
+        a.category ===
+          activeCategory
+
     );
 
+
   /*
-     IMPORTANT:
-     The first 4 stories are displayed
-     in WEB NEWS HIGHLIGHTS.
-     They must NOT be repeated below.
+     First four stories are highlights.
+     Do not duplicate them below.
   */
 
   const featured =
+
     filtered
       .slice(0,4)
-      .map(a => a.link);
+      .map(a=>a.link);
+
 
   const list =
+
     filtered.filter(
+
       a =>
-        !featured.includes(a.link)
+
+        !featured.includes(
+          a.link
+        )
+
     );
 
-
-  /* No stories at all */
 
   if(!filtered.length){
 
     $("newsGrid").innerHTML =
 
       '<div class="empty-box">' +
-      'No recent web headlines are currently available in this category.' +
+
+      'No flash news from the last 3 hours is currently available in this category.' +
+
       '</div>';
 
     return;
 
   }
 
-
-  /* Only highlights available */
 
   if(!list.length){
 
     $("newsGrid").innerHTML =
 
       '<div class="empty-box">' +
-      'No additional recent web headlines are currently available in this category.' +
+
+      'No additional flash news from the last 3 hours is currently available in this category.' +
+
       '</div>';
 
     return;
@@ -1495,69 +2050,97 @@ function render(){
   }
 
 
-  $("newsGrid").innerHTML = "";
+  $("newsGrid").innerHTML =
+    "";
 
 
   list.forEach(a=>{
 
     const card =
-      document.createElement("article");
+      document.createElement(
+        "article"
+      );
+
 
     card.className =
       "news-card";
 
 
     const link =
-      document.createElement("a");
+      document.createElement(
+        "a"
+      );
+
 
     link.href =
       a.link;
 
+
     link.target =
       "_blank";
+
 
     link.rel =
       "noopener noreferrer";
 
 
     const cat =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     cat.className =
       "news-category";
+
 
     cat.textContent =
       a.category;
 
 
     const title =
-      document.createElement("h2");
+      document.createElement(
+        "h2"
+      );
+
 
     title.className =
       "news-title";
+
 
     title.textContent =
       a.title;
 
 
     const source =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     source.className =
       "news-source";
 
+
     source.textContent =
+
       (
         a.sourceName ||
+
         "Original web report"
+
       ) + " ";
 
 
     const arrow =
-      document.createElement("span");
+      document.createElement(
+        "span"
+      );
+
 
     arrow.className =
       "news-arrow";
+
 
     arrow.textContent =
       "↗";
@@ -1581,17 +2164,18 @@ function render(){
 
 
     $("newsGrid")
-      .appendChild(card);
+      .appendChild(
+        card
+      );
 
   });
 
 }
 
-    
 
-/* =========================
+/* =====================================================
    HIGHLIGHTS
-========================= */
+===================================================== */
 
 function renderHighlights(){
 
@@ -1600,12 +2184,20 @@ function renderHighlights(){
 
 
   const list =
+
     allArticles
+
       .filter(
+
         a =>
+
           activeCategory === "all" ||
-          a.category === activeCategory
+
+          a.category ===
+            activeCategory
+
       )
+
       .slice(0,4);
 
 
@@ -1614,7 +2206,9 @@ function renderHighlights(){
     $("highlightList").innerHTML =
 
       '<div class="empty-box">' +
-      'No recent web headlines are currently available.' +
+
+      'No flash news from the last 3 hours is currently available.' +
+
       '</div>';
 
     return;
@@ -1625,55 +2219,78 @@ function renderHighlights(){
   list.forEach(a=>{
 
     const link =
-      document.createElement("a");
+      document.createElement(
+        "a"
+      );
+
 
     link.className =
       "highlight";
 
+
     link.href =
       a.link;
 
+
     link.target =
       "_blank";
+
 
     link.rel =
       "noopener noreferrer";
 
 
     const dot =
-      document.createElement("span");
+      document.createElement(
+        "span"
+      );
+
 
     dot.className =
       "highlight-dot";
 
 
     const wrap =
-      document.createElement("span");
+      document.createElement(
+        "span"
+      );
 
 
     const text =
-      document.createElement("span");
+      document.createElement(
+        "span"
+      );
+
 
     text.className =
       "highlight-text";
+
 
     text.textContent =
       a.title;
 
 
     const meta =
-      document.createElement("span");
+      document.createElement(
+        "span"
+      );
+
 
     meta.className =
       "highlight-meta";
 
+
     meta.textContent =
-      (
-        a.category +
-        " • " +
-        formatDate(a.pubDate) +
-        " • ORIGINAL REPORT"
-      );
+
+      a.category +
+
+      " • " +
+
+      formatDate(
+        a.pubDate
+      ) +
+
+      " • FLASH REPORT";
 
 
     wrap.append(
@@ -1689,16 +2306,18 @@ function renderHighlights(){
 
 
     $("highlightList")
-      .appendChild(link);
+      .appendChild(
+        link
+      );
 
   });
 
 }
 
 
-/* =========================
-   LATEST TICKER
-========================= */
+/* =====================================================
+   FLASH TICKER
+===================================================== */
 
 function renderTicker(){
 
@@ -1707,27 +2326,37 @@ function renderTicker(){
 
 
   allArticles
-    .slice(0,12)
+
+    .slice(0,15)
+
     .forEach(a=>{
 
       const b =
-        document.createElement("a");
+        document.createElement(
+          "a"
+        );
+
 
       b.className =
         "ticker-item";
 
+
       b.href =
         a.link;
 
+
       b.target =
         "_blank";
+
 
       b.rel =
         "noopener noreferrer";
 
 
       b.innerHTML =
+
         '<span class="ticker-dot"></span>' +
+
         '<span></span>';
 
 
@@ -1738,47 +2367,62 @@ function renderTicker(){
 
 
       $("tickerList")
-        .appendChild(b);
+        .appendChild(
+          b
+        );
 
     });
 
 }
 
 
-/* =========================
+/* =====================================================
    DATE FORMAT
-========================= */
+===================================================== */
 
 function formatDate(v){
 
   const d =
     new Date(v);
 
+
   if(isNaN(d))
     return "";
 
+
   return d.toLocaleString(
+
     "en-IN",
+
     {
+
       day:"2-digit",
+
       month:"short",
+
       year:"numeric",
+
       hour:"2-digit",
+
       minute:"2-digit"
+
     }
+
   );
 
 }
 
 
-/* =========================
+/* =====================================================
    CATEGORY BUTTONS
-========================= */
+===================================================== */
 
 document
+
   .querySelectorAll(
     ".category-button"
   )
+
   .forEach(b=>{
 
     b.onclick = ()=>{
@@ -1788,15 +2432,20 @@ document
 
 
       document
+
         .querySelectorAll(
           ".category-button"
         )
+
         .forEach(x=>{
 
           x.classList.toggle(
+
             "active",
+
             x.dataset.category ===
-            activeCategory
+              activeCategory
+
           );
 
         });
@@ -1811,9 +2460,9 @@ document
   });
 
 
-/* =========================
+/* =====================================================
    HEADER DATE
-========================= */
+===================================================== */
 
 function updateDate(){
 
@@ -1823,44 +2472,87 @@ function updateDate(){
 
   $("currentDay")
     .textContent =
+
       d.toLocaleDateString(
+
         "en-IN",
+
         {
           weekday:"long"
         }
+
       );
 
 
   $("currentDate")
     .textContent =
+
       d.toLocaleDateString(
+
         "en-IN",
+
         {
+
           day:"2-digit",
+
           month:"short",
+
           year:"numeric"
+
         }
+
       );
 
 }
 
 
-/* =========================
-   START
-========================= */
+/* =====================================================
+   AUTOMATIC 15-MINUTE UPDATE
+===================================================== */
 
 updateDate();
 
+
+/*
+   Initial load.
+*/
+
 loadNews(false);
 
-setInterval(
-  ()=>loadNews(true),
-  REFRESH_INTERVAL
-);
+
+/*
+   Every 15 minutes:
+
+   1. Search all flash feeds again.
+   2. Keep only last 3 hours.
+   3. Remove anything older than 3 hours.
+   4. Sort newest first.
+   5. Replace the displayed collection.
+*/
 
 setInterval(
+
+  ()=>{
+
+    loadNews(true);
+
+  },
+
+  REFRESH_INTERVAL
+
+);
+
+
+/*
+   Keep date current.
+*/
+
+setInterval(
+
   updateDate,
+
   60000
+
 );
 
 </script>
