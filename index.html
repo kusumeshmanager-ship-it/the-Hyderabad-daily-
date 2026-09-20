@@ -11,27 +11,12 @@
 
 <meta
   name="description"
-  content="The Hyderabad Daily — Digital News, Web News and Today's 10-Page E-Paper."
+  content="The Hyderabad Daily — Digital News, Web News and Today's E-Paper."
 >
 
-<meta
-  name="theme-color"
-  content="#0b2f6b"
->
+<meta name="theme-color" content="#0b2f6b">
 
-<meta
-  property="og:title"
-  content="The Hyderabad Daily"
->
-
-<meta
-  property="og:description"
-  content="Digital News, Web News and Today's 10-Page E-Paper."
->
-
-<title>
-  The Hyderabad Daily | Digital News & E-Paper
-</title>
+<title>The Hyderabad Daily | E-Paper</title>
 
 
 <style>
@@ -41,14 +26,14 @@
 ===================================================== */
 
 :root{
-  --navy:#0b2f6b;
-  --navy2:#123f82;
+  --navy:#073b78;
+  --navy-dark:#062d5b;
+  --blue:#0874c9;
   --red:#d71920;
-  --ink:#111827;
-  --muted:#64707d;
-  --bg:#eef2f6;
-  --line:#d5dce5;
-  --white:#ffffff;
+  --text:#172033;
+  --muted:#687384;
+  --paper-bg:#eef5fa;
+  --white:#fff;
 }
 
 *{
@@ -61,23 +46,30 @@ html{
 
 body{
   margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:Georgia,"Times New Roman",serif;
+  background:
+    linear-gradient(
+      180deg,
+      #f5f9fc 0%,
+      #eaf2f8 100%
+    );
+  color:var(--text);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+}
+
+a{
+  -webkit-tap-highlight-color:transparent;
 }
 
 img{
   max-width:100%;
 }
 
-a,
-button{
-  touch-action:manipulation;
-}
-
 
 /* =====================================================
-   TOP LINE
+   TOP STRIPE
 ===================================================== */
 
 .topline{
@@ -86,33 +78,75 @@ button{
   background:
     linear-gradient(
       90deg,
-      var(--navy) 0 70%,
-      var(--red) 70%
+      #063a76 0 72%,
+      #d71920 72% 100%
     );
 }
 
 
 /* =====================================================
-   HEADER
+   MASTHEAD
 ===================================================== */
 
 header{
-  background:var(--white);
-  border-bottom:1px solid var(--line);
+  background:#fff;
+
+  border-bottom:
+    1px solid #d6e0e9;
 }
 
 .mast{
-  max-width:1200px;
+  max-width:1250px;
+
   margin:auto;
 
+  min-height:105px;
+
   padding:
-    16px 18px 14px;
+    10px 24px;
 
-  display:flex;
+  display:grid;
+
+  grid-template-columns:
+    180px
+    1fr
+    180px;
+
   align-items:center;
-  justify-content:center;
 
-  gap:20px;
+  gap:10px;
+}
+
+.mast-side{
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:13px;
+
+  line-height:1.15;
+
+  color:#111;
+}
+
+.mast-side strong{
+  color:#0a4fa0;
+}
+
+.mast-side.right{
+  text-align:right;
+}
+
+.mast-side .underline{
+  width:76px;
+  height:2px;
+  background:#e31d2a;
+  margin-top:5px;
+}
+
+.mast-side.right .underline{
+  margin-left:auto;
 }
 
 .mast-logo{
@@ -120,33 +154,10 @@ header{
 
   width:auto;
 
-  max-width:min(760px,72vw);
-  max-height:150px;
+  max-width:620px;
+  max-height:92px;
 
   margin:auto;
-}
-
-
-/* =====================================================
-   DATE
-===================================================== */
-
-.edition{
-  min-width:180px;
-
-  text-align:center;
-
-  font:
-    13px/1.5
-    Arial,
-    sans-serif;
-
-  color:#222;
-}
-
-.edition b{
-  color:var(--navy);
-  font-size:16px;
 }
 
 
@@ -155,38 +166,41 @@ header{
 ===================================================== */
 
 .desktop-nav{
-  background:var(--navy);
+  background:
+    linear-gradient(
+      180deg,
+      #0b4b91,
+      #06366d
+    );
 
   display:flex;
 
   justify-content:center;
-  align-items:center;
 
-  width:100%;
-
-  padding:0;
+  border-bottom:
+    3px solid #dce8f3;
 }
 
 .desktop-nav a{
-  flex:0 0 auto;
+  min-width:250px;
+
+  padding:
+    12px 24px;
 
   color:#fff;
 
   text-decoration:none;
 
+  text-align:center;
+
   font:
-    700 14px
+    700 15px
     Arial,
     sans-serif;
 
-  padding:
-    13px 30px;
-
   border-left:
     1px solid
-    rgba(255,255,255,.20);
-
-  text-align:center;
+    rgba(255,255,255,.28);
 
   transition:.15s;
 }
@@ -194,225 +208,267 @@ header{
 .desktop-nav a:last-child{
   border-right:
     1px solid
-    rgba(255,255,255,.20);
+    rgba(255,255,255,.28);
 }
 
 .desktop-nav a:hover{
-  background:var(--navy2);
+  background:#0c5ba9;
 }
 
 
 /* =====================================================
-   MAIN
+   PAGE WRAPPER
 ===================================================== */
 
 .page{
-  max-width:1200px;
-  margin:auto;
-}
+  width:100%;
 
-.section{
-  padding:
-    24px 16px;
+  max-width:1250px;
+
+  margin:auto;
 }
 
 
 /* =====================================================
-   SECTION TITLE
+   E-PAPER SECTION
 ===================================================== */
+
+.section{
+  padding:
+    22px 18px 28px;
+}
 
 .section-title{
   display:flex;
+
   align-items:center;
 
-  border-bottom:
-    4px solid
-    var(--navy);
+  margin-bottom:15px;
 
-  margin-bottom:18px;
+  border-bottom:
+    5px solid var(--navy);
 }
 
 .section-title h2{
   margin:0;
 
+  padding:
+    10px 22px;
+
   background:var(--navy);
 
   color:#fff;
 
-  padding:
-    11px 20px;
+  font:
+    700 28px
+    Georgia,
+    serif;
 
-  font-size:24px;
-
-  letter-spacing:.4px;
+  letter-spacing:.3px;
 }
 
 
 /* =====================================================
-   E-PAPER
+   NEWSPAPER FRAME
 ===================================================== */
 
-#epaper{
-  scroll-margin-top:15px;
-}
-
 .epaper-shell{
-  background:#101827;
+  width:100%;
 
-  padding:12px;
+  background:
+    linear-gradient(
+      145deg,
+      #07101d,
+      #101d2d
+    );
 
-  border-radius:3px;
+  padding:13px;
+
+  border-radius:8px;
 
   box-shadow:
-    0 6px 24px
-    rgba(0,0,0,.20);
+    0 8px 30px
+    rgba(0,0,0,.22);
 }
 
 .epaper-stage{
   width:100%;
-  max-width:1050px;
-  margin:auto;
-}
 
-.epaper-shell img{
-  display:block;
-
-  width:100%;
-
-  max-width:1050px;
+  max-width:1100px;
 
   margin:auto;
 
   background:#fff;
+}
 
-  min-height:240px;
+.epaper-stage img{
+  display:block;
 
-  object-fit:contain;
+  width:100%;
+
+  height:auto;
+
+  margin:auto;
+
+  background:#fff;
 }
 
 
 /* =====================================================
-   PAGE-WISE ADVERTISEMENT CONTAINER
+   ADVERTISEMENT CONTAINER
+
+   IMPORTANT:
+   NEVER INSIDE NEWSPAPER IMAGE
 ===================================================== */
 
 #pageAdContainer{
   width:100%;
-  max-width:1050px;
 
-  margin:auto;
+  max-width:1100px;
+
+  margin:
+    12px auto 0;
 }
 
 
 /* =====================================================
-   COMMON SHOPPING AD
+   COMMON PRODUCT AD
 ===================================================== */
 
-.page1-ad{
+.product-ad{
+  position:relative;
 
   width:100%;
 
-  max-width:1050px;
+  min-height:165px;
 
-  margin:
-    10px auto 0;
+  overflow:hidden;
 
   display:grid;
 
   grid-template-columns:
-    1fr
-    2fr
-    auto;
+    1fr 2.2fr auto;
 
   align-items:center;
 
-  gap:18px;
+  gap:20px;
 
   padding:
-    14px 18px;
+    20px 24px;
 
-  border:
-    1px solid #d9c5b5;
-
-  border-radius:9px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fffaf6 0%,
-      #f8e8dc 48%,
-      #f1d8c9 100%
-    );
-
-  box-shadow:
-    0 3px 12px
-    rgba(0,0,0,.12);
-
-  color:#111;
+  border-radius:10px;
 
   text-decoration:none;
 
-  font-family:
-    Arial,
-    sans-serif;
+  color:#111;
+
+  box-shadow:
+    0 5px 20px
+    rgba(0,0,0,.12);
+
+  border:
+    1px solid rgba(0,0,0,.12);
 
   transition:
     transform .15s,
     box-shadow .15s;
 }
 
-
-.page1-ad:hover{
-
+.product-ad:hover{
   transform:
-    translateY(-1px);
+    translateY(-2px);
 
   box-shadow:
-    0 5px 18px
+    0 8px 24px
     rgba(0,0,0,.16);
 }
 
-
-.page1-ad:active{
-
-  transform:
-    scale(.995);
+.product-ad:active{
+  transform:scale(.995);
 }
 
 
 /* =====================================================
-   BRAND
+   PAGE 1 — ZYLA
 ===================================================== */
 
-.page1-ad-brand{
+#pageAd1{
 
-  font-family:
+  display:none;
+
+  background:
+    radial-gradient(
+      circle at 10% 50%,
+      rgba(255,255,255,.85),
+      transparent 30%
+    ),
+    linear-gradient(
+      110deg,
+      #f4e0d3 0%,
+      #fff8f2 48%,
+      #e8c9b8 100%
+    );
+}
+
+#pageAd1 .ad-brand{
+  color:#8e183a;
+}
+
+
+/* =====================================================
+   PAGE 2 — HIGHLANDER
+===================================================== */
+
+#pageAd2{
+
+  display:none;
+
+  background:
+    radial-gradient(
+      circle at 12% 50%,
+      rgba(255,255,255,.9),
+      transparent 28%
+    ),
+    linear-gradient(
+      110deg,
+      #f2dfcf 0%,
+      #fff7ed 47%,
+      #e7c7b0 100%
+    );
+}
+
+#pageAd2 .ad-brand{
+  color:#101010;
+
+  letter-spacing:-1px;
+}
+
+
+/* =====================================================
+   AD BRAND
+===================================================== */
+
+.ad-brand{
+  font:
+    700 35px
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size:34px;
-
-  font-weight:700;
-
-  color:#941b3d;
+  line-height:1;
 }
 
-
-.page1-ad-brand-sub{
-
+.ad-brand-sub{
   display:block;
 
-  margin-top:2px;
+  margin-top:7px;
 
-  font-family:
+  font:
+    700 10px
     Arial,
     sans-serif;
 
-  font-size:10px;
-
-  font-weight:700;
-
-  letter-spacing:1.5px;
+  letter-spacing:2px;
 
   color:#333;
 }
@@ -422,27 +478,24 @@ header{
    PRODUCT
 ===================================================== */
 
-.page1-ad-product{
+.ad-product{
+  font:
+    800 20px
+    Arial,
+    sans-serif;
 
-  font-size:17px;
-
-  font-weight:800;
-
-  line-height:1.2;
+  line-height:1.15;
 }
 
-
-.page1-ad-product small{
-
-  display:block;
-
+.ad-description{
   margin-top:5px;
 
-  font-size:11px;
+  font:
+    500 12px
+    Arial,
+    sans-serif;
 
-  font-weight:500;
-
-  color:#6a5b54;
+  color:#65605c;
 }
 
 
@@ -450,68 +503,8 @@ header{
    PRICE
 ===================================================== */
 
-.page1-ad-price{
-
-  margin-top:8px;
-
-  display:flex;
-
-  align-items:center;
-
-  flex-wrap:wrap;
-
-  gap:7px;
-}
-
-
-.page1-ad-mrp{
-
-  color:#777;
-
-  font-size:12px;
-}
-
-
-.page1-ad-mrp del{
-
-  color:#777;
-}
-
-
-.page1-ad-current{
-
-  color:#d71920;
-
-  font-size:28px;
-
-  font-weight:900;
-}
-
-
-.page1-ad-off{
-
-  background:#ff4267;
-
-  color:#fff;
-
-  padding:
-    5px 8px;
-
-  border-radius:4px;
-
-  font-size:11px;
-
-  font-weight:900;
-}
-
-
-/* =====================================================
-   DEAL
-===================================================== */
-
-.page1-ad-deal{
-
-  margin-top:8px;
+.ad-price-row{
+  margin-top:10px;
 
   display:flex;
 
@@ -519,49 +512,29 @@ header{
 
   flex-wrap:wrap;
 
-  gap:7px;
+  gap:8px;
 }
 
+.ad-mrp{
+  color:#777;
 
-.page1-ad-mega{
-
-  background:#fff;
-
-  color:#9d1745;
-
-  border:
-    1px solid #ead7e0;
-
-  padding:
-    5px 7px;
-
-  border-radius:5px;
-
-  font-size:10px;
-
-  font-weight:900;
+  font:
+    13px
+    Arial,
+    sans-serif;
 }
 
-
-.page1-ad-get{
-
-  font-size:15px;
-
-  font-weight:900;
-}
-
-
-.page1-ad-get strong{
-
+.ad-price{
   color:#d71920;
 
-  font-size:20px;
+  font:
+    900 32px
+    Arial,
+    sans-serif;
 }
 
-
-.page1-ad-extra{
-
-  background:#31b978;
+.ad-discount{
+  background:#ff3e68;
 
   color:#fff;
 
@@ -570,21 +543,86 @@ header{
 
   border-radius:5px;
 
-  font-size:10px;
-
-  font-weight:900;
+  font:
+    900 12px
+    Arial,
+    sans-serif;
 }
 
 
-.page1-ad-coupon{
+/* =====================================================
+   OFFER ROW
+===================================================== */
 
-  display:block;
+.ad-offer-row{
+  margin-top:9px;
 
-  margin-top:4px;
+  display:flex;
 
-  font-size:9px;
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+}
+
+.ad-mega{
+  background:#fff;
+
+  border:
+    1px solid #e6cbd6;
+
+  color:#9a1746;
+
+  padding:
+    7px 9px;
+
+  border-radius:5px;
+
+  font:
+    900 11px
+    Arial,
+    sans-serif;
+}
+
+.ad-get{
+  font:
+    800 16px
+    Arial,
+    sans-serif;
+}
+
+.ad-get strong{
+  color:#d71920;
+
+  font-size:21px;
+}
+
+.ad-extra{
+  background:#31b979;
+
+  color:#fff;
+
+  padding:
+    8px 10px;
+
+  border-radius:5px;
+
+  font:
+    900 10px
+    Arial,
+    sans-serif;
+}
+
+.ad-coupon{
+  margin-top:5px;
 
   color:#555;
+
+  font:
+    10px
+    Arial,
+    sans-serif;
 }
 
 
@@ -592,57 +630,65 @@ header{
    SHOP NOW
 ===================================================== */
 
-.page1-ad-cta{
-
-  background:#ff3766;
+.ad-button{
+  background:
+    linear-gradient(
+      135deg,
+      #ff3866,
+      #f21f52
+    );
 
   color:#fff;
 
   padding:
-    13px 18px;
+    15px 20px;
 
-  border-radius:5px;
+  border-radius:6px;
 
-  font-size:13px;
-
-  font-weight:900;
+  text-align:center;
 
   white-space:nowrap;
 
-  text-align:center;
+  font:
+    900 13px
+    Arial,
+    sans-serif;
+
+  box-shadow:
+    0 3px 8px
+    rgba(215,25,70,.22);
 }
 
 
 /* =====================================================
-   PAGE 2 HIGHLANDER BRAND
+   AD DECORATION
 ===================================================== */
 
-.page2-brand{
+.ad-decoration{
+  position:absolute;
 
-  color:#111827;
+  right:15px;
 
-  font-size:28px;
+  bottom:-30px;
 
-  letter-spacing:-.5px;
+  width:130px;
+
+  height:130px;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,.22);
+
+  pointer-events:none;
 }
 
 
 /* =====================================================
-   DEFAULT:
-   PAGE 2 AD HIDDEN
-===================================================== */
-
-#pageAd2{
-  display:none;
-}
-
-
-/* =====================================================
-   E-PAPER CONTROLS
+   CONTROLS
 ===================================================== */
 
 .epaper-tools{
-
   background:#fff;
 
   display:flex;
@@ -651,65 +697,59 @@ header{
 
   align-items:center;
 
-  gap:8px;
+  gap:9px;
 
   flex-wrap:wrap;
 
-  padding:12px;
+  padding:
+    12px;
 
   border:
-    1px solid var(--line);
+    1px solid #d4dde6;
 
   border-top:0;
 }
 
-
-button,
-.tool-btn{
-
-  border:
-    1px solid
-    var(--navy);
-
-  background:var(--navy);
+.epaper-tools button{
+  background:
+    linear-gradient(
+      180deg,
+      #104a8e,
+      #07366d
+    );
 
   color:#fff;
 
-  padding:
-    10px 15px;
+  border:0;
 
-  border-radius:4px;
+  border-radius:6px;
+
+  padding:
+    11px 19px;
 
   font:
-    bold 12px
+    800 13px
     Arial,
     sans-serif;
-
-  text-decoration:none;
 
   cursor:pointer;
 }
 
-
-button:hover,
-.tool-btn:hover{
-
-  background:var(--navy2);
+.epaper-tools button:hover{
+  background:#0d5aa6;
 }
 
-
 #counter{
-
-  min-width:115px;
+  min-width:135px;
 
   text-align:center;
 
+  color:#172033;
+
   font:
-    bold 12px
+    800 14px
     Arial,
     sans-serif;
-
-  color:#222;
 }
 
 
@@ -722,38 +762,46 @@ button:hover,
   display:grid;
 
   grid-template-columns:
-    repeat(5,1fr);
+    repeat(10,1fr);
 
-  gap:10px;
+  gap:8px;
 
-  margin-top:12px;
+  margin-top:10px;
 }
-
 
 .page-card{
 
   background:#fff;
 
   border:
-    2px solid
-    transparent;
+    2px solid transparent;
 
-  padding:6px;
+  border-radius:4px;
+
+  padding:4px;
 
   cursor:pointer;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,.07);
+
+  transition:.15s;
 }
 
+.page-card:hover{
+  border-color:#9bb8d6;
+}
 
-.page-card:hover,
 .page-card.active{
+  border-color:var(--navy);
 
-  border-color:
-    var(--navy);
+  box-shadow:
+    0 0 0 2px
+    rgba(7,59,120,.12);
 }
-
 
 .page-card img{
-
   display:block;
 
   width:100%;
@@ -763,34 +811,33 @@ button:hover,
   object-fit:cover;
 }
 
-
 .page-card b{
-
   display:block;
 
-  padding:
-    7px 3px 2px;
+  text-align:center;
+
+  margin-top:4px;
 
   color:var(--navy);
 
   font:
-    700 12px
+    800 10px
     Arial,
     sans-serif;
 }
 
-
 .page-card span{
-
   display:block;
 
-  padding:
-    0 3px 5px;
+  text-align:center;
 
-  color:var(--muted);
+  color:#6a7480;
+
+  margin:
+    2px 0 4px;
 
   font:
-    10px
+    8px
     Arial,
     sans-serif;
 }
@@ -801,10 +848,12 @@ button:hover,
 ===================================================== */
 
 footer{
-
-  margin-top:20px;
-
-  background:var(--navy);
+  background:
+    linear-gradient(
+      180deg,
+      #083d79,
+      #062d5b
+    );
 
   color:#fff;
 
@@ -819,55 +868,40 @@ footer{
     sans-serif;
 }
 
+footer strong{
+  font-size:15px;
+}
+
 
 /* =====================================================
    TABLET
 ===================================================== */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
   .mast{
+    grid-template-columns:
+      130px 1fr 130px;
 
     padding:
-      13px 14px;
+      9px 12px;
   }
-
 
   .mast-logo{
-
-    max-width:65vw;
-
-    max-height:120px;
+    max-width:500px;
   }
 
-
-  .edition{
-
-    min-width:150px;
-
+  .mast-side{
     font-size:11px;
   }
 
-
-  .edition b{
-
-    font-size:14px;
-  }
-
-
   .desktop-nav a{
-
-    padding:
-      12px 20px;
-
-    font-size:12px;
+    min-width:180px;
   }
-
 
   .page-grid{
-
     grid-template-columns:
-      repeat(4,1fr);
+      repeat(5,1fr);
   }
 
 }
@@ -879,316 +913,275 @@ footer{
 
 @media(max-width:650px){
 
-  .topline{
-
-    height:4px;
+  body{
+    background:#eef5fa;
   }
 
+
+  /* HEADER */
 
   .mast{
+    display:block;
+
+    min-height:0;
 
     padding:
-      12px 8px 10px;
-
-    display:block;
+      10px 7px 8px;
   }
 
+  .mast-side{
+    display:none;
+  }
 
   .mast-logo{
+    max-width:96vw;
 
-    display:block;
-
-    width:auto;
-
-    max-width:92vw;
-
-    max-height:105px;
-
-    margin:
-      0 auto 8px;
+    max-height:82px;
   }
 
 
-  .edition{
-
-    margin-top:4px;
-
-    min-width:0;
-
-    text-align:center;
-
-    font-size:11px;
-
-    line-height:1.45;
-  }
-
-
-  .edition b{
-
-    font-size:14px;
-  }
-
-
-  /* MOBILE NAVIGATION */
+  /* NAV */
 
   .desktop-nav{
-
-    display:flex;
-
     width:100%;
-
-    justify-content:stretch;
-
-    align-items:stretch;
-
-    padding:0;
-
-    gap:0;
   }
-
 
   .desktop-nav a{
-
-    flex:
-      1 1 33.333%;
-
     min-width:0;
 
+    flex:1;
+
     padding:
-      13px 3px;
+      11px 2px;
 
     font-size:10px;
-
-    line-height:1.2;
-
-    border-left:
-      1px solid
-      rgba(255,255,255,.25);
-
-    border-radius:0;
-
-    white-space:nowrap;
   }
 
 
-  .desktop-nav a:last-child{
-
-    border-right:
-      1px solid
-      rgba(255,255,255,.25);
-  }
-
-
-  /* MAIN */
+  /* SECTION */
 
   .section{
-
     padding:
-      16px 8px;
+      13px 5px 20px;
   }
-
-
-  /* TITLE */
 
   .section-title{
+    margin-bottom:9px;
 
-    margin-bottom:12px;
-
-    border-bottom-width:3px;
+    border-bottom-width:4px;
   }
 
-
   .section-title h2{
-
     font-size:20px;
 
     padding:
-      9px 13px;
+      8px 13px;
   }
 
 
-  /* E-PAPER */
+  /* PAPER */
 
   .epaper-shell{
-
     padding:5px;
+
+    border-radius:6px;
   }
 
 
-  .epaper-shell img{
+  /* AD */
 
-    min-height:160px;
+  #pageAdContainer{
+    margin-top:8px;
   }
 
-
-  /* MOBILE ADS */
-
-  .page1-ad{
+  .product-ad{
 
     display:block;
 
-    width:100%;
+    min-height:0;
 
-    margin-top:8px;
+    padding:
+      14px 13px;
 
-    padding:12px;
-
-    border-radius:7px;
+    border-radius:8px;
   }
 
-
-  .page1-ad-brand{
-
+  .ad-brand{
     font-size:27px;
   }
 
-
-  .page1-ad-brand-sub{
+  .ad-brand-sub{
+    margin-top:5px;
 
     font-size:8px;
+
+    letter-spacing:1.5px;
   }
 
+  .ad-product{
+    margin-top:10px;
 
-  .page1-ad-product{
-
-    margin-top:8px;
-
-    font-size:14px;
+    font-size:15px;
   }
 
-
-  .page1-ad-product small{
-
+  .ad-description{
     font-size:9px;
   }
 
+  .ad-price-row{
+    margin-top:7px;
 
-  .page1-ad-current{
+    gap:6px;
+  }
 
+  .ad-mrp{
+    font-size:11px;
+  }
+
+  .ad-price{
     font-size:25px;
   }
 
-
-  .page1-ad-off{
+  .ad-discount{
+    padding:
+      5px 7px;
 
     font-size:9px;
   }
 
+  .ad-offer-row{
+    margin-top:7px;
 
-  .page1-ad-get{
+    gap:6px;
+  }
 
+  .ad-mega{
+    padding:
+      6px 7px;
+
+    font-size:9px;
+  }
+
+  .ad-get{
     font-size:13px;
   }
 
-
-  .page1-ad-get strong{
-
+  .ad-get strong{
     font-size:18px;
   }
 
-
-  .page1-ad-extra{
-
-    font-size:9px;
-  }
-
-
-  .page1-ad-coupon{
+  .ad-extra{
+    padding:
+      6px 8px;
 
     font-size:8px;
   }
 
+  .ad-coupon{
+    font-size:8px;
+  }
 
-  .page1-ad-cta{
+  .ad-button{
+    display:block;
 
     width:100%;
 
     margin-top:11px;
 
-    padding:12px;
+    padding:
+      12px;
 
     font-size:12px;
   }
 
-
-  .page2-brand{
-
-    font-size:23px;
+  .ad-decoration{
+    display:none;
   }
 
 
   /* CONTROLS */
 
   .epaper-tools{
-
-    gap:6px;
-
-    padding:
-      9px 6px;
-  }
-
-
-  .epaper-tools button,
-  .epaper-tools .tool-btn{
+    gap:5px;
 
     padding:
-      9px 10px;
-
-    font-size:11px;
+      8px 5px;
   }
 
+  .epaper-tools button{
+    padding:
+      9px 11px;
+
+    font-size:10px;
+  }
 
   #counter{
-
     width:100%;
 
     order:-1;
+
+    font-size:13px;
+
+    padding-bottom:2px;
   }
 
 
   /* THUMBNAILS */
 
   .page-grid{
-
     grid-template-columns:
       repeat(2,1fr);
 
-    gap:8px;
+    gap:7px;
   }
 
+  .page-card{
+    padding:4px;
+  }
 
   .page-card b{
-
-    font-size:11px;
+    font-size:10px;
   }
 
-
   .page-card span{
-
-    font-size:9px;
+    font-size:8px;
   }
 
 }
 
 
 /* =====================================================
-   FOCUS
+   VERY SMALL PHONES
 ===================================================== */
 
-.page-card:focus{
+@media(max-width:380px){
 
-  outline:
-    2px solid
-    var(--navy);
+  .desktop-nav a{
+    font-size:9px;
+  }
 
-  outline-offset:2px;
+  .epaper-tools button{
+    padding:
+      8px 8px;
+
+    font-size:9px;
+  }
+
+  .ad-price{
+    font-size:23px;
+  }
+
 }
 
 
-button:focus{
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
 
+button:focus,
+.page-card:focus{
   outline:
-    2px solid #fff;
+    2px solid #0b5ca8;
 
   outline-offset:2px;
 }
@@ -1202,20 +1195,31 @@ button:focus{
 
 
 <!-- =====================================================
-     TOP LINE
+     TOP STRIPE
 ===================================================== -->
 
 <div class="topline"></div>
 
 
-
 <!-- =====================================================
-     HEADER
+     MASTHEAD
 ===================================================== -->
 
 <header>
 
   <div class="mast">
+
+
+    <div class="mast-side">
+
+      TRUTH<br>
+      PEOPLE<br>
+      PROGRESS
+
+      <div class="underline"></div>
+
+    </div>
+
 
     <img
       class="mast-logo"
@@ -1224,9 +1228,9 @@ button:focus{
     >
 
 
-    <div class="edition">
+    <div class="mast-side right">
 
-      <b id="homeDay"></b>
+      <strong id="homeDay"></strong>
 
       <br>
 
@@ -1236,13 +1240,15 @@ button:focus{
 
       HYDERABAD
 
+      <div class="underline"></div>
+
     </div>
+
 
   </div>
 
 
-
-  <!-- NAVIGATION -->
+  <!-- NAV -->
 
   <nav class="desktop-nav">
 
@@ -1277,9 +1283,7 @@ button:focus{
   >
 
 
-    <!-- =================================================
-         SECTION TITLE
-    ================================================= -->
+    <!-- SECTION TITLE -->
 
     <div class="section-title">
 
@@ -1290,11 +1294,8 @@ button:focus{
     </div>
 
 
-
     <!-- =================================================
-         NEWSPAPER IMAGE
-
-         NOTHING IS PLACED OVER THE PNG
+         NEWSPAPER
     ================================================= -->
 
     <div class="epaper-shell">
@@ -1303,11 +1304,8 @@ button:focus{
 
         <img
           id="pageImage"
-
           src="page-01.png"
-
           alt="The Hyderabad Daily E-Paper Page 1"
-
           onerror="handleImageError(this)"
         >
 
@@ -1318,7 +1316,7 @@ button:focus{
 
 
     <!-- =================================================
-         PAGE-WISE ADVERTISEMENT AREA
+         PAGE-WISE ADS
     ================================================= -->
 
     <div id="pageAdContainer">
@@ -1330,139 +1328,86 @@ button:focus{
 
       <a
         id="pageAd1"
-
-        class="page1-ad"
-
+        class="product-ad"
         href="https://myntr.in/XuhdWB"
-
         target="_blank"
-
         rel="sponsored noopener noreferrer"
-
         aria-label="Buy Zyla Women Floral Printed Kurta"
       >
 
-
-        <!-- BRAND -->
-
         <div>
 
-          <div class="page1-ad-brand">
-
+          <div class="ad-brand">
             Zyla
-
           </div>
 
-
-          <span class="page1-ad-brand-sub">
-
+          <span class="ad-brand-sub">
             WOMEN'S FASHION
-
           </span>
 
         </div>
 
 
-
-        <!-- PRODUCT -->
-
         <div>
 
-          <div class="page1-ad-product">
+          <div class="ad-product">
 
             Zyla Women Floral Printed Kurta
 
-            <small>
-
+            <div class="ad-description">
               Floral Printed • Maroon • Apparel for Women
-
-            </small>
+            </div>
 
           </div>
 
 
+          <div class="ad-price-row">
 
-          <!-- PRICE -->
-
-          <div class="page1-ad-price">
-
-            <span class="page1-ad-mrp">
-
-              MRP
-
-              <del>
-                ₹999
-              </del>
-
+            <span class="ad-mrp">
+              MRP <del>₹999</del>
             </span>
 
-
-            <span class="page1-ad-current">
-
+            <span class="ad-price">
               ₹317
-
             </span>
 
-
-            <span class="page1-ad-off">
-
+            <span class="ad-discount">
               68% OFF!
-
             </span>
 
           </div>
 
 
+          <div class="ad-offer-row">
 
-          <!-- DEAL -->
-
-          <div class="page1-ad-deal">
-
-            <span class="page1-ad-mega">
-
+            <span class="ad-mega">
               MEGA DEAL
-
             </span>
 
-
-            <span class="page1-ad-get">
-
-              Get at
-
-              <strong>
-                ₹140
-              </strong>
-
+            <span class="ad-get">
+              Get at <strong>₹140</strong>
             </span>
 
-
-            <span class="page1-ad-extra">
-
+            <span class="ad-extra">
               Extra ₹177 Off
-
             </span>
 
           </div>
 
 
-          <span class="page1-ad-coupon">
-
+          <div class="ad-coupon">
             With Coupon + Bank Offer
-
-          </span>
+          </div>
 
         </div>
 
 
-
-        <!-- BUTTON -->
-
-        <div class="page1-ad-cta">
-
+        <div class="ad-button">
           SHOP NOW →
-
         </div>
 
+
+        <div class="ad-decoration"></div>
 
       </a>
 
@@ -1474,141 +1419,86 @@ button:focus{
 
       <a
         id="pageAd2"
-
-        class="page1-ad"
-
+        class="product-ad"
         href="https://myntr.in/KhmDGr"
-
         target="_blank"
-
         rel="sponsored noopener noreferrer"
-
         aria-label="Buy HIGHLANDER Men Slim Fit Shirt"
       >
 
-
-        <!-- BRAND -->
-
         <div>
 
-          <div
-            class="page1-ad-brand page2-brand"
-          >
-
+          <div class="ad-brand">
             HIGHLANDER
-
           </div>
 
-
-          <span class="page1-ad-brand-sub">
-
+          <span class="ad-brand-sub">
             MEN'S FASHION
-
           </span>
 
         </div>
 
 
-
-        <!-- PRODUCT -->
-
         <div>
 
-          <div class="page1-ad-product">
+          <div class="ad-product">
 
             HIGHLANDER Men Slim Fit Shirt
 
-            <small>
-
+            <div class="ad-description">
               Slim Fit • Black • Apparel for Men
-
-            </small>
+            </div>
 
           </div>
 
 
+          <div class="ad-price-row">
 
-          <!-- PRICE -->
-
-          <div class="page1-ad-price">
-
-            <span class="page1-ad-mrp">
-
-              MRP
-
-              <del>
-                ₹1,599
-              </del>
-
+            <span class="ad-mrp">
+              MRP <del>₹1,599</del>
             </span>
 
-
-            <span class="page1-ad-current">
-
+            <span class="ad-price">
               ₹495
-
             </span>
 
-
-            <span class="page1-ad-off">
-
+            <span class="ad-discount">
               69% OFF!
-
             </span>
 
           </div>
 
 
+          <div class="ad-offer-row">
 
-          <!-- DEAL -->
-
-          <div class="page1-ad-deal">
-
-            <span class="page1-ad-mega">
-
+            <span class="ad-mega">
               MEGA DEAL
-
             </span>
 
-
-            <span class="page1-ad-get">
-
-              Get at
-
-              <strong>
-                ₹344
-              </strong>
-
+            <span class="ad-get">
+              Get at <strong>₹344</strong>
             </span>
 
-
-            <span class="page1-ad-extra">
-
+            <span class="ad-extra">
               Extra ₹151 Off
-
             </span>
 
           </div>
 
 
-          <span class="page1-ad-coupon">
-
+          <div class="ad-coupon">
             With Coupon + Bank Offer
-
-          </span>
+          </div>
 
         </div>
 
 
-
-        <!-- BUTTON -->
-
-        <div class="page1-ad-cta">
-
+        <div class="ad-button">
           SHOP NOW →
-
         </div>
 
+
+        <div class="ad-decoration"></div>
 
       </a>
 
@@ -1618,7 +1508,7 @@ button:focus{
 
 
     <!-- =================================================
-         E-PAPER CONTROLS
+         CONTROLS
     ================================================= -->
 
     <div class="epaper-tools">
@@ -1628,16 +1518,12 @@ button:focus{
         type="button"
         onclick="previousPage()"
       >
-
         ‹ PREVIOUS
-
       </button>
 
 
       <span id="counter">
-
         PAGE 01 OF 10
-
       </span>
 
 
@@ -1645,9 +1531,7 @@ button:focus{
         type="button"
         onclick="nextPage()"
       >
-
         NEXT ›
-
       </button>
 
 
@@ -1655,9 +1539,7 @@ button:focus{
         type="button"
         onclick="fullScreen()"
       >
-
         FULL SCREEN
-
       </button>
 
 
@@ -1666,7 +1548,7 @@ button:focus{
 
 
     <!-- =================================================
-         PAGE THUMBNAILS
+         THUMBNAILS
     ================================================= -->
 
     <div
@@ -1688,9 +1570,9 @@ button:focus{
 
 <footer>
 
-  <b>
+  <strong>
     THE HYDERABAD DAILY
-  </b>
+  </strong>
 
   <br>
 
@@ -1698,21 +1580,16 @@ button:focus{
 
   <br>
 
-  © 2026 The Hyderabad Daily
+  © 2026 The Hyderabad Daily. All rights reserved.
 
 </footer>
 
 
 
-<!-- =====================================================
-     E-PAPER JAVASCRIPT
-===================================================== -->
-
 <script>
 
-
 /* =====================================================
-   ALL 10 PAGES
+   E-PAPER PAGES
 ===================================================== */
 
 const pages = [
@@ -1720,68 +1597,67 @@ const pages = [
   [
     "page-01.png",
     "01",
-    "FRONT PAGE"
+    "Front Page"
   ],
 
   [
     "page-02.png",
     "02",
-    "TELANGANA • ANDHRA PRADESH"
+    "Telangana"
   ],
 
   [
     "page-03.png",
     "03",
-    "TELANGANA • DISTRICTS • REGIONAL"
+    "Regional"
   ],
 
   [
     "page-04.png",
     "04",
-    "BUSINESS • MARKETS • ECONOMY"
+    "Business"
   ],
 
   [
     "page-05.png",
     "05",
-    "AROUND THE WORLD • TRAVEL • HERITAGE"
+    "World"
   ],
 
   [
     "page-06.png",
     "06",
-    "TECHNOLOGY • AI • GADGETS • EVs"
+    "Technology"
   ],
 
   [
     "page-07.png",
     "07",
-    "ENTERTAINMENT • CINEMA • OTT • MUSIC"
+    "Entertainment"
   ],
 
   [
     "page-08.png",
     "08",
-    "SPORTS"
+    "Sports"
   ],
 
   [
     "page-09.png",
     "09",
-    "LIFESTYLE • FASHION • TRAVEL • HEALTH"
+    "Lifestyle"
   ],
 
   [
     "page-10.png",
     "10",
-    "CITY LIFE • HYDERABAD"
+    "City Life"
   ]
 
 ];
 
 
 let current = 0;
-
 
 
 /* =====================================================
@@ -1793,24 +1669,20 @@ const image =
     "pageImage"
   );
 
-
 const counter =
   document.getElementById(
     "counter"
   );
-
 
 const grid =
   document.getElementById(
     "pageGrid"
   );
 
-
 const pageAd1 =
   document.getElementById(
     "pageAd1"
   );
-
 
 const pageAd2 =
   document.getElementById(
@@ -1818,9 +1690,8 @@ const pageAd2 =
   );
 
 
-
 /* =====================================================
-   BUILD PAGE THUMBNAILS
+   BUILD THUMBNAILS
 ===================================================== */
 
 function buildPageGrid(){
@@ -1829,26 +1700,20 @@ function buildPageGrid(){
     function(page,index){
 
       const card =
-        document.createElement(
-          "div"
-        );
-
+        document.createElement("div");
 
       card.className =
         "page-card";
-
 
       card.setAttribute(
         "role",
         "button"
       );
 
-
       card.setAttribute(
         "tabindex",
         "0"
       );
-
 
       card.innerHTML = `
 
@@ -1869,8 +1734,6 @@ function buildPageGrid(){
       `;
 
 
-      /* CLICK */
-
       card.addEventListener(
         "click",
         function(){
@@ -1880,8 +1743,6 @@ function buildPageGrid(){
         }
       );
 
-
-      /* KEYBOARD */
 
       card.addEventListener(
         "keydown",
@@ -1910,7 +1771,6 @@ function buildPageGrid(){
 }
 
 
-
 /* =====================================================
    ACTIVE THUMBNAIL
 ===================================================== */
@@ -1918,9 +1778,7 @@ function buildPageGrid(){
 function updateActiveCard(){
 
   document
-    .querySelectorAll(
-      ".page-card"
-    )
+    .querySelectorAll(".page-card")
     .forEach(
       function(card,index){
 
@@ -1935,15 +1793,15 @@ function updateActiveCard(){
 }
 
 
-
 /* =====================================================
-   PAGE-WISE ADVERTISEMENT CONTROL
+   PAGE-WISE ADVERTISEMENT
 ===================================================== */
 
 function updatePageAd(){
 
-
-  /* PAGE 1 */
+  /*
+     PAGE 1
+  */
 
   if(pageAd1){
 
@@ -1955,7 +1813,9 @@ function updatePageAd(){
   }
 
 
-  /* PAGE 2 */
+  /*
+     PAGE 2
+  */
 
   if(pageAd2){
 
@@ -1967,7 +1827,6 @@ function updatePageAd(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -2008,7 +1867,6 @@ function showPage(index){
 }
 
 
-
 /* =====================================================
    PREVIOUS
 ===================================================== */
@@ -2024,7 +1882,6 @@ function previousPage(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -2045,7 +1902,6 @@ function nextPage(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -2088,7 +1944,6 @@ function fullScreen(){
 }
 
 
-
 /* =====================================================
    IMAGE ERROR
 ===================================================== */
@@ -2097,15 +1952,9 @@ function handleImageError(img){
 
   img.alt =
     "E-paper page could not be loaded. " +
-
-    "Check that page-01.png through " +
-
-    "page-10.png are in the same " +
-
-    "GitHub folder as index.html.";
+    "Please check the PNG filename.";
 
 }
-
 
 
 /* =====================================================
@@ -2151,7 +2000,6 @@ image.addEventListener(
         nextPage();
 
       }
-
       else{
 
         previousPage();
@@ -2169,9 +2017,8 @@ image.addEventListener(
 );
 
 
-
 /* =====================================================
-   KEYBOARD NAVIGATION
+   KEYBOARD
 ===================================================== */
 
 document.addEventListener(
@@ -2200,9 +2047,8 @@ document.addEventListener(
 );
 
 
-
 /* =====================================================
-   START
+   INITIALISE
 ===================================================== */
 
 buildPageGrid();
@@ -2213,11 +2059,11 @@ showPage(0);
 
 
 
-<!-- =====================================================
-     AUTOMATIC DATE
-===================================================== -->
-
 <script>
+
+/* =====================================================
+   AUTOMATIC DATE
+===================================================== */
 
 function updateHomeDate(){
 
@@ -2280,7 +2126,7 @@ updateHomeDate();
 
 setInterval(
   updateHomeDate,
-  60 * 1000
+  60000
 );
 
 </script>
