@@ -1437,23 +1437,57 @@ async function loadNews(silent=false){
 /* =========================
    NEWS GRID
 ========================= */
-
 function render(){
 
-  const list =
+  const filtered =
     allArticles.filter(
       a =>
         activeCategory === "all" ||
         a.category === activeCategory
     );
 
+  /*
+     IMPORTANT:
+     The first 4 stories are displayed
+     in WEB NEWS HIGHLIGHTS.
+     They must NOT be repeated below.
+  */
+
+  const featured =
+    filtered
+      .slice(0,4)
+      .map(a => a.link);
+
+  const list =
+    filtered.filter(
+      a =>
+        !featured.includes(a.link)
+    );
+
+
+  /* No stories at all */
+
+  if(!filtered.length){
+
+    $("newsGrid").innerHTML =
+
+      '<div class="empty-box">' +
+      'No recent web headlines are currently available in this category.' +
+      '</div>';
+
+    return;
+
+  }
+
+
+  /* Only highlights available */
 
   if(!list.length){
 
     $("newsGrid").innerHTML =
 
       '<div class="empty-box">' +
-      'No recent web headlines are currently available in this category.' +
+      'No additional recent web headlines are currently available in this category.' +
       '</div>';
 
     return;
@@ -1553,6 +1587,7 @@ function render(){
 
 }
 
+    
 
 /* =========================
    HIGHLIGHTS
