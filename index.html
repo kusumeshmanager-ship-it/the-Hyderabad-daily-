@@ -41,53 +41,34 @@
 ===================================================== */
 
 :root{
-
   --navy:#0b2f6b;
   --navy2:#123f82;
-
   --red:#d71920;
-
   --ink:#111827;
   --muted:#64707d;
-
   --bg:#eef2f6;
   --line:#d5dce5;
-
   --white:#ffffff;
-
 }
-
 
 *{
   box-sizing:border-box;
 }
 
-
 html{
   scroll-behavior:smooth;
 }
 
-
 body{
-
   margin:0;
-
   background:var(--bg);
-
   color:var(--ink);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  font-family:Georgia,"Times New Roman",serif;
 }
-
 
 img{
   max-width:100%;
 }
-
 
 a,
 button{
@@ -95,13 +76,11 @@ button{
 }
 
 
-
 /* =====================================================
    TOP LINE
 ===================================================== */
 
 .topline{
-
   height:5px;
 
   background:
@@ -110,9 +89,7 @@ button{
       var(--navy) 0 70%,
       var(--red) 70%
     );
-
 }
-
 
 
 /* =====================================================
@@ -120,49 +97,34 @@ button{
 ===================================================== */
 
 header{
-
   background:var(--white);
-
-  border-bottom:
-    1px solid var(--line);
-
+  border-bottom:1px solid var(--line);
 }
 
-
 .mast{
-
   max-width:1200px;
-
   margin:auto;
 
   padding:
     16px 18px 14px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   gap:20px;
-
 }
 
-
 .mast-logo{
-
   display:block;
 
   width:auto;
 
   max-width:min(760px,72vw);
-
   max-height:150px;
 
   margin:auto;
-
 }
-
 
 
 /* =====================================================
@@ -170,7 +132,6 @@ header{
 ===================================================== */
 
 .edition{
-
   min-width:180px;
 
   text-align:center;
@@ -181,18 +142,12 @@ header{
     sans-serif;
 
   color:#222;
-
 }
-
 
 .edition b{
-
   color:var(--navy);
-
   font-size:16px;
-
 }
-
 
 
 /* =====================================================
@@ -200,26 +155,20 @@ header{
 ===================================================== */
 
 .desktop-nav{
-
   background:var(--navy);
 
   display:flex;
 
   justify-content:center;
-
   align-items:center;
 
   width:100%;
 
   padding:0;
-
 }
 
-
 .desktop-nav a{
-
-  flex:
-    0 0 auto;
+  flex:0 0 auto;
 
   color:#fff;
 
@@ -240,25 +189,17 @@ header{
   text-align:center;
 
   transition:.15s;
-
 }
 
-
 .desktop-nav a:last-child{
-
   border-right:
     1px solid
     rgba(255,255,255,.20);
-
 }
-
 
 .desktop-nav a:hover{
-
   background:var(--navy2);
-
 }
-
 
 
 /* =====================================================
@@ -266,21 +207,14 @@ header{
 ===================================================== */
 
 .page{
-
   max-width:1200px;
-
   margin:auto;
-
 }
-
 
 .section{
-
   padding:
     24px 16px;
-
 }
-
 
 
 /* =====================================================
@@ -288,9 +222,7 @@ header{
 ===================================================== */
 
 .section-title{
-
   display:flex;
-
   align-items:center;
 
   border-bottom:
@@ -298,12 +230,9 @@ header{
     var(--navy);
 
   margin-bottom:18px;
-
 }
 
-
 .section-title h2{
-
   margin:0;
 
   background:var(--navy);
@@ -316,9 +245,7 @@ header{
   font-size:24px;
 
   letter-spacing:.4px;
-
 }
-
 
 
 /* =====================================================
@@ -326,14 +253,10 @@ header{
 ===================================================== */
 
 #epaper{
-
   scroll-margin-top:15px;
-
 }
 
-
 .epaper-shell{
-
   background:#101827;
 
   padding:12px;
@@ -343,23 +266,15 @@ header{
   box-shadow:
     0 6px 24px
     rgba(0,0,0,.20);
-
 }
-
 
 .epaper-stage{
-
   width:100%;
-
   max-width:1050px;
-
   margin:auto;
-
 }
 
-
 .epaper-shell img{
-
   display:block;
 
   width:100%;
@@ -373,17 +288,23 @@ header{
   min-height:240px;
 
   object-fit:contain;
-
 }
 
 
+/* =====================================================
+   PAGE-WISE ADVERTISEMENT CONTAINER
+===================================================== */
+
+#pageAdContainer{
+  width:100%;
+  max-width:1050px;
+
+  margin:auto;
+}
+
 
 /* =====================================================
-   ZYLA PRODUCT SHOPPING AD
-
-   IMPORTANT:
-   THIS IS OUTSIDE THE NEWSPAPER PNG.
-   IT NEVER COVERS NEWS CONTENT.
+   COMMON SHOPPING AD
 ===================================================== */
 
 .page1-ad{
@@ -437,7 +358,6 @@ header{
   transition:
     transform .15s,
     box-shadow .15s;
-
 }
 
 
@@ -449,7 +369,6 @@ header{
   box-shadow:
     0 5px 18px
     rgba(0,0,0,.16);
-
 }
 
 
@@ -457,13 +376,11 @@ header{
 
   transform:
     scale(.995);
-
 }
 
 
-
 /* =====================================================
-   ZYLA BRAND
+   BRAND
 ===================================================== */
 
 .page1-ad-brand{
@@ -478,7 +395,6 @@ header{
   font-weight:700;
 
   color:#941b3d;
-
 }
 
 
@@ -499,13 +415,11 @@ header{
   letter-spacing:1.5px;
 
   color:#333;
-
 }
 
 
-
 /* =====================================================
-   PRODUCT TITLE
+   PRODUCT
 ===================================================== */
 
 .page1-ad-product{
@@ -515,7 +429,6 @@ header{
   font-weight:800;
 
   line-height:1.2;
-
 }
 
 
@@ -530,9 +443,7 @@ header{
   font-weight:500;
 
   color:#6a5b54;
-
 }
-
 
 
 /* =====================================================
@@ -550,7 +461,6 @@ header{
   flex-wrap:wrap;
 
   gap:7px;
-
 }
 
 
@@ -559,14 +469,12 @@ header{
   color:#777;
 
   font-size:12px;
-
 }
 
 
 .page1-ad-mrp del{
 
   color:#777;
-
 }
 
 
@@ -577,7 +485,6 @@ header{
   font-size:28px;
 
   font-weight:900;
-
 }
 
 
@@ -595,13 +502,11 @@ header{
   font-size:11px;
 
   font-weight:900;
-
 }
 
 
-
 /* =====================================================
-   MEGA DEAL
+   DEAL
 ===================================================== */
 
 .page1-ad-deal{
@@ -615,7 +520,6 @@ header{
   flex-wrap:wrap;
 
   gap:7px;
-
 }
 
 
@@ -636,7 +540,6 @@ header{
   font-size:10px;
 
   font-weight:900;
-
 }
 
 
@@ -645,7 +548,6 @@ header{
   font-size:15px;
 
   font-weight:900;
-
 }
 
 
@@ -654,7 +556,6 @@ header{
   color:#d71920;
 
   font-size:20px;
-
 }
 
 
@@ -672,7 +573,6 @@ header{
   font-size:10px;
 
   font-weight:900;
-
 }
 
 
@@ -685,13 +585,11 @@ header{
   font-size:9px;
 
   color:#555;
-
 }
 
 
-
 /* =====================================================
-   SHOP NOW BUTTON
+   SHOP NOW
 ===================================================== */
 
 .page1-ad-cta{
@@ -712,9 +610,31 @@ header{
   white-space:nowrap;
 
   text-align:center;
-
 }
 
+
+/* =====================================================
+   PAGE 2 HIGHLANDER BRAND
+===================================================== */
+
+.page2-brand{
+
+  color:#111827;
+
+  font-size:28px;
+
+  letter-spacing:-.5px;
+}
+
+
+/* =====================================================
+   DEFAULT:
+   PAGE 2 AD HIDDEN
+===================================================== */
+
+#pageAd2{
+  display:none;
+}
 
 
 /* =====================================================
@@ -741,7 +661,6 @@ header{
     1px solid var(--line);
 
   border-top:0;
-
 }
 
 
@@ -769,7 +688,6 @@ button,
   text-decoration:none;
 
   cursor:pointer;
-
 }
 
 
@@ -777,7 +695,6 @@ button:hover,
 .tool-btn:hover{
 
   background:var(--navy2);
-
 }
 
 
@@ -793,9 +710,7 @@ button:hover,
     sans-serif;
 
   color:#222;
-
 }
-
 
 
 /* =====================================================
@@ -812,7 +727,6 @@ button:hover,
   gap:10px;
 
   margin-top:12px;
-
 }
 
 
@@ -827,7 +741,6 @@ button:hover,
   padding:6px;
 
   cursor:pointer;
-
 }
 
 
@@ -836,7 +749,6 @@ button:hover,
 
   border-color:
     var(--navy);
-
 }
 
 
@@ -849,7 +761,6 @@ button:hover,
   aspect-ratio:3/4;
 
   object-fit:cover;
-
 }
 
 
@@ -866,7 +777,6 @@ button:hover,
     700 12px
     Arial,
     sans-serif;
-
 }
 
 
@@ -883,9 +793,7 @@ button:hover,
     10px
     Arial,
     sans-serif;
-
 }
-
 
 
 /* =====================================================
@@ -909,9 +817,7 @@ footer{
     12px/1.6
     Arial,
     sans-serif;
-
 }
-
 
 
 /* =====================================================
@@ -924,7 +830,6 @@ footer{
 
     padding:
       13px 14px;
-
   }
 
 
@@ -933,7 +838,6 @@ footer{
     max-width:65vw;
 
     max-height:120px;
-
   }
 
 
@@ -942,14 +846,12 @@ footer{
     min-width:150px;
 
     font-size:11px;
-
   }
 
 
   .edition b{
 
     font-size:14px;
-
   }
 
 
@@ -959,7 +861,6 @@ footer{
       12px 20px;
 
     font-size:12px;
-
   }
 
 
@@ -967,11 +868,9 @@ footer{
 
     grid-template-columns:
       repeat(4,1fr);
-
   }
 
 }
-
 
 
 /* =====================================================
@@ -983,7 +882,6 @@ footer{
   .topline{
 
     height:4px;
-
   }
 
 
@@ -993,7 +891,6 @@ footer{
       12px 8px 10px;
 
     display:block;
-
   }
 
 
@@ -1009,7 +906,6 @@ footer{
 
     margin:
       0 auto 8px;
-
   }
 
 
@@ -1024,19 +920,16 @@ footer{
     font-size:11px;
 
     line-height:1.45;
-
   }
 
 
   .edition b{
 
     font-size:14px;
-
   }
 
 
-
-  /* MOBILE NAV */
+  /* MOBILE NAVIGATION */
 
   .desktop-nav{
 
@@ -1051,7 +944,6 @@ footer{
     padding:0;
 
     gap:0;
-
   }
 
 
@@ -1076,7 +968,6 @@ footer{
     border-radius:0;
 
     white-space:nowrap;
-
   }
 
 
@@ -1085,9 +976,7 @@ footer{
     border-right:
       1px solid
       rgba(255,255,255,.25);
-
   }
-
 
 
   /* MAIN */
@@ -1096,9 +985,7 @@ footer{
 
     padding:
       16px 8px;
-
   }
-
 
 
   /* TITLE */
@@ -1108,7 +995,6 @@ footer{
     margin-bottom:12px;
 
     border-bottom-width:3px;
-
   }
 
 
@@ -1118,9 +1004,7 @@ footer{
 
     padding:
       9px 13px;
-
   }
-
 
 
   /* E-PAPER */
@@ -1128,19 +1012,16 @@ footer{
   .epaper-shell{
 
     padding:5px;
-
   }
 
 
   .epaper-shell img{
 
     min-height:160px;
-
   }
 
 
-
-  /* MOBILE ZYLA AD */
+  /* MOBILE ADS */
 
   .page1-ad{
 
@@ -1153,21 +1034,18 @@ footer{
     padding:12px;
 
     border-radius:7px;
-
   }
 
 
   .page1-ad-brand{
 
     font-size:27px;
-
   }
 
 
   .page1-ad-brand-sub{
 
     font-size:8px;
-
   }
 
 
@@ -1176,56 +1054,48 @@ footer{
     margin-top:8px;
 
     font-size:14px;
-
   }
 
 
   .page1-ad-product small{
 
     font-size:9px;
-
   }
 
 
   .page1-ad-current{
 
     font-size:25px;
-
   }
 
 
   .page1-ad-off{
 
     font-size:9px;
-
   }
 
 
   .page1-ad-get{
 
     font-size:13px;
-
   }
 
 
   .page1-ad-get strong{
 
     font-size:18px;
-
   }
 
 
   .page1-ad-extra{
 
     font-size:9px;
-
   }
 
 
   .page1-ad-coupon{
 
     font-size:8px;
-
   }
 
 
@@ -1238,9 +1108,13 @@ footer{
     padding:12px;
 
     font-size:12px;
-
   }
 
+
+  .page2-brand{
+
+    font-size:23px;
+  }
 
 
   /* CONTROLS */
@@ -1251,7 +1125,6 @@ footer{
 
     padding:
       9px 6px;
-
   }
 
 
@@ -1262,7 +1135,6 @@ footer{
       9px 10px;
 
     font-size:11px;
-
   }
 
 
@@ -1271,9 +1143,7 @@ footer{
     width:100%;
 
     order:-1;
-
   }
-
 
 
   /* THUMBNAILS */
@@ -1284,25 +1154,21 @@ footer{
       repeat(2,1fr);
 
     gap:8px;
-
   }
 
 
   .page-card b{
 
     font-size:11px;
-
   }
 
 
   .page-card span{
 
     font-size:9px;
-
   }
 
 }
-
 
 
 /* =====================================================
@@ -1316,7 +1182,6 @@ footer{
     var(--navy);
 
   outline-offset:2px;
-
 }
 
 
@@ -1326,7 +1191,6 @@ button:focus{
     2px solid #fff;
 
   outline-offset:2px;
-
 }
 
 </style>
@@ -1334,9 +1198,7 @@ button:focus{
 </head>
 
 
-
 <body>
-
 
 
 <!-- =====================================================
@@ -1415,7 +1277,9 @@ button:focus{
   >
 
 
-    <!-- SECTION TITLE -->
+    <!-- =================================================
+         SECTION TITLE
+    ================================================= -->
 
     <div class="section-title">
 
@@ -1430,7 +1294,7 @@ button:focus{
     <!-- =================================================
          NEWSPAPER IMAGE
 
-         NOTHING IS PLACED OVER THIS IMAGE
+         NOTHING IS PLACED OVER THE PNG
     ================================================= -->
 
     <div class="epaper-shell">
@@ -1439,8 +1303,11 @@ button:focus{
 
         <img
           id="pageImage"
+
           src="page-01.png"
+
           alt="The Hyderabad Daily E-Paper Page 1"
+
           onerror="handleImageError(this)"
         >
 
@@ -1451,89 +1318,45 @@ button:focus{
 
 
     <!-- =================================================
-         ZYLA SHOPPING AD
-
-         COMPLETELY OUTSIDE THE PNG
+         PAGE-WISE ADVERTISEMENT AREA
     ================================================= -->
 
-    <a
-      id="page1Ad"
-
-      class="page1-ad"
-
-      href="https://myntr.in/XuhdWB"
-
-      target="_blank"
-
-      rel="sponsored noopener noreferrer"
-
-      aria-label="Buy Zyla Women Floral Printed Kurta"
-    >
+    <div id="pageAdContainer">
 
 
-      <!-- BRAND -->
+      <!-- =================================================
+           PAGE 1 — ZYLA
+      ================================================= -->
 
-      <div>
+      <a
+        id="pageAd1"
 
-        <div class="page1-ad-brand">
+        class="page1-ad"
 
-          Zyla
+        href="https://myntr.in/XuhdWB"
 
-        </div>
+        target="_blank"
 
-        <span class="page1-ad-brand-sub">
+        rel="sponsored noopener noreferrer"
 
-          WOMEN'S FASHION
-
-        </span>
-
-      </div>
-
-
-
-      <!-- PRODUCT DETAILS -->
-
-      <div>
-
-        <div class="page1-ad-product">
-
-          Zyla Women Floral Printed Kurta
-
-          <small>
-
-            Floral Printed • Maroon • Apparel for Women
-
-          </small>
-
-        </div>
+        aria-label="Buy Zyla Women Floral Printed Kurta"
+      >
 
 
+        <!-- BRAND -->
 
-        <!-- PRICE -->
+        <div>
 
-        <div class="page1-ad-price">
+          <div class="page1-ad-brand">
 
-          <span class="page1-ad-mrp">
+            Zyla
 
-            MRP
-
-            <del>
-              ₹999
-            </del>
-
-          </span>
+          </div>
 
 
-          <span class="page1-ad-current">
+          <span class="page1-ad-brand-sub">
 
-            ₹317
-
-          </span>
-
-
-          <span class="page1-ad-off">
-
-            68% OFF!
+            WOMEN'S FASHION
 
           </span>
 
@@ -1541,62 +1364,261 @@ button:focus{
 
 
 
-        <!-- MEGA DEAL -->
+        <!-- PRODUCT -->
 
-        <div class="page1-ad-deal">
+        <div>
 
-          <span class="page1-ad-mega">
+          <div class="page1-ad-product">
 
-            MEGA DEAL
+            Zyla Women Floral Printed Kurta
 
-          </span>
+            <small>
 
+              Floral Printed • Maroon • Apparel for Women
 
-          <span class="page1-ad-get">
+            </small>
 
-            Get at
-
-            <strong>
-              ₹140
-            </strong>
-
-          </span>
+          </div>
 
 
-          <span class="page1-ad-extra">
 
-            Extra ₹177 Off
+          <!-- PRICE -->
+
+          <div class="page1-ad-price">
+
+            <span class="page1-ad-mrp">
+
+              MRP
+
+              <del>
+                ₹999
+              </del>
+
+            </span>
+
+
+            <span class="page1-ad-current">
+
+              ₹317
+
+            </span>
+
+
+            <span class="page1-ad-off">
+
+              68% OFF!
+
+            </span>
+
+          </div>
+
+
+
+          <!-- DEAL -->
+
+          <div class="page1-ad-deal">
+
+            <span class="page1-ad-mega">
+
+              MEGA DEAL
+
+            </span>
+
+
+            <span class="page1-ad-get">
+
+              Get at
+
+              <strong>
+                ₹140
+              </strong>
+
+            </span>
+
+
+            <span class="page1-ad-extra">
+
+              Extra ₹177 Off
+
+            </span>
+
+          </div>
+
+
+          <span class="page1-ad-coupon">
+
+            With Coupon + Bank Offer
 
           </span>
 
         </div>
 
 
-        <span class="page1-ad-coupon">
 
-          With Coupon + Bank Offer
+        <!-- BUTTON -->
 
-        </span>
+        <div class="page1-ad-cta">
 
-      </div>
+          SHOP NOW →
 
-
-
-      <!-- SHOP NOW -->
-
-      <div class="page1-ad-cta">
-
-        SHOP NOW →
-
-      </div>
+        </div>
 
 
-    </a>
+      </a>
+
+
+
+      <!-- =================================================
+           PAGE 2 — HIGHLANDER
+      ================================================= -->
+
+      <a
+        id="pageAd2"
+
+        class="page1-ad"
+
+        href="https://myntr.in/KhmDGr"
+
+        target="_blank"
+
+        rel="sponsored noopener noreferrer"
+
+        aria-label="Buy HIGHLANDER Men Slim Fit Shirt"
+      >
+
+
+        <!-- BRAND -->
+
+        <div>
+
+          <div
+            class="page1-ad-brand page2-brand"
+          >
+
+            HIGHLANDER
+
+          </div>
+
+
+          <span class="page1-ad-brand-sub">
+
+            MEN'S FASHION
+
+          </span>
+
+        </div>
+
+
+
+        <!-- PRODUCT -->
+
+        <div>
+
+          <div class="page1-ad-product">
+
+            HIGHLANDER Men Slim Fit Shirt
+
+            <small>
+
+              Slim Fit • Black • Apparel for Men
+
+            </small>
+
+          </div>
+
+
+
+          <!-- PRICE -->
+
+          <div class="page1-ad-price">
+
+            <span class="page1-ad-mrp">
+
+              MRP
+
+              <del>
+                ₹1,599
+              </del>
+
+            </span>
+
+
+            <span class="page1-ad-current">
+
+              ₹495
+
+            </span>
+
+
+            <span class="page1-ad-off">
+
+              69% OFF!
+
+            </span>
+
+          </div>
+
+
+
+          <!-- DEAL -->
+
+          <div class="page1-ad-deal">
+
+            <span class="page1-ad-mega">
+
+              MEGA DEAL
+
+            </span>
+
+
+            <span class="page1-ad-get">
+
+              Get at
+
+              <strong>
+                ₹344
+              </strong>
+
+            </span>
+
+
+            <span class="page1-ad-extra">
+
+              Extra ₹151 Off
+
+            </span>
+
+          </div>
+
+
+          <span class="page1-ad-coupon">
+
+            With Coupon + Bank Offer
+
+          </span>
+
+        </div>
+
+
+
+        <!-- BUTTON -->
+
+        <div class="page1-ad-cta">
+
+          SHOP NOW →
+
+        </div>
+
+
+      </a>
+
+
+    </div>
 
 
 
     <!-- =================================================
-         CONTROLS
+         E-PAPER CONTROLS
     ================================================= -->
 
     <div class="epaper-tools">
@@ -1784,22 +1806,27 @@ const grid =
   );
 
 
-const page1Ad =
+const pageAd1 =
   document.getElementById(
-    "page1Ad"
+    "pageAd1"
+  );
+
+
+const pageAd2 =
+  document.getElementById(
+    "pageAd2"
   );
 
 
 
 /* =====================================================
-   BUILD THUMBNAILS
+   BUILD PAGE THUMBNAILS
 ===================================================== */
 
 function buildPageGrid(){
 
   pages.forEach(
-    (page,index)=>{
-
+    function(page,index){
 
       const card =
         document.createElement(
@@ -1842,6 +1869,8 @@ function buildPageGrid(){
       `;
 
 
+      /* CLICK */
+
       card.addEventListener(
         "click",
         function(){
@@ -1851,6 +1880,8 @@ function buildPageGrid(){
         }
       );
 
+
+      /* KEYBOARD */
 
       card.addEventListener(
         "keydown",
@@ -1906,29 +1937,32 @@ function updateActiveCard(){
 
 
 /* =====================================================
-   SHOW / HIDE ZYLA AD
+   PAGE-WISE ADVERTISEMENT CONTROL
 ===================================================== */
 
 function updatePageAd(){
 
-  if(!page1Ad){
 
-    return;
+  /* PAGE 1 */
 
-  }
+  if(pageAd1){
 
-
-  if(current === 0){
-
-    page1Ad.style.display =
-      "grid";
+    pageAd1.style.display =
+      current === 0
+        ? "grid"
+        : "none";
 
   }
 
-  else{
 
-    page1Ad.style.display =
-      "none";
+  /* PAGE 2 */
+
+  if(pageAd2){
+
+    pageAd2.style.display =
+      current === 1
+        ? "grid"
+        : "none";
 
   }
 
