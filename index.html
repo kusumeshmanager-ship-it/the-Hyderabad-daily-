@@ -464,89 +464,58 @@ header{
 }
 
 
-  /* =========================================================
-   PAGE 1 — JANASYA AD
-   Mobile-safe horizontal advertisement
-   ========================================================= */
+
+/* =====================================================
+   PAGE 1 — JANASYA DIRECT PNG IMAGE AD
+===================================================== */
 
 #pageAd1{
-  display:none;
-  width:100%;
-  box-sizing:border-box;
-  min-width:0;
-  min-height:220px;
-  padding:14px;
-  gap:14px;
 
-  grid-template-columns:
-    minmax(110px,0.85fr)
-    minmax(0,1.45fr)
-    minmax(100px,0.75fr);
+  display:none;
+
+  width:100%;
+
+  box-sizing:border-box;
+
+  margin:
+    8px 0 0 0;
+
+  padding:0;
+
+  min-width:0;
 
   overflow:hidden;
 
-  background:
-    linear-gradient(
-      115deg,
-      #ead0c1 0%,
-      #fff8f2 52%,
-      #e8c5b3 100%
-    );
+  background:#fff;
 
-  border:1px solid #e0c5b6;
-  border-radius:12px;
+  border:
+    1px solid #d8d8d8;
+
+  border-radius:8px;
+
+  text-decoration:none;
+
 }
 
-#pageAd1 > *{
-  min-width:0;
-  max-width:100%;
-  box-sizing:border-box;
-}
 
 #pageAd1 img{
+
   display:block;
+
   width:100%;
+
   max-width:100%;
+
   height:auto;
+
+  margin:0;
+
+  padding:0;
+
   object-fit:contain;
+
 }
 
-#pageAd1 .ad-content,
-#pageAd1 .product-info,
-#pageAd1 .ad-price,
-#pageAd1 .ad-offer{
-  min-width:0;
-  overflow:hidden;
-}
-
-#pageAd1 h2,
-#pageAd1 h3,
-#pageAd1 p{
-  overflow-wrap:anywhere;
-  word-break:normal;
-}
-
-#pageAd1 .ad-price{
-  font-size:32px;
-  font-weight:800;
-  line-height:1;
-  white-space:nowrap;
-}
-
-#pageAd1 .ad-cta{
-  display:block;
-  width:100%;
-  box-sizing:border-box;
-  text-align:center;
-  padding:12px 10px;
-  margin-top:10px;
-  background:#ff2864;
-  color:#fff;
-  font-weight:800;
-  border-radius:10px;
-  text-decoration:none;
-  white-space:nowrap;
-}
 
 
 /* =====================================================
@@ -1279,8 +1248,6 @@ footer strong{
 
   /* =================================================
      MOBILE ADVERTISEMENT
-
-     NO HORIZONTAL OVERFLOW
   ================================================= */
 
   #pageAdContainer{
@@ -1293,6 +1260,40 @@ footer strong{
 
   }
 
+
+  /* PAGE 1 JANASYA IMAGE AD */
+
+  #pageAd1{
+
+    display:none;
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:0;
+
+    overflow:hidden;
+
+    border-radius:8px;
+
+  }
+
+
+  #pageAd1 img{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    max-width:100%;
+
+  }
+
+
+  /* PAGE 2 HIGHLANDER */
 
   .product-ad{
 
@@ -1706,118 +1707,26 @@ footer strong{
   <div id="pageAdContainer">
 
 
+    <!-- =================================================
+         PAGE 1 — JANASYA IMAGE AD
+    ================================================= -->
 
+    <a
+      id="pageAd1"
+      class="page1-image-ad"
+      href="https://fkrt.co/SZlqMO"
+      target="_blank"
+      rel="sponsored noopener noreferrer"
+      aria-label="Janasya Women's Fashion advertisement"
+    >
 
-<!-- =================================================
-     PAGE 1 — JANASYA
-================================================= -->
+      <img
+        src="janasya-page1-ad.png"
+        alt="Janasya Women's Fashion - Top Pant Co-ords Set with Jacket"
+      >
 
-<a
-  id="pageAd1"
-  class="product-ad"
+    </a>
 
-  href="https://fkrt.co/SZlqMO"
-
-  target="_blank"
-
-  rel="sponsored noopener noreferrer"
-
-  aria-label="Shop Janasya Top Pant Co-ords Set with Jacket on Flipkart"
->
-
-  <!-- PRODUCT / BRAND -->
-
-  <div class="ad-product-image">
-
-    <div class="ad-no-image">
-
-      JANASYA<br>
-      WOMEN'S FASHION
-
-    </div>
-
-  </div>
-
-
-  <!-- PRODUCT DETAILS -->
-
-  <div>
-
-    <div class="ad-brand">
-      Janasya
-    </div>
-
-    <span class="ad-brand-sub">
-      WOMEN'S FASHION
-    </span>
-
-
-    <div class="ad-title">
-      Top Pant Co-ords Set with Jacket
-    </div>
-
-    <div class="ad-description">
-      Effortless Style • Comfortable • Casual &amp; Office Wear
-    </div>
-
-  </div>
-
-
-  <!-- PRICE -->
-
-  <div>
-
-    <div class="ad-price-row">
-
-      <span class="ad-mrp">
-        MRP <del>₹3,999</del>
-      </span>
-
-      <span class="ad-price">
-        ₹974
-      </span>
-
-      <span class="ad-discount">
-        76% OFF!
-      </span>
-
-    </div>
-
-
-    <div class="ad-deal">
-
-      <span class="ad-mega">
-        MEGA DEAL
-      </span>
-
-      <span class="ad-get">
-        Shop at <strong>₹974</strong>
-      </span>
-
-    </div>
-
-
-    <div class="ad-extra">
-      Extra offers may apply
-    </div>
-
-
-    <div class="ad-coupon">
-      Check Flipkart for current coupon and bank offers
-    </div>
-
-  </div>
-
-
-  <!-- BUTTON -->
-
-  <div class="ad-button">
-    SHOP NOW →
-  </div>
-
-</a>
-    
-  
 
     <!-- =================================================
          PAGE 2 — HIGHLANDER
@@ -2207,20 +2116,24 @@ function updateActiveCard(){
 
 
 /* =====================================================
-   PAGE-WISE AD
+   PAGE-WISE ADVERTISEMENT
 ===================================================== */
 
 function updatePageAd(){
+
+  /* PAGE 1 — JANASYA IMAGE */
 
   if(pageAd1){
 
     pageAd1.style.display =
       current === 0
-        ? "grid"
+        ? "block"
         : "none";
 
   }
 
+
+  /* PAGE 2 — HIGHLANDER */
 
   if(pageAd2){
 
@@ -2272,8 +2185,12 @@ function showPage(index){
 
 
   window.scrollTo({
-    top:document.getElementById("epaper").offsetTop - 8,
+
+    top:
+      document.getElementById("epaper").offsetTop - 8,
+
     behavior:"smooth"
+
   });
 
 }
@@ -2358,21 +2275,27 @@ let startX = 0;
 
 
 image.addEventListener(
+
   "touchstart",
+
   function(event){
 
     startX =
       event.touches[0].clientX;
 
   },
+
   {
     passive:true
   }
+
 );
 
 
 image.addEventListener(
+
   "touchend",
+
   function(event){
 
     const endX =
@@ -2391,6 +2314,7 @@ image.addEventListener(
         nextPage();
 
       }
+
       else{
 
         previousPage();
@@ -2400,9 +2324,11 @@ image.addEventListener(
     }
 
   },
+
   {
     passive:true
   }
+
 );
 
 
@@ -2412,7 +2338,9 @@ image.addEventListener(
 ===================================================== */
 
 document.addEventListener(
+
   "keydown",
+
   function(event){
 
     if(
@@ -2433,6 +2361,7 @@ document.addEventListener(
     }
 
   }
+
 );
 
 
