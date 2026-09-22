@@ -29,18 +29,13 @@
 ===================================================== */
 
 :root{
-
   --navy:#073d78;
   --navy2:#0b529d;
   --red:#d71920;
-
   --page-bg:#edf4f9;
-
   --text:#151b25;
   --muted:#68717d;
-
   --white:#fff;
-
 }
 
 *{
@@ -52,7 +47,6 @@ html{
 }
 
 body{
-
   margin:0;
 
   background:
@@ -68,7 +62,6 @@ body{
     Georgia,
     "Times New Roman",
     serif;
-
 }
 
 img{
@@ -85,7 +78,6 @@ a{
 ===================================================== */
 
 .topline{
-
   height:5px;
 
   background:
@@ -94,7 +86,6 @@ a{
       #063b76 0 72%,
       #d71920 72% 100%
     );
-
 }
 
 
@@ -103,17 +94,13 @@ a{
 ===================================================== */
 
 header{
-
   background:#fff;
 
   border-bottom:
     1px solid #d6e0e9;
-
 }
 
-
 .mast{
-
   max-width:1250px;
 
   margin:auto;
@@ -133,58 +120,39 @@ header{
   align-items:center;
 
   gap:10px;
-
 }
 
-
 .mast-side{
-
   font:
     700 12px/1.25
     Georgia,
     serif;
 
   color:#111;
-
 }
-
 
 .mast-side.right{
-
   text-align:right;
-
 }
-
 
 .mast-side strong{
-
   color:#0755a2;
-
 }
 
-
 .mast-line{
-
   width:75px;
-
   height:2px;
 
   background:#e21d2a;
 
   margin-top:5px;
-
 }
-
 
 .mast-side.right .mast-line{
-
   margin-left:auto;
-
 }
 
-
 .mast-logo{
-
   display:block;
 
   width:auto;
@@ -194,7 +162,6 @@ header{
   max-height:92px;
 
   margin:auto;
-
 }
 
 
@@ -203,7 +170,6 @@ header{
 ===================================================== */
 
 .main-nav{
-
   display:flex;
 
   justify-content:center;
@@ -217,12 +183,9 @@ header{
 
   border-bottom:
     3px solid #d9e6f1;
-
 }
 
-
 .main-nav a{
-
   flex:1;
 
   max-width:280px;
@@ -244,23 +207,16 @@ header{
   border-left:
     1px solid
     rgba(255,255,255,.25);
-
 }
 
-
 .main-nav a:last-child{
-
   border-right:
     1px solid
     rgba(255,255,255,.25);
-
 }
 
-
 .main-nav a:hover{
-
   background:#0d5eaa;
-
 }
 
 
@@ -269,57 +225,69 @@ header{
 ===================================================== */
 
 .page{
-
   width:100%;
 
   max-width:1250px;
 
   margin:auto;
-
 }
 
-
 .section{
-
   padding:
-    22px 18px 30px;
-
+    12px 18px 30px;
 }
 
 
 /* =====================================================
-   SECTION TITLE
+   AXIS BANK BANNER
+   OUTSIDE E-PAPER
+   ABOVE E-PAPER
 ===================================================== */
 
-.section-title{
+.top-banner-wrap{
+  width:100%;
 
-  border-bottom:
-    5px solid
-    var(--navy);
+  max-width:1100px;
 
-  margin-bottom:15px;
+  margin:
+    10px auto 8px;
 
+  padding:
+    0 4px;
 }
 
+.top-banner{
+  display:block;
 
-.section-title h2{
+  width:100%;
 
-  display:inline-block;
+  line-height:0;
+
+  text-decoration:none;
+
+  overflow:hidden;
+
+  border-radius:8px;
+
+  background:#fff;
+
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,.12);
+}
+
+.top-banner img{
+  display:block;
+
+  width:100%;
+
+  height:auto;
+
+  max-width:100%;
 
   margin:0;
 
-  padding:
-    10px 22px;
-
-  background:var(--navy);
-
-  color:#fff;
-
-  font:
-    700 27px
-    Georgia,
-    serif;
-
+  padding:0;
 }
 
 
@@ -328,7 +296,6 @@ header{
 ===================================================== */
 
 .epaper-shell{
-
   width:100%;
 
   padding:13px;
@@ -345,12 +312,9 @@ header{
   box-shadow:
     0 8px 30px
     rgba(0,0,0,.22);
-
 }
 
-
 .epaper-stage{
-
   width:100%;
 
   max-width:1100px;
@@ -358,12 +322,9 @@ header{
   margin:auto;
 
   background:#fff;
-
 }
 
-
 #pageImage{
-
   display:block;
 
   width:100%;
@@ -371,35 +332,28 @@ header{
   height:auto;
 
   margin:auto;
-
 }
 
 
 /* =====================================================
-   ADVERTISEMENT AREA
-
-   ADS ARE COMPLETELY OUTSIDE THE NEWSPAPER
+   PAGE-WISE ADVERTISEMENT AREA
 ===================================================== */
 
 #pageAdContainer{
-
   width:100%;
 
   max-width:1100px;
 
   margin:
     12px auto 0;
-
 }
 
 
 /* =====================================================
-   GENERIC PRODUCT AD
-   USED BY PAGE 2 HIGHLANDER
+   PAGE 2 HIGHLANDER AD
 ===================================================== */
 
 .product-ad{
-
   position:relative;
 
   display:grid;
@@ -440,113 +394,18 @@ header{
   transition:
     transform .15s,
     box-shadow .15s;
-
 }
 
-
 .product-ad:hover{
-
   transform:
     translateY(-2px);
 
   box-shadow:
     0 8px 25px
     rgba(0,0,0,.16);
-
 }
-
-
-/* =====================================================
-   PAGE 1 AD ROTATOR
-===================================================== */
-
-#pageAd1{
-
-  display:none;
-
-  position:relative;
-
-  width:100%;
-
-  margin:
-    8px 0 0 0;
-
-  padding:0;
-
-  min-width:0;
-
-  overflow:hidden;
-
-  background:#fff;
-
-  border:
-    1px solid #d8d8d8;
-
-  border-radius:8px;
-
-}
-
-
-/* EACH PAGE 1 AD */
-
-.page1-ad-slide{
-
-  display:none;
-
-  width:100%;
-
-  margin:0;
-
-  padding:0;
-
-  text-decoration:none;
-
-  line-height:0;
-
-  overflow:hidden;
-
-  opacity:0;
-
-  transition:
-    opacity .35s ease;
-
-}
-
-
-.page1-ad-slide.active{
-
-  display:block;
-
-  opacity:1;
-
-}
-
-
-.page1-ad-slide img{
-
-  display:block;
-
-  width:100%;
-
-  max-width:100%;
-
-  height:auto;
-
-  margin:0;
-
-  padding:0;
-
-  object-fit:contain;
-
-}
-
-
-/* =====================================================
-   PAGE 2 HIGHLANDER BACKGROUND
-===================================================== */
 
 #pageAd2{
-
   display:none;
 
   background:
@@ -563,7 +422,6 @@ header{
       #fff8ef 48%,
       #e8cbb7 100%
     );
-
 }
 
 
@@ -572,7 +430,6 @@ header{
 ===================================================== */
 
 .ad-product-image{
-
   width:100%;
 
   height:170px;
@@ -586,12 +443,9 @@ header{
   overflow:hidden;
 
   border-radius:7px;
-
 }
 
-
 .ad-product-image img{
-
   display:block;
 
   width:100%;
@@ -601,12 +455,9 @@ header{
   object-fit:cover;
 
   object-position:center top;
-
 }
 
-
 .ad-no-image{
-
   width:100%;
 
   height:150px;
@@ -630,7 +481,6 @@ header{
     rgba(255,255,255,.35);
 
   border-radius:7px;
-
 }
 
 
@@ -639,7 +489,6 @@ header{
 ===================================================== */
 
 .ad-brand{
-
   font:
     700 33px
     Georgia,
@@ -647,21 +496,15 @@ header{
     serif;
 
   line-height:1;
-
 }
 
-
 #pageAd2 .ad-brand{
-
   color:#101010;
 
   letter-spacing:-1px;
-
 }
 
-
 .ad-brand-sub{
-
   display:block;
 
   margin-top:7px;
@@ -674,7 +517,6 @@ header{
   letter-spacing:2px;
 
   color:#333;
-
 }
 
 
@@ -683,7 +525,6 @@ header{
 ===================================================== */
 
 .ad-title{
-
   margin-top:10px;
 
   font:
@@ -692,12 +533,9 @@ header{
     sans-serif;
 
   line-height:1.18;
-
 }
 
-
 .ad-description{
-
   margin-top:5px;
 
   color:#666;
@@ -706,7 +544,6 @@ header{
     500 11px
     Arial,
     sans-serif;
-
 }
 
 
@@ -715,7 +552,6 @@ header{
 ===================================================== */
 
 .ad-price-row{
-
   margin-top:9px;
 
   display:flex;
@@ -725,36 +561,27 @@ header{
   flex-wrap:wrap;
 
   gap:8px;
-
 }
 
-
 .ad-mrp{
-
   color:#777;
 
   font:
     12px
     Arial,
     sans-serif;
-
 }
 
-
 .ad-price{
-
   color:#d71920;
 
   font:
     900 31px
     Arial,
     sans-serif;
-
 }
 
-
 .ad-discount{
-
   background:#ff3f68;
 
   color:#fff;
@@ -768,7 +595,6 @@ header{
     900 11px
     Arial,
     sans-serif;
-
 }
 
 
@@ -777,7 +603,6 @@ header{
 ===================================================== */
 
 .ad-deal{
-
   margin-top:9px;
 
   display:flex;
@@ -787,12 +612,9 @@ header{
   flex-wrap:wrap;
 
   gap:7px;
-
 }
 
-
 .ad-mega{
-
   padding:
     6px 8px;
 
@@ -809,31 +631,22 @@ header{
     900 10px
     Arial,
     sans-serif;
-
 }
 
-
 .ad-get{
-
   font:
     800 15px
     Arial,
     sans-serif;
-
 }
 
-
 .ad-get strong{
-
   color:#d71920;
 
   font-size:20px;
-
 }
 
-
 .ad-extra{
-
   padding:
     7px 9px;
 
@@ -847,12 +660,9 @@ header{
     900 10px
     Arial,
     sans-serif;
-
 }
 
-
 .ad-coupon{
-
   margin-top:5px;
 
   color:#555;
@@ -861,7 +671,6 @@ header{
     9px
     Arial,
     sans-serif;
-
 }
 
 
@@ -870,7 +679,6 @@ header{
 ===================================================== */
 
 .ad-button{
-
   background:
     linear-gradient(
       135deg,
@@ -897,7 +705,6 @@ header{
   box-shadow:
     0 4px 10px
     rgba(220,30,80,.20);
-
 }
 
 
@@ -906,7 +713,6 @@ header{
 ===================================================== */
 
 .epaper-tools{
-
   display:flex;
 
   justify-content:center;
@@ -923,12 +729,9 @@ header{
 
   border:
     1px solid #d3dde7;
-
 }
 
-
 .epaper-tools button{
-
   border:0;
 
   border-radius:6px;
@@ -951,12 +754,9 @@ header{
     800 12px
     Arial,
     sans-serif;
-
 }
 
-
 #counter{
-
   min-width:140px;
 
   text-align:center;
@@ -965,7 +765,6 @@ header{
     800 13px
     Arial,
     sans-serif;
-
 }
 
 
@@ -974,7 +773,6 @@ header{
 ===================================================== */
 
 .page-grid{
-
   display:grid;
 
   grid-template-columns:
@@ -983,12 +781,9 @@ header{
   gap:8px;
 
   margin-top:10px;
-
 }
 
-
 .page-card{
-
   padding:4px;
 
   background:#fff;
@@ -1003,19 +798,13 @@ header{
   box-shadow:
     0 2px 7px
     rgba(0,0,0,.08);
-
 }
-
 
 .page-card.active{
-
   border-color:var(--navy);
-
 }
 
-
 .page-card img{
-
   display:block;
 
   width:100%;
@@ -1023,12 +812,9 @@ header{
   aspect-ratio:3/4;
 
   object-fit:cover;
-
 }
 
-
 .page-card b{
-
   display:block;
 
   text-align:center;
@@ -1041,12 +827,9 @@ header{
     800 9px
     Arial,
     sans-serif;
-
 }
 
-
 .page-card span{
-
   display:block;
 
   text-align:center;
@@ -1060,7 +843,6 @@ header{
     8px
     Arial,
     sans-serif;
-
 }
 
 
@@ -1069,7 +851,6 @@ header{
 ===================================================== */
 
 footer{
-
   margin-top:0;
 
   padding:
@@ -1090,14 +871,10 @@ footer{
     11px/1.6
     Arial,
     sans-serif;
-
 }
 
-
 footer strong{
-
   font-size:15px;
-
 }
 
 
@@ -1108,38 +885,27 @@ footer strong{
 @media(max-width:950px){
 
   .mast{
-
     grid-template-columns:
       120px
       1fr
       145px;
-
   }
-
 
   .mast-logo{
-
     max-width:500px;
-
   }
 
-
   .product-ad{
-
     grid-template-columns:
       145px
       1.4fr
       1fr
       auto;
-
   }
 
-
   .page-grid{
-
     grid-template-columns:
       repeat(5,1fr);
-
   }
 
 }
@@ -1152,53 +918,39 @@ footer strong{
 @media(max-width:650px){
 
   body{
-
     background:#edf4f9;
-
   }
 
 
   /* HEADER */
 
   .mast{
-
     display:block;
 
     min-height:0;
 
     padding:
       9px 6px 7px;
-
   }
-
 
   .mast-side{
-
     display:none;
-
   }
 
-
   .mast-logo{
-
     max-width:96vw;
 
     max-height:82px;
-
   }
 
 
   /* NAV */
 
   .main-nav{
-
     width:100%;
-
   }
 
-
   .main-nav a{
-
     min-width:0;
 
     max-width:none;
@@ -1207,108 +959,68 @@ footer strong{
       11px 2px;
 
     font-size:9px;
-
   }
 
 
-  /* SECTION */
+  /* MAIN */
 
   .section{
-
     padding:
-      12px 4px 20px;
-
+      8px 4px 20px;
   }
 
 
-  .section-title{
+  /* =================================================
+     AXIS BANNER
+  ================================================= */
 
-    margin-bottom:8px;
+  .top-banner-wrap{
+    width:100%;
 
-    border-bottom-width:4px;
-
-  }
-
-
-  .section-title h2{
-
-    font-size:19px;
+    margin:
+      7px auto 6px;
 
     padding:
-      8px 12px;
+      0 3px;
+  }
 
+  .top-banner{
+    width:100%;
+
+    border-radius:6px;
+  }
+
+  .top-banner img{
+    width:100%;
+
+    height:auto;
+
+    display:block;
   }
 
 
   /* NEWSPAPER */
 
   .epaper-shell{
-
     padding:5px;
 
     border-radius:6px;
-
   }
 
 
   /* =================================================
-     MOBILE ADVERTISEMENT
+     PAGE 2 AD
   ================================================= */
 
   #pageAdContainer{
-
     margin-top:8px;
 
     width:100%;
 
     overflow:hidden;
-
   }
-
-
-  /* PAGE 1 AD ROTATOR */
-
-  #pageAd1{
-
-    width:100%;
-
-    margin-top:8px;
-
-    padding:0;
-
-    overflow:hidden;
-
-    border-radius:8px;
-
-  }
-
-
-  .page1-ad-slide{
-
-    width:100%;
-
-    overflow:hidden;
-
-  }
-
-
-  .page1-ad-slide img{
-
-    display:block;
-
-    width:100%;
-
-    height:auto;
-
-    max-width:100%;
-
-  }
-
-
-  /* PAGE 2 HIGHLANDER */
 
   .product-ad{
-
     display:grid;
 
     grid-template-columns:
@@ -1327,143 +1039,95 @@ footer strong{
       11px;
 
     border-radius:8px;
-
   }
 
-
   .ad-product-image{
-
     width:100%;
 
     height:145px;
 
     grid-row:
       1 / span 3;
-
   }
-
 
   .ad-brand{
-
     font-size:22px;
-
   }
 
-
   .ad-brand-sub{
-
     margin-top:4px;
 
     font-size:7px;
 
     letter-spacing:1.2px;
-
   }
 
-
   .ad-title{
-
     margin-top:5px;
 
     font-size:13px;
-
   }
 
-
   .ad-description{
-
     margin-top:3px;
 
     font-size:8px;
-
   }
 
-
   .ad-price-row{
-
     margin-top:5px;
 
     gap:5px;
-
   }
-
 
   .ad-mrp{
-
     font-size:9px;
-
   }
-
 
   .ad-price{
-
     font-size:23px;
-
   }
 
-
   .ad-discount{
-
     padding:
       4px 6px;
 
     font-size:8px;
-
   }
 
-
   .ad-deal{
-
     margin-top:5px;
 
     gap:5px;
-
   }
 
-
   .ad-mega{
-
     padding:
       5px 6px;
 
     font-size:8px;
-
   }
-
 
   .ad-get{
-
     font-size:11px;
-
   }
-
 
   .ad-get strong{
-
     font-size:16px;
-
   }
 
-
   .ad-extra{
-
     padding:
       5px 7px;
 
     font-size:8px;
-
   }
-
 
   .ad-coupon{
-
     font-size:7px;
-
   }
 
-
   .ad-button{
-
     grid-column:
       1 / -1;
 
@@ -1475,66 +1139,49 @@ footer strong{
       10px;
 
     font-size:11px;
-
   }
 
 
   /* CONTROLS */
 
   .epaper-tools{
-
     gap:5px;
 
     padding:
       8px 5px;
-
   }
 
-
   .epaper-tools button{
-
     padding:
       9px 10px;
 
     font-size:9px;
-
   }
 
-
   #counter{
-
     width:100%;
 
     order:-1;
 
     font-size:13px;
-
   }
 
 
   /* THUMBNAILS */
 
   .page-grid{
-
     grid-template-columns:
       repeat(2,1fr);
 
     gap:7px;
-
   }
-
 
   .page-card b{
-
     font-size:9px;
-
   }
 
-
   .page-card span{
-
     font-size:7px;
-
   }
 
 }
@@ -1547,41 +1194,27 @@ footer strong{
 @media(max-width:380px){
 
   .product-ad{
-
     grid-template-columns:
       88px
       1fr;
 
     padding:9px;
-
   }
-
 
   .ad-product-image{
-
     height:125px;
-
   }
-
 
   .ad-brand{
-
     font-size:19px;
-
   }
-
 
   .ad-title{
-
     font-size:12px;
-
   }
 
-
   .ad-price{
-
     font-size:21px;
-
   }
 
 }
@@ -1669,6 +1302,32 @@ footer strong{
 
 
 <!-- =====================================================
+     AXIS BANK BANNER
+     SEPARATE FROM E-PAPER
+===================================================== -->
+
+<div class="top-banner-wrap">
+
+  <a
+    class="top-banner"
+    href="https://bilty.co/51AjP9"
+    target="_blank"
+    rel="sponsored noopener noreferrer"
+    aria-label="Axis Bank Flipkart Credit Card advertisement"
+  >
+
+    <img
+      src="axis-flipkart-banner-ad.png"
+      alt="Axis Bank Flipkart Credit Card"
+    >
+
+  </a>
+
+</div>
+
+
+
+<!-- =====================================================
      MAIN
 ===================================================== -->
 
@@ -1679,16 +1338,6 @@ footer strong{
   class="section"
   id="epaper"
 >
-
-
-  <div class="section-title">
-
-    <h2>
-      TODAY'S E-PAPER
-    </h2>
-
-  </div>
-
 
 
   <!-- =================================================
@@ -1713,68 +1362,10 @@ footer strong{
 
   <!-- =================================================
        PAGE-WISE ADVERTISEMENT
+       PAGE 2 ONLY
   ================================================= -->
 
   <div id="pageAdContainer">
-
-
-    <!-- =================================================
-         PAGE 1 — ROTATING IMAGE ADS
-         3 SECONDS EACH
-    ================================================= -->
-
-    <div id="pageAd1" class="page1-ad-rotator">
-
-
-      <!-- JANASYA -->
-
-      <a
-        id="page1JanasyaAd"
-        class="page1-ad-slide active"
-
-        href="https://fkrt.co/SZlqMO"
-
-        target="_blank"
-
-        rel="sponsored noopener noreferrer"
-
-        aria-label="Janasya Women's Fashion advertisement"
-      >
-
-        <img
-          src="janasya-page1-ad.png"
-          alt="Janasya Women's Fashion - Top Pant Co-ords Set with Jacket"
-        >
-
-      </a>
-
-
-
-      <!-- AXIS BANK FLIPKART CREDIT CARD -->
-
-      <a
-        id="page1AxisAd"
-        class="page1-ad-slide"
-
-        href="https://bilty.co/51AjP9"
-
-        target="_blank"
-
-        rel="sponsored noopener noreferrer"
-
-        aria-label="Axis Bank Flipkart Credit Card advertisement"
-      >
-
-        <img
-          src="axis-flipkart-page1-ad.png"
-          alt="Axis Bank Flipkart Credit Card"
-        >
-
-      </a>
-
-
-    </div>
-
 
 
     <!-- =================================================
@@ -1793,8 +1384,6 @@ footer strong{
     >
 
 
-      <!-- PRODUCT IMAGE -->
-
       <div class="ad-product-image">
 
         <img
@@ -1811,8 +1400,6 @@ footer strong{
       </div>
 
 
-      <!-- BRAND / PRODUCT -->
-
       <div>
 
         <div class="ad-brand">
@@ -1822,7 +1409,6 @@ footer strong{
         <span class="ad-brand-sub">
           MEN'S FASHION
         </span>
-
 
         <div class="ad-title">
           HIGHLANDER Men Slim Fit Shirt
@@ -1834,8 +1420,6 @@ footer strong{
 
       </div>
 
-
-      <!-- PRICE / OFFER -->
 
       <div>
 
@@ -1880,8 +1464,6 @@ footer strong{
 
       </div>
 
-
-      <!-- BUTTON -->
 
       <div class="ad-button">
         SHOP NOW →
@@ -2060,20 +1642,8 @@ const counter =
 const grid =
   document.getElementById("pageGrid");
 
-const pageAd1 =
-  document.getElementById("pageAd1");
-
 const pageAd2 =
   document.getElementById("pageAd2");
-
-
-/* =====================================================
-   PAGE 1 AD ROTATION VARIABLES
-===================================================== */
-
-let page1AdIndex = 0;
-
-let page1AdTimer = null;
 
 
 /* =====================================================
@@ -2170,150 +1740,10 @@ function updateActiveCard(){
 
 
 /* =====================================================
-   SHOW PAGE 1 AD
-===================================================== */
-
-function showPage1Ad(index){
-
-  const ads =
-    document.querySelectorAll(
-      "#pageAd1 .page1-ad-slide"
-    );
-
-
-  if(!ads.length){
-
-    return;
-
-  }
-
-
-  ads.forEach(
-    function(ad){
-
-      ad.classList.remove("active");
-
-    }
-  );
-
-
-  page1AdIndex =
-    index % ads.length;
-
-
-  ads[page1AdIndex]
-    .classList.add("active");
-
-}
-
-
-/* =====================================================
-   START PAGE 1 AD ROTATION
-===================================================== */
-
-function startPage1AdRotation(){
-
-  /* CLEAR ANY EXISTING TIMER */
-
-  if(page1AdTimer){
-
-    clearInterval(page1AdTimer);
-
-    page1AdTimer = null;
-
-  }
-
-
-  /* ALWAYS START WITH JANASYA */
-
-  page1AdIndex = 0;
-
-  showPage1Ad(0);
-
-
-  /* CHANGE EVERY 3 SECONDS */
-
-  page1AdTimer =
-    setInterval(
-      function(){
-
-        if(current !== 0){
-
-          return;
-
-        }
-
-
-        page1AdIndex =
-          (page1AdIndex + 1) % 2;
-
-
-        showPage1Ad(
-          page1AdIndex
-        );
-
-      },
-      3000
-    );
-
-}
-
-
-/* =====================================================
-   STOP PAGE 1 AD ROTATION
-===================================================== */
-
-function stopPage1AdRotation(){
-
-  if(page1AdTimer){
-
-    clearInterval(
-      page1AdTimer
-    );
-
-    page1AdTimer = null;
-
-  }
-
-}
-
-
-/* =====================================================
    PAGE-WISE ADVERTISEMENT
 ===================================================== */
 
 function updatePageAd(){
-
-  /* =================================================
-     PAGE 1 — JANASYA + AXIS ROTATION
-  ================================================= */
-
-  if(pageAd1){
-
-    if(current === 0){
-
-      pageAd1.style.display =
-        "block";
-
-      startPage1AdRotation();
-
-    }
-
-    else{
-
-      pageAd1.style.display =
-        "none";
-
-      stopPage1AdRotation();
-
-    }
-
-  }
-
-
-  /* =================================================
-     PAGE 2 — HIGHLANDER
-  ================================================= */
 
   if(pageAd2){
 
