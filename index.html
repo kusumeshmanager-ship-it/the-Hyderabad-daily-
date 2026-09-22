@@ -464,42 +464,88 @@ header{
 }
 
 
+  /* =========================================================
+   PAGE 1 — JANASYA AD
+   Mobile-safe horizontal advertisement
+   ========================================================= */
 
-/* =====================================================
-   PAGE 1 ZYLA BACKGROUND
-===================================================== */ 
-
-  #pageAd1{
-
+#pageAd1{
   display:none;
+  width:100%;
+  box-sizing:border-box;
+  min-width:0;
+  min-height:220px;
+  padding:14px;
+  gap:14px;
 
   grid-template-columns:
-    190px
-    1.35fr
-    1.05fr
-    190px;
+    minmax(110px,0.85fr)
+    minmax(0,1.45fr)
+    minmax(100px,0.75fr);
 
-  min-height:235px;
-
-  padding:16px 18px;
-
-  gap:16px;
+  overflow:hidden;
 
   background:
-
-    radial-gradient(
-      circle at 20% 45%,
-      rgba(255,255,255,.95),
-      transparent 28%
-    ),
-
     linear-gradient(
       115deg,
       #ead0c1 0%,
-      #fff8f2 50%,
+      #fff8f2 52%,
       #e8c5b3 100%
     );
 
+  border:1px solid #e0c5b6;
+  border-radius:12px;
+}
+
+#pageAd1 > *{
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+#pageAd1 img{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+#pageAd1 .ad-content,
+#pageAd1 .product-info,
+#pageAd1 .ad-price,
+#pageAd1 .ad-offer{
+  min-width:0;
+  overflow:hidden;
+}
+
+#pageAd1 h2,
+#pageAd1 h3,
+#pageAd1 p{
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+
+#pageAd1 .ad-price{
+  font-size:32px;
+  font-weight:800;
+  line-height:1;
+  white-space:nowrap;
+}
+
+#pageAd1 .ad-cta{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  text-align:center;
+  padding:12px 10px;
+  margin-top:10px;
+  background:#ff2864;
+  color:#fff;
+  font-weight:800;
+  border-radius:10px;
+  text-decoration:none;
+  white-space:nowrap;
 }
 
 
