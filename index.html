@@ -234,29 +234,30 @@ header{
 
 .section{
   padding:
-    12px 18px 30px;
+    8px 18px 30px;
 }
 
 
 /* =====================================================
-   AXIS BANK BANNER
-   OUTSIDE E-PAPER
-   ABOVE E-PAPER
+   TOP AXIS BANK BANNER
+   SEPARATE FROM E-PAPER
 ===================================================== */
 
 .top-banner-wrap{
+
   width:100%;
 
   max-width:1100px;
 
   margin:
-    10px auto 8px;
+    8px auto 8px;
 
   padding:
     0 4px;
 }
 
 .top-banner{
+
   display:block;
 
   width:100%;
@@ -277,6 +278,7 @@ header{
 }
 
 .top-banner img{
+
   display:block;
 
   width:100%;
@@ -296,6 +298,7 @@ header{
 ===================================================== */
 
 .epaper-shell{
+
   width:100%;
 
   padding:13px;
@@ -315,6 +318,7 @@ header{
 }
 
 .epaper-stage{
+
   width:100%;
 
   max-width:1100px;
@@ -325,6 +329,7 @@ header{
 }
 
 #pageImage{
+
   display:block;
 
   width:100%;
@@ -336,10 +341,11 @@ header{
 
 
 /* =====================================================
-   PAGE-WISE ADVERTISEMENT AREA
+   BOTTOM ADVERTISEMENT AREA
 ===================================================== */
 
 #pageAdContainer{
+
   width:100%;
 
   max-width:1100px;
@@ -350,10 +356,90 @@ header{
 
 
 /* =====================================================
-   PAGE 2 HIGHLANDER AD
+   PAGE 1 BOTTOM ROTATING ADS
+===================================================== */
+
+#pageAd1{
+
+  display:none;
+
+  position:relative;
+
+  width:100%;
+
+  margin:
+    8px 0 0 0;
+
+  padding:0;
+
+  min-width:0;
+
+  overflow:hidden;
+
+  background:#fff;
+
+  border:
+    1px solid #d8d8d8;
+
+  border-radius:8px;
+}
+
+
+/* EACH ROTATING AD */
+
+.page1-ad-slide{
+
+  display:none;
+
+  width:100%;
+
+  margin:0;
+
+  padding:0;
+
+  text-decoration:none;
+
+  line-height:0;
+
+  overflow:hidden;
+
+  opacity:0;
+
+  transition:
+    opacity .35s ease;
+}
+
+.page1-ad-slide.active{
+
+  display:block;
+
+  opacity:1;
+}
+
+.page1-ad-slide img{
+
+  display:block;
+
+  width:100%;
+
+  max-width:100%;
+
+  height:auto;
+
+  margin:0;
+
+  padding:0;
+
+  object-fit:contain;
+}
+
+
+/* =====================================================
+   PAGE 2 HIGHLANDER
 ===================================================== */
 
 .product-ad{
+
   position:relative;
 
   display:grid;
@@ -397,6 +483,7 @@ header{
 }
 
 .product-ad:hover{
+
   transform:
     translateY(-2px);
 
@@ -406,6 +493,7 @@ header{
 }
 
 #pageAd2{
+
   display:none;
 
   background:
@@ -430,6 +518,7 @@ header{
 ===================================================== */
 
 .ad-product-image{
+
   width:100%;
 
   height:170px;
@@ -446,6 +535,7 @@ header{
 }
 
 .ad-product-image img{
+
   display:block;
 
   width:100%;
@@ -458,6 +548,7 @@ header{
 }
 
 .ad-no-image{
+
   width:100%;
 
   height:150px;
@@ -489,6 +580,7 @@ header{
 ===================================================== */
 
 .ad-brand{
+
   font:
     700 33px
     Georgia,
@@ -499,12 +591,14 @@ header{
 }
 
 #pageAd2 .ad-brand{
+
   color:#101010;
 
   letter-spacing:-1px;
 }
 
 .ad-brand-sub{
+
   display:block;
 
   margin-top:7px;
@@ -525,6 +619,7 @@ header{
 ===================================================== */
 
 .ad-title{
+
   margin-top:10px;
 
   font:
@@ -536,6 +631,7 @@ header{
 }
 
 .ad-description{
+
   margin-top:5px;
 
   color:#666;
@@ -552,6 +648,7 @@ header{
 ===================================================== */
 
 .ad-price-row{
+
   margin-top:9px;
 
   display:flex;
@@ -564,6 +661,7 @@ header{
 }
 
 .ad-mrp{
+
   color:#777;
 
   font:
@@ -573,6 +671,7 @@ header{
 }
 
 .ad-price{
+
   color:#d71920;
 
   font:
@@ -582,6 +681,7 @@ header{
 }
 
 .ad-discount{
+
   background:#ff3f68;
 
   color:#fff;
@@ -603,6 +703,7 @@ header{
 ===================================================== */
 
 .ad-deal{
+
   margin-top:9px;
 
   display:flex;
@@ -615,6 +716,7 @@ header{
 }
 
 .ad-mega{
+
   padding:
     6px 8px;
 
@@ -634,6 +736,7 @@ header{
 }
 
 .ad-get{
+
   font:
     800 15px
     Arial,
@@ -641,12 +744,14 @@ header{
 }
 
 .ad-get strong{
+
   color:#d71920;
 
   font-size:20px;
 }
 
 .ad-extra{
+
   padding:
     7px 9px;
 
@@ -663,6 +768,7 @@ header{
 }
 
 .ad-coupon{
+
   margin-top:5px;
 
   color:#555;
@@ -679,6 +785,7 @@ header{
 ===================================================== */
 
 .ad-button{
+
   background:
     linear-gradient(
       135deg,
@@ -713,6 +820,7 @@ header{
 ===================================================== */
 
 .epaper-tools{
+
   display:flex;
 
   justify-content:center;
@@ -732,6 +840,7 @@ header{
 }
 
 .epaper-tools button{
+
   border:0;
 
   border-radius:6px;
@@ -757,6 +866,7 @@ header{
 }
 
 #counter{
+
   min-width:140px;
 
   text-align:center;
@@ -773,6 +883,7 @@ header{
 ===================================================== */
 
 .page-grid{
+
   display:grid;
 
   grid-template-columns:
@@ -784,6 +895,7 @@ header{
 }
 
 .page-card{
+
   padding:4px;
 
   background:#fff;
@@ -801,10 +913,12 @@ header{
 }
 
 .page-card.active{
+
   border-color:var(--navy);
 }
 
 .page-card img{
+
   display:block;
 
   width:100%;
@@ -815,6 +929,7 @@ header{
 }
 
 .page-card b{
+
   display:block;
 
   text-align:center;
@@ -830,6 +945,7 @@ header{
 }
 
 .page-card span{
+
   display:block;
 
   text-align:center;
@@ -851,6 +967,7 @@ header{
 ===================================================== */
 
 footer{
+
   margin-top:0;
 
   padding:
@@ -874,6 +991,7 @@ footer{
 }
 
 footer strong{
+
   font-size:15px;
 }
 
@@ -885,6 +1003,7 @@ footer strong{
 @media(max-width:950px){
 
   .mast{
+
     grid-template-columns:
       120px
       1fr
@@ -892,10 +1011,12 @@ footer strong{
   }
 
   .mast-logo{
+
     max-width:500px;
   }
 
   .product-ad{
+
     grid-template-columns:
       145px
       1.4fr
@@ -904,6 +1025,7 @@ footer strong{
   }
 
   .page-grid{
+
     grid-template-columns:
       repeat(5,1fr);
   }
@@ -918,6 +1040,7 @@ footer strong{
 @media(max-width:650px){
 
   body{
+
     background:#edf4f9;
   }
 
@@ -925,6 +1048,7 @@ footer strong{
   /* HEADER */
 
   .mast{
+
     display:block;
 
     min-height:0;
@@ -934,10 +1058,12 @@ footer strong{
   }
 
   .mast-side{
+
     display:none;
   }
 
   .mast-logo{
+
     max-width:96vw;
 
     max-height:82px;
@@ -947,10 +1073,12 @@ footer strong{
   /* NAV */
 
   .main-nav{
+
     width:100%;
   }
 
   .main-nav a{
+
     min-width:0;
 
     max-width:none;
@@ -965,16 +1093,18 @@ footer strong{
   /* MAIN */
 
   .section{
+
     padding:
       8px 4px 20px;
   }
 
 
   /* =================================================
-     AXIS BANNER
+     TOP AXIS BANNER
   ================================================= */
 
   .top-banner-wrap{
+
     width:100%;
 
     margin:
@@ -985,12 +1115,14 @@ footer strong{
   }
 
   .top-banner{
+
     width:100%;
 
     border-radius:6px;
   }
 
   .top-banner img{
+
     width:100%;
 
     height:auto;
@@ -999,9 +1131,12 @@ footer strong{
   }
 
 
-  /* NEWSPAPER */
+  /* =================================================
+     NEWSPAPER
+  ================================================= */
 
   .epaper-shell{
+
     padding:5px;
 
     border-radius:6px;
@@ -1009,10 +1144,11 @@ footer strong{
 
 
   /* =================================================
-     PAGE 2 AD
+     BOTTOM ADS
   ================================================= */
 
   #pageAdContainer{
+
     margin-top:8px;
 
     width:100%;
@@ -1020,7 +1156,47 @@ footer strong{
     overflow:hidden;
   }
 
+
+  /* PAGE 1 ROTATING IMAGE ADS */
+
+  #pageAd1{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:0;
+
+    overflow:hidden;
+
+    border-radius:8px;
+  }
+
+  .page1-ad-slide{
+
+    width:100%;
+
+    overflow:hidden;
+  }
+
+  .page1-ad-slide img{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    max-width:100%;
+  }
+
+
+  /* =================================================
+     PAGE 2 HIGHLANDER
+  ================================================= */
+
   .product-ad{
+
     display:grid;
 
     grid-template-columns:
@@ -1042,6 +1218,7 @@ footer strong{
   }
 
   .ad-product-image{
+
     width:100%;
 
     height:145px;
@@ -1051,10 +1228,12 @@ footer strong{
   }
 
   .ad-brand{
+
     font-size:22px;
   }
 
   .ad-brand-sub{
+
     margin-top:4px;
 
     font-size:7px;
@@ -1063,32 +1242,38 @@ footer strong{
   }
 
   .ad-title{
+
     margin-top:5px;
 
     font-size:13px;
   }
 
   .ad-description{
+
     margin-top:3px;
 
     font-size:8px;
   }
 
   .ad-price-row{
+
     margin-top:5px;
 
     gap:5px;
   }
 
   .ad-mrp{
+
     font-size:9px;
   }
 
   .ad-price{
+
     font-size:23px;
   }
 
   .ad-discount{
+
     padding:
       4px 6px;
 
@@ -1096,12 +1281,14 @@ footer strong{
   }
 
   .ad-deal{
+
     margin-top:5px;
 
     gap:5px;
   }
 
   .ad-mega{
+
     padding:
       5px 6px;
 
@@ -1109,14 +1296,17 @@ footer strong{
   }
 
   .ad-get{
+
     font-size:11px;
   }
 
   .ad-get strong{
+
     font-size:16px;
   }
 
   .ad-extra{
+
     padding:
       5px 7px;
 
@@ -1124,10 +1314,12 @@ footer strong{
   }
 
   .ad-coupon{
+
     font-size:7px;
   }
 
   .ad-button{
+
     grid-column:
       1 / -1;
 
@@ -1145,6 +1337,7 @@ footer strong{
   /* CONTROLS */
 
   .epaper-tools{
+
     gap:5px;
 
     padding:
@@ -1152,6 +1345,7 @@ footer strong{
   }
 
   .epaper-tools button{
+
     padding:
       9px 10px;
 
@@ -1159,6 +1353,7 @@ footer strong{
   }
 
   #counter{
+
     width:100%;
 
     order:-1;
@@ -1170,6 +1365,7 @@ footer strong{
   /* THUMBNAILS */
 
   .page-grid{
+
     grid-template-columns:
       repeat(2,1fr);
 
@@ -1177,10 +1373,12 @@ footer strong{
   }
 
   .page-card b{
+
     font-size:9px;
   }
 
   .page-card span{
+
     font-size:7px;
   }
 
@@ -1194,6 +1392,7 @@ footer strong{
 @media(max-width:380px){
 
   .product-ad{
+
     grid-template-columns:
       88px
       1fr;
@@ -1202,18 +1401,22 @@ footer strong{
   }
 
   .ad-product-image{
+
     height:125px;
   }
 
   .ad-brand{
+
     font-size:19px;
   }
 
   .ad-title{
+
     font-size:12px;
   }
 
   .ad-price{
+
     font-size:21px;
   }
 
@@ -1228,14 +1431,14 @@ footer strong{
 
 
 <!-- =====================================================
-     TOP
+     TOP LINE
 ===================================================== -->
 
 <div class="topline"></div>
 
 
 <!-- =====================================================
-     HEADER
+     MASTHEAD
 ===================================================== -->
 
 <header>
@@ -1302,7 +1505,7 @@ footer strong{
 
 
 <!-- =====================================================
-     AXIS BANK BANNER
+     TOP AXIS BANK BANNER
      SEPARATE FROM E-PAPER
 ===================================================== -->
 
@@ -1310,14 +1513,19 @@ footer strong{
 
   <a
     class="top-banner"
+
     href="https://bilty.co/51AjP9"
+
     target="_blank"
+
     rel="sponsored noopener noreferrer"
+
     aria-label="Axis Bank Flipkart Credit Card advertisement"
   >
 
     <img
       src="axis-flipkart-banner-ad.png"
+
       alt="Axis Bank Flipkart Credit Card"
     >
 
@@ -1341,7 +1549,7 @@ footer strong{
 
 
   <!-- =================================================
-       NEWSPAPER
+       E-PAPER
   ================================================= -->
 
   <div class="epaper-shell">
@@ -1350,7 +1558,9 @@ footer strong{
 
       <img
         id="pageImage"
+
         src="page-01.png"
+
         alt="The Hyderabad Daily E-Paper Page 1"
       >
 
@@ -1361,11 +1571,76 @@ footer strong{
 
 
   <!-- =================================================
-       PAGE-WISE ADVERTISEMENT
-       PAGE 2 ONLY
+       BOTTOM ADVERTISEMENT AREA
   ================================================= -->
 
   <div id="pageAdContainer">
+
+
+    <!-- =================================================
+         PAGE 1 — JANASYA + AXIS ROTATION
+         3 SECONDS EACH
+    ================================================= -->
+
+    <div
+      id="pageAd1"
+      class="page1-ad-rotator"
+    >
+
+
+      <!-- JANASYA -->
+
+      <a
+        id="page1JanasyaAd"
+
+        class="page1-ad-slide active"
+
+        href="https://fkrt.co/SZlqMO"
+
+        target="_blank"
+
+        rel="sponsored noopener noreferrer"
+
+        aria-label="Janasya Women's Fashion advertisement"
+      >
+
+        <img
+          src="janasya-page1-ad.png"
+
+          alt="Janasya Women's Fashion - Top Pant Co-ords Set with Jacket"
+        >
+
+      </a>
+
+
+
+      <!-- AXIS BANK FLIPKART CREDIT CARD -->
+
+      <a
+        id="page1AxisAd"
+
+        class="page1-ad-slide"
+
+        href="https://bilty.co/51AjP9"
+
+        target="_blank"
+
+        rel="sponsored noopener noreferrer"
+
+        aria-label="Axis Bank Flipkart Credit Card advertisement"
+      >
+
+        <img
+          src="axis-flipkart-page1-ad.png"
+
+          alt="Axis Bank Flipkart Credit Card"
+        >
+
+      </a>
+
+
+    </div>
+
 
 
     <!-- =================================================
@@ -1374,6 +1649,7 @@ footer strong{
 
     <a
       id="pageAd2"
+
       class="product-ad"
 
       href="https://myntr.in/KhmDGr"
@@ -1388,6 +1664,7 @@ footer strong{
 
         <img
           src="ads/highlander-product.jpg"
+
           alt="HIGHLANDER Men Slim Fit Shirt"
 
           onerror="
@@ -1409,6 +1686,7 @@ footer strong{
         <span class="ad-brand-sub">
           MEN'S FASHION
         </span>
+
 
         <div class="ad-title">
           HIGHLANDER Men Slim Fit Shirt
@@ -1642,8 +1920,20 @@ const counter =
 const grid =
   document.getElementById("pageGrid");
 
+const pageAd1 =
+  document.getElementById("pageAd1");
+
 const pageAd2 =
   document.getElementById("pageAd2");
+
+
+/* =====================================================
+   PAGE 1 AD ROTATION
+===================================================== */
+
+let page1AdIndex = 0;
+
+let page1AdTimer = null;
 
 
 /* =====================================================
@@ -1685,7 +1975,9 @@ function buildPageGrid(){
       card.addEventListener(
         "click",
         function(){
+
           showPage(index);
+
         }
       );
 
@@ -1740,10 +2032,154 @@ function updateActiveCard(){
 
 
 /* =====================================================
+   SHOW PAGE 1 BOTTOM AD
+===================================================== */
+
+function showPage1Ad(index){
+
+  const ads =
+    document.querySelectorAll(
+      "#pageAd1 .page1-ad-slide"
+    );
+
+
+  if(!ads.length){
+
+    return;
+
+  }
+
+
+  ads.forEach(
+    function(ad){
+
+      ad.classList.remove(
+        "active"
+      );
+
+    }
+  );
+
+
+  page1AdIndex =
+    index % ads.length;
+
+
+  ads[page1AdIndex]
+    .classList.add("active");
+
+}
+
+
+/* =====================================================
+   START PAGE 1 AD ROTATION
+===================================================== */
+
+function startPage1AdRotation(){
+
+  if(page1AdTimer){
+
+    clearInterval(
+      page1AdTimer
+    );
+
+    page1AdTimer = null;
+
+  }
+
+
+  /* ALWAYS START WITH JANASYA */
+
+  page1AdIndex = 0;
+
+  showPage1Ad(0);
+
+
+  /* CHANGE EVERY 3 SECONDS */
+
+  page1AdTimer =
+    setInterval(
+      function(){
+
+        if(current !== 0){
+
+          return;
+
+        }
+
+
+        page1AdIndex =
+          (page1AdIndex + 1) % 2;
+
+
+        showPage1Ad(
+          page1AdIndex
+        );
+
+      },
+
+      3000
+
+    );
+
+}
+
+
+/* =====================================================
+   STOP PAGE 1 AD ROTATION
+===================================================== */
+
+function stopPage1AdRotation(){
+
+  if(page1AdTimer){
+
+    clearInterval(
+      page1AdTimer
+    );
+
+    page1AdTimer = null;
+
+  }
+
+}
+
+
+/* =====================================================
    PAGE-WISE ADVERTISEMENT
 ===================================================== */
 
 function updatePageAd(){
+
+  /* =================================================
+     PAGE 1 BOTTOM ROTATION
+  ================================================= */
+
+  if(pageAd1){
+
+    if(current === 0){
+
+      pageAd1.style.display =
+        "block";
+
+      startPage1AdRotation();
+
+    }
+
+    else{
+
+      pageAd1.style.display =
+        "none";
+
+      stopPage1AdRotation();
+
+    }
+
+  }
+
+
+  /* =================================================
+     PAGE 2 HIGHLANDER
+  ================================================= */
 
   if(pageAd2){
 
@@ -1813,7 +2249,9 @@ function previousPage(){
 
   if(current > 0){
 
-    showPage(current - 1);
+    showPage(
+      current - 1
+    );
 
   }
 
@@ -1831,7 +2269,9 @@ function nextPage(){
     pages.length - 1
   ){
 
-    showPage(current + 1);
+    showPage(
+      current + 1
+    );
 
   }
 
@@ -1845,7 +2285,9 @@ function nextPage(){
 function fullScreen(){
 
   const el =
-    document.getElementById("pageImage");
+    document.getElementById(
+      "pageImage"
+    );
 
 
   if(el.requestFullscreen){
@@ -1854,7 +2296,9 @@ function fullScreen(){
 
   }
 
-  else if(el.webkitRequestFullscreen){
+  else if(
+    el.webkitRequestFullscreen
+  ){
 
     el.webkitRequestFullscreen();
 
@@ -1905,6 +2349,7 @@ image.addEventListener(
 
     const endX =
       event.changedTouches[0].clientX;
+
 
     const distance =
       startX - endX;
@@ -2014,11 +2459,15 @@ function updateHomeDate(){
 
 
   const dayElement =
-    document.getElementById("homeDay");
+    document.getElementById(
+      "homeDay"
+    );
 
 
   const dateElement =
-    document.getElementById("homeDate");
+    document.getElementById(
+      "homeDate"
+    );
 
 
   if(dayElement){
