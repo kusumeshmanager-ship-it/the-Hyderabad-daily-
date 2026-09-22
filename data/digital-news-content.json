@@ -1,7 +1,26 @@
 {
   "version": 1,
-  "lastUpdated": "2026-09-22T07:05:39.762397+00:00",
+  "lastUpdated": "2026-09-22T08:05:01.609189+00:00",
   "stories": [
+    {
+      "id": "3faf6ffe4184a5b3",
+      "approved": true,
+      "category": "India",
+      "title": "India sees rise in both overweight and underweight - The Times of India",
+      "normalizedTitle": "india sees rise both overweight underweight times india",
+      "canonicalUrl": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQbXB2VlczZ2VYeHZZTmlKYm9QdFE0M3lDWU9EUG5kWGJBY2p5U3d3azY5aWEtNFgwZGc4cGY5b0F5aUp6RnJJaTk5SHBtNlVjQVc4T1ZkYWZzeVBsY3NFZDlKVmdHZUFEd3NndkxkR1B4Z3dOVFBva0RGOUpEdWt0Yy1VZXUtTUJBRGFuNVVldnY2SXhQMDluZV84RGdwQXhrZmRmeVFjNUdhdW1vaFJKN2dvNS11dU9pbUE?oc=5",
+      "editorialSummary": "India is reporting increases in both overweight and underweight populations. The Times of India carried the report on September 22, 2026.",
+      "brief": [
+        "A report highlights a rise in overweight levels in India.",
+        "The same report also notes an increase in underweight levels."
+      ],
+      "keyPoints": [
+        "Overweight levels are reported to be rising in India.",
+        "Underweight levels are also reported to be increasing."
+      ],
+      "editorialDate": "2026-09-22",
+      "editorialByline": "The Hyderabad Daily Digital Desk"
+    },
     {
       "id": "0cf421797c565615",
       "approved": true,
