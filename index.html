@@ -80,7 +80,6 @@ a{
 }
 
 
-
 /* =====================================================
    TOP LINE
 ===================================================== */
@@ -97,7 +96,6 @@ a{
     );
 
 }
-
 
 
 /* =====================================================
@@ -200,7 +198,6 @@ header{
 }
 
 
-
 /* =====================================================
    NAVIGATION
 ===================================================== */
@@ -267,7 +264,6 @@ header{
 }
 
 
-
 /* =====================================================
    MAIN
 ===================================================== */
@@ -289,7 +285,6 @@ header{
     22px 18px 30px;
 
 }
-
 
 
 /* =====================================================
@@ -326,7 +321,6 @@ header{
     serif;
 
 }
-
 
 
 /* =====================================================
@@ -381,12 +375,10 @@ header{
 }
 
 
-
 /* =====================================================
    ADVERTISEMENT AREA
 
-   IMPORTANT:
-   COMPLETELY OUTSIDE THE NEWSPAPER
+   ADS ARE COMPLETELY OUTSIDE THE NEWSPAPER
 ===================================================== */
 
 #pageAdContainer{
@@ -401,9 +393,9 @@ header{
 }
 
 
-
 /* =====================================================
-   AD BASE
+   GENERIC PRODUCT AD
+   USED BY PAGE 2 HIGHLANDER
 ===================================================== */
 
 .product-ad{
@@ -464,18 +456,17 @@ header{
 }
 
 
-
 /* =====================================================
-   PAGE 1 — JANASYA DIRECT PNG IMAGE AD
+   PAGE 1 AD ROTATOR
 ===================================================== */
 
 #pageAd1{
 
   display:none;
 
-  width:100%;
+  position:relative;
 
-  box-sizing:border-box;
+  width:100%;
 
   margin:
     8px 0 0 0;
@@ -493,12 +484,45 @@ header{
 
   border-radius:8px;
 
+}
+
+
+/* EACH PAGE 1 AD */
+
+.page1-ad-slide{
+
+  display:none;
+
+  width:100%;
+
+  margin:0;
+
+  padding:0;
+
   text-decoration:none;
+
+  line-height:0;
+
+  overflow:hidden;
+
+  opacity:0;
+
+  transition:
+    opacity .35s ease;
 
 }
 
 
-#pageAd1 img{
+.page1-ad-slide.active{
+
+  display:block;
+
+  opacity:1;
+
+}
+
+
+.page1-ad-slide img{
 
   display:block;
 
@@ -515,7 +539,6 @@ header{
   object-fit:contain;
 
 }
-
 
 
 /* =====================================================
@@ -542,7 +565,6 @@ header{
     );
 
 }
-
 
 
 /* =====================================================
@@ -612,7 +634,6 @@ header{
 }
 
 
-
 /* =====================================================
    BRAND
 ===================================================== */
@@ -626,13 +647,6 @@ header{
     serif;
 
   line-height:1;
-
-}
-
-
-#pageAd1 .ad-brand{
-
-  color:#8d183b;
 
 }
 
@@ -662,7 +676,6 @@ header{
   color:#333;
 
 }
-
 
 
 /* =====================================================
@@ -695,7 +708,6 @@ header{
     sans-serif;
 
 }
-
 
 
 /* =====================================================
@@ -758,7 +770,6 @@ header{
     sans-serif;
 
 }
-
 
 
 /* =====================================================
@@ -854,7 +865,6 @@ header{
 }
 
 
-
 /* =====================================================
    SHOP BUTTON
 ===================================================== */
@@ -889,7 +899,6 @@ header{
     rgba(220,30,80,.20);
 
 }
-
 
 
 /* =====================================================
@@ -958,7 +967,6 @@ header{
     sans-serif;
 
 }
-
 
 
 /* =====================================================
@@ -1056,7 +1064,6 @@ header{
 }
 
 
-
 /* =====================================================
    FOOTER
 ===================================================== */
@@ -1092,7 +1099,6 @@ footer strong{
   font-size:15px;
 
 }
-
 
 
 /* =====================================================
@@ -1137,7 +1143,6 @@ footer strong{
   }
 
 }
-
 
 
 /* =====================================================
@@ -1261,11 +1266,9 @@ footer strong{
   }
 
 
-  /* PAGE 1 JANASYA IMAGE AD */
+  /* PAGE 1 AD ROTATOR */
 
   #pageAd1{
-
-    display:none;
 
     width:100%;
 
@@ -1280,7 +1283,16 @@ footer strong{
   }
 
 
-  #pageAd1 img{
+  .page1-ad-slide{
+
+    width:100%;
+
+    overflow:hidden;
+
+  }
+
+
+  .page1-ad-slide img{
 
     display:block;
 
@@ -1528,7 +1540,6 @@ footer strong{
 }
 
 
-
 /* =====================================================
    VERY SMALL MOBILE
 ===================================================== */
@@ -1708,24 +1719,62 @@ footer strong{
 
 
     <!-- =================================================
-         PAGE 1 — JANASYA IMAGE AD
+         PAGE 1 — ROTATING IMAGE ADS
+         3 SECONDS EACH
     ================================================= -->
 
-    <a
-      id="pageAd1"
-      class="page1-image-ad"
-      href="https://fkrt.co/SZlqMO"
-      target="_blank"
-      rel="sponsored noopener noreferrer"
-      aria-label="Janasya Women's Fashion advertisement"
-    >
+    <div id="pageAd1" class="page1-ad-rotator">
 
-      <img
-        src="janasya-page1-ad.png"
-        alt="Janasya Women's Fashion - Top Pant Co-ords Set with Jacket"
+
+      <!-- JANASYA -->
+
+      <a
+        id="page1JanasyaAd"
+        class="page1-ad-slide active"
+
+        href="https://fkrt.co/SZlqMO"
+
+        target="_blank"
+
+        rel="sponsored noopener noreferrer"
+
+        aria-label="Janasya Women's Fashion advertisement"
       >
 
-    </a>
+        <img
+          src="janasya-page1-ad.png"
+          alt="Janasya Women's Fashion - Top Pant Co-ords Set with Jacket"
+        >
+
+      </a>
+
+
+
+      <!-- AXIS BANK FLIPKART CREDIT CARD -->
+
+      <a
+        id="page1AxisAd"
+        class="page1-ad-slide"
+
+        href="https://bilty.co/51AjP9"
+
+        target="_blank"
+
+        rel="sponsored noopener noreferrer"
+
+        aria-label="Axis Bank Flipkart Credit Card advertisement"
+      >
+
+        <img
+          src="axis-flipkart-page1-ad.png"
+          alt="Axis Bank Flipkart Credit Card"
+        >
+
+      </a>
+
+
+    </div>
+
 
 
     <!-- =================================================
@@ -1998,7 +2047,6 @@ const pages = [
 let current = 0;
 
 
-
 /* =====================================================
    ELEMENTS
 ===================================================== */
@@ -2018,6 +2066,14 @@ const pageAd1 =
 const pageAd2 =
   document.getElementById("pageAd2");
 
+
+/* =====================================================
+   PAGE 1 AD ROTATION VARIABLES
+===================================================== */
+
+let page1AdIndex = 0;
+
+let page1AdTimer = null;
 
 
 /* =====================================================
@@ -2091,7 +2147,6 @@ function buildPageGrid(){
 }
 
 
-
 /* =====================================================
    ACTIVE THUMBNAIL
 ===================================================== */
@@ -2114,6 +2169,114 @@ function updateActiveCard(){
 }
 
 
+/* =====================================================
+   SHOW PAGE 1 AD
+===================================================== */
+
+function showPage1Ad(index){
+
+  const ads =
+    document.querySelectorAll(
+      "#pageAd1 .page1-ad-slide"
+    );
+
+
+  if(!ads.length){
+
+    return;
+
+  }
+
+
+  ads.forEach(
+    function(ad){
+
+      ad.classList.remove("active");
+
+    }
+  );
+
+
+  page1AdIndex =
+    index % ads.length;
+
+
+  ads[page1AdIndex]
+    .classList.add("active");
+
+}
+
+
+/* =====================================================
+   START PAGE 1 AD ROTATION
+===================================================== */
+
+function startPage1AdRotation(){
+
+  /* CLEAR ANY EXISTING TIMER */
+
+  if(page1AdTimer){
+
+    clearInterval(page1AdTimer);
+
+    page1AdTimer = null;
+
+  }
+
+
+  /* ALWAYS START WITH JANASYA */
+
+  page1AdIndex = 0;
+
+  showPage1Ad(0);
+
+
+  /* CHANGE EVERY 3 SECONDS */
+
+  page1AdTimer =
+    setInterval(
+      function(){
+
+        if(current !== 0){
+
+          return;
+
+        }
+
+
+        page1AdIndex =
+          (page1AdIndex + 1) % 2;
+
+
+        showPage1Ad(
+          page1AdIndex
+        );
+
+      },
+      3000
+    );
+
+}
+
+
+/* =====================================================
+   STOP PAGE 1 AD ROTATION
+===================================================== */
+
+function stopPage1AdRotation(){
+
+  if(page1AdTimer){
+
+    clearInterval(
+      page1AdTimer
+    );
+
+    page1AdTimer = null;
+
+  }
+
+}
+
 
 /* =====================================================
    PAGE-WISE ADVERTISEMENT
@@ -2121,19 +2284,36 @@ function updateActiveCard(){
 
 function updatePageAd(){
 
-  /* PAGE 1 — JANASYA IMAGE */
+  /* =================================================
+     PAGE 1 — JANASYA + AXIS ROTATION
+  ================================================= */
 
   if(pageAd1){
 
-    pageAd1.style.display =
-      current === 0
-        ? "block"
-        : "none";
+    if(current === 0){
+
+      pageAd1.style.display =
+        "block";
+
+      startPage1AdRotation();
+
+    }
+
+    else{
+
+      pageAd1.style.display =
+        "none";
+
+      stopPage1AdRotation();
+
+    }
 
   }
 
 
-  /* PAGE 2 — HIGHLANDER */
+  /* =================================================
+     PAGE 2 — HIGHLANDER
+  ================================================= */
 
   if(pageAd2){
 
@@ -2145,7 +2325,6 @@ function updatePageAd(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -2196,7 +2375,6 @@ function showPage(index){
 }
 
 
-
 /* =====================================================
    PREVIOUS
 ===================================================== */
@@ -2210,7 +2388,6 @@ function previousPage(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -2229,7 +2406,6 @@ function nextPage(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -2264,7 +2440,6 @@ function fullScreen(){
   }
 
 }
-
 
 
 /* =====================================================
@@ -2332,7 +2507,6 @@ image.addEventListener(
 );
 
 
-
 /* =====================================================
    KEYBOARD
 ===================================================== */
@@ -2363,7 +2537,6 @@ document.addEventListener(
   }
 
 );
-
 
 
 /* =====================================================
