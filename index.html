@@ -467,29 +467,40 @@ header{
 
 /* =====================================================
    PAGE 1 ZYLA BACKGROUND
-===================================================== */
+===================================================== */ 
 
-#pageAd1{
+  #pageAd1{
 
   display:none;
+
+  grid-template-columns:
+    190px
+    1.35fr
+    1.05fr
+    190px;
+
+  min-height:235px;
+
+  padding:16px 18px;
+
+  gap:16px;
 
   background:
 
     radial-gradient(
-      circle at 8% 50%,
-      rgba(255,255,255,.9),
-      transparent 27%
+      circle at 20% 45%,
+      rgba(255,255,255,.95),
+      transparent 28%
     ),
 
     linear-gradient(
       115deg,
       #ead0c1 0%,
-      #fff8f2 48%,
+      #fff8f2 50%,
       #e8c5b3 100%
     );
 
 }
-
 
 
 /* =====================================================
