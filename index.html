@@ -329,15 +329,13 @@ header{
   height:auto;
 
   margin:auto;
+
+  cursor:pointer;
 }
 
 
 /* =====================================================
    BOTTOM ADVERTISEMENT AREA
-
-   IMPORTANT:
-   THIS AREA IS COMPLETELY INDEPENDENT
-   FROM E-PAPER PAGE ROTATION.
 ===================================================== */
 
 #pageAdContainer{
@@ -371,10 +369,9 @@ header{
   box-shadow:
     0 3px 12px
     rgba(0,0,0,.10);
+
+  min-height:1px;
 }
-
-
-/* Every advertisement */
 
 .bottom-ad-slide{
   display:none;
@@ -397,17 +394,11 @@ header{
     opacity .35s ease;
 }
 
-
-/* Active advertisement */
-
 .bottom-ad-slide.active{
   display:block;
 
   opacity:1;
 }
-
-
-/* Advertisement image */
 
 .bottom-ad-slide img{
   display:block;
@@ -954,10 +945,14 @@ footer strong{
 
 
   <!-- =================================================
-       INDEPENDENT BOTTOM ADVERTISEMENT ROTATOR
+       BOTTOM ADVERTISEMENT ROTATOR
 
-       IMPORTANT:
-       THIS IS NOT CONNECTED TO CURRENT PAGE.
+       ONLY TWO ADS ARE USED.
+
+       JANASYA
+       AXIS BANK
+
+       NO BROKEN THIRD AD.
   ================================================= -->
 
   <div id="pageAdContainer">
@@ -1001,30 +996,6 @@ footer strong{
         <img
           src="axis-flipkart-page1-ad.png"
           alt="Axis Bank Flipkart Credit Card"
-        >
-
-      </a>
-
-
-
-      <!-- =================================================
-           ADVERTISEMENT 3 — HIGHLANDER
-      ================================================= -->
-
-      <a
-        class="bottom-ad-slide"
-        href="https://myntr.in/KhmDGr"
-        target="_blank"
-        rel="sponsored noopener noreferrer"
-        aria-label="HIGHLANDER Men's Fashion advertisement"
-      >
-
-        <img
-          src="ads/highlander-product.jpg"
-          alt="HIGHLANDER Men's Fashion"
-          onerror="
-            this.style.display='none';
-          "
         >
 
       </a>
@@ -1211,25 +1182,18 @@ const fullScreenButton =
   document.getElementById("fullScreenButton");
 
 const bottomAds =
-  document.querySelectorAll(
-    "#bottomAdRotator .bottom-ad-slide"
+  Array.from(
+    document.querySelectorAll(
+      "#bottomAdRotator .bottom-ad-slide"
+    )
   );
 
 
 /* =====================================================
-   E-PAPER ROTATION TIMER
-
-   5 SECONDS PER PAGE
+   TIMERS
 ===================================================== */
 
 let epaperRotationTimer = null;
-
-
-/* =====================================================
-   BOTTOM AD ROTATION TIMER
-
-   3 SECONDS PER ADVERTISEMENT
-===================================================== */
 
 let bottomAdRotationTimer = null;
 
@@ -1237,7 +1201,7 @@ let bottomAdIndex = 0;
 
 
 /* =====================================================
-   BUILD THUMBNAILS
+   BUILD PAGE THUMBNAILS
 ===================================================== */
 
 function buildPageGrid(){
@@ -1338,13 +1302,13 @@ function updateActiveCard(){
 
 
 /* =====================================================
-   SHOW E-PAPER PAGE
+   SHOW PAGE
 
    IMPORTANT:
-   NO AUTOMATIC SCROLLING HERE.
+   NO WINDOW.SCROLLTO HERE.
 
-   This is what detaches page rotation
-   from browser scrolling.
+   Automatic rotation therefore does NOT
+   move the user's browser position.
 ===================================================== */
 
 function showPage(
@@ -1380,26 +1344,12 @@ function showPage(
 
   updateActiveCard();
 
-
-  /*
-   IMPORTANT:
-   There is intentionally NO:
-
-   window.scrollTo(...)
-
-   here.
-
-   Therefore automatic page rotation
-   will NOT move the browser position.
-  */
-
 }
 
 
 /* =====================================================
    NEXT PAGE
 
-   LOOP:
    PAGE 10 → PAGE 1
 ===================================================== */
 
@@ -1427,7 +1377,6 @@ function nextPage(){
 /* =====================================================
    PREVIOUS PAGE
 
-   LOOP:
    PAGE 1 → PAGE 10
 ===================================================== */
 
@@ -1452,25 +1401,27 @@ function previousPage(){
 
 
 /* =====================================================
-   START E-PAPER AUTO ROTATION
+   E-PAPER AUTO ROTATION
+
+   EXACTLY 5 SECONDS
 ===================================================== */
 
 function startEpaperRotation(){
 
-  if(epaperRotationTimer){
-
-    clearInterval(
-      epaperRotationTimer
-    );
-
-  }
+  stopEpaperRotation();
 
 
   epaperRotationTimer =
-    setInterval(
-      function(){
+    setTimeout(
+      function rotateEpaper(){
 
         nextPage();
+
+        epaperRotationTimer =
+          setTimeout(
+            rotateEpaper,
+            5000
+          );
 
       },
       5000
@@ -1485,9 +1436,11 @@ function startEpaperRotation(){
 
 function stopEpaperRotation(){
 
-  if(epaperRotationTimer){
+  if(
+    epaperRotationTimer !== null
+  ){
 
-    clearInterval(
+    clearTimeout(
       epaperRotationTimer
     );
 
@@ -1499,14 +1452,14 @@ function stopEpaperRotation(){
 
 
 /* =====================================================
-   SHOW BOTTOM ADVERTISEMENT
+   SHOW BOTTOM AD
 ===================================================== */
 
-function showBottomAd(
-  index
-){
+function showBottomAd(index){
 
-  if(!bottomAds.length){
+  if(
+    bottomAds.length === 0
+  ){
 
     return;
 
@@ -1519,6 +1472,9 @@ function showBottomAd(
       ad.classList.remove(
         "active"
       );
+
+      ad.style.display =
+        "none";
 
     }
   );
@@ -1533,38 +1489,97 @@ function showBottomAd(
     bottomAds.length;
 
 
-  bottomAds[
-    bottomAdIndex
-  ].classList.add(
-    "active"
+  const selectedAd =
+    bottomAds[
+      bottomAdIndex
+    ];
+
+
+  selectedAd.style.display =
+    "block";
+
+
+  requestAnimationFrame(
+    function(){
+
+      selectedAd.classList.add(
+        "active"
+      );
+
+    }
   );
 
 }
 
 
 /* =====================================================
-   START INDEPENDENT AD ROTATION
+   BOTTOM AD IMAGE ERROR HANDLING
 
-   IMPORTANT:
-   THIS TIMER DOES NOT READ:
+   If an advertisement image ever disappears,
+   automatically move to the next working ad.
 
-   current
+   This prevents a blank advertising period.
+===================================================== */
 
-   pages
+bottomAds.forEach(
+  function(ad,index){
 
-   OR E-PAPER STATE.
+    const adImage =
+      ad.querySelector("img");
 
-   Therefore advertisements continue
-   independently.
+
+    if(adImage){
+
+      adImage.addEventListener(
+        "error",
+        function(){
+
+          ad.style.display =
+            "none";
+
+          ad.classList.remove(
+            "active"
+          );
+
+
+          if(
+            bottomAds.length > 1
+          ){
+
+            showBottomAd(
+              index + 1
+            );
+
+          }
+
+        }
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   START BOTTOM AD ROTATION
+
+   EXACTLY 3 SECONDS
+
+   COMPLETELY INDEPENDENT
+   FROM E-PAPER ROTATION.
 ===================================================== */
 
 function startBottomAdRotation(){
 
-  if(bottomAdRotationTimer){
+  stopBottomAdRotation();
 
-    clearInterval(
-      bottomAdRotationTimer
-    );
+
+  if(
+    bottomAds.length === 0
+  ){
+
+    return;
 
   }
 
@@ -1575,24 +1590,58 @@ function startBottomAdRotation(){
 
 
   bottomAdRotationTimer =
-    setInterval(
-      function(){
+    setTimeout(
+      function rotateAds(){
 
-        bottomAdIndex =
-          (
-            bottomAdIndex + 1
-          )
-          %
-          bottomAds.length;
+        if(
+          bottomAds.length > 0
+        ){
+
+          bottomAdIndex =
+            (
+              bottomAdIndex + 1
+            )
+            %
+            bottomAds.length;
 
 
-        showBottomAd(
-          bottomAdIndex
-        );
+          showBottomAd(
+            bottomAdIndex
+          );
+
+        }
+
+
+        bottomAdRotationTimer =
+          setTimeout(
+            rotateAds,
+            3000
+          );
 
       },
       3000
     );
+
+}
+
+
+/* =====================================================
+   STOP BOTTOM AD ROTATION
+===================================================== */
+
+function stopBottomAdRotation(){
+
+  if(
+    bottomAdRotationTimer !== null
+  ){
+
+    clearTimeout(
+      bottomAdRotationTimer
+    );
+
+    bottomAdRotationTimer = null;
+
+  }
 
 }
 
@@ -1609,7 +1658,9 @@ function fullScreen(){
     );
 
 
-  if(el.requestFullscreen){
+  if(
+    el.requestFullscreen
+  ){
 
     el.requestFullscreen();
 
@@ -1756,30 +1807,14 @@ document.addEventListener(
 
 
 /* =====================================================
-   INITIALISE E-PAPER
+   INITIALISE
 ===================================================== */
 
 buildPageGrid();
 
 showPage(0);
 
-
-/* =====================================================
-   START E-PAPER ROTATION
-
-   5 SECONDS
-===================================================== */
-
 startEpaperRotation();
-
-
-/* =====================================================
-   START BOTTOM AD ROTATION
-
-   3 SECONDS
-
-   COMPLETELY INDEPENDENT
-===================================================== */
 
 startBottomAdRotation();
 
